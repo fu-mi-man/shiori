@@ -1,0 +1,40 @@
+services:
+  frontend:
+    # ビルド設定
+    build:
+      # ビルドコンテキスト: Dockerfileがあるディレクトリ
+      # このディレクトリ配下のファイルがDockerビルド時に利用可能
+      context: ./frontend
+      # Dockerfileの名前（デフォルトはDockerfile）
+      dockerfile: Dockerfile
+
+    # ポートマッピング
+    # "ホストのポート:コンテナのポート"
+    # localhost:5173でアクセス可能
+    ports:
+      - "5173:5173"
+
+    # ボリュームマウント（ホットリロード用）
+    volumes:
+      # ホストのfrontendディレクトリをコンテナの/appにマウント
+      # ソースコード変更が即座にコンテナに反映される
+      - ./frontend:/app
+
+      # node_modulesを除外（named volume）
+      # ホストのnode_modulesとコンテナのnode_modulesを分離
+      # これにより、ホストとコンテナでOSが異なっても問題が起きない
+      - /app/node_modules
+
+    # 環境変数
+    environment:
+      # 開発モードで起動
+      - NODE_ENV=development
+
+    # コンテナ名を指定（省略可能）
+    container_name: shiori-frontend
+
+    # 標準入力を開いたままにする（docker logs でログを見るため）
+    stdin_open: true
+
+    # 疑似TTYを割り当てる（Ctrl+Cで停止できるようにする）
+    tty: true
