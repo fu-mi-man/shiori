@@ -18,30 +18,26 @@ ENV NODE_ENV=development
 # ====================
 # Corepack: Node.jsに標準搭載されたパッケージマネージャー管理ツール
 # package.jsonの"packageManager"フィールドで指定したバージョンを自動インストール
-RUN corepack enable && corepack prepare pnpm@9.15.3 --activate
+RUN corepack enable && corepack prepare pnpm@10.28.0 --activate
 
 # ====================
 # 依存関係のインストール（レイヤーキャッシュ最適化）
 # ====================
 # package.jsonとpnpm-lock.yamlをコピー
 # * = ファイルが存在しない場合はスキップ（初回ビルド時対応）
-# COPY package.json pnpm-lock.yaml* ./
-#
-# # pnpmで依存関係をインストール
-# RUN pnpm install
-#
-# # ====================
-# # ソースコードのコピー
-# # ====================
-# COPY . .
-#
-# # ====================
-# # ポート公開
-# # ====================
-# EXPOSE 5173
-#
-# # ====================
-# # 開発サーバーの起動
-# # ====================
-# # -- で区切ることでViteの引数として正しく渡される
-# CMD ["pnpm", "dev", "--", "--host", "0.0.0.0"]
+COPY package.json pnpm-lock.yaml* ./
+
+
+# pnpmで依存関係をインストール
+RUN pnpm install
+
+# ====================
+# ポート公開
+# ====================
+EXPOSE 5173
+
+# ====================
+# 開発サーバーの起動
+# ====================
+# -- で区切ることでViteの引数として正しく渡される
+CMD ["pnpm", "dev", "--", "--host", "0.0.0.0"]
