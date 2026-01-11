@@ -9,10 +9,10 @@ function App() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="text-center">
         <div className="flex gap-8 justify-center mb-8">
-          <a href="https://vite.dev" target="_blank">
+          <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
             <img src={viteLogo} className="h-24 hover:drop-shadow-lg transition" alt="Vite logo" />
           </a>
-          <a href="https://react.dev" target="_blank">
+          <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
             <img src={reactLogo} className="h-24 hover:drop-shadow-lg transition" alt="React logo" />
           </a>
         </div>
