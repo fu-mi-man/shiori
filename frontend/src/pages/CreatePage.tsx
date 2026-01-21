@@ -14,6 +14,7 @@ import {
 
 // 概要項目の型を定義
 type OverviewItem = {
+  id: string      // 一意のID
   title: string   // 例: "旅費", "持ち物", "ホテル情報"
   content: string // 例: "1人あたり50,000円"
 }
@@ -79,6 +80,7 @@ function CreatePage() {
     setOverviewItems([
       ...overviewItems,
       {
+        id: crypto.randomUUID(),
         title: '',
         content: '',
       },
@@ -253,7 +255,7 @@ function CreatePage() {
           {/* 概要項目リスト */}
           <div className="space-y-3">
             {overviewItems.map((item, index) => (
-              <div key={index} className="border rounded-lg p-4 bg-gray-50">
+              <div key={item.id} className="border rounded-lg p-4 bg-gray-50">
                 <div className="mb-3">
                   <label className="block text-base font-medium text-gray-700 mb-2">
                     項目名
