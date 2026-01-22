@@ -59,11 +59,11 @@ function CreatePage() {
   // 日付ごとの行程を配列で管理（デフォルトで1日分表示）
   const [daySchedules, setDaySchedules] = useState<DaySchedule[]>([
     {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       date: '',
       schedules: [
         {
-          id: (Date.now() + 1).toString(),
+          id: crypto.randomUUID(),
           startTime: '',
           endTime: '',
           isAround: false,
@@ -118,7 +118,7 @@ function CreatePage() {
   // 新しい日を追加
   const handleAddDay = () => {
     const newDay: DaySchedule = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       date: '',
       schedules: [],
     }
@@ -140,7 +140,7 @@ function CreatePage() {
   // 特定の日に行程を追加
   const handleAddScheduleToDay = (dayId: string) => {
     const newSchedule: ScheduleItem = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       startTime: '',
       endTime: '',
       isAround: false,
@@ -212,24 +212,6 @@ function CreatePage() {
         return { ...day, schedules: newSchedules }
       })
     )
-  }
-
-  // 滞在時間を計算する関数（分単位で返す）
-  const calculateDuration = (startTime: string, endTime: string): number | null => {
-    if (!startTime || !endTime) return null
-    const [startHour, startMin] = startTime.split(':').map(Number)
-    const [endHour, endMin] = endTime.split(':').map(Number)
-    const durationMin = (endHour * 60 + endMin) - (startHour * 60 + startMin)
-    return durationMin > 0 ? durationMin : null
-  }
-
-  // 滞在時間を文字列に変換
-  const formatDuration = (minutes: number): string => {
-    const hours = Math.floor(minutes / 60)
-    const mins = minutes % 60
-    if (hours > 0 && mins > 0) return `${hours}時間${mins}分`
-    if (hours > 0) return `${hours}時間`
-    return `${mins}分`
   }
 
   return (
@@ -320,7 +302,7 @@ function CreatePage() {
 
           {/* 日付ごとのセクション */}
           <div className="space-y-6">
-            {daySchedules.map((day, dayIndex) => (
+            {daySchedules.map((day) => (
               <div key={day.id} className="border-2 border-gray-200 rounded-lg overflow-hidden">
                 {/* 日付ヘッダー */}
                 <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 flex items-center justify-between">
@@ -345,13 +327,7 @@ function CreatePage() {
 
                 {/* その日の行程 */}
                 <div className="space-y-3">
-                  {day.schedules.map((schedule, scheduleIndex) => {
-                    const TransportIcon = TRANSPORT_OPTIONS.find(
-                      opt => opt.value === schedule.transport
-                    )?.icon
-                    const duration = calculateDuration(schedule.startTime, schedule.endTime)
-
-                    return (
+                  {day.schedules.map((schedule, scheduleIndex) => (
                       <div key={schedule.id} className="bg-white border rounded-lg p-4">
                         {/* 時間入力 */}
                         <div className="grid grid-cols-2 gap-3 mb-4">
@@ -475,8 +451,7 @@ function CreatePage() {
                           </button>
                         </div>
                       </div>
-                    )
-                  })}
+                  ))}
                 </div>
 
                   {/* この日の行程を追加ボタン */}
