@@ -32,6 +32,7 @@ export const DayScheduleSection = ({
       <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 flex items-center justify-between">
         <input
           type="date"
+          aria-label="日付"
           value={day.date}
           onChange={e => onUpdateDate(day.id, e.target.value)}
           style={{ colorScheme: 'light' }}
