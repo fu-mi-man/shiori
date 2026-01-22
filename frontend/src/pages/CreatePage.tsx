@@ -282,21 +282,24 @@ function CreatePage() {
                 {/* ボタン群 */}
                 <div className="flex gap-2">
                   <button
+                    aria-label="概要を上へ移動"
                     onClick={() => handleMoveOverviewUp(index)}
                     disabled={index === 0}
                     className="p-1.5 text-gray-600 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition">
-                    <ChevronUp className="w-4 h-4" />
+                    <ChevronUp className="w-4 h-4" aria-hidden="true" />
                   </button>
                   <button
+                    aria-label="概要を下へ移動"
                     onClick={() => handleMoveOverviewDown(index)}
                     disabled={index === overviewItems.length - 1}
                     className="p-1.5 text-gray-600 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition">
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4" aria-hidden="true" />
                   </button>
                   <button
+                    aria-label="概要を削除"
                     onClick={() => handleDeleteOverview(index)}
                     className="p-1.5 text-red-600 hover:bg-red-50 rounded cursor-pointer transition">
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-4 h-4" aria-hidden="true" />
                   </button>
                 </div>
               </div>
@@ -329,10 +332,11 @@ function CreatePage() {
                     className="flex-1 px-4 py-3 bg-white border-0 rounded-lg text-lg font-medium focus:ring-2 focus:ring-blue-300"
                   />
                   <button
+                    aria-label="この日を削除"
                     onClick={() => handleDeleteDay(day.id)}
                     className="ml-3 p-2 text-white hover:bg-white/20 rounded-lg cursor-pointer transition"
                     title="この日を削除">
-                    <Trash2 className="w-5 h-5" />
+                    <Trash2 className="w-5 h-5" aria-hidden="true" />
                   </button>
                 </div>
 
@@ -450,21 +454,24 @@ function CreatePage() {
                         {/* ボタン群 */}
                         <div className="flex gap-2">
                           <button
+                            aria-label="行程を上へ移動"
                             onClick={() => handleMoveScheduleUp(day.id, scheduleIndex)}
                             disabled={scheduleIndex === 0}
                             className="p-1.5 text-gray-600 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition">
-                            <ChevronUp className="w-4 h-4" />
+                            <ChevronUp className="w-4 h-4" aria-hidden="true" />
                           </button>
                           <button
+                            aria-label="行程を下へ移動"
                             onClick={() => handleMoveScheduleDown(day.id, scheduleIndex)}
                             disabled={scheduleIndex === day.schedules.length - 1}
                             className="p-1.5 text-gray-600 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition">
-                            <ChevronDown className="w-4 h-4" />
+                            <ChevronDown className="w-4 h-4" aria-hidden="true" />
                           </button>
                           <button
+                            aria-label="行程を削除"
                             onClick={() => handleDeleteSchedule(day.id, schedule.id)}
                             className="p-1.5 text-red-600 hover:bg-red-50 rounded cursor-pointer transition">
-                            <Trash2 className="w-4 h-4" />
+                            <Trash2 className="w-4 h-4" aria-hidden="true" />
                           </button>
                         </div>
                       </div>
@@ -492,7 +499,7 @@ function CreatePage() {
         </div>
 
         {/* 完了ボタン（後で実装） - PCでは通常表示、SPでは固定表示 */}
-        <div className="md:block">
+        <div className="hidden md:block">
           <button
             className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg cursor-pointer transition shadow-lg"
             onClick={() =>
