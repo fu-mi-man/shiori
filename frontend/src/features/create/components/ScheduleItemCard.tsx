@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import type { ScheduleItem, TransportType } from '../types'
 import { TRANSPORT_OPTIONS } from '../constants'
 import { ItemControlButtons } from './ItemControlButtons'
@@ -26,13 +27,16 @@ export const ScheduleItemCard = ({
   onMoveDown,
   onDelete,
 }: Props) => {
+  const baseId = useId()
+
   return (
     <div className="bg-white border rounded-lg p-4">
       {/* 時間入力 */}
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div>
-          <label className="block text-base font-medium text-gray-700 mb-2">開始時間</label>
+          <label htmlFor={`${baseId}-start`} className="block text-base font-medium text-gray-700 mb-2">開始時間</label>
           <input
+            id={`${baseId}-start`}
             type="time"
             value={schedule.startTime}
             onChange={e =>
@@ -44,8 +48,9 @@ export const ScheduleItemCard = ({
           />
         </div>
         <div>
-          <label className="block text-base font-medium text-gray-700 mb-2">終了時間</label>
+          <label htmlFor={`${baseId}-end`} className="block text-base font-medium text-gray-700 mb-2">終了時間</label>
           <input
+            id={`${baseId}-end`}
             type="time"
             value={schedule.endTime}
             onChange={e =>
@@ -75,10 +80,11 @@ export const ScheduleItemCard = ({
 
       {/* タイトル入力 */}
       <div className="mb-4">
-        <label className="block text-base font-medium text-gray-700 mb-2">
+        <label htmlFor={`${baseId}-title`} className="block text-base font-medium text-gray-700 mb-2">
           タイトル
         </label>
         <input
+          id={`${baseId}-title`}
           type="text"
           value={schedule.title}
           onChange={e =>
@@ -93,8 +99,9 @@ export const ScheduleItemCard = ({
 
       {/* 交通手段 */}
       <div className="mb-4">
-        <label className="block text-base font-medium text-gray-700 mb-2">交通手段</label>
+        <label htmlFor={`${baseId}-transport`} className="block text-base font-medium text-gray-700 mb-2">交通手段</label>
         <select
+          id={`${baseId}-transport`}
           value={schedule.transport}
           onChange={e =>
             onUpdate(dayId, schedule.id, {
@@ -112,8 +119,9 @@ export const ScheduleItemCard = ({
 
       {/* 補足 */}
       <div className="mb-4">
-        <label className="block text-base font-medium text-gray-700 mb-2">補足</label>
+        <label htmlFor={`${baseId}-note`} className="block text-base font-medium text-gray-700 mb-2">補足</label>
         <textarea
+          id={`${baseId}-note`}
           value={schedule.note}
           onChange={e =>
             onUpdate(dayId, schedule.id, {

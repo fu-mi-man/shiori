@@ -41,10 +41,10 @@ function CreatePage() {
       <div className="max-w-lg mx-auto px-4">
         {/* タイトル入力 */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <h2 className="text-lg font-medium text-gray-700 mb-4">しおりのタイトル</h2>
+          <label htmlFor="shiori-title" className="block text-lg font-medium text-gray-700 mb-4">しおりのタイトル</label>
           <input
             type="text"
-            id="title"
+            id="shiori-title"
             value={title}
             onChange={e => setTitle(e.target.value)}
             placeholder="例: 大阪旅行 2025"

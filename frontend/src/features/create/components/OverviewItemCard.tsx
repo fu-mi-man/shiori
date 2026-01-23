@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import type { OverviewItem } from '../types'
 import { ItemControlButtons } from './ItemControlButtons'
 
@@ -23,13 +24,16 @@ export const OverviewItemCard = ({
   onMoveDown,
   onDelete,
 }: Props) => {
+  const baseId = useId()
+
   return (
     <div className="border rounded-lg p-4 bg-gray-50">
       <div className="mb-3">
-        <label className="block text-base font-medium text-gray-700 mb-2">
+        <label htmlFor={`${baseId}-title`} className="block text-base font-medium text-gray-700 mb-2">
           項目名
         </label>
         <input
+          id={`${baseId}-title`}
           type="text"
           value={item.title}
           onChange={e => onUpdate(index, { title: e.target.value })}
@@ -38,8 +42,9 @@ export const OverviewItemCard = ({
         />
       </div>
       <div className="mb-3">
-        <label className="block text-base font-medium text-gray-700 mb-2">内容</label>
+        <label htmlFor={`${baseId}-content`} className="block text-base font-medium text-gray-700 mb-2">内容</label>
         <textarea
+          id={`${baseId}-content`}
           value={item.content}
           onChange={e => onUpdate(index, { content: e.target.value })}
           placeholder="例: 1人あたり50,000円"
