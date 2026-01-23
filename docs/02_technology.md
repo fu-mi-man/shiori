@@ -45,7 +45,7 @@ DB: Supabase (PostgreSQL)
 ### パターンB: Vercel完結（Next.js）
 
 **構成**:
-```
+```text
 フルスタック: Vercel (Next.js 15 App Router)
 API: Next.js API Routes / Server Actions
 DB: Vercel Postgres (PostgreSQL)
@@ -129,7 +129,7 @@ VPS: さくらVPS / ConoHa（月500円〜）
 **選定結果**: パターンB - Vercel完結型（Next.js）
 
 **構成**:
-```
+```text
 フルスタック: Vercel (Next.js 15 App Router)
 API: Next.js API Routes / Server Actions
 DB: Vercel Postgres (PostgreSQL)
@@ -227,7 +227,7 @@ Next.js 15完結型（画像機能なし）
 ### フェーズ2: 画像機能追加（完全無料継続）
 
 **構成**:
-```
+```text
 Next.js 15 + Cloudflare R2
 ```
 
