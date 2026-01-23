@@ -42,12 +42,12 @@ DB: Supabase (PostgreSQL)
 
 ---
 
-### パターンB: Vercel完結
+### パターンB: Vercel完結（Next.js）
 
 **構成**:
 ```
-フロント: Vercel (React)
-API: Vercel Serverless Functions (Python)
+フルスタック: Vercel (Next.js 15 App Router)
+API: Next.js API Routes / Server Actions
 DB: Vercel Postgres (PostgreSQL)
 ```
 
@@ -56,11 +56,16 @@ DB: Vercel Postgres (PostgreSQL)
 - スリープなし、常時起動
 - 管理が簡単(1箇所のみ)
 - デプロイが超簡単
+- **単一言語(TypeScript)で完結**
+- **最速のパフォーマンス**(Node.jsはPythonより起動が速い)
+- **React Server Componentsで最新のベストプラクティス**
+- **学習リソースが豊富**
 
 **デメリット**:
 - 無料プランは非商用のみ
 - 広告・収益化は不可
 - 商用化時は$20/月
+- Pythonの学習にならない
 
 **コスト**: 月額0円(非商用)、$20/月(商用)
 
@@ -121,23 +126,26 @@ VPS: さくらVPS / ConoHa（月500円〜）
 
 ## 3. 採用構成（ファーストリリース）
 
-**選定結果**: パターンB - Vercel完結型
+**選定結果**: パターンB - Vercel完結型（Next.js）
 
 **構成**:
 ```
-フロント: Vercel (React + Vite)
-API: Vercel Serverless Functions (Python + FastAPI)
+フルスタック: Vercel (Next.js 15 App Router)
+API: Next.js API Routes / Server Actions
 DB: Vercel Postgres (PostgreSQL)
 画像: なし（将来的にCloudflare R2を追加）
+開発環境: Docker + pnpm（Node.js 24 LTS）
 ```
 
 **採用理由**:
 1. **完全無料で運用可能**（非商用利用）
-2. スリープなし、常時起動
-3. 管理が簡単（1箇所のみ）
+2. スリープなし、常時起動（Vercel Fluid Compute）
+3. 管理が簡単（1箇所のみ、単一言語）
 4. デプロイが超簡単（Git pushのみ）
 5. 段階的に機能追加・移行が可能
-6. React、Python、PostgreSQLの実践学習ができる
+6. **フルスタックTypeScriptの実践学習ができる**
+7. **最速のパフォーマンス**（コールドスタート最小化）
+8. **市場価値の高いスキルセット**（Next.js + TypeScript）
 
 **コスト**: 月額0円
 
@@ -147,12 +155,14 @@ DB: Vercel Postgres (PostgreSQL)
 
 | カテゴリ | 技術 | 備考 |
 |---------|------|------|
-| フロントエンド | React + Vite | モバイルファースト設計 |
-| スタイリング | Tailwind CSS | レスポンシブ対応 |
-| バックエンド | Python + FastAPI | Vercel Serverless Functions |
+| フルスタックフレームワーク | **Next.js 15** | App Router、React Server Components |
+| 言語 | **TypeScript** | フロント・バックエンド統一 |
+| スタイリング | Tailwind CSS v4 | レスポンシブ対応 |
 | データベース | PostgreSQL | Vercel Postgres（無料枠） |
 | 画像ストレージ | Cloudflare R2 | 将来実装時に追加（無料枠10GB） |
-| デプロイ | Vercel | 無料プラン |
+| パッケージマネージャー | pnpm | Corepackで管理（v10.28.0） |
+| 開発環境 | Docker | Node.js 24 LTS |
+| デプロイ | Vercel | 無料プラン（非商用） |
 | バージョン管理 | Git + GitHub | - |
 
 ---
@@ -179,15 +189,15 @@ DB: Vercel Postgres (PostgreSQL)
 - **帯域幅: 完全無料**
 
 **Vercelとの相性**:
-- S3互換APIで簡単に連携（Pythonの`boto3`ライブラリ）
+- S3互換APIで簡単に連携（TypeScriptの`@aws-sdk/client-s3`）
 - Vercel無料プランを継続可能
 - 商用化後もコストが安い（$0.015/GB、AWS S3の約1/10）
 
 **実装イメージ**:
-1. フロント → API: 画像アップロード要求
-2. API: Presigned URLを生成
+1. フロント → Next.js API Routes: 画像アップロード要求
+2. API Routes: Presigned URLを生成
 3. フロント → R2: 直接アップロード
-4. API: 画像URLをDBに保存
+4. API Routes: 画像URLをDBに保存
 
 ---
 
@@ -197,7 +207,7 @@ DB: Vercel Postgres (PostgreSQL)
 
 **構成**:
 ```
-Vercel完結型（画像機能なし）
+Next.js 15完結型（画像機能なし）
 ```
 
 **コスト**: 月額0円
@@ -207,13 +217,18 @@ Vercel完結型（画像機能なし）
 - ユーザーのフィードバックを収集
 - 基本機能の安定稼働を確認
 
+**技術スタック**:
+- Next.js 15 App Router
+- Vercel Postgres
+- Tailwind CSS v4
+
 ---
 
 ### フェーズ2: 画像機能追加（完全無料継続）
 
 **構成**:
 ```
-Vercel + Cloudflare R2
+Next.js 15 + Cloudflare R2
 ```
 
 **コスト**: 月額0円（無料枠内）
@@ -221,7 +236,7 @@ Vercel + Cloudflare R2
 **実装内容**:
 - 概要・行程への写真挿入機能
 - Cloudflare R2との連携（S3互換API）
-- 画像最適化・リサイズ処理
+- 画像最適化・リサイズ処理（Next.js Image Optimization）
 
 **移行難易度**: 低（数時間〜1日）
 
@@ -254,18 +269,27 @@ Vercel + Cloudflare R2
 ## 7. まとめ
 
 **採用アーキテクチャ**:
-- **今すぐ**: Vercel完結型（画像なし）→ 月額0円
-- **画像追加時**: Vercel + Cloudflare R2 → 月額0円
+- **今すぐ**: Next.js 15完結型（画像なし）→ 月額0円
+- **画像追加時**: Next.js 15 + Cloudflare R2 → 月額0円
 - **商用化時**: Vercel Pro → 月額$20
 
 **選定理由**:
 - 完全無料で始められる
+- **単一言語（TypeScript）で管理が簡単**
+- **最速のパフォーマンス**（Vercel Fluid Compute）
 - 需要を見極めてから投資できる
 - 段階的に機能追加・移行可能
 - 商用化後もコストが抑えられる
+- **市場価値の高いスキルセット**（Next.js + TypeScript）
 
-**代替案（不採用理由）**:
-- Pocketbase/Trailbase: 優秀だが月額500円〜かかる
-- Supabase: 無料枠が小さく、7日で停止する
+**代替案（検討したが不採用）**:
+- **FastAPI (Python)**: 学習目的なら選択肢だが、このプロジェクトには過剰スペック。単純なCRUD操作にはNext.js API Routesで十分
+- **Pocketbase/Trailbase**: 優秀だが月額500円〜かかる
+- **Supabase**: 無料枠が小さく、7日で停止する
 
-**結論**: まずは完全無料のVercel完結型でリリースし、需要を確認してから次のステップを検討する
+**Python学習について**:
+- このプロジェクトはバックエンドロジックが非常にシンプル（CRUD + bcrypt）
+- FastAPIの真の強みは、機械学習API、画像処理、複雑な非同期処理など
+- Python学習は別途、FastAPIの強みを活かせるプロジェクトで行うことを推奨
+
+**結論**: まずは完全無料のNext.js完結型でリリースし、需要を確認してから次のステップを検討する
