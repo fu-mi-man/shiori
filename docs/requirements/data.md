@@ -169,10 +169,11 @@ VALUES (
 
 ## 技術的考慮事項
 
-### Vercel Postgres
-- PostgreSQL 15互換
-- 無料枠: 256MB、60時間/月のコンピュート時間
+### Neon Postgres (via Vercel統合)
+- PostgreSQL 14/15/16/17互換
+- 無料枠: 512MB、190時間/月のコンピュート時間、10データベース
 - JSON型をネイティブサポート
+- 注: 2024年Q4にVercel PostgresからNeon Postgresへ移行済み（無料枠は改善）
 
 ### ORM候補
 - **Drizzle ORM**: 軽量、型安全、Next.jsとの相性良い

@@ -48,11 +48,11 @@ DB: Supabase (PostgreSQL)
 ```text
 フルスタック: Vercel (Next.js 16 App Router)
 API: Next.js API Routes / Server Actions
-DB: Vercel Postgres (PostgreSQL)
+DB: Neon Postgres (PostgreSQL、Vercel統合)
 ```
 
 **メリット**:
-- 完全無料
+- 完全無料（非商用利用限定）
 - スリープなし、常時起動
 - 管理が簡単(1箇所のみ)
 - デプロイが超簡単
@@ -60,14 +60,17 @@ DB: Vercel Postgres (PostgreSQL)
 - **最速のパフォーマンス**(Node.jsはPythonより起動が速い)
 - **React Server Componentsで最新のベストプラクティス**
 - **学習リソースが豊富**
+- **Neon無料枠が拡大**（Vercel Postgres時代より改善: 512MB、190時間/月）
 
 **デメリット**:
-- 無料プランは非商用のみ
-- 広告・収益化は不可
-- 商用化時は$20/月
+- **無料プランは非商用のみ**（Vercel利用規約上の制約）
+- 広告・収益化は不可（規約違反によるアカウント停止リスクあり）
+- 商用化時は必ずPro ($20/月)への移行が必要
 - Pythonの学習にならない
 
 **コスト**: 月額0円(非商用)、$20/月(商用)
+
+**重要**: 2024年Q4にVercel PostgresはNeon Postgresへ移行済み。無料枠は改善（256MB→512MB、60時間→190時間）
 
 ---
 
@@ -158,11 +161,11 @@ DB: Vercel Postgres (PostgreSQL)
 | フルスタックフレームワーク | **Next.js 16** | App Router、React Server Components |
 | 言語 | **TypeScript** | フロント・バックエンド統一 |
 | スタイリング | Tailwind CSS v4 | レスポンシブ対応 |
-| データベース | PostgreSQL | Vercel Postgres（無料枠） |
+| データベース | PostgreSQL | Neon Postgres（Vercel統合、無料枠512MB） |
 | 画像ストレージ | Cloudflare R2 | 将来実装時に追加（無料枠10GB） |
 | パッケージマネージャー | pnpm | Corepackで管理（v10.28.0） |
 | 開発環境 | Docker | Node.js 24 LTS |
-| デプロイ | Vercel | 無料プラン（非商用） |
+| デプロイ | Vercel | Hobby無料プラン（**非商用利用限定**） |
 | バージョン管理 | Git + GitHub | - |
 
 ---
@@ -219,7 +222,7 @@ Next.js 16完結型（画像機能なし）
 
 **技術スタック**:
 - Next.js 16 App Router
-- Vercel Postgres
+- Neon Postgres (via Vercel)
 - Tailwind CSS v4
 
 ---
@@ -269,18 +272,19 @@ Next.js 16 + Cloudflare R2
 ## 7. まとめ
 
 **採用アーキテクチャ**:
-- **今すぐ**: Next.js 16完結型（画像なし）→ 月額0円
-- **画像追加時**: Next.js 16 + Cloudflare R2 → 月額0円
-- **商用化時**: Vercel Pro → 月額$20
+- **今すぐ**: Next.js 16完結型（画像なし）→ 月額0円（**非商用利用限定**）
+- **画像追加時**: Next.js 16 + Cloudflare R2 → 月額0円（**非商用利用限定**）
+- **商用化時**: Vercel Pro → 月額$20（**必須**）
 
 **選定理由**:
-- 完全無料で始められる
+- 完全無料で始められる（非商用利用に限る）
 - **単一言語（TypeScript）で管理が簡単**
 - **最速のパフォーマンス**（Vercel Fluid Compute）
 - 需要を見極めてから投資できる
 - 段階的に機能追加・移行可能
 - 商用化後もコストが抑えられる
 - **市場価値の高いスキルセット**（Next.js + TypeScript）
+- **Neon無料枠が拡大**（Vercel Postgres時代より改善）
 
 **代替案（検討したが不採用）**:
 - **FastAPI (Python)**: 学習目的なら選択肢だが、このプロジェクトには過剰スペック。単純なCRUD操作にはNext.js API Routesで十分
@@ -292,7 +296,13 @@ Next.js 16 + Cloudflare R2
 - FastAPIの真の強みは、機械学習API、画像処理、複雑な非同期処理など
 - Python学習は別途、FastAPIの強みを活かせるプロジェクトで行うことを推奨
 
-**結論**: まずは完全無料のNext.js 16完結型でリリースし、需要を確認してから次のステップを検討する
+**結論**: まずは完全無料（非商用）のNext.js 16完結型でリリースし、需要を確認してから次のステップを検討する
+
+**重要な注意事項（2026年1月時点）**:
+- Vercel PostgresはNeon Postgresへ移行済み（2024年Q4-2025年Q1）
+- 無料枠はむしろ改善（512MB、190時間/月、10データベース）
+- Vercel Hobby無料プランは**非商用利用限定**（規約上の制約）
+- 広告掲載や収益化を行う場合は必ずPro ($20/月)への移行が必要
 
 **Next.js 16の新機能**:
 - **`use cache`ディレクティブ**: ページ、コンポーネント、関数のキャッシュ制御が明示的かつ柔軟に

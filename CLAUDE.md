@@ -18,10 +18,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Node.js 24 LTS** （Krypton、2028年4月までサポート）
 
 ### データベース（将来実装予定）
-- **Vercel Postgres** （PostgreSQL）
+- **Neon Postgres** （PostgreSQL、Vercel統合経由）
+  - 無料枠: 512 MB、190時間/月のコンピュート時間
+  - 注: 2024年Q4にVercel PostgresからNeonへ移行済み
 
 ### デプロイ先
-- **Vercel** （無料プラン、商用化までは非商用利用）
+- **Vercel** （Hobby無料プラン、**非商用利用限定**）
+  - 注: 商用化時はPro ($20/月)への移行が必須
 
 ### 現在の実装（移行前）
 - React 19 + Vite 7 + React Router v7（`frontend/`ディレクトリ）
@@ -141,7 +144,7 @@ shiori/
 │   ├── ScheduleItem.tsx
 │   └── ...
 ├── lib/                  # ユーティリティ・型定義
-│   ├── db.ts                 # DB接続（Vercel Postgres）
+│   ├── db.ts                 # DB接続（Neon Postgres via Vercel）
 │   ├── types.ts              # 型定義
 │   └── utils.ts              # ヘルパー関数
 └── public/               # 静的ファイル
@@ -236,7 +239,7 @@ Next.jsでは、Server Componentsでデータベースに直接アクセスで�
 
 ### Phase 2: バックエンド統合
 - Next.js API Routes / Server Actions実装
-- Vercel Postgresとの連携
+- Neon Postgres (via Vercel)との連携
 - しおりのCRUD API実装
 - 合言葉保護機能（bcrypt）
 
@@ -310,9 +313,14 @@ export default function CreateForm() {
 **変更理由**:
 1. **バックエンドロジックがシンプル** - CRUD + bcrypt認証のみ、FastAPIは過剰スペック
 2. **単一言語で管理が簡単** - TypeScriptでフロント・バックエンド統一
-3. **完全無料で運用可能** - Vercel無料プラン（非商用利用）
+3. **完全無料で運用可能** - Vercel Hobby無料プラン（**非商用利用限定**）
 4. **最速のパフォーマンス** - Vercel Fluid Compute、コールドスタート最小化
 5. **市場価値の高いスキルセット** - Next.js + TypeScriptの実践学習
+
+**重要な制約**:
+- Vercel Hobby無料プランは**非商用利用のみ**
+- 広告掲載や収益化を行う場合はPro ($20/月)への移行が**必須**
+- 利用規約違反によるアカウント停止リスクあり
 
 **Next.js 16の新機能**:
 - **`use cache`ディレクティブ**: ページ、コンポーネント、関数のキャッシュ制御が明示的かつ柔軟に

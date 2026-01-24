@@ -85,8 +85,10 @@ shiori/
 
 | カテゴリ | 技術 | 用途 |
 |---------|------|------|
-| DB | **Vercel Postgres** | PostgreSQL互換（無料枠） |
+| DB | **Neon Postgres** | PostgreSQL互換（Vercel統合、無料枠512MB） |
 | ORM候補 | Drizzle ORM / Prisma | 型安全なDB操作 |
+
+**注**: 2024年Q4にVercel PostgresからNeon Postgresへ移行済み。無料枠は改善（512MB、190時間/月）
 
 ### 将来追加予定
 
@@ -426,7 +428,7 @@ Next.jsでは、Server Componentsでデータベースに直接アクセスで�
 ### 10.1 開発環境（.env.local）
 
 ```bash
-# データベース接続（Vercel Postgresローカルテスト用）
+# データベース接続（Neon Postgres via Vercel、ローカルテスト用）
 POSTGRES_URL="postgres://user:pass@localhost:5432/shiori"
 POSTGRES_PRISMA_URL="postgres://user:pass@localhost:5432/shiori?pgbouncer=true"
 POSTGRES_URL_NON_POOLING="postgres://user:pass@localhost:5432/shiori"
@@ -444,7 +446,7 @@ NODE_ENV=development
 
 ### 10.2 本番環境（Vercel）
 
-Vercel Postgres連携時に**自動設定**される環境変数:
+Neon Postgres連携時に**自動設定**される環境変数:
 - `POSTGRES_URL`
 - `POSTGRES_PRISMA_URL`
 - `POSTGRES_URL_NON_POOLING`
@@ -452,6 +454,8 @@ Vercel Postgres連携時に**自動設定**される環境変数:
 - `POSTGRES_HOST`
 - `POSTGRES_PASSWORD`
 - `POSTGRES_DATABASE`
+
+**注**: 2024年Q4以降、Vercel MarketplaceからNeon統合を追加すると上記環境変数が自動設定されます
 
 追加で手動設定が必要な環境変数:
 - `BCRYPT_SALT_ROUNDS`
@@ -470,7 +474,7 @@ Vercel Postgres連携時に**自動設定**される環境変数:
 
 ### Phase 2: API Routes実装
 - Next.js API Routes実装（CRUD）
-- Vercel Postgres連携
+- Neon Postgres (via Vercel)連携
 - 合言葉認証（bcrypt）
 - 自動削除機能の実装（cron job or Vercel Cron）
 
