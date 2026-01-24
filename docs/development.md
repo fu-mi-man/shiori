@@ -42,7 +42,7 @@ shiori/
 │   ├── OverviewSection.tsx     # 概要セクション
 │   └── ...
 ├── lib/                   # ユーティリティ・型定義
-│   ├── db.ts                   # DB接続（Vercel Postgres）
+│   ├── db.ts                   # DB接続（Neon Postgres via Vercel）
 │   ├── types.ts                # 型定義
 │   └── utils.ts                # ヘルパー関数
 └── public/                # 静的ファイル
@@ -67,7 +67,10 @@ shiori/
 | **フレームワーク** | **Next.js** | 16.x | フルスタックReactフレームワーク |
 | 言語 | **TypeScript** | latest | 型安全な開発（フロント・バックエンド統一） |
 | スタイリング | **Tailwind CSS** | 4.x | ユーティリティファーストCSS |
-| アイコン | **Lucide React** | latest | 軽量アイコンライブラリ |
+| UIコンポーネント | **shadcn/ui** | latest | Tailwind + Radix UI、アクセシビリティ対応 |
+| フォーム管理 | **React Hook Form** | latest | パフォーマンスの良いフォーム管理 |
+| バリデーション | **Zod** | latest | 型安全なスキーマバリデーション |
+| アイコン | **React Icons** | latest | 多様な交通手段アイコン |
 | 日付処理 | **date-fns** | latest | 日付フォーマット・計算 |
 | パッケージマネージャー | **pnpm** | 10.28.0 | 高速・効率的（Corepackで管理） |
 
@@ -85,10 +88,10 @@ shiori/
 
 | カテゴリ | 技術 | 用途 |
 |---------|------|------|
-| DB | **Neon Postgres** | PostgreSQL互換（Vercel統合、無料枠512MB） |
-| ORM候補 | Drizzle ORM / Prisma | 型安全なDB操作 |
+| DB | **Neon Postgres** | PostgreSQL互換（Vercel統合、無料枠0.5GB） |
+| ORM | **Drizzle ORM** | TypeScript-first、軽量高速なDB操作 |
 
-**注**: 2024年Q4にVercel PostgresからNeon Postgresへ移行済み。無料枠は改善（512MB、190時間/月）
+**注**: 2024年Q4にVercel PostgresからNeon Postgresへ移行済み。無料枠: 0.5GB/プロジェクト、100 CU時間/月
 
 ### 将来追加予定
 

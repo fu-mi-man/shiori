@@ -60,7 +60,7 @@ DB: Neon Postgres (PostgreSQL、Vercel統合)
 - **最速のパフォーマンス**(Node.jsはPythonより起動が速い)
 - **React Server Componentsで最新のベストプラクティス**
 - **学習リソースが豊富**
-- **Neon無料枠が拡大**（Vercel Postgres時代より改善: 512MB、190時間/月）
+- **Neon無料枠**（0.5GB/プロジェクト、100 CU時間/月、プロジェクト数20まで）
 
 **デメリット**:
 - **無料プランは非商用のみ**（Vercel利用規約上の制約）
@@ -70,7 +70,7 @@ DB: Neon Postgres (PostgreSQL、Vercel統合)
 
 **コスト**: 月額0円(非商用)、$20/月(商用)
 
-**重要**: 2024年Q4にVercel PostgresはNeon Postgresへ移行済み。無料枠は改善（256MB→512MB、60時間→190時間）
+**重要**: 2024年Q4にVercel PostgresはNeon Postgresへ移行済み。無料枠の詳細: 0.5GB/プロジェクト、100 CU時間/月
 
 ---
 
@@ -160,13 +160,18 @@ DB: Vercel Postgres (PostgreSQL)
 |---------|------|------|
 | フルスタックフレームワーク | **Next.js 16** | App Router、React Server Components |
 | 言語 | **TypeScript** | フロント・バックエンド統一 |
-| スタイリング | Tailwind CSS v4 | レスポンシブ対応 |
-| データベース | PostgreSQL | Neon Postgres（Vercel統合、無料枠512MB） |
-| 画像ストレージ | Cloudflare R2 | 将来実装時に追加（無料枠10GB） |
-| パッケージマネージャー | pnpm | Corepackで管理（v10.28.0） |
-| 開発環境 | Docker | Node.js 24 LTS |
-| デプロイ | Vercel | Hobby無料プラン（**非商用利用限定**） |
-| バージョン管理 | Git + GitHub | - |
+| スタイリング | **Tailwind CSS v4** | レスポンシブ対応 |
+| UIコンポーネント | **shadcn/ui** | Tailwind + Radix UI、アクセシビリティ対応 |
+| フォーム管理 | **React Hook Form + Zod** | 型安全なバリデーション |
+| アイコン | **React Icons** | 多様な交通手段アイコン |
+| 日付処理 | **date-fns** | 軽量日付ライブラリ |
+| ORM | **Drizzle ORM** | TypeScript-first、軽量高速 |
+| データベース | **PostgreSQL** | Neon Postgres（Vercel統合、無料枠0.5GB） |
+| 画像ストレージ | **Cloudflare R2** | 将来実装時に追加（無料枠10GB） |
+| パッケージマネージャー | **pnpm** | Corepackで管理（v10.28.0） |
+| 開発環境 | **Docker** | Node.js 24 LTS |
+| デプロイ | **Vercel** | Hobby無料プラン（**非商用利用限定**） |
+| バージョン管理 | **Git + GitHub** | - |
 
 ---
 
@@ -223,7 +228,10 @@ Next.js 16完結型（画像機能なし）
 **技術スタック**:
 - Next.js 16 App Router
 - Neon Postgres (via Vercel)
-- Tailwind CSS v4
+- Tailwind CSS v4 + shadcn/ui
+- React Hook Form + Zod
+- Drizzle ORM
+- React Icons
 
 ---
 
@@ -284,7 +292,7 @@ Next.js 16 + Cloudflare R2
 - 段階的に機能追加・移行可能
 - 商用化後もコストが抑えられる
 - **市場価値の高いスキルセット**（Next.js + TypeScript）
-- **Neon無料枠が拡大**（Vercel Postgres時代より改善）
+- **Neon無料枠**（0.5GB/プロジェクト、100 CU時間/月）
 
 **代替案（検討したが不採用）**:
 - **FastAPI (Python)**: 学習目的なら選択肢だが、このプロジェクトには過剰スペック。単純なCRUD操作にはNext.js API Routesで十分
@@ -300,7 +308,7 @@ Next.js 16 + Cloudflare R2
 
 **重要な注意事項（2026年1月時点）**:
 - Vercel PostgresはNeon Postgresへ移行済み（2024年Q4-2025年Q1）
-- 無料枠はむしろ改善（512MB、190時間/月、10データベース）
+- Neon無料枠: 0.5GB/プロジェクト、100 CU時間/月、プロジェクト数20まで
 - Vercel Hobby無料プランは**非商用利用限定**（規約上の制約）
 - 広告掲載や収益化を行う場合は必ずPro ($20/月)への移行が必要
 
@@ -309,3 +317,182 @@ Next.js 16 + Cloudflare R2
 - **React Compiler サポート**: コンポーネントの自動メモ化で不要な再レンダリングを削減
 - **ルーティング改善**: 共有レイアウトのプリフェッチ最適化（50リンクで50回 → 1回のダウンロードに）
 - **Build Adapters API**: カスタムホスティングプロバイダーとの統合が容易に
+
+---
+
+## 8. UIライブラリとフォーム管理の選定理由
+
+### 8.1 shadcn/ui: UIコンポーネントライブラリ
+
+**採用理由**:
+- **Tailwind CSS v4の上に構築**: 既存のTailwind設定をそのまま活用
+- **コピー可能なコンポーネント**: npm依存関係ではなく、コードを直接プロジェクトにコピー
+- **完全なカスタマイズ性**: 自分のコードなので自由に編集可能
+- **アクセシビリティ対応**: Radix UIベースで、ARIA対応が標準
+- **TypeScript完全サポート**: 型安全なコンポーネント
+- **豊富なコンポーネント**: Button、Card、Calendar、Dialog、Formなど全て揃っている
+
+**このプロジェクトでの用途**:
+- タイムラインカード（Card）
+- ボタン（Button）
+- 日付ピッカー（Calendar）
+- フォーム要素（Input、Textarea、Select）
+- ダイアログ・モーダル（Dialog）
+- トースト通知（Toast）
+
+**代替案との比較**:
+| ライブラリ | バンドルサイズ | カスタマイズ性 | 評価 |
+|---------|-------------|--------------|-----|
+| **shadcn/ui** | 小（必要な分のみ） | ◎（コードを直接編集） | ⭐推奨 |
+| Chakra UI | 大 | ○（テーマ設定） | 過剰スペック |
+| Material UI | 大 | △（テーマ複雑） | デザインが固定的 |
+| Mantine | 中 | ○（テーマ設定） | 悪くないが、shadcn/uiより重い |
+
+---
+
+### 8.2 React Hook Form + Zod: フォーム管理とバリデーション
+
+**採用理由**:
+- **動的フォームに最適**: 概要追加、日程追加、スケジュール項目の動的追加・削除が簡単
+- **型安全なバリデーション**: Zodで定義したスキーマから自動的に型推論
+- **パフォーマンス**: 不要な再レンダリングを最小化（uncontrolled componentsベース）
+- **shadcn/uiと完全統合**: shadcn/uiのFormコンポーネントがReact Hook Formと統合済み
+- **エラーハンドリング**: フィールドごとのエラーメッセージ表示が簡単
+- **Next.js Server Actionsとの統合**: サーバーサイドバリデーションも簡単
+
+**実装例**:
+```typescript
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+// しおりのスキーマ定義
+const shioriSchema = z.object({
+  title: z.string().min(1, 'タイトルは必須です').max(100, 'タイトルは100文字以内'),
+  overview: z.array(z.object({
+    title: z.string().min(1, '概要タイトルは必須です'),
+    content: z.string()
+  })),
+  schedule: z.array(z.object({
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, '日付形式が正しくありません'),
+    time: z.string().optional(),
+    transport: z.enum(['train', 'bus', 'plane', 'walk', 'taxi', 'ship']),
+    memo: z.string().optional()
+  })),
+  password: z.string().min(4, '合言葉は4文字以上').optional()
+})
+
+// 型推論
+type ShioriFormData = z.infer<typeof shioriSchema>
+
+// フォームの使用
+const form = useForm<ShioriFormData>({
+  resolver: zodResolver(shioriSchema),
+  defaultValues: {
+    title: '',
+    overview: [],
+    schedule: []
+  }
+})
+```
+
+**代替案との比較**:
+| ライブラリ | パフォーマンス | 型安全性 | 評価 |
+|---------|-------------|---------|-----|
+| **React Hook Form + Zod** | ◎ | ◎ | ⭐推奨 |
+| Formik | ○ | △ | 再レンダリングが多い |
+| React Final Form | ○ | △ | メンテナンス停滞 |
+| 手動実装 | △ | × | 実装コスト高 |
+
+---
+
+### 8.3 React Icons: アイコンライブラリ
+
+**採用理由**:
+- **多様なアイコンセット**: Font Awesome、Material Icons、Bootstrap Iconsなど全て使える
+- **交通手段アイコンが豊富**: 電車、バス、飛行機、船、タクシー、徒歩など多様
+- **統一インターフェース**: すべてのアイコンが同じ方法で使用可能
+- **Tree Shaking対応**: 未使用アイコンは自動的にバンドルから除外
+- **軽量**: 使用した分だけバンドルされる
+
+**このプロジェクトでの用途**:
+```typescript
+import {
+  FaTrain,       // 電車
+  FaBus,         // バス
+  FaPlane,       // 飛行機
+  FaShip,        // 船
+  FaTaxi,        // タクシー
+  FaWalking,     // 徒歩
+  FaCar,         // 車
+  FaBicycle,     // 自転車
+  FaSubway,      // 地下鉄
+  FaCalendar,    // カレンダー
+  FaClock        // 時計
+} from 'react-icons/fa'
+```
+
+**代替案との比較**:
+| ライブラリ | アイコン数 | 交通アイコン | 評価 |
+|---------|---------|------------|-----|
+| **React Icons** | 10,000+ | ◎ | ⭐推奨 |
+| Lucide React | 1,000+ | ○ | 交通アイコンが少ない |
+| Heroicons | 300+ | △ | 交通アイコンがほぼない |
+
+---
+
+### 8.4 Drizzle ORM: データベースORM
+
+**採用理由**:
+- **TypeScript-first設計**: 型推論が強力で、型安全なクエリ
+- **軽量高速**: Prismaより小さいバンドルサイズ
+- **Next.js Server Componentsと相性抜群**: サーバーコンポーネントで直接使用可能
+- **Neon Postgresとの統合が簡単**: 公式ドキュメントでNeon統合をサポート
+- **マイグレーション管理**: SQL-likeな構文でマイグレーションが簡単
+
+**実装例**:
+```typescript
+// schema.ts
+import { pgTable, uuid, varchar, jsonb, timestamp } from 'drizzle-orm/pg-core'
+
+export const shiori = pgTable('shiori', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  title: varchar('title', { length: 100 }).notNull(),
+  overview: jsonb('overview').$type<OverviewItem[]>(),
+  schedule: jsonb('schedule').$type<ScheduleItem[]>(),
+  passwordHash: varchar('password_hash', { length: 255 }),
+  createdAt: timestamp('created_at').defaultNow(),
+  lastAccessedAt: timestamp('last_accessed_at').defaultNow()
+})
+
+// クエリ
+import { db } from '@/lib/db'
+import { shiori } from '@/lib/schema'
+import { eq } from 'drizzle-orm'
+
+// しおり取得
+const result = await db.select().from(shiori).where(eq(shiori.id, id))
+
+// しおり作成
+const newShiori = await db.insert(shiori).values({
+  title: 'My Trip',
+  overview: [],
+  schedule: []
+}).returning()
+```
+
+**Prismaとの比較**:
+| 項目 | Drizzle ORM | Prisma |
+|------|------------|--------|
+| **バンドルサイズ** | 小（~40KB） | 大（~500KB） |
+| **パフォーマンス** | 高速 | 中速 |
+| **学習曲線** | 中（SQL知識が活かせる） | 緩やか |
+| **Next.js 16推奨度** | ⭐⭐⭐ | ⭐⭐ |
+| **型安全性** | ◎ | ◎ |
+| **マイグレーション** | SQL-like | 独自DSL |
+
+**Drizzle ORM採用の決め手**:
+1. Next.js 16のServer Componentsとの相性が最高
+2. バンドルサイズが小さく、パフォーマンス優先
+3. TypeScript型推論が強力で、開発体験が良い
+4. Neon Postgresとの統合が公式サポート

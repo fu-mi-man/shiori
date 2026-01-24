@@ -14,13 +14,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Next.js 16** (App Router)
 - **TypeScript** （フロント・バックエンド統一）
 - **Tailwind CSS v4** （重要: Next.js 16が自動統合、`@import "tailwindcss"`構文を使用）
+- **shadcn/ui** （UIコンポーネント、Tailwind + Radix UI）
+- **React Hook Form + Zod** （フォーム管理と型安全なバリデーション）
+- **React Icons** （多様な交通手段アイコン）
+- **date-fns** （日付処理）
 - **pnpm 10.28.0** （Corepackで管理 - package.jsonでバージョン指定）
 - **Node.js 24 LTS** （Krypton、2028年4月までサポート）
 
 ### データベース（将来実装予定）
 - **Neon Postgres** （PostgreSQL、Vercel統合経由）
-  - 無料枠: 512 MB、190時間/月のコンピュート時間
+  - 無料枠: 0.5GB/プロジェクト、100 CU時間/月
   - 注: 2024年Q4にVercel PostgresからNeonへ移行済み
+- **Drizzle ORM** （TypeScript-first、軽量高速なORM）
 
 ### デプロイ先
 - **Vercel** （Hobby無料プラン、**非商用利用限定**）
