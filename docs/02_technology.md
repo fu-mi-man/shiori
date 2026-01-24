@@ -46,7 +46,7 @@ DB: Supabase (PostgreSQL)
 
 **構成**:
 ```text
-フルスタック: Vercel (Next.js 15 App Router)
+フルスタック: Vercel (Next.js 16 App Router)
 API: Next.js API Routes / Server Actions
 DB: Vercel Postgres (PostgreSQL)
 ```
@@ -130,7 +130,7 @@ VPS: さくらVPS / ConoHa（月500円〜）
 
 **構成**:
 ```text
-フルスタック: Vercel (Next.js 15 App Router)
+フルスタック: Vercel (Next.js 16 App Router)
 API: Next.js API Routes / Server Actions
 DB: Vercel Postgres (PostgreSQL)
 画像: なし（将来的にCloudflare R2を追加）
@@ -155,7 +155,7 @@ DB: Vercel Postgres (PostgreSQL)
 
 | カテゴリ | 技術 | 備考 |
 |---------|------|------|
-| フルスタックフレームワーク | **Next.js 15** | App Router、React Server Components |
+| フルスタックフレームワーク | **Next.js 16** | App Router、React Server Components |
 | 言語 | **TypeScript** | フロント・バックエンド統一 |
 | スタイリング | Tailwind CSS v4 | レスポンシブ対応 |
 | データベース | PostgreSQL | Vercel Postgres（無料枠） |
@@ -207,7 +207,7 @@ DB: Vercel Postgres (PostgreSQL)
 
 **構成**:
 ```
-Next.js 15完結型（画像機能なし）
+Next.js 16完結型（画像機能なし）
 ```
 
 **コスト**: 月額0円
@@ -218,7 +218,7 @@ Next.js 15完結型（画像機能なし）
 - 基本機能の安定稼働を確認
 
 **技術スタック**:
-- Next.js 15 App Router
+- Next.js 16 App Router
 - Vercel Postgres
 - Tailwind CSS v4
 
@@ -228,7 +228,7 @@ Next.js 15完結型（画像機能なし）
 
 **構成**:
 ```text
-Next.js 15 + Cloudflare R2
+Next.js 16 + Cloudflare R2
 ```
 
 **コスト**: 月額0円（無料枠内）
@@ -269,8 +269,8 @@ Next.js 15 + Cloudflare R2
 ## 7. まとめ
 
 **採用アーキテクチャ**:
-- **今すぐ**: Next.js 15完結型（画像なし）→ 月額0円
-- **画像追加時**: Next.js 15 + Cloudflare R2 → 月額0円
+- **今すぐ**: Next.js 16完結型（画像なし）→ 月額0円
+- **画像追加時**: Next.js 16 + Cloudflare R2 → 月額0円
 - **商用化時**: Vercel Pro → 月額$20
 
 **選定理由**:
@@ -292,4 +292,10 @@ Next.js 15 + Cloudflare R2
 - FastAPIの真の強みは、機械学習API、画像処理、複雑な非同期処理など
 - Python学習は別途、FastAPIの強みを活かせるプロジェクトで行うことを推奨
 
-**結論**: まずは完全無料のNext.js完結型でリリースし、需要を確認してから次のステップを検討する
+**結論**: まずは完全無料のNext.js 16完結型でリリースし、需要を確認してから次のステップを検討する
+
+**Next.js 16の新機能**:
+- **`use cache`ディレクティブ**: ページ、コンポーネント、関数のキャッシュ制御が明示的かつ柔軟に
+- **React Compiler サポート**: コンポーネントの自動メモ化で不要な再レンダリングを削減
+- **ルーティング改善**: 共有レイアウトのプリフェッチ最適化（50リンクで50回 → 1回のダウンロードに）
+- **Build Adapters API**: カスタムホスティングプロバイダーとの統合が容易に

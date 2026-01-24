@@ -11,9 +11,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 技術スタック
 
 ### フルスタック（移行予定）
-- **Next.js 15** (App Router)
+- **Next.js 16** (App Router)
 - **TypeScript** （フロント・バックエンド統一）
-- **Tailwind CSS v4** （重要: Next.js 15が自動統合、`@import "tailwindcss"`構文を使用）
+- **Tailwind CSS v4** （重要: Next.js 16が自動統合、`@import "tailwindcss"`構文を使用）
 - **pnpm 10.28.0** （Corepackで管理 - package.jsonでバージョン指定）
 - **Node.js 24 LTS** （Krypton、2028年4月までサポート）
 
@@ -25,7 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 現在の実装（移行前）
 - React 19 + Vite 7 + React Router v7（`frontend/`ディレクトリ）
-- 近日中にNext.js 15 App Router構成に移行予定
+- 近日中にNext.js 16 App Router構成に移行予定
 
 ## 開発コマンド
 
@@ -168,7 +168,7 @@ shiori/
 
 - ❌ `tailwind.config.js` ファイルは不要
 - ❌ `postcss.config.js` ファイルも不要
-- ✅ Next.js 15が自動的にTailwind v4を統合
+- ✅ Next.js 16が自動的にTailwind v4を統合
 - ✅ CSSは `@import "tailwindcss";` を使用（`@tailwind`ディレクティブではない）
 
 **app/globals.css**:
@@ -230,7 +230,7 @@ Next.jsでは、Server Componentsでデータベースに直接アクセスで�
 ## 段階的な拡張計画
 
 ### Phase 1: 現在（移行作業中）
-- Docker + Next.js 15のセットアップ
+- Docker + Next.js 16のセットアップ
 - App Router構造への移行
 - 静的UIコンポーネントの移植
 
@@ -254,7 +254,7 @@ Next.jsでは、Server Componentsでデータベースに直接アクセスで�
 ## よくある落とし穴
 
 1. **ホストマシンでpnpm installを実行しない** - 必ずDockerコンテナを使用
-2. **Tailwind v4の設定は異なる** - Next.js 15が自動統合するため、tailwind.config.jsを作成しない
+2. **Tailwind v4の設定は異なる** - Next.js 16が自動統合するため、tailwind.config.jsを作成しない
 3. **packageManagerフィールドは神聖** - Corepackが依存している
 4. **モバイルファーストはオプションではない** - デスクトップは二の次
 5. **日本語UIが前提** - 日本人ユーザー向けサービス
@@ -303,7 +303,7 @@ export default function CreateForm() {
 
 ## 技術選定の理由
 
-### なぜNext.js 15を採用したか
+### なぜNext.js 16を採用したか
 
 **当初の計画**: React + Vite + Python FastAPI
 
@@ -313,6 +313,12 @@ export default function CreateForm() {
 3. **完全無料で運用可能** - Vercel無料プラン（非商用利用）
 4. **最速のパフォーマンス** - Vercel Fluid Compute、コールドスタート最小化
 5. **市場価値の高いスキルセット** - Next.js + TypeScriptの実践学習
+
+**Next.js 16の新機能**:
+- **`use cache`ディレクティブ**: ページ、コンポーネント、関数のキャッシュ制御が明示的かつ柔軟に
+- **React Compiler サポート**: コンポーネントの自動メモ化、手動での最適化が不要
+- **ルーティング改善**: 共有レイアウトのプリフェッチ最適化（50個のリンクで50回 → 1回のダウンロードに）
+- **Build Adapters API**: カスタムホスティングプロバイダーとの統合が容易に
 
 **Python学習について**:
 - このプロジェクトのバックエンドは非常にシンプル

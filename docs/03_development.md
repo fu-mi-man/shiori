@@ -64,7 +64,7 @@ shiori/
 
 | カテゴリ | 技術 | バージョン | 用途 |
 |---------|------|-----------|------|
-| **フレームワーク** | **Next.js** | 15.x | フルスタックReactフレームワーク |
+| **フレームワーク** | **Next.js** | 16.x | フルスタックReactフレームワーク |
 | 言語 | **TypeScript** | latest | 型安全な開発（フロント・バックエンド統一） |
 | スタイリング | **Tailwind CSS** | 4.x | ユーティリティファーストCSS |
 | アイコン | **Lucide React** | latest | 軽量アイコンライブラリ |
@@ -79,7 +79,7 @@ shiori/
 | オーケストレーション | **Docker Compose** | latest | コンテナ管理 |
 | Node.js | **v24.x LTS (Krypton)** | 24.12+ | JavaScriptランタイム（2028年4月までサポート） |
 
-**Note**: Next.js 15はNode.js 18.18以上が必要ですが、長期サポートのためNode.js 24 LTSを採用
+**Note**: Next.js 16はNode.js 18.18以上が必要ですが、長期サポートのためNode.js 24 LTSを採用
 
 ### データベース（将来実装）
 
@@ -283,7 +283,7 @@ docker compose up --build
 
 1. **tailwind.config.js が不要**
    - v3まで必要だった `tailwind.config.js` は削除
-   - Next.js 15が自動的にTailwind v4を統合
+   - Next.js 16が自動的にTailwind v4を統合
 
 2. **PostCSS設定が不要**
    - `postcss.config.js` も不要
@@ -306,7 +306,7 @@ docker compose up --build
 import type { NextConfig } from 'next'
 
 const config: NextConfig = {
-  // Next.js 15はTailwind v4を自動サポート
+  // Next.js 16はTailwind v4を自動サポート
   // 特別な設定は不要
 }
 
@@ -461,7 +461,7 @@ Vercel Postgres連携時に**自動設定**される環境変数:
 ## 11. 今後の拡張計画
 
 ### Phase 1: Next.js環境構築（現在）
-- ✅ Docker + Next.js 15セットアップ
+- ✅ Docker + Next.js 16セットアップ
 - 🔄 App Router構造の作成
 - 🔄 静的ページ作成（モック）
 - 🔄 Tailwind CSS v4統合
@@ -545,9 +545,12 @@ export const metadata: Metadata = {
 
 ## 13. パフォーマンス最適化
 
-### 13.1 Next.js 15の最適化機能
+### 13.1 Next.js 16の最適化機能
 
 - **React Server Components**: サーバーサイドレンダリングでバンドルサイズ削減
+- **`use cache`ディレクティブ**: ページ、コンポーネント、関数のキャッシュ制御が明示的かつ柔軟に
+- **React Compiler**: コンポーネントの自動メモ化で不要な再レンダリングを削減（手動最適化が不要）
+- **ルーティング改善**: 共有レイアウトのプリフェッチ最適化で大幅な性能向上
 - **Turbopack**: 超高速な開発サーバー（Viteより高速）
 - **Image Optimization**: 自動画像最適化（Next.js Image）
 - **Font Optimization**: Googleフォント最適化（next/font）
@@ -607,7 +610,7 @@ docker compose up --build
 ## 15. 参考リンク
 
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Next.js 15 Release Notes](https://nextjs.org/blog/next-15)
+- [Next.js 16 Release Notes](https://nextjs.org/blog/next-16)
 - [Tailwind CSS v4 Documentation](https://tailwindcss.com/)
 - [Vercel Documentation](https://vercel.com/docs)
 - [pnpm Documentation](https://pnpm.io/)
