@@ -10,19 +10,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 技術スタック
 
-### フロントエンド（現在実装中）
-- **React 19** + **TypeScript** + **Vite 7**
-- **Tailwind CSS v4** （重要: 新しい`@import "tailwindcss"`構文を使用）
-- **React Router v7** でルーティング
+### フルスタック（移行予定）
+- **Next.js 15** (App Router)
+- **TypeScript** （フロント・バックエンド統一）
+- **Tailwind CSS v4** （重要: Next.js 15が自動統合、`@import "tailwindcss"`構文を使用）
 - **pnpm 10.28.0** （Corepackで管理 - package.jsonでバージョン指定）
 - **Node.js 24 LTS** （Krypton、2028年4月までサポート）
 
-### バックエンド（将来実装予定）
-- **Python + FastAPI** （Vercel Serverless Functions上で動作）
+### データベース（将来実装予定）
 - **Vercel Postgres** （PostgreSQL）
 
 ### デプロイ先
 - **Vercel** （無料プラン、商用化までは非商用利用）
+
+### 現在の実装（移行前）
+- React 19 + Vite 7 + React Router v7（`frontend/`ディレクトリ）
+- 近日中にNext.js 15 App Router構成に移行予定
 
 ## 開発コマンド
 
@@ -44,7 +47,7 @@ docker compose down
 docker compose down -v
 ```
 
-開発サーバー: http://localhost:5173
+開発サーバー: http://localhost:3000
 
 ### 依存関係の追加
 
@@ -52,7 +55,7 @@ docker compose down -v
 
 ```bash
 # コンテナに入る
-docker compose exec frontend sh
+docker compose exec app sh
 
 # パッケージを追加
 pnpm add <package-name>
@@ -66,38 +69,42 @@ exit
 
 パッケージ追加後はコンテナを再起動:
 ```bash
-docker compose restart frontend
+docker compose restart app
 ```
 
 ### ビルド
 
 ```bash
 # コンテナ内で実行
-docker compose exec frontend sh
+docker compose exec app sh
 pnpm build
 
 # プロダクションビルドをプレビュー
-pnpm preview
+pnpm start
 ```
 
 ### Lint実行
 
 ```bash
 # コンテナ内で実行
-docker compose exec frontend sh
+docker compose exec app sh
 pnpm lint
 ```
 
 ## アーキテクチャとコード構成
 
-### ルーティング
+### ルーティング（Next.js App Router）
 
-| パス | コンポーネント | 説明 |
+Next.js App Routerは**ファイルベースルーティング**を採用。ディレクトリ構造がそのままURLになります。
+
+| パス | ファイルパス | 説明 |
 |------|-----------|-------------|
-| `/` | TopPage（未実装） | トップ画面（LP）、サービス説明 |
-| `/create` | CreatePage | しおり作成画面 |
-| `/i/:id` | ViewPage（未実装） | しおり表示画面（閲覧専用） |
-| `/i/:id/edit` | EditPage（未実装） | しおり編集画面（合言葉が必要） |
+| `/` | `app/page.tsx` | トップ画面（LP）、サービス説明 |
+| `/create` | `app/create/page.tsx` | しおり作成画面 |
+| `/i/[id]` | `app/i/[id]/page.tsx` | しおり表示画面（閲覧専用） |
+| `/i/[id]/edit` | `app/i/[id]/edit/page.tsx` | しおり編集画面（合言葉が必要） |
+
+**ダイナミックルート**: `[id]`は動的セグメント（例: `/i/abc123`）
 
 ### ディレクトリ構成
 
@@ -108,16 +115,40 @@ shiori/
 │   ├── 01_requirements.md  # 機能要件
 │   ├── 02_technology.md    # 技術選定理由
 │   └── 03_development.md   # 開発環境構築
-└── frontend/
-    ├── Dockerfile
-    ├── package.json      # packageManagerフィールドが重要
-    ├── vite.config.ts    # Tailwind v4プラグイン設定
-    └── src/
-        ├── main.tsx
-        ├── App.tsx       # ルーター設定
-        ├── pages/        # 画面単位のコンポーネント
-        └── components/   # 再利用可能なコンポーネント（将来）
+├── package.json          # packageManagerフィールドが重要
+├── next.config.ts        # Next.js設定
+├── tsconfig.json         # TypeScript設定
+├── app/                  # Next.js App Router
+│   ├── layout.tsx            # ルートレイアウト
+│   ├── page.tsx              # トップページ（/）
+│   ├── globals.css           # グローバルCSS（Tailwind含む）
+│   ├── create/
+│   │   └── page.tsx          # 作成ページ（/create）
+│   ├── i/
+│   │   └── [id]/
+│   │       ├── page.tsx      # 表示ページ（/i/:id）
+│   │       └── edit/
+│   │           └── page.tsx  # 編集ページ（/i/:id/edit）
+│   └── api/                  # API Routes（バックエンド）
+│       ├── shiori/
+│       │   ├── route.ts      # GET/POST /api/shiori
+│       │   └── [id]/
+│       │       └── route.ts  # GET/PUT/DELETE /api/shiori/:id
+│       └── auth/
+│           └── route.ts      # 合言葉認証
+├── components/           # 再利用可能なコンポーネント
+│   ├── Timeline.tsx
+│   ├── ScheduleItem.tsx
+│   └── ...
+├── lib/                  # ユーティリティ・型定義
+│   ├── db.ts                 # DB接続（Vercel Postgres）
+│   ├── types.ts              # 型定義
+│   └── utils.ts              # ヘルパー関数
+└── public/               # 静的ファイル
+    └── images/
 ```
+
+**重要**: プロジェクトルートがNext.jsアプリケーション（`frontend/`ディレクトリは不要）
 
 ### データモデル（将来実装予定）
 
@@ -137,16 +168,21 @@ shiori/
 
 - ❌ `tailwind.config.js` ファイルは不要
 - ❌ `postcss.config.js` ファイルも不要
-- ✅ `vite.config.ts` でプラグイン設定
+- ✅ Next.js 15が自動的にTailwind v4を統合
 - ✅ CSSは `@import "tailwindcss";` を使用（`@tailwind`ディレクティブではない）
 
-`frontend/vite.config.ts:8` でTailwindプラグインの設定を確認できます。
+**app/globals.css**:
+```css
+@import "tailwindcss";
+
+/* カスタムスタイルをここに追加 */
+```
 
 ### Dockerボリューム戦略
 
 `node_modules`は**named volume**として管理され、bind-mountしません。これはOS固有のバイナリ（esbuildなど）の互換性問題を防ぐためです。そのため、パッケージインストールはコンテナ内で行う必要があります。
 
-`compose.yaml:26` と `compose.yaml:43-51` でボリューム設定を確認できます。
+`compose.yaml`でボリューム設定を確認できます。
 
 ### pnpm設定
 
@@ -177,15 +213,29 @@ shiori/
 - 編集保護は任意の合言葉で実現（bcryptハッシュで保存）
 - 共有は一意のURLで: `https://yoursite.com/i/<uuid>`
 
+### データフロー
+
+**Server Componentsを活用**（推奨）:
+```
+Server Component → DB直接アクセス → レンダリング
+```
+
+**Client Componentsの場合**:
+```
+Client Component → API Routes → DB → レスポンス
+```
+
+Next.jsでは、Server Componentsでデータベースに直接アクセスできるため、多くの場合API Routesは不要です。ただし、Client Componentからのデータ更新にはAPI Routesを使用します。
+
 ## 段階的な拡張計画
 
-### Phase 1: 現在（静的モック）
-- Docker + React + TypeScriptのセットアップ ✅
-- React Routerで基本ルーティング ✅
-- 静的UIコンポーネント（作業中）
+### Phase 1: 現在（移行作業中）
+- Docker + Next.js 15のセットアップ
+- App Router構造への移行
+- 静的UIコンポーネントの移植
 
 ### Phase 2: バックエンド統合
-- FastAPIサーバーレス関数の追加
+- Next.js API Routes / Server Actions実装
 - Vercel Postgresとの連携
 - しおりのCRUD API実装
 - 合言葉保護機能（bcrypt）
@@ -204,15 +254,39 @@ shiori/
 ## よくある落とし穴
 
 1. **ホストマシンでpnpm installを実行しない** - 必ずDockerコンテナを使用
-2. **Tailwind v4の設定は異なる** - tailwind.config.jsを作成しない
+2. **Tailwind v4の設定は異なる** - Next.js 15が自動統合するため、tailwind.config.jsを作成しない
 3. **packageManagerフィールドは神聖** - Corepackが依存している
 4. **モバイルファーストはオプションではない** - デスクトップは二の次
 5. **日本語UIが前提** - 日本人ユーザー向けサービス
+6. **Server ComponentsとClient Componentsを区別** - `'use client'`ディレクティブを適切に使用
+
+## コンポーネント設計
+
+### Server ComponentsとClient Componentsの使い分け
+
+- **Server Component**（デフォルト）: データフェッチ、静的表示、SEO重視
+- **Client Component**（`'use client'`）: インタラクティブな操作、状態管理、イベントハンドラ
+
+```typescript
+// Server Component（デフォルト）
+export default function ViewPage({ params }: { params: { id: string } }) {
+  // DB直接アクセス可能
+  const shiori = await db.getShiori(params.id)
+  return <Timeline data={shiori} />
+}
+
+// Client Component
+'use client'
+export default function CreateForm() {
+  const [title, setTitle] = useState('')
+  // イベントハンドラやuseStateが使える
+}
+```
 
 ## テストと品質管理（将来）
 
 未実装。計画:
-- ESLint + Prettier（設定済み、強制は未実装）
+- ESLint + Prettier（Next.js標準設定）
 - Husky + lint-stagedでpre-commitフック
 - Conventional Commits標準
 
@@ -220,9 +294,27 @@ shiori/
 
 デプロイ準備ができたら:
 1. GitHubリポジトリをVercelに接続
-2. Vercelが自動的にViteプロジェクトを検出
-3. ビルドコマンド: `pnpm build`
-4. 出力ディレクトリ: `dist/`
+2. Vercelが自動的にNext.jsプロジェクトを検出
+3. ビルドコマンド: `pnpm build`（自動検出）
+4. 出力ディレクトリ: `.next/`（自動検出）
 5. Vercelは`packageManager`フィールドからpnpmバージョンを使用
 
 初期の静的デプロイには環境変数は不要。
+
+## 技術選定の理由
+
+### なぜNext.js 15を採用したか
+
+**当初の計画**: React + Vite + Python FastAPI
+
+**変更理由**:
+1. **バックエンドロジックがシンプル** - CRUD + bcrypt認証のみ、FastAPIは過剰スペック
+2. **単一言語で管理が簡単** - TypeScriptでフロント・バックエンド統一
+3. **完全無料で運用可能** - Vercel無料プラン（非商用利用）
+4. **最速のパフォーマンス** - Vercel Fluid Compute、コールドスタート最小化
+5. **市場価値の高いスキルセット** - Next.js + TypeScriptの実践学習
+
+**Python学習について**:
+- このプロジェクトのバックエンドは非常にシンプル
+- FastAPIの真の強みは、機械学習API、画像処理、複雑な非同期処理など
+- Python学習は別途、FastAPIの強みを活かせるプロジェクトで行うことを推奨
