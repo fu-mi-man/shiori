@@ -67,7 +67,7 @@ shioris (しおり)
 ## 更新ルール
 
 - **last_accessed_at**: しおり表示時に更新
-- **自動削除**: `is_premium = FALSE` かつ `last_accessed_at` が3ヶ月以上前のレコードを削除（関連する overviews / schedules も CASCADE で削除）
+- **自動削除**: `is_premium = FALSE` かつ最終アクセスから3ヶ月後に自動削除（関連する overviews / schedules も CASCADE で削除）
 
 
 

@@ -7,7 +7,7 @@
 フルスタック: Vercel (Next.js 16 App Router)
 API: Next.js Server Actions / Route Handlers
 DB: Neon Postgres (Vercel統合、無料枠0.5GB)
-画像: Cloudflare R2 (Phase 2以降、無料枠10GB)
+画像: Cloudflare R2 (Phase 3以降、無料枠10GB)
 ```
 
 **コスト**: 月額0円（非商用利用限定）
@@ -129,7 +129,7 @@ VPS: さくらVPS / ConoHa（月500円〜）
 | **日付処理** | date-fns | 軽量日付ライブラリ |
 | **ORM** | Drizzle ORM | TypeScript-first、軽量高速 |
 | **データベース** | Neon Postgres | Vercel統合、無料枠0.5GB |
-| **画像ストレージ** | Cloudflare R2 | Phase 2で追加（無料枠10GB） |
+| **画像ストレージ** | Cloudflare R2 | Phase 3で追加（無料枠10GB） |
 | **パッケージマネージャー** | pnpm | Corepackで管理 |
 | **開発環境** | Docker | Node.js 24 LTS |
 | **デプロイ** | Vercel | Hobby無料プラン（非商用限定） |
@@ -243,7 +243,7 @@ import {
 
 
 
-## 6. 画像機能の実装戦略（Phase 2）
+## 6. 画像機能の実装戦略（Phase 3）
 
 ### 画像ストレージサービスの比較
 
@@ -286,17 +286,20 @@ Next.js 16完結型（画像機能なし）
 
 ---
 
-### Phase 2: 画像機能追加（完全無料継続）
+### Phase 2: 機能拡充（完全無料継続）
 
 ```text
-Next.js 16 + Cloudflare R2
+Next.js 16
 ```
 
 **コスト**: 月額0円（無料枠内）
 
 **実装内容**:
-- 概要・行程への写真挿入機能
-- Cloudflare R2との連携
+- フィードバック掲示板
+- 多言語対応（英語）
+- テンプレート機能
+- カラーテーマ選択
+- PDF出力機能
 
 ---
 
@@ -327,8 +330,8 @@ Next.js 16 + Cloudflare R2
 
 **採用構成**:
 - **Phase 1**: Next.js 16完結型（画像なし）→ 月額0円
-- **Phase 2**: Next.js 16 + Cloudflare R2 → 月額0円
-- **Phase 3**: Vercel Pro → 月額$20（商用化時）
+- **Phase 2**: 機能拡充（掲示板、多言語、PDF等）→ 月額0円
+- **Phase 3**: 画像機能 + 商用化（Vercel Pro）→ 月額$20
 
 **選定の決め手**:
 1. 完全無料で始められる
