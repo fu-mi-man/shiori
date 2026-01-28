@@ -2,80 +2,96 @@
 
 旅行の行程表を簡単に作成・共有できるWebサービス。
 
-## 技術スタック（2026年1月時点）
-
-- **Next.js 16** (App Router、React Server Components)
-- **TypeScript** (フロント・バックエンド統一)
-- **Tailwind CSS v4** (Next.js 16が自動統合)
-- **Neon Postgres** (Vercel統合、無料枠512MB)
-- **pnpm 10.28.0** (Corepackで管理)
-- **Node.js 24 LTS** (Docker環境)
-- **Vercel** (Hobby無料プラン、**非商用利用限定**)
-
-## 開発環境構築
-
-### 必要環境
-- Docker Desktop
-- Git
-
-**注**: ホストマシンにNode.jsやpnpmのインストールは不要です。全てDocker内で実行します。
-
-### 初回セットアップ
+## セットアップ
 
 ```bash
-# リポジトリをクローン
 git clone <repository-url>
 cd shiori
-
-# Docker環境を起動
 docker compose up --build
 ```
 
 開発サーバー: http://localhost:3000
 
-### 依存関係を追加する場合
-
-**重要**: 必ずコンテナ内でpnpmを実行してください。
-
-```bash
-# コンテナに入る
-docker compose exec app sh
-
-# パッケージを追加
-pnpm add <package-name>
-
-# 開発用パッケージを追加
-pnpm add -D <package-name>
-
-# コンテナから抜ける
-exit
-
-# 再起動
-docker compose restart app
-```
-
-### pnpm でエラーが出た場合
-
-pnpm の store と node_modules の不整合が原因の可能性があります。
-
-```bash
-# 完全クリーンアップ（volumeも削除）
-docker compose down -v
-docker compose up --build
-```
-
-**注**: `node_modules` は named volume で管理されています（OS固有のバイナリ互換性のため）。
-
 ## ドキュメント
 
-詳細なドキュメントは `docs/` ディレクトリにあります：
+詳細は `docs/` を参照。
 
-- [サービス概要](docs/requirements/overview.md)
-- [機能要件](docs/requirements/features.md)
-- [データ定義](docs/requirements/data.md)
-- [画面定義](docs/requirements/screens.md)
-- [技術選定](docs/technology.md)
-- [開発環境](docs/development.md)
-- [競合分析](docs/benchmark.md)
+| ファイル | 内容 |
+|----------|------|
+| requirements/data.md | データ定義 |
+| requirements/features.md | 機能要件 |
+| requirements/overview.md | サービス概要 |
+| requirements/screens.md | 画面定義 |
+| technology.md | 技術選定 |
+| development.md | 開発環境 |
+| benchmark.md | 競合分析 |
 
-Claude Codeを使用する場合は [CLAUDE.md](CLAUDE.md) も参照してください。
+
+
+## 初期構築（プロジェクト作成時のみ）
+
+### 1. 最小限のDockerfileを作成
+
+```dockerfile
+FROM node:24-slim
+WORKDIR /app
+RUN corepack enable
+```
+
+### 2. Dockerイメージをビルド
+
+```bash
+docker build -t shiori-init .
+```
+
+### 3. Next.jsプロジェクトを作成
+
+```bash
+docker run --rm -v $(pwd):/app -w /app shiori-init \
+  pnpm create next-app@latest . \
+  --typescript --tailwind --eslint --app --src-dir=false --import-alias='@/*'
+```
+
+| オプション | 意味 |
+|-----------|------|
+| `--rm` | 終了後にコンテナを削除 |
+| `-v $(pwd):/app` | 現在のディレクトリをコンテナの/appにマウント |
+| `-w /app` | 作業ディレクトリを/appに設定 |
+
+### 4. Dockerfileを本番用に更新
+
+```dockerfile
+FROM node:24-slim
+WORKDIR /app
+ENV NODE_ENV=development
+RUN corepack enable
+COPY package.json pnpm-lock.yaml* ./
+RUN pnpm install
+EXPOSE 3000
+CMD ["pnpm", "dev"]
+```
+
+### 5. compose.yamlを作成
+
+```yaml
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    tty: true
+
+volumes:
+  node_modules:
+```
+
+### 6. 開発サーバーを起動
+
+```bash
+docker compose up --build
+```
