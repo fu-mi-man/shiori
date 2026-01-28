@@ -8,7 +8,7 @@ shioris (しおり)
 └── schedules (行程) 1対多
 ```
 
----
+
 
 ## shioris（しおり）
 
@@ -21,7 +21,7 @@ shioris (しおり)
 | created_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 作成日時 |
 | last_accessed_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 最終アクセス日時 |
 
----
+
 
 ## overviews（概要）
 
@@ -33,7 +33,7 @@ shioris (しおり)
 | title | VARCHAR(255) | NULL | タイトル |
 | content | TEXT | NULL | 内容 |
 
----
+
 
 ## schedules（行程）
 
@@ -52,7 +52,7 @@ shioris (しおり)
 **transport（交通手段）の選択肢**:
 `walk` / `train` / `bus` / `plane` / `car` / `ship` / `bicycle` / `taxi` / `cablecar`
 
----
+
 
 ## インデックス
 
@@ -62,14 +62,14 @@ shioris (しおり)
 | overviews | shiori_id | 外部キー検索 |
 | schedules | shiori_id | 外部キー検索 |
 
----
+
 
 ## 更新ルール
 
 - **last_accessed_at**: しおり表示時に更新
 - **自動削除**: `is_premium = FALSE` かつ `last_accessed_at` が3ヶ月以上前のレコードを削除（関連する overviews / schedules も CASCADE で削除）
 
----
+
 
 ## Phase 2以降の拡張
 
