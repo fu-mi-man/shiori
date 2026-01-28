@@ -134,7 +134,7 @@ VPS: さくらVPS / ConoHa（月500円〜）
 | **開発環境** | Docker | Node.js 24 LTS |
 | **デプロイ** | Vercel | Hobby無料プラン（非商用限定） |
 
----
+
 
 ## 4. Next.js 16の新機能活用
 
