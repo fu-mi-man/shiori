@@ -17,13 +17,13 @@
           "id": "191MK",
           "name": "Header",
           "width": "fill_container",
-          "fill": "$bg-surface",
+          "fill": "$accent-light",
           "stroke": {
             "align": "inside",
             "thickness": {
               "bottom": 1
             },
-            "fill": "$border-subtle"
+            "fill": "$accent-light"
           },
           "layout": "vertical",
           "gap": 16,
@@ -127,12 +127,12 @@
                   "name": "editBtn2",
                   "width": "fill_container",
                   "height": 40,
-                  "fill": "$bg-elevated",
+                  "fill": "$bg-surface",
                   "cornerRadius": 100,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
-                    "fill": "$border-strong"
+                    "fill": "#A8D8B8"
                   },
                   "gap": 6,
                   "padding": [
