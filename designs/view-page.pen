@@ -369,7 +369,7 @@
                       "fill": "$text-secondary",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "コーラルサンセットリゾート 恩納村\n3月15日（土）チェックイン / 1泊 2名...",
+                      "content": "コーラルサンセットリゾート 恩納村。3月15日（土）チェックイン・3月16日（日）チェックアウト。1泊2名・朝食付きプラン・禁煙ダブルルーム...",
                       "lineHeight": 1.5,
                       "fontFamily": "Outfit",
                       "fontSize": 14,
@@ -552,6 +552,57 @@
                 },
                 {
                   "type": "frame",
+                  "id": "bGN4E",
+                  "name": "day1Header",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "6Sj2q",
+                      "name": "day1Badge",
+                      "fill": "$accent-primary",
+                      "cornerRadius": 100,
+                      "padding": [
+                        6,
+                        14
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "waa6x",
+                          "name": "day1Text",
+                          "fill": "#FFFFFF",
+                          "content": "1日目",
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "TdboO",
+                      "name": "day1Date",
+                      "fill": "$text-secondary",
+                      "content": "3月15日（土）",
+                      "fontFamily": "Outfit",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zFNbb",
+                      "name": "day1Line",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "$border-subtle"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
                   "id": "leoZA",
                   "name": "Day 1 Items",
                   "width": "fill_container",
@@ -676,7 +727,7 @@
                           "id": "etdaq",
                           "name": "line4",
                           "width": 2,
-                          "height": 64,
+                          "height": 124,
                           "fill": "$border-subtle"
                         },
                         {
@@ -738,7 +789,8 @@
                               "fill": "$text-tertiary",
                               "content": "LCC利用。第2ターミナル",
                               "fontFamily": "Outfit",
-                              "fontSize": 13
+                              "fontSize": 13,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -790,10 +842,21 @@
                               "fill": "$text-tertiary",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "ジンベエザメを見る！入場券は事前購入済み",
+                              "content": "ジンベエザメを見る！入場券は事前購入済み。チケット売り場は混みやすいので、オンラインで事前購入しておくのがおすすめ。大人2,180円。",
                               "lineHeight": 1.4,
                               "fontFamily": "Outfit",
-                              "fontSize": 13
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "EgYIp",
+                              "name": "c2toggle",
+                              "fill": "$accent-primary",
+                              "content": "もっと見る",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "500"
                             }
                           ]
                         },
@@ -843,64 +906,14 @@
                               "id": "5qbEe",
                               "name": "c3note",
                               "fill": "$text-tertiary",
-                              "content": "リザンシーパークホテル谷茶ベイ",
+                              "content": "コーラルサンセットリゾート 恩納村",
                               "fontFamily": "Outfit",
-                              "fontSize": 13
+                              "fontSize": 13,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
                       ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "bGN4E",
-                  "name": "day1Header",
-                  "width": "fill_container",
-                  "gap": 10,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "6Sj2q",
-                      "name": "day1Badge",
-                      "fill": "$accent-primary",
-                      "cornerRadius": 100,
-                      "padding": [
-                        6,
-                        14
-                      ],
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "waa6x",
-                          "name": "day1Text",
-                          "fill": "#FFFFFF",
-                          "content": "1日目",
-                          "fontFamily": "Outfit",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "TdboO",
-                      "name": "day1Date",
-                      "fill": "$text-secondary",
-                      "content": "3月15日（土）",
-                      "fontFamily": "Outfit",
-                      "fontSize": 13,
-                      "fontWeight": "500"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "zFNbb",
-                      "name": "day1Line",
-                      "width": "fill_container",
-                      "height": 1,
-                      "fill": "$border-subtle"
                     }
                   ]
                 },
@@ -1027,7 +1040,7 @@
                           "id": "wj654",
                           "name": "d2line2",
                           "width": 2,
-                          "height": 64,
+                          "height": 124,
                           "fill": "$border-subtle"
                         },
                         {
@@ -1089,10 +1102,21 @@
                               "fill": "$text-tertiary",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "お土産購入＆ランチ。牧志公設市場でお刺身",
+                              "content": "お土産購入＆ランチ。牧志公設市場でお刺身定食がおすすめ。市場2階の食堂で食べると雰囲気もあって良い。",
                               "lineHeight": 1.4,
                               "fontFamily": "Outfit",
-                              "fontSize": 13
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "9d3GN",
+                              "name": "d2c1toggle",
+                              "fill": "$accent-primary",
+                              "content": "もっと見る",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "500"
                             }
                           ]
                         },
@@ -1144,7 +1168,8 @@
                               "fill": "$text-tertiary",
                               "content": "復元工事の見学エリアも要チェック",
                               "fontFamily": "Outfit",
-                              "fontSize": 13
+                              "fontSize": 13,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
