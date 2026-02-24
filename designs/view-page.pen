@@ -1176,6 +1176,363 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "frame",
+                  "id": "31yJ4",
+                  "name": "day3Header",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "gn264",
+                      "name": "day3Badge",
+                      "fill": "$accent-primary",
+                      "cornerRadius": 100,
+                      "padding": [
+                        6,
+                        14
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "K7e78",
+                          "fill": "#FFFFFF",
+                          "content": "3日目",
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ewbes",
+                      "name": "day3Date",
+                      "fill": "$text-secondary",
+                      "content": "3月17日（月）",
+                      "fontFamily": "Outfit",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cFYPw",
+                      "name": "day3Line",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "$border-subtle"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Xiz3W",
+                  "name": "Day 3 Items",
+                  "width": "fill_container",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jt8d2",
+                      "name": "D3 Timeline Bar",
+                      "width": 40,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "padding": [
+                        2,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "IvXic",
+                          "name": "d3dot1",
+                          "width": 12,
+                          "height": 12,
+                          "fill": "$accent-primary",
+                          "cornerRadius": 100
+                        },
+                        {
+                          "type": "frame",
+                          "id": "0PXQ7",
+                          "name": "d3line1",
+                          "width": 2,
+                          "height": 6,
+                          "fill": "$border-subtle"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QDbm6",
+                          "name": "d3iw1",
+                          "width": 26,
+                          "height": 26,
+                          "fill": "$bg-surface",
+                          "cornerRadius": 100,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1.5,
+                            "fill": "$border-subtle"
+                          },
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "crkx5",
+                              "name": "d3walkIcon",
+                              "width": 13,
+                              "height": 13,
+                              "iconFontName": "footprints",
+                              "iconFontFamily": "lucide",
+                              "fill": "$text-secondary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "52gqc",
+                          "name": "d3line2",
+                          "width": 2,
+                          "height": 42,
+                          "fill": "$border-subtle"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aFKfM",
+                          "name": "d3dot2",
+                          "width": 12,
+                          "height": 12,
+                          "fill": "$accent-primary",
+                          "cornerRadius": 100
+                        },
+                        {
+                          "type": "frame",
+                          "id": "a1MOz",
+                          "name": "d3line3",
+                          "width": 2,
+                          "height": 6,
+                          "fill": "$border-subtle"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "p1Owt",
+                          "name": "d3iw2",
+                          "width": 26,
+                          "height": 26,
+                          "fill": "$bg-surface",
+                          "cornerRadius": 100,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1.5,
+                            "fill": "$border-subtle"
+                          },
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "9mhCM",
+                              "name": "d3carIcon",
+                              "width": 13,
+                              "height": 13,
+                              "iconFontName": "car",
+                              "iconFontFamily": "lucide",
+                              "fill": "$text-secondary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aAKcl",
+                          "name": "d3line4",
+                          "width": 2,
+                          "height": 126,
+                          "fill": "$border-subtle"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dNlM1",
+                          "name": "d3dot3",
+                          "width": 12,
+                          "height": 12,
+                          "fill": "$accent-primary",
+                          "cornerRadius": 100
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aaRXr",
+                      "name": "D3 Cards Column",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "C9B07",
+                          "name": "d3c1",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": [
+                            0,
+                            0,
+                            0,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aKyuw",
+                              "name": "d3c1time",
+                              "fill": "$accent-primary",
+                              "content": "08:00",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "orvbB",
+                              "name": "d3c1title",
+                              "fill": "$text-primary",
+                              "content": "チェックアウト & 周辺散策",
+                              "fontFamily": "Outfit",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "fUcmC",
+                          "name": "d3spacer1",
+                          "width": "fill_container",
+                          "height": 44
+                        },
+                        {
+                          "type": "frame",
+                          "id": "3eutX",
+                          "name": "d3c2",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": [
+                            0,
+                            0,
+                            0,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JAzXf",
+                              "name": "d3c2time",
+                              "fill": "$accent-primary",
+                              "content": "10:30",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "oB7dk",
+                              "name": "d3c2title",
+                              "fill": "$text-primary",
+                              "content": "沖縄そばランチ",
+                              "fontFamily": "Outfit",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "IQPO8",
+                              "name": "d3c2note",
+                              "fill": "$text-tertiary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "国道58号沿いの老舗。ソーキそばが絶品で地元民にも愛されるお店。10:00オープンで混む前に行くのがコツ。駐車場は10台分あり。テイクアウトも可。",
+                              "lineHeight": 1.4,
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QPVuf",
+                              "name": "d3c2toggle",
+                              "fill": "$accent-primary",
+                              "content": "閉じる",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "uOAzg",
+                          "name": "d3spacer2",
+                          "width": "fill_container",
+                          "height": 44
+                        },
+                        {
+                          "type": "frame",
+                          "id": "sp6e9",
+                          "name": "d3c3",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": [
+                            0,
+                            0,
+                            0,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "3FWvE",
+                              "name": "d3c3time",
+                              "fill": "$accent-primary",
+                              "content": "16:00",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ZrMN6",
+                              "name": "d3c3title",
+                              "fill": "$text-primary",
+                              "content": "那覇空港 出発",
+                              "fontFamily": "Outfit",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "BTfXB",
+                              "name": "d3c3note",
+                              "fill": "$text-tertiary",
+                              "content": "帰りもLCC。液体物はスーツケースへ",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
