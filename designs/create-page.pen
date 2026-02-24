@@ -9,7 +9,7 @@
       "name": "Create Page",
       "clip": true,
       "width": 390,
-      "fill": "$bg-primary",
+      "fill": "$bg-surface",
       "layout": "vertical",
       "padding": [
         0,
@@ -161,24 +161,24 @@
             },
             {
               "type": "frame",
-              "id": "4vL65",
+              "id": "zfhi5",
               "name": "Overview Section",
               "width": "fill_container",
               "layout": "vertical",
-              "gap": 12,
+              "gap": 16,
               "children": [
                 {
                   "type": "frame",
-                  "id": "x7yTJ",
-                  "name": "overviewHeader",
+                  "id": "pY2HH",
+                  "name": "ovHeader",
                   "width": "fill_container",
                   "justifyContent": "space_between",
                   "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
-                      "id": "U5hTb",
-                      "name": "overviewLabel",
+                      "id": "DNTMq",
+                      "name": "ovLabel",
                       "fill": "$text-primary",
                       "content": "概要",
                       "fontFamily": "Outfit",
@@ -188,8 +188,8 @@
                     },
                     {
                       "type": "frame",
-                      "id": "AqXAT",
-                      "name": "overviewAddBtn",
+                      "id": "tPchd",
+                      "name": "ovAddBtn",
                       "fill": "$accent-light",
                       "cornerRadius": 100,
                       "gap": 4,
@@ -201,8 +201,8 @@
                       "children": [
                         {
                           "type": "icon_font",
-                          "id": "rM2Iq",
-                          "name": "overviewAddIcon",
+                          "id": "KHdRj",
+                          "name": "ovAddIcon",
                           "width": 14,
                           "height": 14,
                           "iconFontName": "plus",
@@ -211,12 +211,12 @@
                         },
                         {
                           "type": "text",
-                          "id": "yirrw",
-                          "name": "overviewAddText",
+                          "id": "uMqKR",
+                          "name": "ovAddText",
                           "fill": "$accent-primary",
                           "content": "追加",
                           "fontFamily": "Outfit",
-                          "fontSize": 12,
+                          "fontSize": 13,
                           "fontWeight": "600"
                         }
                       ]
@@ -225,45 +225,77 @@
                 },
                 {
                   "type": "frame",
-                  "id": "6qpFi",
-                  "name": "Overview Card 1",
+                  "id": "dGvi6",
+                  "name": "ovItem1",
                   "width": "fill_container",
-                  "fill": "$bg-surface",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
                     "fill": "$border-subtle"
                   },
-                  "effect": {
-                    "type": "shadow",
-                    "shadowType": "outer",
-                    "color": "#1A191808",
-                    "offset": {
-                      "x": 0,
-                      "y": 2
-                    },
-                    "blur": 12
-                  },
                   "layout": "vertical",
-                  "gap": 8,
+                  "gap": 12,
                   "padding": 16,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "jVJmj",
-                      "name": "ovCard1Header",
+                      "id": "7QsHy",
+                      "name": "titleWrap1",
                       "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
+                      "layout": "vertical",
+                      "gap": 4,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "gEgAS",
-                          "name": "ovCard1TitleInput",
+                          "id": "0pkfV",
+                          "name": "labelRow1",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Zw4Zg",
+                              "name": "titleLabel1",
+                              "fill": "$text-secondary",
+                              "content": "タイトル",
+                              "fontFamily": "Outfit",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "S1dX2",
+                              "name": "ovItem1Del",
+                              "width": 24,
+                              "height": 24,
+                              "fill": "#FEF2F2",
+                              "cornerRadius": 100,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "ePWZd",
+                                  "name": "ovItem1DelIcon",
+                                  "width": 14,
+                                  "height": 14,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EF4444"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "llweA",
+                          "name": "ovItem1Input",
                           "width": "fill_container",
                           "height": 40,
-                          "fill": "$bg-elevated",
+                          "fill": "$bg-surface",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
@@ -278,8 +310,8 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "C3BEk",
-                              "name": "ovCard1TitleText",
+                              "id": "T3q9Q",
+                              "name": "ovItem1Title",
                               "fill": "$text-primary",
                               "content": "旅費",
                               "fontFamily": "Outfit",
@@ -287,58 +319,56 @@
                               "fontWeight": "500"
                             }
                           ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "4wVZT",
-                          "name": "ovCard1Delete",
-                          "width": 32,
-                          "height": 32,
-                          "cornerRadius": 100,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon_font",
-                              "id": "vvosD",
-                              "name": "ovCard1DeleteIcon",
-                              "width": 16,
-                              "height": 16,
-                              "iconFontName": "trash-2",
-                              "iconFontFamily": "lucide",
-                              "fill": "$text-tertiary"
-                            }
-                          ]
                         }
                       ]
                     },
                     {
                       "type": "frame",
-                      "id": "TmKOE",
-                      "name": "ovCard1Content",
+                      "id": "tDV7r",
+                      "name": "contentWrap1",
                       "width": "fill_container",
-                      "height": 80,
-                      "fill": "$bg-elevated",
-                      "cornerRadius": 8,
-                      "stroke": {
-                        "align": "inside",
-                        "thickness": 1,
-                        "fill": "$border-subtle"
-                      },
-                      "padding": 12,
+                      "layout": "vertical",
+                      "gap": 4,
                       "children": [
                         {
                           "type": "text",
-                          "id": "LPhPN",
-                          "name": "ovCard1ContentText",
-                          "fill": "$text-primary",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "一人あたり約50,000円（交通費・宿泊費込み）",
-                          "lineHeight": 1.5,
+                          "id": "s0Asc",
+                          "name": "contentLabel1",
+                          "fill": "$text-secondary",
+                          "content": "内容",
                           "fontFamily": "Outfit",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ZgOjJ",
+                          "name": "ovItem1Textarea",
+                          "width": "fill_container",
+                          "height": 96,
+                          "fill": "$bg-surface",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1,
+                            "fill": "$border-subtle"
+                          },
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NtVbh",
+                              "name": "ovItem1Content",
+                              "fill": "$text-primary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "一人あたり約50,000円（交通費・宿泊費込み）",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Outfit",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -346,45 +376,77 @@
                 },
                 {
                   "type": "frame",
-                  "id": "8eQeX",
-                  "name": "Overview Card 2",
+                  "id": "7cu1G",
+                  "name": "ovItem2",
                   "width": "fill_container",
-                  "fill": "$bg-surface",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
                     "fill": "$border-subtle"
                   },
-                  "effect": {
-                    "type": "shadow",
-                    "shadowType": "outer",
-                    "color": "#1A191808",
-                    "offset": {
-                      "x": 0,
-                      "y": 2
-                    },
-                    "blur": 12
-                  },
                   "layout": "vertical",
-                  "gap": 8,
+                  "gap": 12,
                   "padding": 16,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "THYdt",
-                      "name": "ovCard2Header",
+                      "id": "V1u4R",
+                      "name": "titleWrap2",
                       "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
+                      "layout": "vertical",
+                      "gap": 4,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "o7mFX",
-                          "name": "ovCard2TitleInput",
+                          "id": "M2xm4",
+                          "name": "labelRow2",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "hhEGT",
+                              "name": "titleLabel2",
+                              "fill": "$text-secondary",
+                              "content": "タイトル",
+                              "fontFamily": "Outfit",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "FNqxd",
+                              "name": "ovItem2Del",
+                              "width": 24,
+                              "height": 24,
+                              "fill": "#FEF2F2",
+                              "cornerRadius": 100,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "MsCkS",
+                                  "name": "ovItem2DelIcon",
+                                  "width": 14,
+                                  "height": 14,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EF4444"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "s1AvC",
+                          "name": "ovItem2Input",
                           "width": "fill_container",
                           "height": 40,
-                          "fill": "$bg-elevated",
+                          "fill": "$bg-surface",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
@@ -399,8 +461,8 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "zghAc",
-                              "name": "ovCard2TitleText",
+                              "id": "mPX2O",
+                              "name": "ovItem2Title",
                               "fill": "$text-primary",
                               "content": "持ち物",
                               "fontFamily": "Outfit",
@@ -408,58 +470,56 @@
                               "fontWeight": "500"
                             }
                           ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "fGMOA",
-                          "name": "ovCard2Delete",
-                          "width": 32,
-                          "height": 32,
-                          "cornerRadius": 100,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon_font",
-                              "id": "FJWyY",
-                              "name": "ovCard2DeleteIcon",
-                              "width": 16,
-                              "height": 16,
-                              "iconFontName": "trash-2",
-                              "iconFontFamily": "lucide",
-                              "fill": "$text-tertiary"
-                            }
-                          ]
                         }
                       ]
                     },
                     {
                       "type": "frame",
-                      "id": "lfMRO",
-                      "name": "ovCard2Content",
+                      "id": "arll6",
+                      "name": "contentWrap2",
                       "width": "fill_container",
-                      "height": 80,
-                      "fill": "$bg-elevated",
-                      "cornerRadius": 8,
-                      "stroke": {
-                        "align": "inside",
-                        "thickness": 1,
-                        "fill": "$border-subtle"
-                      },
-                      "padding": 12,
+                      "layout": "vertical",
+                      "gap": 4,
                       "children": [
                         {
                           "type": "text",
-                          "id": "SKdmM",
-                          "name": "ovCard2ContentText",
-                          "fill": "$text-primary",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "パスポート、日焼け止め、水着",
-                          "lineHeight": 1.5,
+                          "id": "RWWZC",
+                          "name": "contentLabel2",
+                          "fill": "$text-secondary",
+                          "content": "内容",
                           "fontFamily": "Outfit",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "qKZ0i",
+                          "name": "ovItem2Textarea",
+                          "width": "fill_container",
+                          "height": 96,
+                          "fill": "$bg-surface",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1,
+                            "fill": "$border-subtle"
+                          },
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "385Kd",
+                              "name": "ovItem2Content",
+                              "fill": "$text-primary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "パスポート、日焼け止め、水着",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Outfit",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -467,45 +527,77 @@
                 },
                 {
                   "type": "frame",
-                  "id": "zczoQ",
-                  "name": "Overview Card 3",
+                  "id": "kvKeX",
+                  "name": "ovItem3",
                   "width": "fill_container",
-                  "fill": "$bg-surface",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
                     "fill": "$border-subtle"
                   },
-                  "effect": {
-                    "type": "shadow",
-                    "shadowType": "outer",
-                    "color": "#1A191808",
-                    "offset": {
-                      "x": 0,
-                      "y": 2
-                    },
-                    "blur": 12
-                  },
                   "layout": "vertical",
-                  "gap": 8,
+                  "gap": 12,
                   "padding": 16,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "EQO8h",
-                      "name": "ovCard2Header",
+                      "id": "KVhaU",
+                      "name": "titleWrap3",
                       "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
+                      "layout": "vertical",
+                      "gap": 4,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "Ql0dD",
-                          "name": "ovCard2TitleInput",
+                          "id": "Nm0eW",
+                          "name": "labelRow3",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "lo3R8",
+                              "name": "titleLabel3",
+                              "fill": "$text-secondary",
+                              "content": "タイトル",
+                              "fontFamily": "Outfit",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "meQv8",
+                              "name": "ovItem3Del",
+                              "width": 24,
+                              "height": 24,
+                              "fill": "#FEF2F2",
+                              "cornerRadius": 100,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "EyWka",
+                                  "name": "ovItem3DelIcon",
+                                  "width": 14,
+                                  "height": 14,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EF4444"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "E4ara",
+                          "name": "ovItem3Input",
                           "width": "fill_container",
                           "height": 40,
-                          "fill": "$bg-elevated",
+                          "fill": "$bg-surface",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
@@ -520,8 +612,8 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "NKw3K",
-                              "name": "ovCard2TitleText",
+                              "id": "oQywD",
+                              "name": "ovItem3Title",
                               "fill": "$text-primary",
                               "content": "ホテル",
                               "fontFamily": "Outfit",
@@ -529,58 +621,56 @@
                               "fontWeight": "500"
                             }
                           ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "9XcGl",
-                          "name": "ovCard2Delete",
-                          "width": 32,
-                          "height": 32,
-                          "cornerRadius": 100,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon_font",
-                              "id": "s39AC",
-                              "name": "ovCard2DeleteIcon",
-                              "width": 16,
-                              "height": 16,
-                              "iconFontName": "trash-2",
-                              "iconFontFamily": "lucide",
-                              "fill": "$text-tertiary"
-                            }
-                          ]
                         }
                       ]
                     },
                     {
                       "type": "frame",
-                      "id": "nXpBP",
-                      "name": "ovCard2Content",
+                      "id": "Zipgg",
+                      "name": "contentWrap3",
                       "width": "fill_container",
-                      "height": 80,
-                      "fill": "$bg-elevated",
-                      "cornerRadius": 8,
-                      "stroke": {
-                        "align": "inside",
-                        "thickness": 1,
-                        "fill": "$border-subtle"
-                      },
-                      "padding": 12,
+                      "layout": "vertical",
+                      "gap": 4,
                       "children": [
                         {
                           "type": "text",
-                          "id": "k1XSF",
-                          "name": "ovCard2ContentText",
-                          "fill": "$text-primary",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "コーラルサンセットリゾート 恩納村。3月15日〜16日、1泊2名・朝食付き。",
-                          "lineHeight": 1.5,
+                          "id": "C9sMc",
+                          "name": "contentLabel3",
+                          "fill": "$text-secondary",
+                          "content": "内容",
                           "fontFamily": "Outfit",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UZyTt",
+                          "name": "ovItem3Textarea",
+                          "width": "fill_container",
+                          "height": 96,
+                          "fill": "$bg-surface",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1,
+                            "fill": "$border-subtle"
+                          },
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JjByM",
+                              "name": "ovItem3Content",
+                              "fill": "$text-primary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "コーラルサンセットリゾート 恩納村。3月15日〜16日、1泊2名・朝食付き。",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Outfit",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -647,6 +737,102 @@
                           "fontFamily": "Outfit",
                           "fontSize": 12,
                           "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "D1wKu",
+                  "name": "startDateSection",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vYqkn",
+                      "name": "startDateLabelRow",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "uN9tA",
+                          "name": "startDateLabelText",
+                          "fill": "$text-primary",
+                          "content": "旅行開始日",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "IvdNp",
+                          "name": "startDateOptBadge",
+                          "fill": "$bg-muted",
+                          "cornerRadius": 4,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "V5z5y",
+                              "name": "startDateOptText",
+                              "fill": "$text-tertiary",
+                              "content": "任意",
+                              "fontFamily": "Outfit",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dmjxf",
+                      "name": "startDateInput",
+                      "width": "fill_container",
+                      "height": 40,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border-subtle"
+                      },
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Zj42D",
+                          "name": "startDatePlaceholder",
+                          "fill": "$text-tertiary",
+                          "content": "旅行開始日を選択",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "qjgR3",
+                          "name": "startDateCalIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "calendar",
+                          "iconFontFamily": "lucide",
+                          "fill": "$text-tertiary"
                         }
                       ]
                     }
@@ -741,68 +927,6 @@
                       "width": "fill_container",
                       "gap": 8,
                       "children": [
-                        {
-                          "type": "frame",
-                          "id": "Vlam1",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "NEqYC",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "dJzop",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "d61Gv",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/15",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "79mC3",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
                         {
                           "type": "frame",
                           "id": "oiKrv",
@@ -1322,68 +1446,6 @@
                       "children": [
                         {
                           "type": "frame",
-                          "id": "9X1Pw",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "WR2Vc",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "U9BXP",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "Q6LOg",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/15",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "PQmh8",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
                           "id": "lVtO4",
                           "name": "schCard1TimeWrap",
                           "width": "fill_container",
@@ -1899,68 +1961,6 @@
                       "width": "fill_container",
                       "gap": 8,
                       "children": [
-                        {
-                          "type": "frame",
-                          "id": "imrwg",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "aGF5A",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "3JPfQ",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "mNdO2",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/15",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "D7d0C",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
                         {
                           "type": "frame",
                           "id": "wfoEo",
@@ -2480,68 +2480,6 @@
                       "children": [
                         {
                           "type": "frame",
-                          "id": "DE0r5",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "KHh7i",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "YQufm",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "QWOEE",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/16",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "hVKSV",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
                           "id": "zhc49",
                           "name": "schCard1TimeWrap",
                           "width": "fill_container",
@@ -3057,68 +2995,6 @@
                       "width": "fill_container",
                       "gap": 8,
                       "children": [
-                        {
-                          "type": "frame",
-                          "id": "AOrcd",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "QGpiG",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "88owj",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "YjWDk",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/16",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "lsiqW",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
                         {
                           "type": "frame",
                           "id": "jaRdM",
@@ -3638,68 +3514,6 @@
                       "children": [
                         {
                           "type": "frame",
-                          "id": "kDMP7",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "RsAql",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "kGGGm",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "o52s8",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/17",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "MlNdl",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
                           "id": "tevsJ",
                           "name": "schCard1TimeWrap",
                           "width": "fill_container",
@@ -4214,68 +4028,6 @@
                       "width": "fill_container",
                       "gap": 8,
                       "children": [
-                        {
-                          "type": "frame",
-                          "id": "Rftx2",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "LmafU",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "bWF8k",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "STK5K",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/17",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "ZVEs9",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
                         {
                           "type": "frame",
                           "id": "O5l6N",
@@ -4793,68 +4545,6 @@
                       "width": "fill_container",
                       "gap": 8,
                       "children": [
-                        {
-                          "type": "frame",
-                          "id": "hc5oI",
-                          "name": "schCard1DateWrap",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "Vkvl4",
-                              "name": "schCard1DateLabel",
-                              "fill": "$text-secondary",
-                              "content": "日付",
-                              "fontFamily": "Outfit",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "942sR",
-                              "name": "schCard1DateInput",
-                              "width": "fill_container",
-                              "height": 40,
-                              "fill": "$bg-elevated",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "align": "inside",
-                                "thickness": 1,
-                                "fill": "$border-subtle"
-                              },
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "3F9CJ",
-                                  "name": "schCard1DateText",
-                                  "fill": "$text-primary",
-                                  "content": "2025/03/17",
-                                  "fontFamily": "Outfit",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon_font",
-                                  "id": "vaTT1",
-                                  "name": "schCard1DateIcon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "calendar",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "$text-tertiary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
                         {
                           "type": "frame",
                           "id": "Mg9Lz",
