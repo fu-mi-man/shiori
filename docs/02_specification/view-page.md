@@ -15,17 +15,13 @@
 
 ```html
 <ol class="timeline-grid" aria-label="1日目の行程">
-  <li class="timeline-item">
+  <li class="timeline-item" data-transport="car">
     <div class="timeline-marker" aria-hidden="true">●</div>
     <article class="timeline-card">
       <time datetime="10:00">10:00</time>
       <h3>那覇空港 到着</h3>
       <p>LCC利用。第2ターミナル</p>
     </article>
-  </li>
-
-  <li class="timeline-connector" aria-hidden="true">
-    <span>🚗</span>
   </li>
 
   <li class="timeline-item">
@@ -41,3 +37,4 @@
 
 - 左カラム（マーカー/接続線）と右カラム（カード）が**同じGrid行**にあるため、カード高さに自動追従する
 - 接続線は `border-left` + 擬似要素で実装（固定heightを使わない）
+- 交通手段アイコンは `data-transport` 属性 + `::after` 擬似要素で描画（`<li>` を増やさない）
