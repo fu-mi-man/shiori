@@ -16,15 +16,17 @@ docker compose up --build
 
 詳細は `docs/` を参照。
 
-| ファイル | 内容 |
-|----------|------|
-| requirements/data.md | データ定義 |
-| requirements/features.md | 機能要件 |
-| requirements/overview.md | サービス概要 |
-| requirements/screens.md | 画面定義 |
-| technology.md | 技術選定 |
-| development.md | 開発環境 |
-| benchmark.md | 競合分析 |
+| ディレクトリ / ファイル | 内容 |
+|------------------------|------|
+| `01_requirements/01_overview.md` | サービス概要 |
+| `01_requirements/02_features.md` | 機能要件 |
+| `01_requirements/03_screens.md` | 画面定義 |
+| `01_requirements/04_data.md` | データ定義 |
+| `01_requirements/05_development.md` | 開発環境・ルーティング |
+| `02_specification/` | 詳細設計（必要に応じて追加） |
+| `02_specification/view-page.md` | 表示画面の実装仕様 |
+| `99_research/technology.md` | 技術選定 |
+| `99_research/benchmark.md` | 競合分析 |
 
 
 
