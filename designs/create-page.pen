@@ -1298,6 +1298,35 @@
                                   "fill": "$text-tertiary"
                                 }
                               ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr01",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI01",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -1811,6 +1840,35 @@
                                   "width": 18,
                                   "height": 18,
                                   "iconFontName": "car-taxi-front",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr02",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI02",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
                                   "iconFontFamily": "lucide",
                                   "fill": "$text-tertiary"
                                 }
@@ -2332,6 +2390,35 @@
                                   "fill": "$text-tertiary"
                                 }
                               ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr03",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI03",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -2845,6 +2932,35 @@
                                   "width": 18,
                                   "height": 18,
                                   "iconFontName": "car-taxi-front",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr04",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI04",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
                                   "iconFontFamily": "lucide",
                                   "fill": "$text-tertiary"
                                 }
@@ -3366,6 +3482,35 @@
                                   "fill": "$text-tertiary"
                                 }
                               ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr05",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI05",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -3879,6 +4024,35 @@
                                   "width": 18,
                                   "height": 18,
                                   "iconFontName": "car-taxi-front",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr06",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI06",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
                                   "iconFontFamily": "lucide",
                                   "fill": "$text-tertiary"
                                 }
@@ -4399,6 +4573,35 @@
                                   "fill": "$text-tertiary"
                                 }
                               ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr07",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI07",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -4912,6 +5115,35 @@
                                   "width": 18,
                                   "height": 18,
                                   "iconFontName": "car-taxi-front",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "$text-tertiary"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ccr08",
+                              "name": "trCablecar",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg-elevated",
+                              "cornerRadius": 8,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$border-subtle"
+                              },
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CcI08",
+                                  "name": "trCablecarIcon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "cable-car",
                                   "iconFontFamily": "lucide",
                                   "fill": "$text-tertiary"
                                 }
