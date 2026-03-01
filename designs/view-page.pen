@@ -17,14 +17,7 @@
           "id": "191MK",
           "name": "Header",
           "width": "fill_container",
-          "fill": "$accent-light",
-          "stroke": {
-            "align": "inside",
-            "thickness": {
-              "bottom": 1
-            },
-            "fill": "$accent-light"
-          },
+          "fill": "$accent-primary",
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -53,7 +46,7 @@
                       "type": "text",
                       "id": "oA88h",
                       "name": "headerTitle",
-                      "fill": "$text-primary",
+                      "fill": "#FFFFFF",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "沖縄旅行 2025年3月",
@@ -66,7 +59,7 @@
                       "type": "text",
                       "id": "ayNAF",
                       "name": "headerDate",
-                      "fill": "$text-secondary",
+                      "fill": "#FFFFFFCC",
                       "content": "2025/03/15 〜 2025/03/17",
                       "fontFamily": "Outfit",
                       "fontSize": 13,
@@ -89,7 +82,7 @@
                   "name": "copyBtn",
                   "width": "fill_container",
                   "height": 40,
-                  "fill": "$accent-primary",
+                  "fill": "$bg-surface",
                   "cornerRadius": 100,
                   "gap": 6,
                   "padding": [
@@ -107,13 +100,13 @@
                       "height": 16,
                       "iconFontName": "link",
                       "iconFontFamily": "lucide",
-                      "fill": "#FFFFFF"
+                      "fill": "$accent-primary"
                     },
                     {
                       "type": "text",
                       "id": "0fxXa",
                       "name": "copyText",
-                      "fill": "#FFFFFF",
+                      "fill": "$accent-primary",
                       "content": "URLをコピー",
                       "fontFamily": "Outfit",
                       "fontSize": 13,
@@ -129,11 +122,6 @@
                   "height": 40,
                   "fill": "$bg-surface",
                   "cornerRadius": 100,
-                  "stroke": {
-                    "align": "inside",
-                    "thickness": 1,
-                    "fill": "#A8D8B8"
-                  },
                   "gap": 6,
                   "padding": [
                     0,
@@ -150,13 +138,13 @@
                       "height": 16,
                       "iconFontName": "pencil",
                       "iconFontFamily": "lucide",
-                      "fill": "$text-secondary"
+                      "fill": "$accent-primary"
                     },
                     {
                       "type": "text",
                       "id": "Ht2pE",
                       "name": "editText2",
-                      "fill": "$text-primary",
+                      "fill": "$accent-primary",
                       "content": "編集する",
                       "fontFamily": "Outfit",
                       "fontSize": 13,

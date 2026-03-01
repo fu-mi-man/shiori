@@ -24,14 +24,7 @@
           "name": "Header",
           "width": "fill_container",
           "height": 56,
-          "fill": "$accent-light",
-          "stroke": {
-            "align": "inside",
-            "thickness": {
-              "bottom": 1
-            },
-            "fill": "$accent-light"
-          },
+          "fill": "$accent-primary",
           "padding": [
             0,
             20
@@ -43,7 +36,7 @@
               "type": "text",
               "id": "qPDT4",
               "name": "headerTitle",
-              "fill": "$text-primary",
+              "fill": "#FFFFFF",
               "content": "しおりを作る",
               "fontFamily": "Outfit",
               "fontSize": 18,
@@ -346,7 +339,7 @@
                           "id": "ZgOjJ",
                           "name": "ovItem1Textarea",
                           "width": "fill_container",
-                          "height": 96,
+                          "height": 84,
                           "fill": "$bg-surface",
                           "cornerRadius": 8,
                           "stroke": {
@@ -508,7 +501,7 @@
                           "id": "qKZ0i",
                           "name": "ovItem2Textarea",
                           "width": "fill_container",
-                          "height": 96,
+                          "height": 84,
                           "fill": "$bg-surface",
                           "cornerRadius": 8,
                           "stroke": {
@@ -670,7 +663,7 @@
                           "id": "UZyTt",
                           "name": "ovItem3Textarea",
                           "width": "fill_container",
-                          "height": 96,
+                          "height": 84,
                           "fill": "$bg-surface",
                           "cornerRadius": 8,
                           "stroke": {
@@ -1386,7 +1379,7 @@
                               "id": "DqScf",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -1900,7 +1893,7 @@
                               "id": "jehZF",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -2414,7 +2407,7 @@
                               "id": "QoTZK",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -3044,7 +3037,7 @@
                               "id": "goiKK",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -3558,7 +3551,7 @@
                               "id": "tuGSO",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -4188,7 +4181,7 @@
                               "id": "AY7x8",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -4701,7 +4694,7 @@
                               "id": "wCkJ4",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
@@ -5215,7 +5208,7 @@
                               "id": "q0qGa",
                               "name": "noteInput",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "fill": "#FFFFFF",
                               "cornerRadius": 8,
                               "stroke": {
