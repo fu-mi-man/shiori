@@ -1,0 +1,20 @@
+# CodeRabbit 設定ファイル
+# https://docs.coderabbit.ai/reference/configuration
+
+language: "ja"                                # レビュー言語（日本語）
+
+reviews:
+  auto_review:
+    drafts: false                             # ドラフトPRはレビューしない
+    enabled: true                             # 自動レビューを有効にする
+  collapse_walkthrough: true                  # ウォークスルーを折りたたみ表示
+  estimate_code_review_effort: true           # レビュー工数の見積もりを表示
+  high_level_summary: true                    # PRの高レベルサマリーを生成
+  poem: false                                 # ポエム生成を無効化
+  profile: "chill"                            # chill（緩め）/ assertive（厳しめ）
+  related_prs: true                           # 関連PRを表示
+  review_status: false                        # 「レビュー中...」コメント無効（メール1通に削減）
+  sequence_diagrams: true                     # シーケンス図を生成
+  tools:
+    biome:
+      enabled: true                           # プロジェクトのリンター連携
