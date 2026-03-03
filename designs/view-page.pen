@@ -1848,7 +1848,14 @@
     },
     "status-negative": {
       "type": "color",
-      "value": "#D08068"
+      "value": [
+        {
+          "value": "#D08068"
+        },
+        {
+          "value": "#DC2626"
+        }
+      ]
     },
     "status-positive": {
       "type": "color",
