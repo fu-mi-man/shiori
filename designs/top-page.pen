@@ -813,7 +813,7 @@
                       "id": "S374g",
                       "name": "p2t",
                       "fill": "$text-primary",
-                      "content": "1秒以内で表示される軽量設計",
+                      "content": "高速表示に最適化された軽量設計",
                       "fontFamily": "Outfit",
                       "fontSize": 14,
                       "fontWeight": "500"
@@ -1582,7 +1582,7 @@
               "id": "5xFdN",
               "name": "footerCopy",
               "fill": "#FFFFFF88",
-              "content": "© 2025 Shiori",
+              "content": "© Shiori",
               "fontFamily": "Outfit",
               "fontSize": 12,
               "fontWeight": "normal"
