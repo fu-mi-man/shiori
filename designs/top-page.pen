@@ -1,0 +1,1653 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "NELSm",
+      "x": 0,
+      "y": 0,
+      "name": "Top Page",
+      "clip": true,
+      "width": 390,
+      "fill": "$bg-primary",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Gi70L",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 56,
+          "fill": "$bg-primary",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ZEgoj",
+              "name": "logoText",
+              "fill": "$accent-primary",
+              "content": "Shiori",
+              "fontFamily": "Outfit",
+              "fontSize": 20,
+              "fontWeight": "700",
+              "letterSpacing": -0.5
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Q1rTJ",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            40,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "wnPmH",
+              "name": "Hero Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nRjot",
+                  "name": "Icon Container",
+                  "width": 72,
+                  "height": 72,
+                  "fill": "$accent-primary",
+                  "cornerRadius": 20,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "7o1Kd",
+                      "name": "heroIcon",
+                      "width": 36,
+                      "height": 36,
+                      "iconFontName": "map",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "DcZa2",
+                  "name": "Hero Title",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "旅のしおりを\nかんたん作成",
+                  "lineHeight": 1.3,
+                  "textAlign": "center",
+                  "fontFamily": "Outfit",
+                  "fontSize": 32,
+                  "fontWeight": "800",
+                  "letterSpacing": -0.5
+                },
+                {
+                  "type": "text",
+                  "id": "BJS6F",
+                  "name": "Hero Subtitle",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "行程表をサクッと作って、URLでみんなにシェア。\nアカウント登録は不要です。",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "Outfit",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XqGUT",
+              "name": "CTA Button",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "$accent-primary",
+              "cornerRadius": 12,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#3D8A5A30",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 8
+              },
+              "gap": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "P32wR",
+                  "name": "ctaIcon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "pen-line",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "p6mNb",
+                  "name": "ctaText",
+                  "fill": "#FFFFFF",
+                  "content": "しおりを作る",
+                  "fontFamily": "Outfit",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6OR0Z",
+              "name": "Free Badge",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Fhp6z",
+                  "name": "icon2",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "circle-check",
+                  "iconFontFamily": "lucide",
+                  "fill": "$accent-primary"
+                },
+                {
+                  "type": "text",
+                  "id": "bwQ5X",
+                  "name": "text2",
+                  "fill": "$accent-primary",
+                  "content": "無料・登録不要ですぐ使える",
+                  "fontFamily": "Outfit",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BUBoa",
+          "name": "Features Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "0Z6Mn",
+              "name": "Section Heading 1",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JCUQb",
+                  "name": "h1bar",
+                  "width": 4,
+                  "height": 24,
+                  "fill": "$accent-primary",
+                  "cornerRadius": 2
+                },
+                {
+                  "type": "text",
+                  "id": "h5tNh",
+                  "name": "h1text",
+                  "fill": "$text-primary",
+                  "content": "Shioriの特徴",
+                  "fontFamily": "Outfit",
+                  "fontSize": 20,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UwxhZ",
+              "name": "Feature Cards",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "eQcsy",
+                  "name": "Feature Card 1",
+                  "width": "fill_container",
+                  "fill": "$bg-surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "gap": 14,
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Av3nM",
+                      "name": "card1Icon",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "$accent-light",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "lW6pQ",
+                          "name": "card1IconInner",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "zap",
+                          "iconFontFamily": "lucide",
+                          "fill": "$accent-primary"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bc3uS",
+                      "name": "card1Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pBBB3",
+                          "name": "card1Title",
+                          "fill": "$text-primary",
+                          "content": "かんたん作成",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CRmgX",
+                          "name": "card1Desc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "タイトルを入れるだけでOK。行程は後から追加できます",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "1hK6V",
+                  "name": "Feature Card 2",
+                  "width": "fill_container",
+                  "fill": "$bg-surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "gap": 14,
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UmNlk",
+                      "name": "card2Icon",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "$accent-light",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "MkWFg",
+                          "name": "card2IconInner",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "link",
+                          "iconFontFamily": "lucide",
+                          "fill": "$accent-primary"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IKMUV",
+                      "name": "card2Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mc1Tv",
+                          "name": "card2Title",
+                          "fill": "$text-primary",
+                          "content": "URLでシェア",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Yca9j",
+                          "name": "card2Desc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "作ったしおりはURLをコピーするだけで共有完了",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "503YE",
+                  "name": "Feature Card 3",
+                  "width": "fill_container",
+                  "fill": "$bg-surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "gap": 14,
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jP9na",
+                      "name": "card3Icon",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "$accent-light",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "ChjHa",
+                          "name": "card3IconInner",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "user-x",
+                          "iconFontFamily": "lucide",
+                          "fill": "$accent-primary"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hNymZ",
+                      "name": "card3Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "35LIc",
+                          "name": "card3Title",
+                          "fill": "$text-primary",
+                          "content": "アカウント不要",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jBdYh",
+                          "name": "card3Desc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "会員登録なしですぐ使える。メールアドレスも不要です",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZPNRN",
+          "name": "How To Section",
+          "width": "fill_container",
+          "fill": "$bg-primary",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "ub58B",
+              "name": "Section Heading 2",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qWFzT",
+                  "name": "h2bar",
+                  "width": 4,
+                  "height": 24,
+                  "fill": "$accent-primary",
+                  "cornerRadius": 2
+                },
+                {
+                  "type": "text",
+                  "id": "JPxQ5",
+                  "name": "h2text",
+                  "fill": "$text-primary",
+                  "content": "たった3ステップ",
+                  "fontFamily": "Outfit",
+                  "fontSize": 20,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "4Ism9",
+              "name": "Steps",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lrGRi",
+                  "name": "Step 1",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "25W3I",
+                      "name": "step1Num",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 16,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yWF1u",
+                          "name": "step1NumText",
+                          "fill": "#FFFFFF",
+                          "content": "1",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3dQz1",
+                      "name": "step1Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d7KCN",
+                          "name": "step1Title",
+                          "fill": "$text-primary",
+                          "content": "しおりを作る",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JkrZg",
+                          "name": "step1Desc",
+                          "fill": "$text-secondary",
+                          "content": "タイトルと行程を入力するだけ",
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iiOsZ",
+                  "name": "Step 2",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GVq95",
+                      "name": "step2Num",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 16,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "O8RKR",
+                          "name": "step2NumText",
+                          "fill": "#FFFFFF",
+                          "content": "2",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "8Gq11",
+                      "name": "step2Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HEieS",
+                          "name": "step2Title",
+                          "fill": "$text-primary",
+                          "content": "URLをコピー",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "9lLJI",
+                          "name": "step2Desc",
+                          "fill": "$text-secondary",
+                          "content": "完成したらURLが自動で発行",
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dKioZ",
+                  "name": "Step 3",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "93lxo",
+                      "name": "step3Num",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 16,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vYCCb",
+                          "name": "step3NumText",
+                          "fill": "#FFFFFF",
+                          "content": "3",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xHVmn",
+                      "name": "step3Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HrA8n",
+                          "name": "step3Title",
+                          "fill": "$text-primary",
+                          "content": "みんなにシェア",
+                          "fontFamily": "Outfit",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "yzb1m",
+                          "name": "step3Desc",
+                          "fill": "$text-secondary",
+                          "content": "URLを送れば全員が同じ予定を確認",
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QuqBX",
+          "name": "Experience Section",
+          "width": "fill_container",
+          "fill": "$bg-primary",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "IHW47",
+              "name": "Section Heading 3",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nCWkV",
+                  "name": "h3bar",
+                  "width": 4,
+                  "height": 24,
+                  "fill": "$accent-primary",
+                  "cornerRadius": 2
+                },
+                {
+                  "type": "text",
+                  "id": "44wva",
+                  "name": "h3text",
+                  "fill": "$text-primary",
+                  "content": "旅先での「確認」に最適化",
+                  "fontFamily": "Outfit",
+                  "fontSize": 20,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.3
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "iNRMC",
+              "name": "confirmDesc",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "移動中でもストレスなく、次の予定がすぐわかります。",
+              "lineHeight": 1.7,
+              "fontFamily": "Outfit",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "JrF7M",
+              "name": "Points",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aDR09",
+                  "name": "p1",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "rgq1L",
+                      "name": "p1i",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "smartphone",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Sf9ct",
+                      "name": "p1t",
+                      "fill": "$text-primary",
+                      "content": "モバイルファーストのタイムライン表示",
+                      "fontFamily": "Outfit",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gcnBk",
+                  "name": "p2",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "ZEmSR",
+                      "name": "p2i",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "zap",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "text",
+                      "id": "S374g",
+                      "name": "p2t",
+                      "fill": "$text-primary",
+                      "content": "高速表示に最適化された軽量設計",
+                      "fontFamily": "Outfit",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QbcdA",
+                  "name": "p3",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "4IlaI",
+                      "name": "p3i",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "eye",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "text",
+                      "id": "L7rsf",
+                      "name": "p3t",
+                      "fill": "$text-primary",
+                      "content": "交通アイコンで次の移動手段がひと目でわかる",
+                      "fontFamily": "Outfit",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Q56MW",
+          "name": "Voices Section",
+          "width": "fill_container",
+          "fill": "$bg-primary",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "zu7sG",
+              "name": "Section Heading 5",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "W5abM",
+                  "name": "h5bar",
+                  "width": 4,
+                  "height": 24,
+                  "fill": "$accent-primary",
+                  "cornerRadius": 2
+                },
+                {
+                  "type": "text",
+                  "id": "DWJcj",
+                  "name": "h5text",
+                  "fill": "$text-primary",
+                  "content": "しおりがあると、こう変わる",
+                  "fontFamily": "Outfit",
+                  "fontSize": 20,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fQdob",
+              "name": "Voice Cards",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "8F8zk",
+                  "name": "v1",
+                  "width": "fill_container",
+                  "fill": "$bg-surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "aL2FH",
+                      "name": "v1icon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "pen-line",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-warm"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UEuAZ",
+                      "name": "v1text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "K0EeN",
+                          "name": "v1quote",
+                          "fill": "$text-primary",
+                          "content": "旅の全体像がクリアになる",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dgre8",
+                          "name": "v1desc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "行程を書き出すだけで準備の抜け漏れに気づけます",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Outfit",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L0RTJ",
+                  "name": "v2",
+                  "width": "fill_container",
+                  "fill": "$bg-surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "Cg48U",
+                      "name": "v2icon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "users",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-warm"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2uVj5",
+                      "name": "v2text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "edCbv",
+                          "name": "v2quote",
+                          "fill": "$text-primary",
+                          "content": "「予定どうだっけ？」がなくなる",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Adc8n",
+                          "name": "v2desc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "URLを送るだけで全員が同じ予定を確認できます",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Outfit",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GZ3CX",
+                  "name": "v3",
+                  "width": "fill_container",
+                  "fill": "$bg-surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "vqvB0",
+                      "name": "v3icon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "timer",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-warm"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X3hUp",
+                      "name": "v3text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wbosN",
+                          "name": "v3quote",
+                          "fill": "$text-primary",
+                          "content": "当日の段取りがスムーズになる",
+                          "fontFamily": "Outfit",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cM6M0",
+                          "name": "v3desc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "集合時間や移動手段が明確だから、当日慌てません",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Outfit",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "3WJbQ",
+          "name": "Comparison Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            24,
+            24,
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Waj2d",
+              "name": "Section Heading 4",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T14Ak",
+                  "name": "h4bar",
+                  "width": 4,
+                  "height": 24,
+                  "fill": "$accent-primary",
+                  "cornerRadius": 2
+                },
+                {
+                  "type": "text",
+                  "id": "fKNeV",
+                  "name": "h4text",
+                  "fill": "$text-primary",
+                  "content": "他サービスとの違い",
+                  "fontFamily": "Outfit",
+                  "fontSize": 20,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "St2Pm",
+              "name": "VS Table",
+              "clip": true,
+              "width": "fill_container",
+              "fill": "$bg-surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border-subtle"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gyq8i",
+                  "name": "vsHeader",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "$accent-primary",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1eXuO",
+                      "name": "vsH1",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fQSDn",
+                      "name": "vsH2",
+                      "fill": "#FFFFFFAA",
+                      "textGrowth": "fixed-width",
+                      "width": 70,
+                      "content": "アプリ型",
+                      "textAlign": "center",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nCYkN",
+                      "name": "vsH3",
+                      "fill": "#FFFFFFAA",
+                      "textGrowth": "fixed-width",
+                      "width": 70,
+                      "content": "他Web型",
+                      "textAlign": "center",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "USqDO",
+                      "name": "vsH4",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "Shiori",
+                      "textAlign": "center",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "r2c4n",
+                  "name": "row1",
+                  "width": "fill_container",
+                  "height": 40,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border-subtle"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "C29Rf",
+                      "name": "r1l",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "登録不要",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "3mweK",
+                      "name": "r1a",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "x",
+                      "iconFontFamily": "lucide",
+                      "fill": "$status-negative"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5P4lY",
+                      "name": "r1aSpacer",
+                      "width": 54,
+                      "height": "fit_content(0)"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "fSBdZ",
+                      "name": "r1b",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$status-positive"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mfC28",
+                      "name": "r1bSpacer",
+                      "width": 54,
+                      "height": "fit_content(0)"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "wnowz",
+                      "name": "r1c",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pQ3tB",
+                      "name": "r1cSpacer",
+                      "width": 22,
+                      "height": "fit_content(0)"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "3idAl",
+                  "name": "row2",
+                  "width": "fill_container",
+                  "height": 40,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border-subtle"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TlP5c",
+                      "name": "r2l",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "インストール不要",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "IspnO",
+                      "name": "r2a",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "x",
+                      "iconFontFamily": "lucide",
+                      "fill": "$status-negative"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YtJXB",
+                      "name": "r2aSpacer",
+                      "width": 54,
+                      "height": "fit_content(0)"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Lnu0y",
+                      "name": "r2b",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$status-positive"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Io4wD",
+                      "name": "r2bSpacer",
+                      "width": 54,
+                      "height": "fit_content(0)"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "C70wt",
+                      "name": "r2c",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KewaC",
+                      "name": "r2cSpacer",
+                      "width": 22,
+                      "height": "fit_content(0)"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ViJGb",
+                  "name": "row3",
+                  "width": "fill_container",
+                  "height": 40,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border-subtle"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "adToD",
+                      "name": "r3l",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "モバイル最適化",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "XZbZL",
+                      "name": "r3a",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$status-positive"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6Secb",
+                      "name": "r3aSpacer",
+                      "width": 54,
+                      "height": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "WDwnw",
+                      "name": "r3b",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "minus",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-tertiary"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jySGT",
+                      "name": "r3bSpacer",
+                      "width": 54,
+                      "height": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "ovOdV",
+                      "name": "r3c",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "smuzQ",
+                      "name": "r3cSpacer",
+                      "width": 22,
+                      "height": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jdGxk",
+                  "name": "row4",
+                  "width": "fill_container",
+                  "height": 40,
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "idszU",
+                      "name": "r4l",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "即シェア（URL共有）",
+                      "fontFamily": "Outfit",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "IIIAK",
+                      "name": "r4a",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "minus",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-tertiary"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Nwwxp",
+                      "name": "r4aSpacer",
+                      "width": 54,
+                      "height": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "771pb",
+                      "name": "r4b",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$status-positive"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "T5PTF",
+                      "name": "r4bSpacer",
+                      "width": 54,
+                      "height": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "KQ6YU",
+                      "name": "r4c",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent-primary"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0xaeg",
+                      "name": "r4cSpacer",
+                      "width": 22,
+                      "height": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZZHUc",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "$accent-primary",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            32,
+            24,
+            40,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "3Y2T4",
+              "name": "footerLogo",
+              "fill": "#FFFFFF",
+              "content": "Shiori",
+              "fontFamily": "Outfit",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "text",
+              "id": "bS0hO",
+              "name": "footerDesc",
+              "fill": "#FFFFFFCC",
+              "content": "旅のしおり作成サービス",
+              "fontFamily": "Outfit",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "5xFdN",
+              "name": "footerCopy",
+              "fill": "#FFFFFF88",
+              "content": "© Shiori",
+              "fontFamily": "Outfit",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent-light": {
+      "type": "color",
+      "value": "#C8F0D8"
+    },
+    "accent-primary": {
+      "type": "color",
+      "value": "#3D8A5A"
+    },
+    "accent-warm": {
+      "type": "color",
+      "value": "#D89575"
+    },
+    "bg-elevated": {
+      "type": "color",
+      "value": "#FAFAF8"
+    },
+    "bg-muted": {
+      "type": "color",
+      "value": "#EDECEA"
+    },
+    "bg-primary": {
+      "type": "color",
+      "value": "#F5F4F1"
+    },
+    "bg-surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "border-strong": {
+      "type": "color",
+      "value": "#D1D0CD"
+    },
+    "border-subtle": {
+      "type": "color",
+      "value": "#E5E4E1"
+    },
+    "status-negative": {
+      "type": "color",
+      "value": "#D08068"
+    },
+    "status-positive": {
+      "type": "color",
+      "value": "#4D9B6A"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#1A1918"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#6D6C6A"
+    },
+    "text-tertiary": {
+      "type": "color",
+      "value": "#9C9B99"
+    }
+  }
+}
