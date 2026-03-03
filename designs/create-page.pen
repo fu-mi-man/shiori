@@ -9,7 +9,7 @@
       "name": "Create Page",
       "clip": true,
       "width": 390,
-      "fill": "$bg-primary",
+      "fill": "#F5F4F1",
       "layout": "vertical",
       "padding": [
         0,
@@ -24,7 +24,7 @@
           "name": "Header",
           "width": "fill_container",
           "height": 56,
-          "fill": "$accent-primary",
+          "fill": "#3D8A5A",
           "padding": [
             0,
             20
@@ -76,7 +76,7 @@
                       "type": "text",
                       "id": "YzsIP",
                       "name": "titleLabelText",
-                      "fill": "$text-primary",
+                      "fill": "#1A1918",
                       "content": "タイトル",
                       "fontFamily": "Outfit",
                       "fontSize": 14,
@@ -86,7 +86,7 @@
                       "type": "frame",
                       "id": "lxOcR",
                       "name": "reqBadge",
-                      "fill": "$accent-primary",
+                      "fill": "#3D8A5A",
                       "cornerRadius": 4,
                       "padding": [
                         2,
@@ -115,12 +115,12 @@
                   "name": "Title Input",
                   "width": "fill_container",
                   "height": 48,
-                  "fill": "$bg-surface",
+                  "fill": "#FFFFFF",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
-                    "fill": "$border-strong"
+                    "fill": "#D1D0CD"
                   },
                   "padding": [
                     0,
@@ -132,7 +132,7 @@
                       "type": "text",
                       "id": "sgjis",
                       "name": "titlePlaceholder",
-                      "fill": "$text-primary",
+                      "fill": "#1A1918",
                       "content": "沖縄旅行 2025年3月",
                       "fontFamily": "Outfit",
                       "fontSize": 15,
@@ -162,7 +162,7 @@
                       "type": "text",
                       "id": "DNTMq",
                       "name": "ovLabel",
-                      "fill": "$text-primary",
+                      "fill": "#1A1918",
                       "content": "概要",
                       "fontFamily": "Outfit",
                       "fontSize": 16,
@@ -173,7 +173,7 @@
                       "type": "frame",
                       "id": "tPchd",
                       "name": "ovAddBtn",
-                      "fill": "$accent-light",
+                      "fill": "#C8F0D8",
                       "cornerRadius": 100,
                       "gap": 4,
                       "padding": [
@@ -190,13 +190,13 @@
                           "height": 14,
                           "iconFontName": "plus",
                           "iconFontFamily": "lucide",
-                          "fill": "$accent-primary"
+                          "fill": "#3D8A5A"
                         },
                         {
                           "type": "text",
                           "id": "uMqKR",
                           "name": "ovAddText",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "content": "追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
@@ -211,12 +211,12 @@
                   "id": "dGvi6",
                   "name": "ovItem1",
                   "width": "fill_container",
-                  "fill": "$bg-surface",
+                  "fill": "#FFFFFF",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
-                    "fill": "$border-subtle"
+                    "fill": "#E5E4E1"
                   },
                   "effect": {
                     "type": "shadow",
@@ -252,7 +252,7 @@
                               "type": "text",
                               "id": "Zw4Zg",
                               "name": "titleLabel1",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -289,12 +289,12 @@
                           "name": "ovItem1Input",
                           "width": "fill_container",
                           "height": 40,
-                          "fill": "$bg-surface",
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
                             "thickness": 1,
-                            "fill": "$border-subtle"
+                            "fill": "#E5E4E1"
                           },
                           "padding": [
                             0,
@@ -306,7 +306,7 @@
                               "type": "text",
                               "id": "T3q9Q",
                               "name": "ovItem1Title",
-                              "fill": "$text-primary",
+                              "fill": "#1A1918",
                               "content": "旅費",
                               "fontFamily": "Outfit",
                               "fontSize": 14,
@@ -328,7 +328,7 @@
                           "type": "text",
                           "id": "s0Asc",
                           "name": "contentLabel1",
-                          "fill": "$text-secondary",
+                          "fill": "#6D6C6A",
                           "content": "内容",
                           "fontFamily": "Outfit",
                           "fontSize": 12,
@@ -340,12 +340,12 @@
                           "name": "ovItem1Textarea",
                           "width": "fill_container",
                           "height": 84,
-                          "fill": "$bg-surface",
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
                             "thickness": 1,
-                            "fill": "$border-subtle"
+                            "fill": "#E5E4E1"
                           },
                           "padding": 12,
                           "children": [
@@ -353,7 +353,7 @@
                               "type": "text",
                               "id": "NtVbh",
                               "name": "ovItem1Content",
-                              "fill": "$text-primary",
+                              "fill": "#1A1918",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
                               "content": "一人あたり約50,000円（交通費・宿泊費込み）",
@@ -373,12 +373,12 @@
                   "id": "7cu1G",
                   "name": "ovItem2",
                   "width": "fill_container",
-                  "fill": "$bg-surface",
+                  "fill": "#FFFFFF",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
-                    "fill": "$border-subtle"
+                    "fill": "#E5E4E1"
                   },
                   "effect": {
                     "type": "shadow",
@@ -414,7 +414,7 @@
                               "type": "text",
                               "id": "hhEGT",
                               "name": "titleLabel2",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -451,12 +451,12 @@
                           "name": "ovItem2Input",
                           "width": "fill_container",
                           "height": 40,
-                          "fill": "$bg-surface",
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
                             "thickness": 1,
-                            "fill": "$border-subtle"
+                            "fill": "#E5E4E1"
                           },
                           "padding": [
                             0,
@@ -468,7 +468,7 @@
                               "type": "text",
                               "id": "mPX2O",
                               "name": "ovItem2Title",
-                              "fill": "$text-primary",
+                              "fill": "#1A1918",
                               "content": "持ち物",
                               "fontFamily": "Outfit",
                               "fontSize": 14,
@@ -490,7 +490,7 @@
                           "type": "text",
                           "id": "RWWZC",
                           "name": "contentLabel2",
-                          "fill": "$text-secondary",
+                          "fill": "#6D6C6A",
                           "content": "内容",
                           "fontFamily": "Outfit",
                           "fontSize": 12,
@@ -502,12 +502,12 @@
                           "name": "ovItem2Textarea",
                           "width": "fill_container",
                           "height": 84,
-                          "fill": "$bg-surface",
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
                             "thickness": 1,
-                            "fill": "$border-subtle"
+                            "fill": "#E5E4E1"
                           },
                           "padding": 12,
                           "children": [
@@ -515,7 +515,7 @@
                               "type": "text",
                               "id": "385Kd",
                               "name": "ovItem2Content",
-                              "fill": "$text-primary",
+                              "fill": "#1A1918",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
                               "content": "パスポート、日焼け止め、水着",
@@ -535,12 +535,12 @@
                   "id": "kvKeX",
                   "name": "ovItem3",
                   "width": "fill_container",
-                  "fill": "$bg-surface",
+                  "fill": "#FFFFFF",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
-                    "fill": "$border-subtle"
+                    "fill": "#E5E4E1"
                   },
                   "effect": {
                     "type": "shadow",
@@ -576,7 +576,7 @@
                               "type": "text",
                               "id": "lo3R8",
                               "name": "titleLabel3",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -613,12 +613,12 @@
                           "name": "ovItem3Input",
                           "width": "fill_container",
                           "height": 40,
-                          "fill": "$bg-surface",
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
                             "thickness": 1,
-                            "fill": "$border-subtle"
+                            "fill": "#E5E4E1"
                           },
                           "padding": [
                             0,
@@ -630,7 +630,7 @@
                               "type": "text",
                               "id": "oQywD",
                               "name": "ovItem3Title",
-                              "fill": "$text-primary",
+                              "fill": "#1A1918",
                               "content": "ホテル",
                               "fontFamily": "Outfit",
                               "fontSize": 14,
@@ -652,7 +652,7 @@
                           "type": "text",
                           "id": "C9sMc",
                           "name": "contentLabel3",
-                          "fill": "$text-secondary",
+                          "fill": "#6D6C6A",
                           "content": "内容",
                           "fontFamily": "Outfit",
                           "fontSize": 12,
@@ -664,12 +664,12 @@
                           "name": "ovItem3Textarea",
                           "width": "fill_container",
                           "height": 84,
-                          "fill": "$bg-surface",
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "align": "inside",
                             "thickness": 1,
-                            "fill": "$border-subtle"
+                            "fill": "#E5E4E1"
                           },
                           "padding": 12,
                           "children": [
@@ -677,7 +677,7 @@
                               "type": "text",
                               "id": "JjByM",
                               "name": "ovItem3Content",
-                              "fill": "$text-primary",
+                              "fill": "#1A1918",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
                               "content": "コーラルサンセットリゾート 恩納村。3月15日〜16日、1泊2名・朝食付き。",
@@ -714,7 +714,7 @@
                       "type": "text",
                       "id": "zMiEW",
                       "name": "schedLabel",
-                      "fill": "$text-primary",
+                      "fill": "#1A1918",
                       "content": "行程",
                       "fontFamily": "Outfit",
                       "fontSize": 16,
@@ -742,7 +742,7 @@
                           "type": "text",
                           "id": "uN9tA",
                           "name": "startDateLabelText",
-                          "fill": "$text-primary",
+                          "fill": "#1A1918",
                           "content": "旅行開始日",
                           "fontFamily": "Outfit",
                           "fontSize": 14,
@@ -752,7 +752,7 @@
                           "type": "frame",
                           "id": "IvdNp",
                           "name": "startDateOptBadge",
-                          "fill": "$bg-muted",
+                          "fill": "#EDECEA",
                           "cornerRadius": 4,
                           "padding": [
                             2,
@@ -765,7 +765,7 @@
                               "type": "text",
                               "id": "V5z5y",
                               "name": "startDateOptText",
-                              "fill": "$text-tertiary",
+                              "fill": "#9C9B99",
                               "content": "任意",
                               "fontFamily": "Outfit",
                               "fontSize": 11,
@@ -781,12 +781,12 @@
                       "name": "startDateInput",
                       "width": "fill_container",
                       "height": 40,
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 8,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "padding": [
                         0,
@@ -799,7 +799,7 @@
                           "type": "text",
                           "id": "Zj42D",
                           "name": "startDatePlaceholder",
-                          "fill": "$text-tertiary",
+                          "fill": "#9C9B99",
                           "content": "旅行開始日を選択",
                           "fontFamily": "Outfit",
                           "fontSize": 15,
@@ -813,7 +813,7 @@
                           "height": 18,
                           "iconFontName": "calendar",
                           "iconFontFamily": "lucide",
-                          "fill": "$text-tertiary"
+                          "fill": "#9C9B99"
                         }
                       ]
                     }
@@ -839,7 +839,7 @@
                           "type": "frame",
                           "id": "SAkjU",
                           "name": "day1Badge",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "cornerRadius": 100,
                           "gap": 6,
                           "padding": [
@@ -888,7 +888,7 @@
                               "height": 14,
                               "iconFontName": "trash-2",
                               "iconFontFamily": "lucide",
-                              "fill": "$text-tertiary"
+                              "fill": "#9C9B99"
                             }
                           ]
                         }
@@ -899,12 +899,12 @@
                       "id": "WhcJG",
                       "name": "Schedule Card 1",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -940,7 +940,7 @@
                                   "type": "text",
                                   "id": "hvy0y",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -957,7 +957,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -970,7 +970,7 @@
                                       "type": "text",
                                       "id": "ePu6b",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "10:00",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -984,7 +984,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -996,7 +996,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -1027,7 +1027,7 @@
                               "type": "text",
                               "id": "yjSgw",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -1044,7 +1044,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -1056,7 +1056,7 @@
                                   "type": "text",
                                   "id": "rF4zs",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "那覇空港 到着",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -1078,7 +1078,7 @@
                               "type": "text",
                               "id": "oKjuv",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -1102,7 +1102,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1116,7 +1116,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1131,7 +1131,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1145,7 +1145,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1160,7 +1160,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1174,7 +1174,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1184,12 +1184,12 @@
                                   "name": "trPlane",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1203,7 +1203,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -1218,7 +1218,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1232,7 +1232,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1247,7 +1247,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1261,7 +1261,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1276,7 +1276,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1290,7 +1290,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1305,7 +1305,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1319,7 +1319,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1334,7 +1334,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1348,7 +1348,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -1368,7 +1368,7 @@
                               "type": "text",
                               "id": "EcR1W",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -1385,7 +1385,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -1393,7 +1393,7 @@
                                   "type": "text",
                                   "id": "NYnSU",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "LCC利用。第2ターミナル",
@@ -1413,12 +1413,12 @@
                       "id": "f22ak",
                       "name": "Schedule Card 2",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -1454,7 +1454,7 @@
                                   "type": "text",
                                   "id": "wbMzy",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -1471,7 +1471,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -1484,7 +1484,7 @@
                                       "type": "text",
                                       "id": "bOwL3",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "12:30",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -1498,7 +1498,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -1510,7 +1510,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -1541,7 +1541,7 @@
                               "type": "text",
                               "id": "6uDiK",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -1558,7 +1558,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -1570,7 +1570,7 @@
                                   "type": "text",
                                   "id": "U4ftU",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "美ら海水族館",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -1592,7 +1592,7 @@
                               "type": "text",
                               "id": "2SSnw",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -1616,7 +1616,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1630,7 +1630,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1645,7 +1645,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1659,7 +1659,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1674,7 +1674,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1688,7 +1688,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1703,7 +1703,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1717,7 +1717,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1727,12 +1727,12 @@
                                   "name": "trCar",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1746,7 +1746,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -1761,7 +1761,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1775,7 +1775,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1790,7 +1790,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1804,7 +1804,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1819,7 +1819,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1833,7 +1833,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -1848,7 +1848,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -1862,7 +1862,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -1882,7 +1882,7 @@
                               "type": "text",
                               "id": "YuoML",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -1899,7 +1899,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -1907,7 +1907,7 @@
                                   "type": "text",
                                   "id": "ibAyH",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "ジンベエザメを見る！入場券は事前購入済み。チケット売り場は混みやすいのでオンライン購入推奨。大人2,180円。",
@@ -1927,12 +1927,12 @@
                       "id": "HUXbw",
                       "name": "Schedule Card 3",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -1968,7 +1968,7 @@
                                   "type": "text",
                                   "id": "FNwuF",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -1985,7 +1985,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -1998,7 +1998,7 @@
                                       "type": "text",
                                       "id": "wXqhO",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "17:00",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -2012,7 +2012,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -2024,7 +2024,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -2055,7 +2055,7 @@
                               "type": "text",
                               "id": "1k8jl",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -2072,7 +2072,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -2084,7 +2084,7 @@
                                   "type": "text",
                                   "id": "4WcDP",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "ホテルチェックイン",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -2106,7 +2106,7 @@
                               "type": "text",
                               "id": "hxAHU",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -2130,7 +2130,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2144,7 +2144,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2159,7 +2159,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2173,7 +2173,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2188,7 +2188,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2202,7 +2202,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2217,7 +2217,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2231,7 +2231,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2241,12 +2241,12 @@
                                   "name": "trCar",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2260,7 +2260,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -2275,7 +2275,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2289,7 +2289,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2304,7 +2304,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2318,7 +2318,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2333,7 +2333,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2347,7 +2347,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2362,7 +2362,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2376,7 +2376,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -2396,7 +2396,7 @@
                               "type": "text",
                               "id": "quQHb",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -2413,7 +2413,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -2421,7 +2421,7 @@
                                   "type": "text",
                                   "id": "Bf4gk",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "コーラルサンセットリゾート 恩納村",
@@ -2442,12 +2442,12 @@
                       "name": "addSlotBtn1",
                       "width": "fill_container",
                       "height": 40,
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 10,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "gap": 6,
                       "justifyContent": "center",
@@ -2461,13 +2461,13 @@
                           "height": 14,
                           "iconFontName": "plus",
                           "iconFontFamily": "lucide",
-                          "fill": "$accent-primary"
+                          "fill": "#3D8A5A"
                         },
                         {
                           "type": "text",
                           "id": "Cm96a",
                           "name": "addSlot1Text",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "content": "コマを追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
@@ -2497,7 +2497,7 @@
                           "type": "frame",
                           "id": "kVi32",
                           "name": "day2Badge",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "cornerRadius": 100,
                           "gap": 6,
                           "padding": [
@@ -2546,7 +2546,7 @@
                               "height": 14,
                               "iconFontName": "trash-2",
                               "iconFontFamily": "lucide",
-                              "fill": "$text-tertiary"
+                              "fill": "#9C9B99"
                             }
                           ]
                         }
@@ -2557,12 +2557,12 @@
                       "id": "aAagC",
                       "name": "Schedule Card 4",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -2598,7 +2598,7 @@
                                   "type": "text",
                                   "id": "x7Fnt",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -2615,7 +2615,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -2628,7 +2628,7 @@
                                       "type": "text",
                                       "id": "Iw71a",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "09:00",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -2642,7 +2642,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -2654,7 +2654,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -2685,7 +2685,7 @@
                               "type": "text",
                               "id": "G1Ddi",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -2702,7 +2702,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -2714,7 +2714,7 @@
                                   "type": "text",
                                   "id": "zfaM2",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "国際通り散策",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -2736,7 +2736,7 @@
                               "type": "text",
                               "id": "eLtxx",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -2760,7 +2760,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2774,7 +2774,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2789,7 +2789,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2803,7 +2803,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2818,7 +2818,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2832,7 +2832,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2847,7 +2847,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2861,7 +2861,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2871,12 +2871,12 @@
                                   "name": "trCar",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2890,7 +2890,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -2905,7 +2905,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2919,7 +2919,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2934,7 +2934,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2948,7 +2948,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2963,7 +2963,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -2977,7 +2977,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -2992,7 +2992,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3006,7 +3006,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -3026,7 +3026,7 @@
                               "type": "text",
                               "id": "R1lEe",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -3043,7 +3043,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -3051,7 +3051,7 @@
                                   "type": "text",
                                   "id": "xND1N",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "お土産購入＆ランチ。牧志公設市場でお刺身定食がおすすめ。市場2階の食堂で食べると雰囲気もあって良い。",
@@ -3071,12 +3071,12 @@
                       "id": "hpdca",
                       "name": "Schedule Card 5",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -3112,7 +3112,7 @@
                                   "type": "text",
                                   "id": "xLNZw",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -3129,7 +3129,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -3142,7 +3142,7 @@
                                       "type": "text",
                                       "id": "kT6ge",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "14:00",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -3156,7 +3156,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -3168,7 +3168,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -3199,7 +3199,7 @@
                               "type": "text",
                               "id": "0uvPE",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -3216,7 +3216,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -3228,7 +3228,7 @@
                                   "type": "text",
                                   "id": "d3Yt1",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "首里城公園",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -3250,7 +3250,7 @@
                               "type": "text",
                               "id": "P0uBD",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -3274,7 +3274,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3288,7 +3288,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3303,7 +3303,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3317,7 +3317,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3332,7 +3332,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3346,7 +3346,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3361,7 +3361,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3375,7 +3375,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3385,12 +3385,12 @@
                                   "name": "trCar",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3404,7 +3404,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -3419,7 +3419,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3433,7 +3433,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3448,7 +3448,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3462,7 +3462,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3477,7 +3477,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3491,7 +3491,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3506,7 +3506,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3520,7 +3520,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -3540,7 +3540,7 @@
                               "type": "text",
                               "id": "IWFNV",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -3557,7 +3557,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -3565,7 +3565,7 @@
                                   "type": "text",
                                   "id": "9EYOO",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "復元工事の見学エリアも要チェック",
@@ -3586,12 +3586,12 @@
                       "name": "addSlotBtn2",
                       "width": "fill_container",
                       "height": 40,
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 10,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "gap": 6,
                       "justifyContent": "center",
@@ -3605,13 +3605,13 @@
                           "height": 14,
                           "iconFontName": "plus",
                           "iconFontFamily": "lucide",
-                          "fill": "$accent-primary"
+                          "fill": "#3D8A5A"
                         },
                         {
                           "type": "text",
                           "id": "ZWmTw",
                           "name": "addSlot2Text",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "content": "コマを追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
@@ -3641,7 +3641,7 @@
                           "type": "frame",
                           "id": "6GsHd",
                           "name": "day3Badge",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "cornerRadius": 100,
                           "gap": 6,
                           "padding": [
@@ -3690,7 +3690,7 @@
                               "height": 14,
                               "iconFontName": "trash-2",
                               "iconFontFamily": "lucide",
-                              "fill": "$text-tertiary"
+                              "fill": "#9C9B99"
                             }
                           ]
                         }
@@ -3701,12 +3701,12 @@
                       "id": "U5low",
                       "name": "Schedule Card 6",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -3742,7 +3742,7 @@
                                   "type": "text",
                                   "id": "ljDoy",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -3759,7 +3759,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -3772,7 +3772,7 @@
                                       "type": "text",
                                       "id": "4H7Ya",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "08:00",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -3786,7 +3786,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -3798,7 +3798,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -3829,7 +3829,7 @@
                               "type": "text",
                               "id": "93mRc",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -3846,7 +3846,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -3858,7 +3858,7 @@
                                   "type": "text",
                                   "id": "iwHyu",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "チェックアウト & 周辺散策",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -3880,7 +3880,7 @@
                               "type": "text",
                               "id": "wT5gT",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -3899,12 +3899,12 @@
                                   "name": "trWalk",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3918,7 +3918,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -3933,7 +3933,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3947,7 +3947,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3962,7 +3962,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -3976,7 +3976,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -3991,7 +3991,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4005,7 +4005,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4020,7 +4020,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4034,7 +4034,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4049,7 +4049,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4063,7 +4063,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4078,7 +4078,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4092,7 +4092,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4107,7 +4107,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4121,7 +4121,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4136,7 +4136,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4150,7 +4150,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -4170,7 +4170,7 @@
                               "type": "text",
                               "id": "RJI0Y",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -4187,7 +4187,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -4195,7 +4195,7 @@
                                   "type": "text",
                                   "id": "LLb7o",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "lineHeight": 1.5,
@@ -4214,12 +4214,12 @@
                       "id": "E6fmm",
                       "name": "Schedule Card 7",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -4255,7 +4255,7 @@
                                   "type": "text",
                                   "id": "gwicK",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -4272,7 +4272,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -4285,7 +4285,7 @@
                                       "type": "text",
                                       "id": "oSbXF",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "10:30",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -4299,7 +4299,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -4311,7 +4311,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -4342,7 +4342,7 @@
                               "type": "text",
                               "id": "pQED6",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -4359,7 +4359,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -4371,7 +4371,7 @@
                                   "type": "text",
                                   "id": "nbAUv",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "沖縄そばランチ",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -4393,7 +4393,7 @@
                               "type": "text",
                               "id": "R0OMU",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -4417,7 +4417,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4431,7 +4431,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4446,7 +4446,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4460,7 +4460,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4475,7 +4475,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4489,7 +4489,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4504,7 +4504,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4518,7 +4518,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4528,12 +4528,12 @@
                                   "name": "trCar",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4547,7 +4547,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -4562,7 +4562,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4576,7 +4576,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4591,7 +4591,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4605,7 +4605,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4620,7 +4620,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4634,7 +4634,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4649,7 +4649,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4663,7 +4663,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -4683,7 +4683,7 @@
                               "type": "text",
                               "id": "fn5r5",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -4700,7 +4700,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -4708,7 +4708,7 @@
                                   "type": "text",
                                   "id": "fPcna",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "国道58号沿いの老舗。ソーキそばが絶品で地元民にも愛されるお店。10:00オープンで混む前に行くのがコツ。",
@@ -4728,12 +4728,12 @@
                       "id": "reoFC",
                       "name": "Schedule Card 8",
                       "width": "fill_container",
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 12,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "effect": {
                         "type": "shadow",
@@ -4769,7 +4769,7 @@
                                   "type": "text",
                                   "id": "4DN9R",
                                   "name": "schCard1TimeLabel",
-                                  "fill": "$text-secondary",
+                                  "fill": "#6D6C6A",
                                   "content": "時間",
                                   "fontFamily": "Outfit",
                                   "fontSize": 12,
@@ -4786,7 +4786,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "padding": [
                                     0,
@@ -4799,7 +4799,7 @@
                                       "type": "text",
                                       "id": "rdj45",
                                       "name": "schCard1TimeText",
-                                      "fill": "$text-primary",
+                                      "fill": "#1A1918",
                                       "content": "16:00",
                                       "fontFamily": "Outfit",
                                       "fontSize": 13,
@@ -4813,7 +4813,7 @@
                                       "height": 16,
                                       "iconFontName": "clock-3",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -4825,7 +4825,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "$status-negative",
+                              "fill": "#D08068",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -4856,7 +4856,7 @@
                               "type": "text",
                               "id": "jSiEG",
                               "name": "schCard1TitleLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "タイトル",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -4873,7 +4873,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": [
                                 0,
@@ -4885,7 +4885,7 @@
                                   "type": "text",
                                   "id": "008Qk",
                                   "name": "schCard1TitleText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "content": "那覇空港 出発",
                                   "fontFamily": "Outfit",
                                   "fontSize": 13,
@@ -4907,7 +4907,7 @@
                               "type": "text",
                               "id": "XOuL9",
                               "name": "transportLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "交通手段",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -4931,7 +4931,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4945,7 +4945,7 @@
                                       "height": 18,
                                       "iconFontName": "footprints",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4960,7 +4960,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -4974,7 +4974,7 @@
                                       "height": 18,
                                       "iconFontName": "train-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -4989,7 +4989,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5003,7 +5003,7 @@
                                       "height": 18,
                                       "iconFontName": "bus",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -5013,12 +5013,12 @@
                                   "name": "trPlane",
                                   "width": "fill_container",
                                   "height": 36,
-                                  "fill": "$accent-light",
+                                  "fill": "#C8F0D8",
                                   "cornerRadius": 8,
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1.5,
-                                    "fill": "$accent-primary"
+                                    "fill": "#3D8A5A"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5032,7 +5032,7 @@
                                       "height": 18,
                                       "iconFontName": "plane",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$accent-primary"
+                                      "fill": "#3D8A5A"
                                     }
                                   ]
                                 },
@@ -5047,7 +5047,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5061,7 +5061,7 @@
                                       "height": 18,
                                       "iconFontName": "car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -5076,7 +5076,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5090,7 +5090,7 @@
                                       "height": 18,
                                       "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -5105,7 +5105,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5119,7 +5119,7 @@
                                       "height": 18,
                                       "iconFontName": "bike",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -5134,7 +5134,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5148,7 +5148,7 @@
                                       "height": 18,
                                       "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 },
@@ -5163,7 +5163,7 @@
                                   "stroke": {
                                     "align": "inside",
                                     "thickness": 1,
-                                    "fill": "$border-subtle"
+                                    "fill": "#E5E4E1"
                                   },
                                   "layout": "vertical",
                                   "justifyContent": "center",
@@ -5177,7 +5177,7 @@
                                       "height": 18,
                                       "iconFontName": "cable-car",
                                       "iconFontFamily": "lucide",
-                                      "fill": "$text-tertiary"
+                                      "fill": "#9C9B99"
                                     }
                                   ]
                                 }
@@ -5197,7 +5197,7 @@
                               "type": "text",
                               "id": "CLyH3",
                               "name": "noteLabel",
-                              "fill": "$text-secondary",
+                              "fill": "#6D6C6A",
                               "content": "補足",
                               "fontFamily": "Outfit",
                               "fontSize": 12,
@@ -5214,7 +5214,7 @@
                               "stroke": {
                                 "align": "inside",
                                 "thickness": 1,
-                                "fill": "$border-subtle"
+                                "fill": "#E5E4E1"
                               },
                               "padding": 12,
                               "children": [
@@ -5222,7 +5222,7 @@
                                   "type": "text",
                                   "id": "arVy5",
                                   "name": "noteText",
-                                  "fill": "$text-primary",
+                                  "fill": "#1A1918",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
                                   "content": "帰りもLCC。液体物はスーツケースへ",
@@ -5243,12 +5243,12 @@
                       "name": "addSlotBtn3",
                       "width": "fill_container",
                       "height": 40,
-                      "fill": "$bg-surface",
+                      "fill": "#FFFFFF",
                       "cornerRadius": 10,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
-                        "fill": "$border-subtle"
+                        "fill": "#E5E4E1"
                       },
                       "gap": 6,
                       "justifyContent": "center",
@@ -5262,13 +5262,13 @@
                           "height": 14,
                           "iconFontName": "plus",
                           "iconFontFamily": "lucide",
-                          "fill": "$accent-primary"
+                          "fill": "#3D8A5A"
                         },
                         {
                           "type": "text",
                           "id": "0Oljk",
                           "name": "addSlot3Text",
-                          "fill": "$accent-primary",
+                          "fill": "#3D8A5A",
                           "content": "コマを追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
@@ -5284,7 +5284,7 @@
                   "name": "addDayBtn",
                   "width": "fill_container",
                   "height": 44,
-                  "fill": "$accent-light",
+                  "fill": "#C8F0D8",
                   "cornerRadius": 12,
                   "gap": 6,
                   "justifyContent": "center",
@@ -5298,13 +5298,13 @@
                       "height": 16,
                       "iconFontName": "calendar-plus",
                       "iconFontFamily": "lucide",
-                      "fill": "$accent-primary"
+                      "fill": "#3D8A5A"
                     },
                     {
                       "type": "text",
                       "id": "CBKgD",
                       "name": "addDayText",
-                      "fill": "$accent-primary",
+                      "fill": "#3D8A5A",
                       "content": "日程を追加",
                       "fontFamily": "Outfit",
                       "fontSize": 14,
@@ -5338,13 +5338,13 @@
                       "height": 16,
                       "iconFontName": "lock",
                       "iconFontFamily": "lucide",
-                      "fill": "$text-secondary"
+                      "fill": "#6D6C6A"
                     },
                     {
                       "type": "text",
                       "id": "r3tdQ",
                       "name": "pwLabel",
-                      "fill": "$text-primary",
+                      "fill": "#1A1918",
                       "content": "合言葉（任意）",
                       "fontFamily": "Outfit",
                       "fontSize": 14,
@@ -5356,7 +5356,7 @@
                   "type": "text",
                   "id": "MCJte",
                   "name": "pwDesc",
-                  "fill": "$text-tertiary",
+                  "fill": "#9C9B99",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
                   "content": "設定すると、編集時に合言葉の入力が必要になります",
@@ -5371,12 +5371,12 @@
                   "name": "pwInput",
                   "width": "fill_container",
                   "height": 48,
-                  "fill": "$bg-surface",
+                  "fill": "#FFFFFF",
                   "cornerRadius": 12,
                   "stroke": {
                     "align": "inside",
                     "thickness": 1,
-                    "fill": "$border-strong"
+                    "fill": "#D1D0CD"
                   },
                   "padding": [
                     0,
@@ -5388,7 +5388,7 @@
                       "type": "text",
                       "id": "miQgA",
                       "name": "pwPlaceholder",
-                      "fill": "$text-tertiary",
+                      "fill": "#9C9B99",
                       "content": "合言葉を入力",
                       "fontFamily": "Outfit",
                       "fontSize": 15,
@@ -5404,7 +5404,7 @@
               "name": "Submit Button",
               "width": "fill_container",
               "height": 52,
-              "fill": "$accent-primary",
+              "fill": "#3D8A5A",
               "cornerRadius": 12,
               "effect": {
                 "type": "shadow",
@@ -5486,7 +5486,7 @@
     },
     "status-negative": {
       "type": "color",
-      "value": "#D08068"
+      "value": "#DC2626"
     },
     "status-positive": {
       "type": "color",
