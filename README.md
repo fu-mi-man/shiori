@@ -26,12 +26,13 @@ Claude Code のプラグイン・スキル・MCPサーバーはプロジェク�
 
 ## 開発コマンド
 
-全コマンドはDockerコンテナ内で実行する。
+全コマンドはDockerコンテナ内で実行する。  
+ホストで直接 pnpm/npm を実行しない。
 
 ```bash
 docker compose up                # 起動（http://localhost:3000）
 docker compose down              # 停止
-docker compose exec app sh       # コンテナに入る
+docker compose exec web sh       # コンテナに入る
 ```
 
 ```bash
