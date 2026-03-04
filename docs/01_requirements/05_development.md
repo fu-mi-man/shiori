@@ -453,7 +453,7 @@ volumes:
 ### 6. クリーンアップと開発サーバーの起動
 
 ```bash
-docker rmi shiori-init
-docker volume rm shiori_node_modules
+docker rmi shiori-init                   # 一時イメージを削除
+docker volume rm shiori_node_modules     # 旧構成のボリュームが残っている場合のみ
 docker compose up --build
 ```
