@@ -1,29 +1,29 @@
 services:
-  frontend:
+  web:
     # ビルド設定
     build:
       # ビルドコンテキスト: Dockerfileがあるディレクトリ
       # このディレクトリ配下のファイルがDockerビルド時に利用可能
-      context: ./frontend
+      context: ./web
       # Dockerfileの名前（デフォルトはDockerfile）
       dockerfile: Dockerfile
 
     # ポートマッピング
     # "ホストのポート:コンテナのポート"
-    # localhost:5173でアクセス可能
+    # localhost:3000でアクセス可能
     ports:
-      - "5173:5173"
+      - "3000:3000"
 
     # ボリュームマウント（ホットリロード用）
     volumes:
-      # ホストのfrontendディレクトリをコンテナの/appにマウント
+      # ホストのwebディレクトリをコンテナの/appにマウント
       # ソースコード変更が即座にコンテナに反映される
-      - ./frontend:/app
+      - ./web:/app
 
-      # node_modulesを除外（named volume）
+      # node_modulesをanonymous volumeで保護
       # ホストのnode_modulesとコンテナのnode_modulesを分離
-      # これにより、ホストとコンテナでOSが異なっても問題が起きない
-      - node_modules:/app/node_modules
+      # named volumeと異なりdocker compose down時に削除される
+      - /app/node_modules
 
     # 環境変数
     environment:
@@ -31,21 +31,10 @@ services:
       - NODE_ENV=development
 
     # コンテナ名を指定（省略可能）
-    container_name: shiori-frontend
+    container_name: shiori-web
 
     # 標準入力を開いたままにする（docker logs でログを見るため）
     stdin_open: true
 
     # 疑似TTYを割り当てる（Ctrl+Cで停止できるようにする）
     tty: true
-
-volumes:
-  # node_modules 用の named volume
-  # ホスト側の node_modules を使わず，コンテナ専用にするための設定
-  #
-  # 目的:
-  # - ホストとコンテナでOSが異なる場合の不整合を防ぐ
-  # - ネイティブ依存関係（esbuildなど）のビルド差異を避ける
-  # - volumes マウント（./frontend:/app）で
-  #   node_modules が上書きされるのを防止する
-  node_modules:
