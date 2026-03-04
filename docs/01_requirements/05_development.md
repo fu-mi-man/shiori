@@ -1,6 +1,6 @@
 ## 概要
 
-本ドキュメントは、Shioriプロジェクトの**開発環境・開発ツール・開発時の規約**をまとめた実践ガイドである。  
+本ドキュメントは，Shioriプロジェクトの**開発環境・開発ツール・開発時の規約**をまとめた実践ガイドである。  
 技術選定の判断根拠は `99_research/technology.md` を参照のこと。
 
 ### 目次
@@ -39,13 +39,13 @@
 |--------|------|------|
 | Biome | リンター + フォーマッター | ESLint + Prettierを1ツールで代替。Rust製で高速 |
 | lefthook | Git hooks管理 | `git commit` 時にlint・型チェックを自動実行。huskyの代替（Go製で高速） |
-| lint-staged | 差分チェック | lefthookと組み合わせ、変更ファイルのみをlint対象にする |
+| lint-staged | 差分チェック | lefthookと組み合わせ，変更ファイルのみをlint対象にする |
 
 ### データベース
 
 | ツール | 用途 | 備考 |
 |--------|------|------|
-| Drizzle Kit | マイグレーション管理 | Drizzle ORMの付属ツール。スキーマからSQL自動生成、DB管理UI（Studio） |
+| Drizzle Kit | マイグレーション管理 | Drizzle ORMの付属ツール。スキーマからSQL自動生成，DB管理UI（Studio） |
 
 ### UI
 
@@ -56,7 +56,7 @@
 
 ## 2. 推奨プラグイン・スキル
 
-Claude Codeの拡張機能。全てプロジェクトスコープで管理し、Git経由でチームに共有する。
+Claude Codeの拡張機能。全てプロジェクトスコープで管理し，Git経由でチームに共有する。
 
 ### Anthropicプラグイン
 
@@ -64,8 +64,8 @@ Claude Codeの拡張機能。全てプロジェクトスコープで管理し、
 
 | プラグイン | 用途 |
 |-----------|------|
-| context7 | Next.js、Tailwind CSS v4、Drizzle等の最新ドキュメントを参照 |
-| security-guidance | セキュリティ脆弱性の自動検出。XSS、SQLインジェクション等をコード編集時にブロック |
+| context7 | Next.js，Tailwind CSS v4，Drizzle等の最新ドキュメントを参照 |
+| security-guidance | セキュリティ脆弱性の自動検出。XSS，SQLインジェクション等をコード編集時にブロック |
 | typescript-lsp | リアルタイム型チェック。型エラーをコード編集直後に検出 |
 
 ```bash
@@ -76,24 +76,24 @@ Claude Codeの拡張機能。全てプロジェクトスコープで管理し、
 
 ### スキル
 
-プロジェクトの `.claude/skills/` にインストール。Git管理されるため、clone した時点で全員に共有される。  
+プロジェクトの `.claude/skills/` にインストール。Git管理されるため，clone した時点で全員に共有される。  
 Claude Codeはタスクの内容に応じて関連するスキルを自動で読み込む（Progressive Disclosure）。
 
 **Vercel: agent-skills** — React全般のベストプラクティス（フレームワーク非依存）
 
 | スキル | 用途 |
 |--------|------|
-| react-best-practices | 40+ルールのパフォーマンス最適化。バンドルサイズ削減、リクエストウォーターフォール排除 |
+| react-best-practices | 40+ルールのパフォーマンス最適化。バンドルサイズ削減，リクエストウォーターフォール排除 |
 | react-composition-patterns | Compound Component等の設計パターン。boolean prop氾濫の防止 |
-| vercel-deploy-claimable | Vercelへのデプロイ。プレビューURL発行、所有権の移転 |
-| web-design-guidelines | 100+ルールのアクセシビリティ・UX監査。ARIA属性、alt text、レスポンシブ対応 |
+| vercel-deploy-claimable | Vercelへのデプロイ。プレビューURL発行，所有権の移転 |
+| web-design-guidelines | 100+ルールのアクセシビリティ・UX監査。ARIA属性，alt text，レスポンシブ対応 |
 
 **Vercel: next-skills** — Next.js固有のベストプラクティス
 
 | スキル | 用途 |
 |--------|------|
-| next-best-practices | 19トピックのNext.js開発ガイド。App Router、Server/Client Components、データフェッチ |
-| next-cache-components | Next.js 16のキャッシュ戦略。`use cache`ディレクティブ、PPR、cacheLife/cacheTag |
+| next-best-practices | 19トピックのNext.js開発ガイド。App Router，Server/Client Components，データフェッチ |
+| next-cache-components | Next.js 16のキャッシュ戦略。`use cache`ディレクティブ，PPR，cacheLife/cacheTag |
 | next-upgrade | Next.jsバージョンアップの移行ガイド。破壊的変更の対応手順 |
 
 **Anthropic: skills** — 開発支援・メタスキル
@@ -135,96 +135,97 @@ npx skills update
 ## 3. ディレクトリ構成
 
 Next.js 16 App Routerのベストプラクティスに準拠。  
-将来のバックエンド分離に備え、Next.jsアプリは `web/` ディレクトリに配置する（モノレポ構成）。  
-※ディレクトリ先 → ファイル後、それぞれABC順で記載
+将来のバックエンド分離に備え，Next.jsアプリは `web/` ディレクトリに配置する（モノレポ構成）。  
+※ディレクトリ先 → ファイル後，それぞれABC順で記載
 
 ```
 shiori/
-├── .claude/                     # Claude Code
-│   └── skills/                  # スキル（Git管理、npx skills addで追加）
+├── .claude/                                # Claude Code
+│   └── skills/                             # スキル（Git管理，npx skills addで追加）
 │
-├── bruno/                       # APIテスト（Bruno）
+├── bruno/                                  # APIテスト（Bruno）
 │   ├── environments/
-│   │   └── local.bru            # ローカル環境変数
-│   ├── shiori-api/              # API単位のリクエスト定義（.bruファイル）
+│   │   └── local.bru                       # ローカル環境変数
+│   ├── shiori-api/                         # API単位のリクエスト定義（.bruファイル）
 │   │   └── ...
-│   └── bruno.json               # コレクション設定
+│   └── bruno.json                          # コレクション設定
 │
-├── designs/                     # UIデザイン（Pencil.dev）
+├── designs/                                # UIデザイン（Pencil.dev）
 │
-├── docs/                        # ドキュメント
-│   ├── 01_requirements/         # 要件定義
-│   │   ├── 01_overview.md       # サービス概要
-│   │   ├── 02_features.md       # 機能要件
-│   │   ├── 03_screens.md        # 画面定義
-│   │   ├── 04_data.md           # データ定義
-│   │   └── 05_development.md    # 開発環境・ツール・規約
-│   ├── 02_specification/        # 詳細設計
-│   └── 99_research/             # 調査・技術選定
-│       ├── benchmark.md         # 競合分析
-│       └── technology.md        # 技術選定
+├── docs/                                   # ドキュメント
+│   ├── 01_requirements/                    # 要件定義
+│   │   ├── 01_overview.md                  # サービス概要
+│   │   ├── 02_features.md                  # 機能要件
+│   │   ├── 03_screens.md                   # 画面定義
+│   │   ├── 04_data.md                      # データ定義
+│   │   └── 05_development.md               # 開発環境・ツール・規約
+│   ├── 02_specification/                   # 詳細設計
+│   └── 99_research/                        # 調査・技術選定
+│       ├── benchmark.md                    # 競合分析
+│       └── technology.md                   # 技術選定
 │
-├── web/                         # Next.jsアプリ（フロント＋バックエンド）
-│   ├── app/                     # App Router（ルーティング専用）
-│   │   ├── (main)/              # メインページ群（route group）
-│   │   │   ├── create/
-│   │   │   │   └── page.tsx     # 作成画面 (/create)
-│   │   │   └── page.tsx         # トップ画面 (/)
-│   │   ├── api/
-│   │   │   ├── auth/
-│   │   │   │   └── route.ts     # POST: 合言葉認証
-│   │   │   └── shiori/
-│   │   │       ├── [id]/
-│   │   │       │   └── route.ts
-│   │   │       └── route.ts     # POST: しおり作成
-│   │   ├── board/               # Phase 2
-│   │   │   └── page.tsx         # 掲示板 (/board)
-│   │   ├── i/
-│   │   │   └── [id]/
-│   │   │       ├── edit/
-│   │   │       │   └── page.tsx
-│   │   │       └── page.tsx     # 表示画面 (/i/[id])
-│   │   ├── error.tsx            # エラーバウンダリ
-│   │   ├── globals.css
-│   │   ├── layout.tsx           # ルートレイアウト
-│   │   └── not-found.tsx        # 404ページ
+├── web/                                    # Next.jsアプリ（フロント＋バックエンド）
+│   ├── src/                                # ソースコード
+│   │   ├── app/                            # App Router（ルーティング専用）
+│   │   │   ├── (main)/                     # メインページ群（route group）
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx            # 作成画面 (/create)
+│   │   │   │   └── page.tsx                # トップ画面 (/)
+│   │   │   ├── api/
+│   │   │   │   ├── auth/
+│   │   │   │   │   └── route.ts            # POST: 合言葉認証
+│   │   │   │   └── shiori/
+│   │   │   │       ├── [id]/
+│   │   │   │       │   └── route.ts
+│   │   │   │       └── route.ts            # POST: しおり作成
+│   │   │   ├── board/                      # Phase 2
+│   │   │   │   └── page.tsx                # 掲示板 (/board)
+│   │   │   ├── i/
+│   │   │   │   └── [id]/
+│   │   │   │       ├── edit/
+│   │   │   │       │   └── page.tsx
+│   │   │   │       └── page.tsx            # 表示画面 (/i/[id])
+│   │   │   ├── error.tsx                   # エラーバウンダリ
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx                  # ルートレイアウト
+│   │   │   └── not-found.tsx               # 404ページ
+│   │   │
+│   │   ├── components/                     # コンポーネント
+│   │   │   ├── features/                   # 機能固有コンポーネント（機能単位で分類）
+│   │   │   │   └── ...
+│   │   │   └── ui/                         # 汎用UIコンポーネント（shadcn/uiで追加）
+│   │   │       └── ...
+│   │   │
+│   │   ├── hooks/                          # カスタムReact Hooks
+│   │   │
+│   │   └── lib/                            # ユーティリティ・共通ロジック
+│   │       ├── db/
+│   │       │   ├── migrations/             # マイグレーションファイル
+│   │       │   ├── index.ts                # DB接続
+│   │       │   └── schema.ts               # Drizzleスキーマ定義
+│   │       ├── types.ts                    # 共通型定義
+│   │       ├── utils.ts                    # ユーティリティ関数
+│   │       └── validations.ts              # Zodスキーマ（API・フォーム共用）
 │   │
-│   ├── components/              # コンポーネント
-│   │   ├── features/            # 機能固有コンポーネント（機能単位で分類）
-│   │   │   └── ...
-│   │   └── ui/                  # 汎用UIコンポーネント（shadcn/uiで追加）
-│   │       └── ...
-│   │
-│   ├── hooks/                   # カスタムReact Hooks
-│   │
-│   ├── lib/                     # ユーティリティ・共通ロジック
-│   │   ├── db/
-│   │   │   ├── migrations/      # マイグレーションファイル
-│   │   │   ├── index.ts         # DB接続
-│   │   │   └── schema.ts        # Drizzleスキーマ定義
-│   │   ├── types.ts             # 共通型定義
-│   │   ├── utils.ts             # ユーティリティ関数
-│   │   └── validations.ts       # Zodスキーマ（API・フォーム共用）
-│   │
-│   ├── locales/                 # Phase 2
+│   ├── locales/                            # Phase 2
 │   │   ├── en.json
 │   │   └── ja.json
 │   │
-│   ├── public/                  # 静的ファイル
+│   ├── public/                             # 静的ファイル
 │   │
-│   ├── tests/                   # テストファイル
-│   │   ├── e2e/                 # E2Eテスト（Playwright）
-│   │   ├── integration/         # 統合テスト
-│   │   └── unit/                # ユニットテスト
+│   ├── tests/                              # テストファイル
+│   │   ├── e2e/                            # E2Eテスト（Playwright）
+│   │   ├── integration/                    # 統合テスト
+│   │   └── unit/                           # ユニットテスト
 │   │
-│   ├── biome.json               # Biome設定
-│   ├── Dockerfile               # コンテナイメージ定義
-│   ├── next.config.ts           # Next.js設定
-│   ├── package.json             # 依存関係・スクリプト定義
-│   ├── playwright.config.ts     # Playwright設定（E2Eテスト）
-│   ├── pnpm-lock.yaml           # 依存関係ロックファイル
-│   ├── tsconfig.json            # TypeScript設定
-│   └── vitest.config.ts         # Vitest設定
+│   ├── biome.json                          # Biome設定
+│   ├── Dockerfile                          # コンテナイメージ定義
+│   ├── next.config.ts                      # Next.js設定
+│   ├── package.json                        # 依存関係・スクリプト定義
+│   ├── playwright.config.ts                # Playwright設定（E2Eテスト）
+│   ├── pnpm-lock.yaml                      # 依存関係ロックファイル
+│   ├── tsconfig.json                       # TypeScript設定
+│   └── vitest.config.ts                    # Vitest設定
 │
 ├── CLAUDE.md
 ├── compose.yaml
@@ -234,13 +235,14 @@ shiori/
 ### 構成のポイント
 
 - **`web/`**: Next.jsプロジェクトルート。将来バックエンドを分離する場合は `api/` 等を並列に追加できる
-- **`app/`**: App Routerのルーティング専用。ページとAPIルートのみ配置。ビジネスロジックやコンポーネントは置かない
-- **`components/ui/`**: shadcn/uiの汎用コンポーネント。どの画面でも使える
-- **`components/features/`**: 機能固有のコンポーネント。shiori、board等の機能単位で分類
-- **`lib/db/`**: Drizzle関連を集約。スキーマ、接続、マイグレーションを一箇所で管理
-- **`lib/validations.ts`**: ZodスキーマをフォームバリデーションとAPIバリデーションで共用
-- **`hooks/`**: カスタムHooksを `lib/` と分離して配置
-- **`tests/`**: Playwrightのデフォルト探索ディレクトリ名。Vitestはファイル名パターン（`*.test.ts`）で検出するため、どちらのツールも追加設定なしで動作する
+- **`src/`**: ソースコードと設定ファイル（tsconfig, biome.json等）を分離
+- **`src/app/`**: App Routerのルーティング専用。ページとAPIルートのみ配置。ビジネスロジックやコンポーネントは置かない
+- **`src/components/ui/`**: shadcn/uiの汎用コンポーネント。どの画面でも使える
+- **`src/components/features/`**: 機能固有のコンポーネント。shiori，board等の機能単位で分類
+- **`src/lib/db/`**: Drizzle関連を集約。スキーマ，接続，マイグレーションを一箇所で管理
+- **`src/lib/validations.ts`**: ZodスキーマをフォームバリデーションとAPIバリデーションで共用
+- **`src/hooks/`**: カスタムHooksを `lib/` と分離して配置
+- **`tests/`**: Playwrightのデフォルト探索ディレクトリ名。Vitestはファイル名パターン（`*.test.ts`）で検出するため，どちらのツールも追加設定なしで動作する
 - **route group `(main)`**: トップ画面と作成画面をグループ化。URLには影響しない
 
 
@@ -319,7 +321,7 @@ style: インデントを修正
 
 ## 6. コマンド一覧
 
-全コマンドはDockerコンテナ内で実行する。
+起動・停止以外のコマンドはDockerコンテナ内で実行する。
 
 ### 起動・停止
 
@@ -361,7 +363,6 @@ pnpm drizzle-kit studio           # DB管理UI起動
 ### UI
 
 ```bash
-# Dockerコンテナ内で実行
 npx shadcn@latest init            # 初期セットアップ
 npx shadcn@latest add <component> # コンポーネント追加（例: button, input, dialog）
 ```
@@ -371,9 +372,9 @@ npx shadcn@latest add <component> # コンポーネント追加（例: button, i
 
 > 以下はプロジェクト新規作成時に一度だけ実行する手順。通常の開発では参照不要。
 
-### 1. 最小限のDockerfileを作成
+### 1. 一時Dockerfileを作成
 
-`web/Dockerfile` として作成:
+プロジェクトルートに一時的なDockerfileを作成（`web/`は`create-next-app`が空ディレクトリを要求するため）:
 
 ```dockerfile
 FROM node:24-slim
@@ -384,31 +385,39 @@ RUN corepack enable
 ### 2. Dockerイメージをビルド
 
 ```bash
-docker build -t shiori-init ./web
+docker build -t shiori-init .
 ```
 
 ### 3. Next.jsプロジェクトを作成
 
 ```bash
-docker run --rm -v $(pwd)/web:/app -w /app shiori-init \
-  pnpm create next-app@latest . \
-  --typescript --tailwind --eslint --app --src-dir=false --import-alias='@/*'
+mkdir web
+docker run --rm -it -v $(pwd)/web:/app shiori-init pnpm create next-app@latest . --typescript --tailwind --no-eslint --app --src-dir --import-alias='@/*'
 ```
 
 | オプション | 意味 |
 |-----------|------|
 | `--rm` | 終了後にコンテナを削除 |
+| `-it` | 対話モード（Corepackの確認プロンプトに応答するため必須） |
 | `-v $(pwd)/web:/app` | web/ディレクトリをコンテナの/appにマウント |
-| `-w /app` | 作業ディレクトリを/appに設定 |
+| `--typescript` | TypeScriptを使用 |
+| `--tailwind` | Tailwind CSSを使用 |
+| `--no-eslint` | ESLintを無効化（Biomeで代替） |
+| `--app` | App Routerを使用（Pages Routerではなく） |
+| `--src-dir` | src/ディレクトリを使用（ソースと設定ファイルを分離） |
+| `--import-alias='@/*'` | インポートエイリアスを`@/*`に設定 |
 
-### 4. Dockerfileを本番用に更新
+### 4. 一時Dockerfileを削除し，web/Dockerfileを作成
+
+```bash
+rm Dockerfile
+```
 
 `web/Dockerfile`:
 
 ```dockerfile
 FROM node:24-slim
 WORKDIR /app
-ENV NODE_ENV=development
 RUN corepack enable
 COPY package.json pnpm-lock.yaml* ./
 RUN pnpm install
@@ -425,6 +434,7 @@ services:
   web:
     build:
       context: ./web
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
@@ -432,14 +442,18 @@ services:
       - node_modules:/app/node_modules
     environment:
       - NODE_ENV=development
+    container_name: shiori-web
+    stdin_open: true
     tty: true
 
 volumes:
   node_modules:
 ```
 
-### 6. 開発サーバーを起動
+### 6. クリーンアップと開発サーバーの起動
 
 ```bash
+docker rmi shiori-init
+docker volume rm shiori_node_modules
 docker compose up --build
 ```
