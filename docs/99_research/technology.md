@@ -28,7 +28,7 @@ DB: Neon Postgres (Vercel統合、無料枠0.5GB)
 
 ## 1. プロジェクト概要
 
-→ 詳細は [overview.md](./requirements/overview.md) を参照
+→ 詳細は [01_overview.md](../01_requirements/01_overview.md) を参照
 
 **運用方針**:
 - **完全無料で運用開始**（Vercel Hobby無料プラン）
