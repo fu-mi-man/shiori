@@ -29,6 +29,12 @@ services:
     environment:
       # 開発モードで起動
       - NODE_ENV=development
+      # ローカルPostgreSQLへの接続URL（本番はNeonのURLに差し替え）
+      - DATABASE_URL=postgresql://postgres_user:postgres_pass@db:5432/postgres_db
+
+    depends_on:                          # 依存関係
+      db:
+        condition: service_healthy       # dbのhealthcheckがOKになるまで起動しない
 
     # コンテナ名を指定（省略可能）
     container_name: shiori-web
@@ -38,3 +44,24 @@ services:
 
     # 疑似TTYを割り当てる（Ctrl+Cで停止できるようにする）
     tty: true
+
+  db:
+    image: postgres:17-alpine                                 # 使用するDockerイメージ
+    container_name: shiori-db                                 # コンテナ名
+    environment:                                              # 環境変数
+      - POSTGRES_DB=postgres_db                               # 作成されるデータベース名
+      - POSTGRES_USER=postgres_user                           # PostgreSQLのユーザー名
+      - POSTGRES_PASSWORD=postgres_pass                       # PostgreSQLのパスワード
+    ports:                                                    # ポートマッピング（ホスト側:コンテナ側）
+      - "5432:5432"                                           # localhost:5432でアクセス可能
+    volumes:                                                  # ボリュームマウント
+      - pgdata:/var/lib/postgresql/data                       # データ永続化（コンテナ削除してもデータが残る）
+    healthcheck:                                              # ヘルスチェック（webコンテナのdepends_on.conditionで使用）
+      test: ["CMD-SHELL", "pg_isready -U postgres_user"]      # DBが接続可能か確認するコマンド
+      interval: 5s                                            # チェック間隔
+      timeout: 3s                                             # タイムアウト
+      retries: 5                                              # 失敗許容回数（超えるとunhealthy）
+    restart: unless-stopped                                   # 再起動ポリシー（異常終了時に自動再起動）
+
+volumes:
+  pgdata:                                                     # PostgreSQLのデータを保存するボリューム
