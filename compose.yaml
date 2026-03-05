@@ -1,40 +1,41 @@
 services:
+  # Next.js（フロント＋バックエンド）
   web:
-    # ビルド設定
     build:
-      # ビルドコンテキスト: Dockerfileがあるディレクトリ
-      # このディレクトリ配下のファイルがDockerビルド時に利用可能
-      context: ./web
-      # Dockerfileの名前（デフォルトはDockerfile）
+      context: ./web                                          # ビルドコンテキスト（Dockerfileがあるディレクトリ）
       dockerfile: Dockerfile
-
-    # ポートマッピング
-    # "ホストのポート:コンテナのポート"
-    # localhost:3000でアクセス可能
-    ports:
-      - "3000:3000"
-
-    # ボリュームマウント（ホットリロード用）
-    volumes:
-      # ホストのwebディレクトリをコンテナの/appにマウント
-      # ソースコード変更が即座にコンテナに反映される
-      - ./web:/app
-
-      # node_modulesをanonymous volumeで保護
-      # ホストのnode_modulesとコンテナのnode_modulesを分離
-      # named volumeと異なりdocker compose down時に削除される
-      - /app/node_modules
-
-    # 環境変数
-    environment:
-      # 開発モードで起動
-      - NODE_ENV=development
-
-    # コンテナ名を指定（省略可能）
     container_name: shiori-web
+    environment:
+      - NODE_ENV=development                                  # 開発モードで起動
+      - DATABASE_URL=postgresql://postgres_user:postgres_pass@db:5432/postgres_db  # DB接続URL（本番はNeonのURLに差し替え）
+    ports:                                                    # ポートマッピング（ホスト側:コンテナ側）
+      - "3000:3000"                                           # localhost:3000でアクセス可能
+    volumes:
+      - ./web:/app                                            # ソースコードをマウント（ホットリロード用）
+      - /app/node_modules                                     # anonymous volumeでnode_modulesを保護（named volumeと異なりdocker compose down時に削除される）
+    depends_on:
+      db:
+        condition: service_healthy                            # dbのhealthcheckがOKになるまで起動しない
+    stdin_open: true                                          # コンテナにアタッチしてデバッグできるようにする
+    tty: true                                                 # 同上
 
-    # 標準入力を開いたままにする（docker logs でログを見るため）
-    stdin_open: true
+  db:
+    image: postgres:17-alpine
+    container_name: shiori-db
+    environment:
+      - POSTGRES_DB=postgres_db                               # 作成されるデータベース名
+      - POSTGRES_USER=postgres_user                           # PostgreSQLのユーザー名
+      - POSTGRES_PASSWORD=postgres_pass                       # PostgreSQLのパスワード
+    ports:                                                    # ポートマッピング（ホスト側:コンテナ側）
+      - "5432:5432"                                           # localhost:5432でアクセス可能
+    volumes:
+      - pgdata:/var/lib/postgresql/data                       # データ永続化（docker compose downでは消えない）
+    healthcheck:                                              # ヘルスチェック（webコンテナのdepends_on.conditionで使用）
+      test: ["CMD-SHELL", "pg_isready -U postgres_user"]      # DBが接続可能か確認するコマンド
+      interval: 5s                                            # チェック間隔
+      timeout: 3s                                             # タイムアウト
+      retries: 5                                              # 失敗許容回数（超えるとunhealthy）
+    restart: unless-stopped                                   # 異常終了時に自動再起動
 
-    # 疑似TTYを割り当てる（Ctrl+Cで停止できるようにする）
-    tty: true
+volumes:
+  pgdata:                                                     # PostgreSQLのデータを保存するボリューム
