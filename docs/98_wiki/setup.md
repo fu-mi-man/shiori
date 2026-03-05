@@ -42,6 +42,9 @@ pnpm biome init
     "clientKind": "git",
     "useIgnoreFile": true                                       // .gitignoreの内容をlint・format対象外にする
   },
+  "files": {
+    "ignoreUnknown": false                                      // 未知のファイル形式をエラーにしない
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",                                     // "tab" も選択可
