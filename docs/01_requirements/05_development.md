@@ -66,11 +66,13 @@ Claude Codeの拡張機能。全てプロジェクトスコープで管理し，
 | context7 | Next.js，Tailwind CSS v4，Drizzle等の最新ドキュメントを参照 |
 | security-guidance | セキュリティ脆弱性の自動検出。XSS，SQLインジェクション等をコード編集時にブロック |
 | typescript-lsp | リアルタイム型チェック。型エラーをコード編集直後に検出 |
+| code-review | PRの自動コードレビュー。5つのSonnetエージェントが並列でレビューし，信頼度スコアで偽陽性をフィルタリング |
 
 ```bash
 /plugin install context7 --scope project
 /plugin install security-guidance --scope project
 /plugin install typescript-lsp --scope project
+/plugin install code-review --scope project
 ```
 
 ### スキル
