@@ -198,11 +198,12 @@ shiori/
 │   │   │
 │   │   ├── hooks/                          # カスタムReact Hooks
 │   │   │
+│   │   ├── db/                             # Drizzle ORM（公式準拠）
+│   │   │   ├── migrations/                 # マイグレーションファイル
+│   │   │   ├── index.ts                    # DB接続
+│   │   │   └── schema.ts                   # Drizzleスキーマ定義
+│   │   │
 │   │   └── lib/                            # ユーティリティ・共通ロジック
-│   │       ├── db/
-│   │       │   ├── migrations/             # マイグレーションファイル
-│   │       │   ├── index.ts                # DB接続
-│   │       │   └── schema.ts               # Drizzleスキーマ定義
 │   │       ├── types.ts                    # 共通型定義
 │   │       ├── utils.ts                    # ユーティリティ関数
 │   │       └── validations.ts              # Zodスキーマ（API・フォーム共用）
@@ -239,7 +240,7 @@ shiori/
 - **`src/app/`**: App Routerのルーティング専用。ページとAPIルートのみ配置。ビジネスロジックやコンポーネントは置かない
 - **`src/components/ui/`**: shadcn/uiの汎用コンポーネント。どの画面でも使える
 - **`src/components/features/`**: 機能固有のコンポーネント。shiori，board等の機能単位で分類
-- **`src/lib/db/`**: Drizzle関連を集約。スキーマ，接続，マイグレーションを一箇所で管理
+- **`src/db/`**: Drizzle関連を集約（公式準拠）。スキーマ，接続，マイグレーションを一箇所で管理
 - **`src/lib/validations.ts`**: ZodスキーマをフォームバリデーションとAPIバリデーションで共用
 - **`src/hooks/`**: カスタムHooksを `lib/` と分離して配置
 - **`tests/`**: Playwrightのデフォルト探索ディレクトリ名。Vitestはファイル名パターン（`*.test.ts`）で検出するため，どちらのツールも追加設定なしで動作する
