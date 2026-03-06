@@ -339,7 +339,7 @@ export default defineConfig({
 | コマンド | 実行内容 | 用途 |
 |---------|---------|------|
 | `pnpm test` | ウォッチモードでテスト実行（公式デフォルト） | 開発中 |
-| `vitest run` | テストを1回実行して終了 | CI・pre-commit |
+| `pnpm exec vitest run` | テストを1回実行して終了 | CI・pre-commit |
 | `pnpm typecheck` | TypeScript の型チェック | CI・pre-commit |
 
 ### 4. テストディレクトリを作成
@@ -350,7 +350,7 @@ mkdir -p tests/unit tests/integration
 
 ディレクトリ構成（`05_development.md` に記載済み）:
 
-```
+```text
 web/tests/
 ├── e2e/           # E2Eテスト（Playwright）
 ├── integration/   # 統合テスト
@@ -372,7 +372,7 @@ describe("sample", () => {
 ```
 
 ```bash
-pnpm test
+pnpm exec vitest run
 ```
 
 テストがパスすれば完了。サンプルテストは確認後に削除してよい。
