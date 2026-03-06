@@ -26,8 +26,8 @@ Claude Code のプラグイン・スキル・MCPサーバーはプロジェク�
 
 ## 開発コマンド
 
-全コマンドはDockerコンテナ内で実行する。  
-ホストで直接 pnpm/npm を実行しない。
+Next.jsアプリ（web/）のコマンドはDockerコンテナ内で実行する。
+スキル管理（`npx skills add` 等）はホストで実行する。
 
 ```bash
 docker compose up                # 起動（http://localhost:3000）

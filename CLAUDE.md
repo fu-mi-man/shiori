@@ -2,8 +2,8 @@ See @README.md for project overview and @web/package.json for available npm comm
 
 # Commands
 
-全コマンドはDockerコンテナ内で実行する。  
-ホストで直接 pnpm/npm を実行しない。
+Next.jsアプリ（web/）のコマンドはDockerコンテナ内で実行する。
+スキル管理（`npx skills add` 等）はホストで実行する。
 
 ```bash
 docker compose up --build        # 初回 or Dockerfile変更時
