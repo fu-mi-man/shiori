@@ -17,7 +17,7 @@ docker compose exec web sh       # コンテナに入る
 ```bash
 pnpm typecheck                   # 型チェック
 pnpm lint                        # lint（Biome）
-pnpm test                        # ユニット・統合テスト（Vitest）
+pnpm exec vitest run             # ユニット・統合テスト（Vitest・1回実行）
 pnpm build                       # ビルド確認
 ```
 
@@ -26,6 +26,7 @@ pnpm build                       # ビルド確認
 - ESモジュール（import/export）のみ使用。named importを優先（例: `import { useState } from "react"`）
 - 汎用UI → `components/ui/`，機能固有 → `components/features/`
 - フォーマットはBiomeに従う。手動で整形しない
+- ライブラリの設定ファイル作成・変更時はcontext7で公式ドキュメントを確認し、ベストプラクティスを採用すること
 
 # Git
 
@@ -40,6 +41,7 @@ pnpm build                       # ビルド確認
 - IMPORTANT: Server Componentsを優先する。DBへの直接アクセスはServer Componentで行う。Client ComponentからはAPI Routes経由で更新する
 - モバイルファースト: max-width 480px、タッチターゲット 44×44px以上、PC/タブレットは中央配置
 - E2EテストにはPlaywright MCPが使用可能
+- IMPORTANT: パッケージ追加時は `docker compose down -v` を使わない（named volumeの`pgdata`も消える）。手順は @docs/01_requirements/05_development.md のパッケージ管理を参照
 
 # Documentation
 
