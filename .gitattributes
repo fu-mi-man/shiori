@@ -1,2 +1,5 @@
 # スキルファイル: PR差分の折りたたみ + 言語統計から除外
 .agents/skills/** linguist-generated=true
+
+# ロックファイル: PR差分の折りたたみ + 言語統計から除外
+web/pnpm-lock.yaml linguist-generated=true

@@ -334,12 +334,18 @@ docker compose exec web sh       # コンテナに入る
 ### パッケージ管理
 
 ```bash
-docker compose exec web sh
-pnpm add <package>               # 依存追加
-pnpm add -D <package>            # 開発依存追加
-exit
-docker compose restart web       # 反映
+docker compose stop web                                    # devサーバーを停止
+docker compose run --rm web pnpm add <package>             # 依存追加
+docker compose run --rm web pnpm add -D <package>          # 開発依存追加
+docker compose rm -v web                                   # anonymous volume（node_modules）を削除
+docker compose up --build -d                               # イメージ再ビルド＋起動
 ```
+
+> **なぜこの手順が必要か？**
+> - `docker compose exec` でコンテナに入って `pnpm add` すると，dev サーバーが `package.json` の変更を検知してクラッシュする。`docker compose run` は CMD（dev サーバー）を実行せずに指定コマンドだけ実行するため安全。
+> - `run` で更新された `node_modules` は一時コンテナ内のみ。実行中コンテナの anonymous volume には反映されないため，`rm -v web` で古い anonymous volume を削除し，`--build` で再構築する必要がある。
+> - `rm -v` は anonymous volume のみ削除する。named volume（`pgdata`）には影響しない。
+> - pnpm はシンボリンクベースの `node_modules` 構造を採用しているため named volume との相性が悪く，anonymous volume を使う必要がある（[pnpm/pnpm#2720](https://github.com/pnpm/pnpm/issues/2720)）。
 
 ### 検証
 

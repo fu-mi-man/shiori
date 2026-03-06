@@ -6,6 +6,7 @@ language: "ja"                                # レビュー言語（日本語�
 reviews:
   path_filters:
     - "!.agents/skills/**"                    # スキルファイル（自動生成）はレビュー対象外
+    - "!web/pnpm-lock.yaml"                   # ロックファイルはレビュー対象外
   auto_review:
     drafts: false                             # ドラフトPRはレビューしない
     enabled: true                             # 自動レビューを有効にする
