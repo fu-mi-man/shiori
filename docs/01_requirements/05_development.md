@@ -82,9 +82,8 @@ Claude Codeはタスクの内容に応じて関連するスキルを自動で読
 
 | スキル | 用途 |
 |--------|------|
-| react-best-practices | 40+ルールのパフォーマンス最適化。バンドルサイズ削減，リクエストウォーターフォール排除 |
-| react-composition-patterns | Compound Component等の設計パターン。boolean prop氾濫の防止 |
-| vercel-deploy-claimable | Vercelへのデプロイ。プレビューURL発行，所有権の移転 |
+| vercel-react-best-practices | 40+ルールのパフォーマンス最適化。バンドルサイズ削減，リクエストウォーターフォール排除 |
+| vercel-composition-patterns | Compound Component等の設計パターン。boolean prop氾濫の防止 |
 | web-design-guidelines | 100+ルールのアクセシビリティ・UX監査。ARIA属性，alt text，レスポンシブ対応 |
 
 **Vercel: next-skills** — Next.js固有のベストプラクティス
@@ -103,7 +102,7 @@ Claude Codeはタスクの内容に応じて関連するスキルを自動で読
 | skill-creator | カスタムスキル作成のガイド。SKILL.mdの構造・フロントマター・ベストプラクティス |
 
 ```bash
-# Dockerコンテナ内で実行
+# ホストで実行（プロジェクトルートの .claude/skills/ にインストールするため）
 npx skills add vercel-labs/agent-skills -a claude-code
 npx skills add vercel-labs/next-skills -a claude-code
 npx skills add anthropics/skills --skill frontend-design --skill skill-creator -a claude-code
@@ -126,7 +125,7 @@ claude mcp add playwright -s project -- docker run --rm -i mcr.microsoft.com/pla
 ### アップデート
 
 ```bash
-# Dockerコンテナ内で実行
+# ホストで実行
 npx skills update
 ```
 
@@ -320,7 +319,8 @@ style: インデントを修正
 
 ## 6. コマンド一覧
 
-起動・停止以外のコマンドはDockerコンテナ内で実行する。
+Next.jsアプリ（web/）のコマンドはDockerコンテナ内で実行する。
+スキル管理（`npx skills add` 等）はホストで実行する。
 
 ### 起動・停止
 
