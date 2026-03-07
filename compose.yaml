@@ -10,7 +10,7 @@ services:
       - DATABASE_URL=postgresql://postgres_user:postgres_pass@db:5432/postgres_db  # DB接続URL（本番はNeonのURLに差し替え）
     ports:                                                    # ポートマッピング（ホスト側:コンテナ側）
       - "3000:3000"                                           # localhost:3000でアクセス可能
-      - "4983:4983"                                           # Drizzle Studio（pnpm db:studio）
+      - "127.0.0.1:4983:4983"                                 # Drizzle Studio（pnpm db:studio）ローカル開発のみ
     volumes:
       - ./web:/app                                            # ソースコードをマウント（ホットリロード用）
       - /app/node_modules                                     # anonymous volumeでnode_modulesを保護（named volumeと異なりdocker compose down時に削除される）

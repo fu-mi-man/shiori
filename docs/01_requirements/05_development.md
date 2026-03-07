@@ -362,6 +362,8 @@ pnpm build                       # ビルド確認
 
 ### データベース
 
+コンテナ内で実行する。
+
 ```bash
 pnpm db:generate                  # マイグレーションSQL生成
 pnpm db:migrate                   # マイグレーション適用
