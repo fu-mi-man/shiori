@@ -15,6 +15,7 @@ reviews:
   high_level_summary: true                    # PRの高レベルサマリーを生成
   poem: false                                 # ポエム生成を無効化
   profile: "chill"                            # chill（緩め）/ assertive（厳しめ）
+  request_changes_workflow: true              # コメント解決後に自動Approve
   related_prs: true                           # 関連PRを表示
   review_status: false                        # 「レビュー中...」コメント無効（メール1通に削減）
   sequence_diagrams: true                     # シーケンス図を生成
