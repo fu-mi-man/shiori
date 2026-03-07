@@ -5,6 +5,6 @@ export default defineConfig({
   schema: "./src/db/schema.ts",               // Drizzleスキーマ定義ファイル
   out: "./src/db/migrations",                 // マイグレーションSQL出力先
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? "",      // compose.yamlのDATABASE_URL環境変数を参照
+    url: process.env.DATABASE_URL ?? "",      // compose.yamlのDATABASE_URL環境変数を参照（drizzle-kitはthrowを使えないため ?? ""）
   },
 });

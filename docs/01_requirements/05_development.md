@@ -363,9 +363,9 @@ pnpm build                       # ビルド確認
 ### データベース
 
 ```bash
-pnpm drizzle-kit generate         # マイグレーションSQL生成
-pnpm drizzle-kit migrate          # マイグレーション適用
-pnpm drizzle-kit studio           # DB管理UI起動
+pnpm db:generate                  # マイグレーションSQL生成
+pnpm db:migrate                   # マイグレーション適用
+pnpm db:studio                    # DB管理UI起動
 ```
 
 ### UI

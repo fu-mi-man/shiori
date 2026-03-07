@@ -78,6 +78,7 @@ drizzle-kit は `schema` に指定されたファイルが存在しないとエ�
 # ホストで実行（web/ ディレクトリ配下）
 mkdir -p src/db
 touch src/db/schema.ts
+touch src/db/index.ts
 ```
 
 `web/src/db/index.ts`:
@@ -86,14 +87,18 @@ touch src/db/schema.ts
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
-const queryClient = postgres(process.env.DATABASE_URL ?? ""); // compose.yamlのDATABASE_URL環境変数を参照
-export const db = drizzle({ client: queryClient }); // アプリ全体で使うDBクライアント
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL is not set");
+}
+
+const queryClient = postgres(process.env.DATABASE_URL);
+export const db = drizzle({ client: queryClient });
 ```
 
 | 設定 | 値 | 理由 |
 | --- | --- | --- |
 | ドライバ | `drizzle-orm/postgres-js` | ローカル Postgres（Docker）に接続。本番 Neon 時は `drizzle-orm/neon-http` に差し替え |
-| `DATABASE_URL` | `process.env.DATABASE_URL ?? ""` | compose.yaml で注入済み |
+| `DATABASE_URL` | `process.env.DATABASE_URL` | compose.yaml で注入済み。未設定時は起動時にエラーをthrow |
 
 ### 5. 動作確認
 
