@@ -21,8 +21,15 @@ docker compose up --build
 
 開発サーバー: http://localhost:3000
 
-Claude Code のプラグイン・スキル・MCPサーバーはプロジェクトでGit管理しているため，clone した時点で使用可能。  
+Claude Code のプラグイン・スキル・MCPサーバーはプロジェクトでGit管理しているため，clone した時点で使用可能。
 詳細は `docs/01_requirements/05_development.md` を参照。
+
+### Git hooks（lefthook）
+
+```bash
+brew install lefthook
+lefthook install
+```
 
 ## 開発コマンド
 
