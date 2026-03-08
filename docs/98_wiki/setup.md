@@ -140,6 +140,16 @@ npx skills add anthropics/skills --skill frontend-design --skill skill-creator -
 
 `--skill` で必要なスキルだけを選択してインストールする。
 
+#### shadcn/ui スキル
+
+> **注意**: shadcn/ui の init（`06_shadcn.md`）を完了して `components.json` が生成された後に実行すること
+
+```bash
+npx skills add shadcn/ui
+```
+
+`components.json` を読んでプロジェクト構成を把握し，shadcn/ui コンポーネントの正しいコードを生成できるようになる。
+
 ### 2. 動作確認
 
 ```bash
