@@ -38,7 +38,6 @@
 |--------|------|------|
 | Biome | リンター + フォーマッター | ESLint + Prettierを1ツールで代替。Rust製で高速 |
 | lefthook | Git hooks管理 | `git commit` 時にlint・型チェックを自動実行。huskyの代替（Go製で高速） |
-| lint-staged | 差分チェック | lefthookと組み合わせ，変更ファイルのみをlint対象にする |
 
 ### データベース
 

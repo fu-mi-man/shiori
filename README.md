@@ -11,6 +11,13 @@
 - Claude Code（AI支援開発）
 - Pencil.dev（VSCode/Cursor拡張機能，UIデザイン）
 
+### Git hooks（lefthook）
+
+```bash
+brew install lefthook
+lefthook install
+```
+
 ### 起動
 
 ```bash

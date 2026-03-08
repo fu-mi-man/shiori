@@ -212,7 +212,7 @@ pnpm biome init
     "useIgnoreFile": true                                       // .gitignoreの内容をlint・format対象外にする
   },
   "files": {
-    "ignoreUnknown": false                                      // 未知のファイル形式をエラーにしない
+    "ignoreUnknown": false                                      // 未知のファイル形式があればエラーを出す（trueにすると無視）
   },
   "formatter": {
     "enabled": true,

@@ -1,0 +1,12 @@
+# git commit 実行時に自動で typecheck → lint を実行する
+# https://lefthook.dev
+
+pre-commit:
+  piped: true  # 前のコマンドが失敗したら後続をスキップ（typecheck 失敗時に lint を実行しない）
+  commands:
+    typecheck:
+      priority: 1
+      run: docker compose exec -T web pnpm typecheck
+    lint:
+      priority: 2
+      run: docker compose exec -T web pnpm lint
