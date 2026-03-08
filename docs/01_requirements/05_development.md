@@ -135,91 +135,74 @@ npx skills update
 
 Next.js 16 App Routerのベストプラクティスに準拠。  
 将来のバックエンド分離に備え，Next.jsアプリは `web/` ディレクトリに配置する（モノレポ構成）。  
-※ディレクトリ先 → ファイル後，それぞれABC順で記載
 
 ```
 shiori/
-├── .claude/                                # Claude Code
-│   └── skills/                             # スキル（Git管理，npx skills addで追加）
+├── .agents/                                # スキル本体（npx skills addで自動生成）
+│   └── skills/                             # .claude/skills/ からシンボリンクされる
+│
+├── .claude/                                # Claude Code設定
+│   └── skills/                             # スキル（.agents/skills/ へのシンボリンク）
+│
+├── .github/                                # GitHub設定
+│   └── pull_request_template.md            # PRテンプレート
+│
+├── .vscode/                                # VSCode設定
+│   └── extensions.json                     # 推奨拡張機能
 │
 ├── bruno/                                  # APIテスト（Bruno）
 │   ├── environments/
 │   │   └── local.bru                       # ローカル環境変数
 │   ├── shiori-api/                         # API単位のリクエスト定義（.bruファイル）
-│   │   └── ...
 │   └── bruno.json                          # コレクション設定
 │
-├── designs/                                # UIデザイン（Pencil.dev）
+├── designs/                                # UIデザイン（Pencil.dev .penファイル）
 │
 ├── docs/                                   # ドキュメント
-│   ├── 01_requirements/                    # 要件定義
-│   │   ├── 01_overview.md                  # サービス概要
-│   │   ├── 02_features.md                  # 機能要件
-│   │   ├── 03_screens.md                   # 画面定義
-│   │   ├── 04_data.md                      # データ定義
-│   │   └── 05_development.md               # 開発環境・ツール・規約
+│   ├── 01_requirements/                    # 要件定義（概要・機能・画面・データ・開発規約）
 │   ├── 02_specification/                   # 詳細設計
+│   ├── 98_wiki/                            # 開発Wiki
+│   │   └── setup/                          # ツール導入手順（00_initial〜06_shadcn）
 │   └── 99_research/                        # 調査・技術選定
-│       ├── benchmark.md                    # 競合分析
-│       └── technology.md                   # 技術選定
 │
 ├── web/                                    # Next.jsアプリ（フロント＋バックエンド）
-│   ├── src/                                # ソースコード
+│   ├── src/
 │   │   ├── app/                            # App Router（ルーティング専用）
-│   │   │   ├── (main)/                     # メインページ群（route group）
-│   │   │   │   ├── create/
-│   │   │   │   │   └── page.tsx            # 作成画面 (/create)
+│   │   │   ├── (main)/                     # メインページ群（route group，URLに影響しない）
+│   │   │   │   ├── create/page.tsx         # 作成画面 (/create)
 │   │   │   │   └── page.tsx                # トップ画面 (/)
-│   │   │   ├── api/
-│   │   │   │   ├── auth/
-│   │   │   │   │   └── route.ts            # POST: 合言葉認証
-│   │   │   │   └── shiori/
-│   │   │   │       ├── [id]/
-│   │   │   │       │   └── route.ts
-│   │   │   │       └── route.ts            # POST: しおり作成
-│   │   │   ├── board/                      # Phase 2
-│   │   │   │   └── page.tsx                # 掲示板 (/board)
-│   │   │   ├── i/
-│   │   │   │   └── [id]/
-│   │   │   │       ├── edit/
-│   │   │   │       │   └── page.tsx
-│   │   │   │       └── page.tsx            # 表示画面 (/i/[id])
+│   │   │   ├── api/                        # API Routes
+│   │   │   │   ├── auth/route.ts           # POST: 合言葉認証
+│   │   │   │   └── shiori/route.ts         # POST: しおり作成
+│   │   │   ├── i/[id]/page.tsx             # 表示画面 (/i/[id])
 │   │   │   ├── error.tsx                   # エラーバウンダリ
 │   │   │   ├── globals.css
 │   │   │   ├── layout.tsx                  # ルートレイアウト
 │   │   │   └── not-found.tsx               # 404ページ
 │   │   │
-│   │   ├── components/                     # コンポーネント
+│   │   ├── components/
 │   │   │   ├── features/                   # 機能固有コンポーネント（機能単位で分類）
-│   │   │   │   └── ...
 │   │   │   └── ui/                         # 汎用UIコンポーネント（shadcn/uiで追加）
-│   │   │       └── ...
-│   │   │
-│   │   ├── hooks/                          # カスタムReact Hooks
 │   │   │
 │   │   ├── db/                             # Drizzle ORM（公式準拠）
 │   │   │   ├── migrations/                 # マイグレーションファイル
 │   │   │   ├── index.ts                    # DB接続
-│   │   │   └── schema.ts                   # Drizzleスキーマ定義
+│   │   │   └── schema.ts                   # スキーマ定義
+│   │   │
+│   │   ├── hooks/                          # カスタムReact Hooks
 │   │   │
 │   │   └── lib/                            # ユーティリティ・共通ロジック
-│   │       ├── types.ts                    # 共通型定義
-│   │       ├── utils.ts                    # ユーティリティ関数
-│   │       └── validations.ts              # Zodスキーマ（API・フォーム共用）
-│   │
-│   ├── locales/                            # Phase 2
-│   │   ├── en.json
-│   │   └── ja.json
-│   │
-│   ├── public/                             # 静的ファイル
 │   │
 │   ├── tests/                              # テストファイル
 │   │   ├── e2e/                            # E2Eテスト（Playwright）
 │   │   ├── integration/                    # 統合テスト
 │   │   └── unit/                           # ユニットテスト
 │   │
+│   ├── public/                             # 静的ファイル
 │   ├── biome.json                          # Biome設定
+│   ├── components.json                     # shadcn/ui設定
 │   ├── Dockerfile                          # コンテナイメージ定義
+│   ├── drizzle.config.ts                   # Drizzle Kit設定
 │   ├── next.config.ts                      # Next.js設定
 │   ├── package.json                        # 依存関係・スクリプト定義
 │   ├── playwright.config.ts                # Playwright設定（E2Eテスト）
@@ -227,23 +210,21 @@ shiori/
 │   ├── tsconfig.json                       # TypeScript設定
 │   └── vitest.config.ts                    # Vitest設定
 │
-├── CLAUDE.md
-├── compose.yaml
+├── CLAUDE.md                               # Claude Code指示書
+├── compose.yaml                            # Docker Compose設定
+├── lefthook.yml                            # Git hooks設定（pre-commit）
 └── README.md
 ```
 
 ### 構成のポイント
 
 - **`web/`**: Next.jsプロジェクトルート。将来バックエンドを分離する場合は `api/` 等を並列に追加できる
-- **`src/`**: ソースコードと設定ファイル（tsconfig, biome.json等）を分離
 - **`src/app/`**: App Routerのルーティング専用。ページとAPIルートのみ配置。ビジネスロジックやコンポーネントは置かない
 - **`src/components/ui/`**: shadcn/uiの汎用コンポーネント。どの画面でも使える
-- **`src/components/features/`**: 機能固有のコンポーネント。shiori，board等の機能単位で分類
+- **`src/components/features/`**: 機能固有のコンポーネント。機能単位で分類
 - **`src/db/`**: Drizzle関連を集約（公式準拠）。スキーマ，接続，マイグレーションを一箇所で管理
-- **`src/lib/validations.ts`**: ZodスキーマをフォームバリデーションとAPIバリデーションで共用
 - **`src/hooks/`**: カスタムHooksを `lib/` と分離して配置
 - **`tests/`**: Playwrightのデフォルト探索ディレクトリ名。Vitestはファイル名パターン（`*.test.ts`）で検出するため，どちらのツールも追加設定なしで動作する
-- **route group `(main)`**: トップ画面と作成画面をグループ化。URLには影響しない
 
 
 ## 4. Git運用ルール
@@ -377,4 +358,4 @@ npx shadcn@latest add <component> # コンポーネント追加（例: button, i
 ```
 
 
-セットアップ手順は `docs/98_wiki/setup.md` を参照。
+セットアップ手順は `docs/98_wiki/setup/` を参照。
