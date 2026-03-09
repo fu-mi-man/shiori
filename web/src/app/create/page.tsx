@@ -11,14 +11,15 @@ export default function CreatePage() {
         <div className="flex flex-col gap-7 px-5 py-6">
           {/* タイトルセクション */}
           <section className="flex flex-col gap-2">
-            <div className="flex items-center gap-1">
+            <label htmlFor="title" className="flex items-center gap-1">
               <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
-              <span className="rounded bg-[#3D8A5A] px-1.5 py-1.5 font-semibold text-[11px] text-white">
-                必須
-              </span>
-            </div>
+              <span className="rounded bg-[#3D8A5A] px-1.5 py-1.5 font-semibold text-[11px] text-white">必須</span>
+            </label>
             <input
+              id="title"
+              name="title"
               type="text"
+              required
               placeholder="沖縄旅行 2025年3月"
               className="h-12 w-full rounded-xl border border-[#D1D0CD] bg-white px-4 text-[#1A1918] text-[15px] placeholder:text-[#9C9B99]"
             />
