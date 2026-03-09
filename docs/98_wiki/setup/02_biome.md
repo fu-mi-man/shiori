@@ -45,7 +45,10 @@ pnpm biome init
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "nursery": {
+        "useSortedClasses": "warn"
+      }
     }
   },
   "css": {
@@ -78,6 +81,13 @@ pnpm biome init
 | `css.tailwindDirectives` | `true` | `@theme` 等のTailwind v4構文を認識させる |
 | `javascript.formatter.quoteStyle` | `"double"` | JSXとの統一性を保つ |
 | `assist.organizeImports` | `"on"` | import文を自動で並び替え |
+| `nursery.useSortedClasses` | `"warn"` | TailwindCSSクラス名を公式推奨順（レイアウト → サイズ → 余白 → 装飾 → テキスト）に自動ソート。Prettierの `prettier-plugin-tailwindcss` と同じソート順。ソート順は1種類のみでカスタマイズ不可 |
+
+> **nursery について**  
+> Biomeの実験段階ルールカテゴリ。Biomeチームが分類を決め，安定したら `recommended` 等に昇格する。バージョンアップで挙動が変わる可能性があるため `"warn"` が無難（`"error"` にすると `pnpm lint` が失敗する，`"off"` で無効化）。安定版に昇格したら `"error"` への変更を検討する。
+
+> **注意: `biome.json` にコメントを書かないこと**  
+> Biomeは JSONC（コメント付きJSON）を構文上は受け付けるが，コメントがあると一部の設定（`formatter.indentStyle`，`css.tailwindDirectives` 等）が正しく読み取れないバグがある。設定の説明はこのドキュメントに記載し，`biome.json` 自体にはコメントを入れない。
 
 ### 3. package.json にスクリプトを追加
 
@@ -88,17 +98,21 @@ pnpm biome init
 {
   "scripts": {
     "lint": "biome check .",
-    "lint:fix": "biome check --write .",
+    "lint:fix": "biome check --write --unsafe .",
     "format": "biome format --write ."
   }
 }
 ```
 
-| コマンド | 実行内容 | ファイル変更 | 用途 |
+| ショートカット | 正規コマンド | ファイル変更 | 用途 |
 |---------|---------|:----------:|------|
-| `pnpm lint` | lint + format のチェック | しない | CI・pre-commit |
-| `pnpm lint:fix` | lint + format の自動修正 | する | 開発中 |
-| `pnpm format` | フォーマットのみ自動修正 | する | インデント・改行だけ直したいとき |
+| `pnpm lint` | `biome check .` | しない | CI・pre-commit |
+| `pnpm lint:fix` | `biome check --write --unsafe .` | する | 開発中 |
+| `pnpm format` | `biome format --write .` | する | インデント・改行だけ直したいとき |
+
+> **`--unsafe` フラグについて**
+> nursery（実験段階）ルールの自動修正には `--unsafe` が必要。  
+>`lint:fix` に組み込み済みのため，普段は `pnpm lint:fix` だけでクラスソート等も自動修正される。
 
 ### 4. 既存コードを一括整形
 
