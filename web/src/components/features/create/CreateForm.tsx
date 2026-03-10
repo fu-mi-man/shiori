@@ -77,29 +77,44 @@ export function CreateForm() {
             {/* タイトル行 */}
             <div className="flex flex-col gap-1">
               <div className="flex items-center justify-between">
-                <span className="font-medium text-[#6D6C6A] text-xs">タイトル</span>
+                <label
+                  htmlFor={`overview-title-${item.id}`}
+                  className="font-medium text-[#6D6C6A] text-xs"
+                >
+                  タイトル
+                </label>
                 <button
                   type="button"
                   onClick={() => removeOverview(item.id)}
-                  className="flex size-6 cursor-pointer items-center justify-center rounded-full bg-[#FEF2F2]"
+                  className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
                   aria-label="概要を削除"
                 >
-                  <X className="size-3.5 text-[#EF4444] transition-colors hover:bg-[#FEE2E2]" />
+                  <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
+                    <X className="size-3 text-destructive" />
+                  </span>
                 </button>
               </div>
               <input
+                id={`overview-title-${item.id}`}
                 type="text"
                 value={item.title}
                 onChange={(e) => updateOverview(item.id, "title", e.target.value)}
                 placeholder="例: 旅費"
+                maxLength={255}
                 className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm placeholder:text-[#9C9B99]"
               />
             </div>
 
             {/* 内容 */}
             <div className="flex flex-col gap-1">
-              <span className="font-medium text-[#6D6C6A] text-xs">内容</span>
+              <label
+                htmlFor={`overview-content-${item.id}`}
+                className="font-medium text-[#6D6C6A] text-xs"
+              >
+                内容
+              </label>
               <textarea
+                id={`overview-content-${item.id}`}
                 value={item.content}
                 onChange={(e) => updateOverview(item.id, "content", e.target.value)}
                 placeholder="例: 一人あたり約50,000円"
