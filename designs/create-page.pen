@@ -264,7 +264,7 @@
                               "name": "ovItem1Del",
                               "width": 24,
                               "height": 24,
-                              "fill": "#FEF2F2",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -277,7 +277,7 @@
                                   "height": 14,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#EF4444"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -426,7 +426,7 @@
                               "name": "ovItem2Del",
                               "width": 24,
                               "height": 24,
-                              "fill": "#FEF2F2",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -439,7 +439,7 @@
                                   "height": 14,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#EF4444"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -588,7 +588,7 @@
                               "name": "ovItem3Del",
                               "width": 24,
                               "height": 24,
-                              "fill": "#FEF2F2",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -601,7 +601,7 @@
                                   "height": 14,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#EF4444"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -996,7 +996,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -1009,7 +1009,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -1510,7 +1510,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -1523,7 +1523,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -2024,7 +2024,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -2037,7 +2037,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -2654,7 +2654,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -2667,7 +2667,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -3168,7 +3168,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -3181,7 +3181,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -3798,7 +3798,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -3811,7 +3811,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -4311,7 +4311,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -4324,7 +4324,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -4825,7 +4825,7 @@
                               "name": "cardDel",
                               "width": 22,
                               "height": 22,
-                              "fill": "#D08068",
+                              "fill": "#FBDAD8",
                               "cornerRadius": 100,
                               "justifyContent": "center",
                               "alignItems": "center",
@@ -4838,7 +4838,7 @@
                                   "height": 12,
                                   "iconFontName": "x",
                                   "iconFontFamily": "lucide",
-                                  "fill": "#FFFFFF"
+                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
