@@ -61,7 +61,7 @@ export function CreateForm() {
           <button
             type="button"
             onClick={addOverview}
-            className="flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-[13px]"
+            className="flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-[13px] transition-colors hover:bg-[#A8E4C0]"
           >
             <Plus className="size-3.5" />
             追加
@@ -84,7 +84,7 @@ export function CreateForm() {
                   className="flex size-6 cursor-pointer items-center justify-center rounded-full bg-[#FEF2F2]"
                   aria-label="概要を削除"
                 >
-                  <X className="size-3.5 text-[#EF4444]" />
+                  <X className="size-3.5 text-[#EF4444] transition-colors hover:bg-[#FEE2E2]" />
                 </button>
               </div>
               <input
@@ -114,7 +114,7 @@ export function CreateForm() {
       {/* 完了ボタン */}
       <button
         type="button"
-        className="flex h-[52px] items-center justify-center gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-white shadow-[0_2px_8px_rgba(61,138,90,0.19)]"
+        className="flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-white shadow-[0_2px_8px_rgba(61,138,90,0.19)] transition-colors hover:bg-[#357A50]"
       >
         <Check className="size-5" />
         <span className="text-base">完了</span>
