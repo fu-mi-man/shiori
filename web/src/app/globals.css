@@ -125,5 +125,6 @@
   }
   html {
     @apply font-sans;
+    scrollbar-gutter: stable; /* スクロールバー表示時のレイアウトずれを防止 */
   }
 }
