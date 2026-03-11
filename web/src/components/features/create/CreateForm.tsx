@@ -171,7 +171,7 @@ export function CreateForm() {
           type="text"
           required
           placeholder="沖縄旅行 2025年3月"
-          className="h-12 w-full rounded-xl border border-[#D1D0CD] bg-white px-4 text-[#1A1918] text-base placeholder:text-[#9C9B99]"
+          className="h-10 w-full rounded-xl border border-[#D1D0CD] bg-white px-4 text-[#1A1918] text-sm placeholder:text-[#9C9B99]"
         />
       </section>
 
@@ -323,7 +323,7 @@ export function CreateForm() {
                       type="time"
                       value={card.time}
                       onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
-                      className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-xs"
+                      className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
                     />
                   </div>
                   <button
@@ -353,7 +353,7 @@ export function CreateForm() {
                     onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
                     placeholder="例: 那覇空港 到着"
                     maxLength={255}
-                    className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-xs placeholder:text-[#9C9B99]"
+                    className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm placeholder:text-[#9C9B99]"
                   />
                 </div>
 
@@ -402,7 +402,7 @@ export function CreateForm() {
                     onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
                     placeholder="例: LCC利用。第2ターミナル"
                     maxLength={200}
-                    className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-xs leading-relaxed placeholder:text-[#9C9B99]"
+                    className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-sm leading-relaxed placeholder:text-[#9C9B99]"
                   />
                 </div>
               </div>
@@ -412,7 +412,7 @@ export function CreateForm() {
             <button
               type="button"
               onClick={() => addCard(day.id)}
-              className="flex h-11 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-xs transition-colors hover:bg-[#F5F5F4]"
+              className="flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-xs transition-colors hover:bg-[#F5F5F4]"
             >
               <Plus className="size-4" />
               コマを追加
@@ -424,7 +424,7 @@ export function CreateForm() {
       {/* 完了ボタン */}
       <button
         type="button"
-        className="flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-white shadow-[0_2px_8px_rgba(61,138,90,0.19)] transition-colors hover:bg-[#357A50]"
+        className="flex h-12 cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-white shadow-[0_2px_8px_rgba(61,138,90,0.19)] transition-colors hover:bg-[#357A50]"
       >
         <Check className="size-5" />
         <span className="text-base">完了</span>
