@@ -106,9 +106,7 @@ export function CreateForm() {
   // 指定IDの日程グループを削除
   const removeDay = (id: number) => {
     setDays((prev) =>
-      prev
-        .filter((day) => day.id !== id)
-        .map((day, index) => ({ ...day, dayNumber: index + 1 })),
+      prev.filter((day) => day.id !== id).map((day, index) => ({ ...day, dayNumber: index + 1 })),
     );
   };
 
@@ -140,7 +138,12 @@ export function CreateForm() {
   };
 
   // 指定コマのフィールドを更新
-  const updateCard = (dayId: number, cardId: number, field: keyof Omit<ScheduleCard, "id">, value: string) => {
+  const updateCard = (
+    dayId: number,
+    cardId: number,
+    field: keyof Omit<ScheduleCard, "id">,
+    value: string,
+  ) => {
     setDays((prev) =>
       prev.map((day) =>
         day.id === dayId
@@ -161,7 +164,7 @@ export function CreateForm() {
       <section className="flex flex-col gap-2">
         <label htmlFor="title" className="flex items-center gap-1">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
-          <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-xs text-white">
+          <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-white text-xs">
             必須
           </span>
         </label>
@@ -183,7 +186,7 @@ export function CreateForm() {
           <button
             type="button"
             onClick={addOverview}
-            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors hover:bg-[#A8E4C0] before:absolute before:-inset-[6px] before:content-['']"
+            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
           >
             <Plus className="size-4" />
             追加
@@ -256,7 +259,7 @@ export function CreateForm() {
           <button
             type="button"
             onClick={addDay}
-            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors hover:bg-[#A8E4C0] before:absolute before:-inset-[6px] before:content-['']"
+            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
           >
             <Plus className="size-4" />
             日程を追加
@@ -267,9 +270,7 @@ export function CreateForm() {
         <div className="flex flex-col gap-2">
           <label htmlFor="start-date" className="flex items-center gap-1.5">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
-            <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">
-              任意
-            </span>
+            <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </label>
           <input
             id="start-date"
@@ -412,7 +413,7 @@ export function CreateForm() {
             <button
               type="button"
               onClick={() => addCard(day.id)}
-              className="flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-xs transition-colors hover:bg-[#F5F5F4]"
+              className="flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors hover:bg-[#F5F5F4]"
             >
               <Plus className="size-4" />
               コマを追加
