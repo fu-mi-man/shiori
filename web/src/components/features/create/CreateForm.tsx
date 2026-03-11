@@ -261,13 +261,14 @@ export function CreateForm() {
 
         {/* 旅行開始日 */}
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-1.5">
+          <label htmlFor="start-date" className="flex items-center gap-1.5">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-1.5 py-0.5 text-[#9C9B99] text-[11px]">
               任意
             </span>
-          </div>
+          </label>
           <input
+            id="start-date"
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
