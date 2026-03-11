@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
 type OverviewItem = {
@@ -162,13 +163,12 @@ export function CreateForm() {
             必須
           </span>
         </label>
-        <input
+        <Input
           id="title"
           name="title"
-          type="text"
           required
           placeholder="沖縄旅行 2025年3月"
-          className="h-10 w-full rounded-xl border border-[#D1D0CD] bg-white px-4 text-[#1A1918] text-sm placeholder:text-[#9C9B99]"
+          className="h-10 bg-white"
         />
       </section>
 
@@ -213,14 +213,14 @@ export function CreateForm() {
                   </span>
                 </button>
               </div>
-              <input
+
+              <Input
                 id={`overview-title-${item.id}`}
-                type="text"
                 value={item.title}
                 onChange={(e) => updateOverview(item.id, "title", e.target.value)}
                 placeholder="例: 旅費"
                 maxLength={255}
-                className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm placeholder:text-[#9C9B99]"
+                className="h-10 bg-white"
               />
             </div>
 
@@ -343,14 +343,13 @@ export function CreateForm() {
                   >
                     タイトル
                   </label>
-                  <input
+                  <Input
                     id={`card-title-${day.id}-${card.id}`}
-                    type="text"
                     value={card.title}
                     onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
                     placeholder="例: 那覇空港 到着"
                     maxLength={255}
-                    className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm placeholder:text-[#9C9B99]"
+                    className="h-10 bg-white"
                   />
                 </div>
 
