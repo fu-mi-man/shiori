@@ -369,7 +369,7 @@ export function CreateForm() {
                             card.transport === option.mode ? "" : option.mode,
                           )
                         }
-                        className={`flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-lg border transition-colors ${
+                        className={`flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border transition-colors ${
                           card.transport === option.mode
                             ? "border-[#3D8A5A] border-[1.5px] bg-[#C8F0D8]"
                             : "border-[#E5E4E1] bg-white hover:bg-[#F5F5F4]"
@@ -377,7 +377,7 @@ export function CreateForm() {
                         aria-label={option.label}
                       >
                         <option.icon
-                          className={`size-[18px] ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
+                          className={`size-5 ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
                         />
                       </button>
                     ))}
@@ -408,7 +408,7 @@ export function CreateForm() {
             <button
               type="button"
               onClick={() => addCard(day.id)}
-              className="flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-[13px] transition-colors hover:bg-[#F5F5F4]"
+              className="flex h-11 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-[13px] transition-colors hover:bg-[#F5F5F4]"
             >
               <Plus className="size-3.5" />
               コマを追加
