@@ -4,6 +4,7 @@ See @README.md for project overview and @web/package.json for available npm comm
 
 Next.jsアプリ（web/）のコマンドはDockerコンテナ内で実行する。
 スキル管理（`npx skills add` 等）はホストで実行する。
+パッケージのインストール・実行は `npm` ではなく `pnpm` を使う（`npx` → `pnpm dlx`、`npm install` → `pnpm add`）。
 
 ```bash
 docker compose up --build        # 初回 or Dockerfile変更時
