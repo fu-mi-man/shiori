@@ -105,7 +105,11 @@ export function CreateForm() {
 
   // 指定IDの日程グループを削除
   const removeDay = (id: number) => {
-    setDays((prev) => prev.filter((day) => day.id !== id));
+    setDays((prev) =>
+      prev
+        .filter((day) => day.id !== id)
+        .map((day, index) => ({ ...day, dayNumber: index + 1 })),
+    );
   };
 
   // 指定日程グループにコマを追加
