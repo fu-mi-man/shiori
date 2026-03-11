@@ -380,6 +380,7 @@ export function CreateForm() {
                             : "border-[#E5E4E1] bg-white hover:bg-[#F5F5F4]"
                         }`}
                         aria-label={option.label}
+                        aria-pressed={card.transport === option.mode}
                       >
                         <option.icon
                           className={`size-5 ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
@@ -413,7 +414,7 @@ export function CreateForm() {
             <button
               type="button"
               onClick={() => addCard(day.id)}
-              className="flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors hover:bg-[#F5F5F4]"
+              className="relative flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4]"
             >
               <Plus className="size-4" />
               コマを追加
