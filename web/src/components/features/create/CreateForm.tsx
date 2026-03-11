@@ -47,8 +47,6 @@ type ScheduleCard = {
 // 1日分のグループ
 type DayGroup = {
   id: number;
-  date: string; // 日付
-  dayNumber: number; // 日数（1日目，2日目）
   cards: ScheduleCard[];
 };
 
@@ -96,18 +94,13 @@ export function CreateForm() {
 
   // 日程グループを末尾に追加
   const addDay = () => {
-    setDays((prev) => [
-      ...prev,
-      { id: nextDayId, date: "", dayNumber: prev.length + 1, cards: [] },
-    ]);
+    setDays((prev) => [...prev, { id: nextDayId, cards: [] }]);
     setNextDayId((prev) => prev + 1);
   };
 
   // 指定IDの日程グループを削除
   const removeDay = (id: number) => {
-    setDays((prev) =>
-      prev.filter((day) => day.id !== id).map((day, index) => ({ ...day, dayNumber: index + 1 })),
-    );
+    setDays((prev) => prev.filter((day) => day.id !== id));
   };
 
   // 指定日程グループにコマを追加
@@ -282,7 +275,7 @@ export function CreateForm() {
         </div>
 
         {/* 日程グループリスト */}
-        {days.map((day) => (
+        {days.map((day, index) => (
           <div
             key={day.id}
             className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
@@ -290,7 +283,7 @@ export function CreateForm() {
             {/* 日程ヘッダー */}
             <div className="flex items-center justify-between">
               <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
-                {day.dayNumber}日目
+                {index + 1}日目
               </span>
               <button
                 type="button"
