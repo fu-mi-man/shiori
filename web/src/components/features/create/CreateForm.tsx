@@ -136,7 +136,7 @@ export function CreateForm() {
   };
 
   // 指定コマのフィールドを更新
-  const updateCard = (dayId: number, cardId: number, field: keyof ScheduleCard, value: string) => {
+  const updateCard = (dayId: number, cardId: number, field: keyof Omit<ScheduleCard, "id">, value: string) => {
     setDays((prev) =>
       prev.map((day) =>
         day.id === dayId
