@@ -92,8 +92,9 @@ export function CreateForm() {
     );
   };
 
-  // 日程グループを末尾に追加
+  // 日程グループを末尾に追加（MVPは最大10日）
   const addDay = () => {
+    if (days.length >= 10) return;
     setDays((prev) => [...prev, { id: nextDayId, cards: [] }]);
     setNextDayId((prev) => prev + 1);
   };
@@ -247,16 +248,18 @@ export function CreateForm() {
       {/* 行程セクション */}
       <section className="flex flex-col gap-4">
         {/* セクションヘッダー */}
-        <div className="flex items-center justify-between">
+        <div className="flex min-h-8 items-center justify-between">
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">行程</h2>
-          <button
-            type="button"
-            onClick={addDay}
-            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
-          >
-            <Plus className="size-4" />
-            日程を追加
-          </button>
+          {days.length < 10 && (
+            <button
+              type="button"
+              onClick={addDay}
+              className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
+            >
+              <Plus className="size-4" />
+              日程を追加
+            </button>
+          )}
         </div>
 
         {/* 旅行開始日 */}
