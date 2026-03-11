@@ -12,7 +12,7 @@ reviews:
     enabled: true                             # 自動レビューを有効にする
   changed_files_summary: false                # 変更ファイル一覧を非表示
   collapse_walkthrough: true                  # ウォークスルーを折りたたみ表示
-  commit_status: false                        # Pre-merge checksを非表示
+  commit_status: false                        # レビュー中のcommit status更新を無効化
   estimate_code_review_effort: true           # レビュー工数の見積もりを表示
   finishing_touches:
     docstrings:
