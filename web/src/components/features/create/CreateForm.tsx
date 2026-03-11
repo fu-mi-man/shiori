@@ -183,7 +183,7 @@ export function CreateForm() {
           <button
             type="button"
             onClick={addOverview}
-            className="flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-[13px] transition-colors hover:bg-[#A8E4C0]"
+            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors hover:bg-[#A8E4C0] before:absolute before:-inset-[6px] before:content-['']"
           >
             <Plus className="size-3.5" />
             追加
@@ -256,7 +256,7 @@ export function CreateForm() {
           <button
             type="button"
             onClick={addDay}
-            className="flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-[13px] transition-colors hover:bg-[#A8E4C0]"
+            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors hover:bg-[#A8E4C0] before:absolute before:-inset-[6px] before:content-['']"
           >
             <Plus className="size-3.5" />
             日程を追加
