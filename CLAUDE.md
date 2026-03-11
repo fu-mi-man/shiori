@@ -25,6 +25,8 @@ pnpm build                       # ビルド確認
 
 - ESモジュール（import/export）のみ使用。named importを優先（例: `import { useState } from "react"`）
 - 汎用UI → `components/ui/`，機能固有 → `components/features/`
+- UIコンポーネントはshadcn/uiを優先して使用する（`<button>`→`<Button>`、`<input>`→`<Input>`等）。shadcn/uiに該当コンポーネントがない場合のみ素のHTML要素を使う
+- カスタムスタイルはshadcn/uiのvariant/sizeで対応し、不足分のみclassNameで追加する。複数機能で再利用する汎用的なスタイルパターンは`components/ui/`のvariantsに追加する。機能固有の調整（タッチターゲットサイズ、レイアウト依存のスペーシング等）は各機能の実装レベルで対応する
 - フォーマットはBiomeに従う。手動で整形しない
 - ライブラリの設定ファイル作成・変更時はcontext7で公式ドキュメントを確認し、ベストプラクティスを採用すること
 
