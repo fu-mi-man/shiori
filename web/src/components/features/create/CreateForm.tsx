@@ -1,6 +1,19 @@
 "use client";
 
-import { Check, Plus, X } from "lucide-react";
+import {
+  Bike,
+  Bus,
+  CableCar,
+  Car,
+  CarTaxiFront,
+  Check,
+  Footprints,
+  Plane,
+  Plus,
+  Ship,
+  TrainFront,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
@@ -10,10 +23,58 @@ type OverviewItem = {
   content: string;
 };
 
+// 交通手段のユニオン型（取りうる値を制限する）
+type TransportMode =
+  | "walk"
+  | "train"
+  | "bus"
+  | "car"
+  | "bicycle"
+  | "ship"
+  | "plane"
+  | "taxi"
+  | "cablecar";
+
+// スケジュールの1コマ
+type ScheduleCard = {
+  id: number;
+  time: string;
+  title: string;
+  transport: TransportMode | "";
+  memo: string;
+};
+
+// 1日分のグループ
+type DayGroup = {
+  id: number;
+  date: string; // 日付
+  dayNumber: number; // 日数（1日目，2日目）
+  cards: ScheduleCard[];
+};
+
+// 交通手段の選択肢（アイコンはLucide）
+const TRANSPORT_OPTIONS = [
+  { mode: "walk", icon: Footprints, label: "徒歩" },
+  { mode: "train", icon: TrainFront, label: "電車" },
+  { mode: "car", icon: Car, label: "車" },
+  { mode: "bus", icon: Bus, label: "バス" },
+  { mode: "taxi", icon: CarTaxiFront, label: "タクシー" },
+  { mode: "plane", icon: Plane, label: "飛行機" },
+  { mode: "bicycle", icon: Bike, label: "自転車" },
+  { mode: "ship", icon: Ship, label: "船" },
+  { mode: "cablecar", icon: CableCar, label: "ケーブルカー" },
+] as const;
+
 export function CreateForm() {
   // 概要セクションのstate
   const [_overviews, setOverviews] = useState<OverviewItem[]>([]);
   const [nextId, setNextId] = useState(1);
+
+  // 行程セクションのstate
+  const [days, setDays] = useState<DayGroup[]>([]);
+  const [nextDayId, setNextDayId] = useState(1);
+  const [nextCardId, setNextCardId] = useState(1);
+  const [startDate, setStartDate] = useState("");
 
   // 追加: 空のカードをリスト末尾に追加
   const addOverview = () => {
@@ -30,6 +91,63 @@ export function CreateForm() {
   const updateOverview = (id: number, field: "title" | "content", value: string) => {
     setOverviews((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
+    );
+  };
+
+  // 日程グループを末尾に追加
+  const addDay = () => {
+    setDays((prev) => [
+      ...prev,
+      { id: nextDayId, date: "", dayNumber: prev.length + 1, cards: [] },
+    ]);
+    setNextDayId((prev) => prev + 1);
+  };
+
+  // 指定IDの日程グループを削除
+  const removeDay = (id: number) => {
+    setDays((prev) => prev.filter((day) => day.id !== id));
+  };
+
+  // 指定日程グループにコマを追加
+  const addCard = (dayId: number) => {
+    setDays((prev) =>
+      prev.map((day) =>
+        day.id === dayId
+          ? {
+              ...day,
+              cards: [
+                ...day.cards,
+                { id: nextCardId, time: "", title: "", transport: "", memo: "" },
+              ],
+            }
+          : day,
+      ),
+    );
+    setNextCardId((prev) => prev + 1);
+  };
+
+  // 指定日程グループから指定コマを削除
+  const removeCard = (dayId: number, cardId: number) => {
+    setDays((prev) =>
+      prev.map((day) =>
+        day.id === dayId ? { ...day, cards: day.cards.filter((card) => card.id !== cardId) } : day,
+      ),
+    );
+  };
+
+  // 指定コマのフィールドを更新
+  const updateCard = (dayId: number, cardId: number, field: keyof ScheduleCard, value: string) => {
+    setDays((prev) =>
+      prev.map((day) =>
+        day.id === dayId
+          ? {
+              ...day,
+              cards: day.cards.map((card) =>
+                card.id === cardId ? { ...card, [field]: value } : card,
+              ),
+            }
+          : day,
+      ),
     );
   };
 
@@ -122,6 +240,178 @@ export function CreateForm() {
                 className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-sm leading-relaxed placeholder:text-[#9C9B99]"
               />
             </div>
+          </div>
+        ))}
+      </section>
+
+      {/* 行程セクション */}
+      <section className="flex flex-col gap-4">
+        {/* セクションヘッダー */}
+        <div className="flex items-center justify-between">
+          <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">行程</h2>
+          <button
+            type="button"
+            onClick={addDay}
+            className="flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-[13px] transition-colors hover:bg-[#A8E4C0]"
+          >
+            <Plus className="size-3.5" />
+            日程を追加
+          </button>
+        </div>
+
+        {/* 旅行開始日 */}
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-1.5">
+            <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
+            <span className="rounded bg-[#EDECEA] px-1.5 py-0.5 text-[#9C9B99] text-[11px]">
+              任意
+            </span>
+          </div>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+          />
+        </div>
+
+        {/* 日程グループリスト */}
+        {days.map((day) => (
+          <div
+            key={day.id}
+            className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+          >
+            {/* 日程ヘッダー */}
+            <div className="flex items-center justify-between">
+              <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                {day.dayNumber}日目
+              </span>
+              <button
+                type="button"
+                onClick={() => removeDay(day.id)}
+                className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
+                aria-label="日程を削除"
+              >
+                <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
+                  <X className="size-3 text-destructive" />
+                </span>
+              </button>
+            </div>
+
+            {/* スケジュールカードリスト */}
+            {day.cards.map((card) => (
+              <div
+                key={card.id}
+                className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+              >
+                {/* 時間 + 削除ボタン */}
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex w-[150px] flex-col gap-1">
+                    <label
+                      htmlFor={`card-time-${day.id}-${card.id}`}
+                      className="font-medium text-[#6D6C6A] text-xs"
+                    >
+                      時間
+                    </label>
+                    <input
+                      id={`card-time-${day.id}-${card.id}`}
+                      type="time"
+                      value={card.time}
+                      onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
+                      className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-[13px]"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => removeCard(day.id, card.id)}
+                    className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
+                    aria-label="コマを削除"
+                  >
+                    <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
+                      <X className="size-3 text-destructive" />
+                    </span>
+                  </button>
+                </div>
+
+                {/* タイトル */}
+                <div className="flex flex-col gap-1">
+                  <label
+                    htmlFor={`card-title-${day.id}-${card.id}`}
+                    className="font-medium text-[#6D6C6A] text-xs"
+                  >
+                    タイトル
+                  </label>
+                  <input
+                    id={`card-title-${day.id}-${card.id}`}
+                    type="text"
+                    value={card.title}
+                    onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
+                    placeholder="例: 那覇空港 到着"
+                    maxLength={255}
+                    className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-[13px] placeholder:text-[#9C9B99]"
+                  />
+                </div>
+
+                {/* 交通手段 */}
+                <div className="flex flex-col gap-1">
+                  <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
+                  <div className="flex gap-2 overflow-x-auto">
+                    {TRANSPORT_OPTIONS.map((option) => (
+                      <button
+                        key={option.mode}
+                        type="button"
+                        onClick={() =>
+                          updateCard(
+                            day.id,
+                            card.id,
+                            "transport",
+                            card.transport === option.mode ? "" : option.mode,
+                          )
+                        }
+                        className={`flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-lg border transition-colors ${
+                          card.transport === option.mode
+                            ? "border-[#3D8A5A] border-[1.5px] bg-[#C8F0D8]"
+                            : "border-[#E5E4E1] bg-white hover:bg-[#F5F5F4]"
+                        }`}
+                        aria-label={option.label}
+                      >
+                        <option.icon
+                          className={`size-[18px] ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 補足 */}
+                <div className="flex flex-col gap-1">
+                  <label
+                    htmlFor={`card-memo-${day.id}-${card.id}`}
+                    className="font-medium text-[#6D6C6A] text-xs"
+                  >
+                    補足
+                  </label>
+                  <textarea
+                    id={`card-memo-${day.id}-${card.id}`}
+                    value={card.memo}
+                    onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
+                    placeholder="例: LCC利用。第2ターミナル"
+                    maxLength={200}
+                    className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-[13px] leading-relaxed placeholder:text-[#9C9B99]"
+                  />
+                </div>
+              </div>
+            ))}
+
+            {/* コマを追加ボタン */}
+            <button
+              type="button"
+              onClick={() => addCard(day.id)}
+              className="flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-[13px] transition-colors hover:bg-[#F5F5F4]"
+            >
+              <Plus className="size-3.5" />
+              コマを追加
+            </button>
           </div>
         ))}
       </section>
