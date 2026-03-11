@@ -168,7 +168,7 @@ export function CreateForm() {
           name="title"
           required
           placeholder="沖縄旅行 2025年3月"
-          className="h-10 rounded-lg bg-white"
+          className="h-10 bg-white"
         />
       </section>
 
@@ -220,7 +220,7 @@ export function CreateForm() {
                 onChange={(e) => updateOverview(item.id, "title", e.target.value)}
                 placeholder="例: 旅費"
                 maxLength={255}
-                className="h-10 rounded-lg bg-white"
+                className="h-10 bg-white"
               />
             </div>
 
