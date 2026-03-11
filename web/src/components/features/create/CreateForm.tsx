@@ -161,7 +161,7 @@ export function CreateForm() {
       <section className="flex flex-col gap-2">
         <label htmlFor="title" className="flex items-center gap-1">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
-          <span className="rounded bg-[#3D8A5A] px-1.5 py-0.5 font-semibold text-[11px] text-white">
+          <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-xs text-white">
             必須
           </span>
         </label>
@@ -171,7 +171,7 @@ export function CreateForm() {
           type="text"
           required
           placeholder="沖縄旅行 2025年3月"
-          className="h-12 w-full rounded-xl border border-[#D1D0CD] bg-white px-4 text-[#1A1918] text-[15px] placeholder:text-[#9C9B99]"
+          className="h-12 w-full rounded-xl border border-[#D1D0CD] bg-white px-4 text-[#1A1918] text-base placeholder:text-[#9C9B99]"
         />
       </section>
 
@@ -185,7 +185,7 @@ export function CreateForm() {
             onClick={addOverview}
             className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors hover:bg-[#A8E4C0] before:absolute before:-inset-[6px] before:content-['']"
           >
-            <Plus className="size-3.5" />
+            <Plus className="size-4" />
             追加
           </button>
         </div>
@@ -258,7 +258,7 @@ export function CreateForm() {
             onClick={addDay}
             className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors hover:bg-[#A8E4C0] before:absolute before:-inset-[6px] before:content-['']"
           >
-            <Plus className="size-3.5" />
+            <Plus className="size-4" />
             日程を追加
           </button>
         </div>
@@ -267,7 +267,7 @@ export function CreateForm() {
         <div className="flex flex-col gap-2">
           <label htmlFor="start-date" className="flex items-center gap-1.5">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
-            <span className="rounded bg-[#EDECEA] px-1.5 py-0.5 text-[#9C9B99] text-[11px]">
+            <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">
               任意
             </span>
           </label>
@@ -311,7 +311,7 @@ export function CreateForm() {
               >
                 {/* 時間 + 削除ボタン */}
                 <div className="flex items-start justify-between gap-2">
-                  <div className="flex w-[150px] flex-col gap-1">
+                  <div className="flex w-36 flex-col gap-1">
                     <label
                       htmlFor={`card-time-${day.id}-${card.id}`}
                       className="font-medium text-[#6D6C6A] text-xs"
@@ -323,7 +323,7 @@ export function CreateForm() {
                       type="time"
                       value={card.time}
                       onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
-                      className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-[13px]"
+                      className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-xs"
                     />
                   </div>
                   <button
@@ -353,7 +353,7 @@ export function CreateForm() {
                     onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
                     placeholder="例: 那覇空港 到着"
                     maxLength={255}
-                    className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-[13px] placeholder:text-[#9C9B99]"
+                    className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-xs placeholder:text-[#9C9B99]"
                   />
                 </div>
 
@@ -402,7 +402,7 @@ export function CreateForm() {
                     onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
                     placeholder="例: LCC利用。第2ターミナル"
                     maxLength={200}
-                    className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-[13px] leading-relaxed placeholder:text-[#9C9B99]"
+                    className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-xs leading-relaxed placeholder:text-[#9C9B99]"
                   />
                 </div>
               </div>
@@ -412,9 +412,9 @@ export function CreateForm() {
             <button
               type="button"
               onClick={() => addCard(day.id)}
-              className="flex h-11 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-[13px] transition-colors hover:bg-[#F5F5F4]"
+              className="flex h-11 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-dashed border-[#D1D0CD] text-[#6D6C6A] text-xs transition-colors hover:bg-[#F5F5F4]"
             >
-              <Plus className="size-3.5" />
+              <Plus className="size-4" />
               コマを追加
             </button>
           </div>
