@@ -159,12 +159,12 @@ export function CreateForm() {
     <div className="flex flex-col gap-7 px-5 py-6">
       {/* タイトルセクション */}
       <section className="flex flex-col gap-2">
-        <label htmlFor="title" className="flex items-center gap-1">
+        <Label htmlFor="title" className="gap-1">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
           <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-white text-xs">
             必須
           </span>
-        </label>
+        </Label>
         <Input
           id="title"
           name="title"
@@ -260,10 +260,10 @@ export function CreateForm() {
 
         {/* 旅行開始日 */}
         <div className="flex flex-col gap-2">
-          <label htmlFor="start-date" className="flex items-center gap-1.5">
+          <Label htmlFor="start-date" className="gap-1.5">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
-          </label>
+          </Label>
           <input
             id="start-date"
             type="date"
