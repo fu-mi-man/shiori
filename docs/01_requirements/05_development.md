@@ -102,11 +102,18 @@ Claude Codeはタスクの内容に応じて関連するスキルを自動で読
 | frontend-design | AI臭くない高品質UIデザイン生成。React + Tailwind構成に最適化 |
 | skill-creator | カスタムスキル作成のガイド。SKILL.mdの構造・フロントマター・ベストプラクティス |
 
+**shadcn: ui** — shadcn/uiコンポーネント管理
+
+| スキル | 用途 |
+|--------|------|
+| shadcn | プロジェクト設定の自動読み取り，コンポーネントの追加・検索・構成パターンの強制 |
+
 ```bash
 # ホストで実行（プロジェクトルートの .claude/skills/ にインストールするため）
 npx skills add vercel-labs/agent-skills -a claude-code
 npx skills add vercel-labs/next-skills -a claude-code
 npx skills add anthropics/skills --skill frontend-design --skill skill-creator -a claude-code
+pnpm dlx skills add shadcn/ui
 ```
 
 ### MCPサーバー

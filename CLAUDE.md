@@ -48,4 +48,4 @@ pnpm build                       # ビルド確認
 
 # Documentation
 
-- コード変更時は関連ドキュメント（docs/配下、CLAUDE.md、README.md）も更新し、整合性を保つこと
+- コード変更・パッケージ追加・スキル導入・設定変更時は関連ドキュメント（docs/配下、CLAUDE.md、README.md）も更新し、整合性を保つこと
