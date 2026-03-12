@@ -14,7 +14,7 @@ import {
   TrainFront,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -71,19 +71,20 @@ const TRANSPORT_OPTIONS = [
 export function CreateForm() {
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<OverviewItem[]>([]);
-  const [nextId, setNextId] = useState(1);
+  const nextOverviewIdRef = useRef(1);
 
   // 行程セクションのstate
   const [days, setDays] = useState<DayGroup[]>([]);
-  const [nextDayId, setNextDayId] = useState(1);
-  const [nextCardId, setNextCardId] = useState(1);
+  const nextDayIdRef = useRef(1);
+  const nextCardIdRef = useRef(1);
   const [startDate, setStartDate] = useState("");
 
   // 追加: 空のカードをリスト末尾に追加
   const addOverview = () => {
-    if (overviews.length >= 10) return;
-    setOverviews((prev) => [...prev, { id: nextId, title: "", content: "" }]);
-    setNextId((prev) => prev + 1);
+    setOverviews((prev) => {
+      if (prev.length >= 10) return prev;
+      return [...prev, { id: nextOverviewIdRef.current++, title: "", content: "" }];
+    });
   };
 
   // 削除: 指定IDのカードをリストから除外
@@ -100,9 +101,10 @@ export function CreateForm() {
 
   // 日程グループを末尾に追加（MVPは最大10日）
   const addDay = () => {
-    if (days.length >= 10) return;
-    setDays((prev) => [...prev, { id: nextDayId, cards: [] }]);
-    setNextDayId((prev) => prev + 1);
+    setDays((prev) => {
+      if (prev.length >= 10) return prev;
+      return [...prev, { id: nextDayIdRef.current++, cards: [] }];
+    });
   };
 
   // 指定IDの日程グループを削除
@@ -119,13 +121,12 @@ export function CreateForm() {
               ...day,
               cards: [
                 ...day.cards,
-                { id: nextCardId, time: "", title: "", transport: "", memo: "" },
+                { id: nextCardIdRef.current++, time: "", title: "", transport: "", memo: "" },
               ],
             }
           : day,
       ),
     );
-    setNextCardId((prev) => prev + 1);
   };
 
   // 指定日程グループから指定コマを削除
