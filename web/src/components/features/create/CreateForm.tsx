@@ -70,7 +70,7 @@ const TRANSPORT_OPTIONS = [
 
 export function CreateForm() {
   // 概要セクションのstate
-  const [_overviews, setOverviews] = useState<OverviewItem[]>([]);
+  const [overviews, setOverviews] = useState<OverviewItem[]>([]);
   const [nextId, setNextId] = useState(1);
 
   // 行程セクションのstate
@@ -81,6 +81,7 @@ export function CreateForm() {
 
   // 追加: 空のカードをリスト末尾に追加
   const addOverview = () => {
+    if (overviews.length >= 10) return;
     setOverviews((prev) => [...prev, { id: nextId, title: "", content: "" }]);
     setNextId((prev) => prev + 1);
   };
@@ -179,20 +180,22 @@ export function CreateForm() {
       {/* 概要セクション */}
       <section className="flex flex-col gap-4">
         {/* セクションヘッダー */}
-        <div className="flex items-center justify-between">
+        <div className="flex min-h-8 items-center justify-between">
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">概要</h2>
-          <button
-            type="button"
-            onClick={addOverview}
-            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
-          >
-            <Plus className="size-4" />
-            追加
-          </button>
+          {overviews.length < 10 && (
+            <Button
+              type="button"
+              onClick={addOverview}
+              className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
+            >
+              <Plus className="size-4" />
+              追加
+            </Button>
+          )}
         </div>
 
         {/* 概要カードリスト */}
-        {_overviews.map((item, index) => (
+        {overviews.map((item, index) => (
           <Card
             key={item.id}
             className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
