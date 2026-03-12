@@ -99,7 +99,7 @@ docker compose up --build -d
 
 ```bash
 docker compose exec web sh
-npx shadcn@latest add <component>   # 例: input, dialog, sonner
+pnpm dlx shadcn@latest add <component>   # 例: input, dialog, sonner
 ```
 
 追加されたコンポーネントは `src/components/ui/` に配置される。
