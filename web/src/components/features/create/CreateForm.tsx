@@ -441,13 +441,14 @@ export function CreateForm() {
       </section>
 
       {/* 完了ボタン */}
-      <button
+      <Button
         type="button"
-        className="flex h-12 cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-white shadow-[0_2px_8px_rgba(61,138,90,0.19)] transition-colors hover:bg-[#357A50]"
+        size="lg"
+        className="h-12 w-full cursor-pointer bg-[#3D8A5A] text-base shadow-[0_2px_8px_rgba(61,138,90,0.19)] hover:bg-[#357A50] active:scale-95"
       >
         <Check className="size-5" />
-        <span className="text-base">完了</span>
-      </button>
+        完了
+      </Button>
     </div>
   );
 }
