@@ -15,6 +15,8 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -190,54 +192,63 @@ export function CreateForm() {
         </div>
 
         {/* 概要カードリスト */}
-        {_overviews.map((item) => (
-          <div
+        {_overviews.map((item, index) => (
+          <Card
             key={item.id}
-            className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+            className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
           >
-            {/* タイトル行 */}
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center justify-between">
+            <CardHeader>
+              <CardTitle>
+                <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                  概要 {index + 1}
+                </span>
+              </CardTitle>
+              <CardAction>
+                <Button
+                  type="button"
+                  variant="destructive"
+                  size="icon-sm"
+                  className="cursor-pointer rounded-full active:scale-90"
+                  onClick={() => removeOverview(item.id)}
+                  aria-label="概要を削除"
+                >
+                  <X />
+                </Button>
+              </CardAction>
+            </CardHeader>
+
+            <CardContent className="flex flex-col gap-4">
+              {/* タイトル */}
+              <div className="flex flex-col gap-1">
                 <Label htmlFor={`overview-title-${item.id}`} className="text-[#6D6C6A] text-xs">
                   タイトル
                 </Label>
-                <button
-                  type="button"
-                  onClick={() => removeOverview(item.id)}
-                  className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
-                  aria-label="概要を削除"
-                >
-                  <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
-                    <X className="size-3 text-destructive" />
-                  </span>
-                </button>
+                <Input
+                  id={`overview-title-${item.id}`}
+                  value={item.title}
+                  onChange={(e) => updateOverview(item.id, "title", e.target.value)}
+                  placeholder="例: 旅費"
+                  maxLength={255}
+                  className="h-10 bg-white"
+                />
               </div>
 
-              <Input
-                id={`overview-title-${item.id}`}
-                value={item.title}
-                onChange={(e) => updateOverview(item.id, "title", e.target.value)}
-                placeholder="例: 旅費"
-                maxLength={255}
-                className="h-10 bg-white"
-              />
-            </div>
-
-            {/* 内容 */}
-            <div className="flex flex-col gap-1">
-              <Label htmlFor={`overview-content-${item.id}`} className="text-[#6D6C6A] text-xs">
-                内容
-              </Label>
-              <Textarea
-                id={`overview-content-${item.id}`}
-                value={item.content}
-                onChange={(e) => updateOverview(item.id, "content", e.target.value)}
-                placeholder="例: 一人あたり約50,000円"
-                maxLength={500}
-                className="min-h-[88px] bg-white px-3 leading-relaxed"
-              />
-            </div>
-          </div>
+              {/* 内容 */}
+              <div className="flex flex-col gap-1">
+                <Label htmlFor={`overview-content-${item.id}`} className="text-[#6D6C6A] text-xs">
+                  内容
+                </Label>
+                <Textarea
+                  id={`overview-content-${item.id}`}
+                  value={item.content}
+                  onChange={(e) => updateOverview(item.id, "content", e.target.value)}
+                  placeholder="例: 一人あたり約50,000円"
+                  maxLength={500}
+                  className="min-h-[88px] bg-white px-3 leading-relaxed"
+                />
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </section>
 
