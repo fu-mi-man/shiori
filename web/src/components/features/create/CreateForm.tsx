@@ -275,12 +275,13 @@ export function CreateForm() {
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </Label>
-          <input
+          <Input
             id="start-date"
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+            onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+            className="h-10 cursor-pointer bg-white"
           />
         </div>
 
