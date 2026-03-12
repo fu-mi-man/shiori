@@ -208,7 +208,7 @@ export function CreateForm() {
                   type="button"
                   variant="destructive"
                   size="icon-sm"
-                  className="cursor-pointer rounded-full active:scale-90"
+                  className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                   onClick={() => removeOverview(item.id)}
                   aria-label="概要を削除"
                 >
@@ -301,7 +301,7 @@ export function CreateForm() {
                   type="button"
                   variant="destructive"
                   size="icon-sm"
-                  className="cursor-pointer rounded-full active:scale-90"
+                  className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                   onClick={() => removeDay(day.id)}
                   aria-label="日程を削除"
                 >
@@ -328,7 +328,7 @@ export function CreateForm() {
                         type="button"
                         variant="destructive"
                         size="icon-sm"
-                        className="cursor-pointer rounded-full active:scale-90"
+                        className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                         onClick={() => removeCard(day.id, card.id)}
                         aria-label="コマを削除"
                       >
