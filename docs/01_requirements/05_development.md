@@ -49,7 +49,7 @@
 
 | ツール | 用途 | 備考 |
 |--------|------|------|
-| shadcn/ui CLI | UIコンポーネント追加 | `npx shadcn@latest add <component>` でコンポーネントを `components/ui/` に追加。コピー方式のため自由にカスタマイズ可能 |
+| shadcn/ui CLI | UIコンポーネント追加 | `pnpm dlx shadcn@latest add <component>` でコンポーネントを `components/ui/` に追加。コピー方式のため自由にカスタマイズ可能。Dockerコンテナ内で実行する |
 
 
 ## 2. 推奨プラグイン・スキル
@@ -360,8 +360,8 @@ pnpm db:studio                    # DB管理UI起動
 ### UI
 
 ```bash
-npx shadcn@latest init            # 初期セットアップ
-npx shadcn@latest add <component> # コンポーネント追加（例: button, input, dialog）
+pnpm dlx shadcn@latest init              # 初期セットアップ（実施済み）
+pnpm dlx shadcn@latest add <component>   # コンポーネント追加（例: button, input, dialog）
 ```
 
 
