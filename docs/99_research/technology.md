@@ -118,6 +118,8 @@ VPS: さくらVPS / ConoHa（月500円〜）
 
 ## 3. 技術スタック
 
+### 3.1 採用技術
+
 | カテゴリ | 技術 | 備考 |
 |---------|------|------|
 | **フレームワーク** | Next.js 16 | App Router、React Server Components |
@@ -126,13 +128,28 @@ VPS: さくらVPS / ConoHa（月500円〜）
 | **UIコンポーネント** | shadcn/ui | Tailwind + Radix UI、アクセシビリティ対応 |
 | **フォーム管理** | React Hook Form + Zod | 型安全なバリデーション |
 | **アイコン** | Lucide | 軽量、ISC License、交通アイコン充実 |
-| **日付処理** | date-fns | 軽量日付ライブラリ |
+| **日付処理** | date-fns | 軽量日付ライブラリ。Temporal APIが普及したら置き換え検討 |
 | **ORM** | Drizzle ORM | TypeScript-first、軽量高速 |
 | **データベース** | Neon Postgres | Vercel統合、無料枠0.5GB |
 | **画像ストレージ** | Cloudflare R2 | Phase 3で追加（無料枠10GB） |
 | **パッケージマネージャー** | pnpm | Corepackで管理 |
 | **開発環境** | Docker | Node.js 24 LTS |
 | **デプロイ** | Vercel | Hobby無料プラン（非商用限定） |
+
+### 3.2 検討したが現時点では不要なカテゴリ
+
+以下のカテゴリは検討の上、現時点では専用ライブラリを導入しないと判断した。必要になった時点で改めて選定する。
+
+| カテゴリ | 判断 | 理由 |
+|---------|------|------|
+| **状態管理** | useStateで開始 | Server Components構成でクライアント側の状態が少ない。useState → useReducer → Zustand/Jotai の順で必要に応じて段階的に移行する |
+| **データフェッチング** | Server Components + Route Handlers | Server Componentsで直接DB読み取り、クライアントからはAPI Routes経由で更新。TanStack Query等は不要 |
+| **アニメーション** | 未導入 | Framer Motion、React Spring等。UXで必要になったら検討 |
+| **認証** | 合言葉認証を自前実装 | NextAuth.js、Clerk等は不要。シンプルな合言葉方式で十分 |
+| **国際化 (i18n)** | Phase 2で検討 | next-intl等。英語対応の段階で選定する |
+| **トースト/通知** | 未導入 | shadcn/uiにToastコンポーネントが組み込まれているため、必要になったらshadcn/uiのものを追加 |
+| **ドラッグ&ドロップ** | 未導入 | dnd kit等。行程の並べ替え機能で必要になったら検討 |
+| **PDF出力** | Phase 2で検討 | react-pdf、jsPDF等。しおりのPDF出力機能の段階で選定する |
 
 
 
