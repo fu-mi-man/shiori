@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
 type OverviewItem = {
@@ -232,13 +233,13 @@ export function CreateForm() {
               >
                 内容
               </label>
-              <textarea
+              <Textarea
                 id={`overview-content-${item.id}`}
                 value={item.content}
                 onChange={(e) => updateOverview(item.id, "content", e.target.value)}
                 placeholder="例: 一人あたり約50,000円"
                 maxLength={500}
-                className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-sm leading-relaxed placeholder:text-[#9C9B99]"
+                className="min-h-[88px] bg-white px-3 leading-relaxed"
               />
             </div>
           </div>
@@ -393,13 +394,13 @@ export function CreateForm() {
                   >
                     補足
                   </label>
-                  <textarea
+                  <Textarea
                     id={`card-memo-${day.id}-${card.id}`}
                     value={card.memo}
                     onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
                     placeholder="例: LCC利用。第2ターミナル"
                     maxLength={200}
-                    className="h-[84px] w-full resize-none rounded-lg border border-[#E5E4E1] bg-white px-3 py-2 text-[#1A1918] text-sm leading-relaxed placeholder:text-[#9C9B99]"
+                    className="min-h-[88px] bg-white px-3 leading-relaxed"
                   />
                 </div>
               </div>
