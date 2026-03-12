@@ -286,142 +286,147 @@ export function CreateForm() {
 
         {/* 日程グループリスト */}
         {days.map((day, index) => (
-          <div
+          <Card
             key={day.id}
-            className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+            className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
           >
-            {/* 日程ヘッダー */}
-            <div className="flex items-center justify-between">
-              <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
-                {index + 1}日目
-              </span>
-              <button
-                type="button"
-                onClick={() => removeDay(day.id)}
-                className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
-                aria-label="日程を削除"
-              >
-                <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
-                  <X className="size-3 text-destructive" />
+            <CardHeader>
+              <CardTitle>
+                <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                  {index + 1}日目
                 </span>
-              </button>
-            </div>
+              </CardTitle>
+              <CardAction>
+                <Button
+                  type="button"
+                  variant="destructive"
+                  size="icon-sm"
+                  className="cursor-pointer rounded-full active:scale-90"
+                  onClick={() => removeDay(day.id)}
+                  aria-label="日程を削除"
+                >
+                  <X />
+                </Button>
+              </CardAction>
+            </CardHeader>
 
-            {/* スケジュールカードリスト */}
-            {day.cards.map((card) => (
-              <div
-                key={card.id}
-                className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
-              >
-                {/* 時間 + 削除ボタン */}
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex w-36 flex-col gap-1">
+            <CardContent className="flex flex-col gap-3">
+              {/* スケジュールカードリスト */}
+              {day.cards.map((card) => (
+                <div
+                  key={card.id}
+                  className="flex flex-col gap-3 rounded-xl border border-[#E5E4E1] bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+                >
+                  {/* 時間 + 削除ボタン */}
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex w-36 flex-col gap-1">
+                      <Label
+                        htmlFor={`card-time-${day.id}-${card.id}`}
+                        className="text-[#6D6C6A] text-xs"
+                      >
+                        時間
+                      </Label>
+                      <input
+                        id={`card-time-${day.id}-${card.id}`}
+                        type="time"
+                        value={card.time}
+                        onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
+                        className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => removeCard(day.id, card.id)}
+                      className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
+                      aria-label="コマを削除"
+                    >
+                      <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
+                        <X className="size-3 text-destructive" />
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* タイトル */}
+                  <div className="flex flex-col gap-1">
                     <Label
-                      htmlFor={`card-time-${day.id}-${card.id}`}
+                      htmlFor={`card-title-${day.id}-${card.id}`}
                       className="text-[#6D6C6A] text-xs"
                     >
-                      時間
+                      タイトル
                     </Label>
-                    <input
-                      id={`card-time-${day.id}-${card.id}`}
-                      type="time"
-                      value={card.time}
-                      onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
-                      className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+                    <Input
+                      id={`card-title-${day.id}-${card.id}`}
+                      value={card.title}
+                      onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
+                      placeholder="例: 那覇空港 到着"
+                      maxLength={255}
+                      className="h-10 bg-white"
                     />
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => removeCard(day.id, card.id)}
-                    className="group -m-2.5 flex size-11 cursor-pointer items-center justify-center"
-                    aria-label="コマを削除"
-                  >
-                    <span className="flex size-6 items-center justify-center rounded-full bg-destructive/15 transition-colors group-hover:bg-destructive/25">
-                      <X className="size-3 text-destructive" />
-                    </span>
-                  </button>
-                </div>
 
-                {/* タイトル */}
-                <div className="flex flex-col gap-1">
-                  <Label
-                    htmlFor={`card-title-${day.id}-${card.id}`}
-                    className="text-[#6D6C6A] text-xs"
-                  >
-                    タイトル
-                  </Label>
-                  <Input
-                    id={`card-title-${day.id}-${card.id}`}
-                    value={card.title}
-                    onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
-                    placeholder="例: 那覇空港 到着"
-                    maxLength={255}
-                    className="h-10 bg-white"
-                  />
-                </div>
+                  {/* 交通手段 */}
+                  <div className="flex flex-col gap-1">
+                    <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
+                    <div className="flex gap-2 overflow-x-auto">
+                      {TRANSPORT_OPTIONS.map((option) => (
+                        <button
+                          key={option.mode}
+                          type="button"
+                          onClick={() =>
+                            updateCard(
+                              day.id,
+                              card.id,
+                              "transport",
+                              card.transport === option.mode ? "" : option.mode,
+                            )
+                          }
+                          className={`flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border transition-colors ${
+                            card.transport === option.mode
+                              ? "border-[#3D8A5A] border-[1.5px] bg-[#C8F0D8]"
+                              : "border-[#E5E4E1] bg-white hover:bg-[#F5F5F4]"
+                          }`}
+                          aria-label={option.label}
+                          aria-pressed={card.transport === option.mode}
+                        >
+                          <option.icon
+                            className={`size-5 ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
-                {/* 交通手段 */}
-                <div className="flex flex-col gap-1">
-                  <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
-                  <div className="flex gap-2 overflow-x-auto">
-                    {TRANSPORT_OPTIONS.map((option) => (
-                      <button
-                        key={option.mode}
-                        type="button"
-                        onClick={() =>
-                          updateCard(
-                            day.id,
-                            card.id,
-                            "transport",
-                            card.transport === option.mode ? "" : option.mode,
-                          )
-                        }
-                        className={`flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border transition-colors ${
-                          card.transport === option.mode
-                            ? "border-[#3D8A5A] border-[1.5px] bg-[#C8F0D8]"
-                            : "border-[#E5E4E1] bg-white hover:bg-[#F5F5F4]"
-                        }`}
-                        aria-label={option.label}
-                        aria-pressed={card.transport === option.mode}
-                      >
-                        <option.icon
-                          className={`size-5 ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
-                        />
-                      </button>
-                    ))}
+                  {/* 補足 */}
+                  <div className="flex flex-col gap-1">
+                    <Label
+                      htmlFor={`card-memo-${day.id}-${card.id}`}
+                      className="text-[#6D6C6A] text-xs"
+                    >
+                      補足
+                    </Label>
+                    <Textarea
+                      id={`card-memo-${day.id}-${card.id}`}
+                      value={card.memo}
+                      onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
+                      placeholder="例: LCC利用。第2ターミナル"
+                      maxLength={200}
+                      className="min-h-[88px] bg-white px-3 leading-relaxed"
+                    />
                   </div>
                 </div>
+              ))}
 
-                {/* 補足 */}
-                <div className="flex flex-col gap-1">
-                  <Label
-                    htmlFor={`card-memo-${day.id}-${card.id}`}
-                    className="text-[#6D6C6A] text-xs"
-                  >
-                    補足
-                  </Label>
-                  <Textarea
-                    id={`card-memo-${day.id}-${card.id}`}
-                    value={card.memo}
-                    onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
-                    placeholder="例: LCC利用。第2ターミナル"
-                    maxLength={200}
-                    className="min-h-[88px] bg-white px-3 leading-relaxed"
-                  />
-                </div>
-              </div>
-            ))}
-
-            {/* コマを追加ボタン */}
-            <button
-              type="button"
-              onClick={() => addCard(day.id)}
-              className="relative flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4]"
-            >
-              <Plus className="size-4" />
-              コマを追加
-            </button>
-          </div>
+              {/* コマを追加ボタン */}
+              <button
+                type="button"
+                onClick={() => addCard(day.id)}
+                className="relative flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4]"
+              >
+                <Plus className="size-4" />
+                コマを追加
+              </button>
+            </CardContent>
+          </Card>
         ))}
       </section>
 
