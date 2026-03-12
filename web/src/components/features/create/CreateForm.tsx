@@ -347,12 +347,13 @@ export function CreateForm() {
                       >
                         時間
                       </Label>
-                      <input
+                      <Input
                         id={`card-time-${day.id}-${card.id}`}
                         type="time"
                         value={card.time}
                         onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
-                        className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+                        onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+                        className="h-10 cursor-pointer bg-white"
                       />
                     </div>
 
