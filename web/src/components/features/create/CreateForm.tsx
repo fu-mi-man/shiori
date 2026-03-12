@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
@@ -158,12 +159,12 @@ export function CreateForm() {
     <div className="flex flex-col gap-7 px-5 py-6">
       {/* タイトルセクション */}
       <section className="flex flex-col gap-2">
-        <label htmlFor="title" className="flex items-center gap-1">
+        <Label htmlFor="title" className="gap-1">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
           <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-white text-xs">
             必須
           </span>
-        </label>
+        </Label>
         <Input
           id="title"
           name="title"
@@ -197,12 +198,9 @@ export function CreateForm() {
             {/* タイトル行 */}
             <div className="flex flex-col gap-1">
               <div className="flex items-center justify-between">
-                <label
-                  htmlFor={`overview-title-${item.id}`}
-                  className="font-medium text-[#6D6C6A] text-xs"
-                >
+                <Label htmlFor={`overview-title-${item.id}`} className="text-[#6D6C6A] text-xs">
                   タイトル
-                </label>
+                </Label>
                 <button
                   type="button"
                   onClick={() => removeOverview(item.id)}
@@ -227,12 +225,9 @@ export function CreateForm() {
 
             {/* 内容 */}
             <div className="flex flex-col gap-1">
-              <label
-                htmlFor={`overview-content-${item.id}`}
-                className="font-medium text-[#6D6C6A] text-xs"
-              >
+              <Label htmlFor={`overview-content-${item.id}`} className="text-[#6D6C6A] text-xs">
                 内容
-              </label>
+              </Label>
               <Textarea
                 id={`overview-content-${item.id}`}
                 value={item.content}
@@ -265,10 +260,10 @@ export function CreateForm() {
 
         {/* 旅行開始日 */}
         <div className="flex flex-col gap-2">
-          <label htmlFor="start-date" className="flex items-center gap-1.5">
+          <Label htmlFor="start-date" className="gap-1.5">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
-          </label>
+          </Label>
           <input
             id="start-date"
             type="date"
@@ -310,12 +305,12 @@ export function CreateForm() {
                 {/* 時間 + 削除ボタン */}
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex w-36 flex-col gap-1">
-                    <label
+                    <Label
                       htmlFor={`card-time-${day.id}-${card.id}`}
-                      className="font-medium text-[#6D6C6A] text-xs"
+                      className="text-[#6D6C6A] text-xs"
                     >
                       時間
-                    </label>
+                    </Label>
                     <input
                       id={`card-time-${day.id}-${card.id}`}
                       type="time"
@@ -338,12 +333,12 @@ export function CreateForm() {
 
                 {/* タイトル */}
                 <div className="flex flex-col gap-1">
-                  <label
+                  <Label
                     htmlFor={`card-title-${day.id}-${card.id}`}
-                    className="font-medium text-[#6D6C6A] text-xs"
+                    className="text-[#6D6C6A] text-xs"
                   >
                     タイトル
-                  </label>
+                  </Label>
                   <Input
                     id={`card-title-${day.id}-${card.id}`}
                     value={card.title}
@@ -388,12 +383,12 @@ export function CreateForm() {
 
                 {/* 補足 */}
                 <div className="flex flex-col gap-1">
-                  <label
+                  <Label
                     htmlFor={`card-memo-${day.id}-${card.id}`}
-                    className="font-medium text-[#6D6C6A] text-xs"
+                    className="text-[#6D6C6A] text-xs"
                   >
                     補足
-                  </label>
+                  </Label>
                   <Textarea
                     id={`card-memo-${day.id}-${card.id}`}
                     value={card.memo}
