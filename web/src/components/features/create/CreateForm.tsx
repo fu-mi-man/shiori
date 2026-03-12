@@ -432,14 +432,15 @@ export function CreateForm() {
               ))}
 
               {/* コマを追加ボタン */}
-              <button
+              <Button
                 type="button"
+                variant="outline"
                 onClick={() => addCard(day.id)}
-                className="relative flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4]"
+                className="relative h-10 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
               >
                 <Plus className="size-4" />
                 コマを追加
-              </button>
+              </Button>
             </CardContent>
           </Card>
         ))}
