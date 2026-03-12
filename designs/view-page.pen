@@ -1526,7 +1526,7 @@
             },
             {
               "type": "frame",
-              "id": "UcIwU",
+              "id": "dAe7w",
               "name": "Footer",
               "width": "fill_container",
               "fill": "#FFF8E1",
@@ -1542,7 +1542,7 @@
               "children": [
                 {
                   "type": "icon_font",
-                  "id": "FHOJz",
+                  "id": "hP1CD",
                   "name": "footerIcon",
                   "width": 16,
                   "height": 16,
@@ -1552,7 +1552,7 @@
                 },
                 {
                   "type": "frame",
-                  "id": "TW3qx",
+                  "id": "eygaC",
                   "name": "footerTextWrap",
                   "width": "fill_container",
                   "layout": "vertical",
@@ -1560,7 +1560,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "NcLG5",
+                      "id": "dY7Av",
                       "name": "footerText",
                       "fill": "#6D6C6A",
                       "textGrowth": "fixed-width",
@@ -1570,16 +1570,6 @@
                       "fontFamily": "Outfit",
                       "fontSize": 12,
                       "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "pBJmU",
-                      "name": "footerLink",
-                      "fill": "#3D8A5A",
-                      "content": "永久保存する →",
-                      "fontFamily": "Outfit",
-                      "fontSize": 12,
-                      "fontWeight": "600"
                     }
                   ]
                 }
