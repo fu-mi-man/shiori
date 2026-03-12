@@ -261,14 +261,14 @@ export function CreateForm() {
         <div className="flex min-h-8 items-center justify-between">
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">行程</h2>
           {days.length < 10 && (
-            <button
+            <Button
               type="button"
               onClick={addDay}
-              className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
+              className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
             >
               <Plus className="size-4" />
               日程を追加
-            </button>
+            </Button>
           )}
         </div>
 
