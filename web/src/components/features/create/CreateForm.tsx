@@ -174,7 +174,7 @@ export function CreateForm() {
           name="title"
           required
           placeholder="沖縄旅行 2025年3月"
-          className="h-10 bg-white"
+          className="h-11 bg-white"
         />
       </section>
 
@@ -233,7 +233,7 @@ export function CreateForm() {
                   onChange={(e) => updateOverview(item.id, "title", e.target.value)}
                   placeholder="例: 旅費"
                   maxLength={255}
-                  className="h-10 bg-white"
+                  className="h-11 bg-white"
                 />
               </div>
 
@@ -285,7 +285,7 @@ export function CreateForm() {
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
-            className="h-10 cursor-pointer bg-white"
+            className="h-11 cursor-pointer bg-white"
           />
         </div>
 
@@ -357,7 +357,7 @@ export function CreateForm() {
                         value={card.time}
                         onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
                         onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
-                        className="h-10 cursor-pointer bg-white"
+                        className="h-11 cursor-pointer bg-white"
                       />
                     </div>
 
@@ -375,7 +375,7 @@ export function CreateForm() {
                         onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
                         placeholder="例: 那覇空港 到着"
                         maxLength={255}
-                        className="h-10 bg-white"
+                        className="h-11 bg-white"
                       />
                     </div>
 
@@ -437,7 +437,7 @@ export function CreateForm() {
                 type="button"
                 variant="outline"
                 onClick={() => addCard(day.id)}
-                className="relative h-10 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
+                className="relative h-11 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
               >
                 <Plus className="size-4" />
                 コマを追加
