@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { useRef, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -170,9 +171,7 @@ export function CreateForm() {
       <section className="flex flex-col gap-2">
         <Label htmlFor="title" className="gap-1">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
-          <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-white text-xs">
-            必須
-          </span>
+          <Badge className="bg-[#3D8A5A] font-semibold text-white">必須</Badge>
         </Label>
         <Input
           id="title"
@@ -208,9 +207,9 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                <Badge className="rounded-full bg-[#3D8A5A] px-3 py-3 font-semibold text-white">
                   概要 {index + 1}
-                </span>
+                </Badge>
               </CardTitle>
               <CardAction>
                 <Button
@@ -302,9 +301,9 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                <Badge className="rounded-full bg-[#3D8A5A] px-3 py-3 font-semibold text-white">
                   {index + 1}日目
-                </span>
+                </Badge>
               </CardTitle>
               <CardAction>
                 <Button
@@ -329,9 +328,9 @@ export function CreateForm() {
                 >
                   <CardHeader>
                     <CardTitle>
-                      <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                      <Badge className="rounded-full bg-[#3D8A5A] px-3 py-3 font-semibold text-white">
                         コマ {cardIndex + 1}
-                      </span>
+                      </Badge>
                     </CardTitle>
                     <CardAction>
                       <Button
