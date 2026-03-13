@@ -20,8 +20,8 @@ RUN corepack enable pnpm && corepack install
 # BuildKitキャッシュマウントのターゲットと一致させる
 RUN pnpm config set store-dir /pnpm/store --global
 
-# lockfileだけ先にコピー（レイヤーキャッシュ最適化）
-COPY pnpm-lock.yaml ./
+# pnpm設定とlockfileをコピー（レイヤーキャッシュ最適化）
+COPY pnpm-workspace.yaml pnpm-lock.yaml ./
 
 # ストアにパッケージをフェッチ（lockfileだけで実行可能）
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch

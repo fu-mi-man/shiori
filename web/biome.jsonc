@@ -52,8 +52,9 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on",          // import文を自動整理
-        "useSortedAttributes": {          // JSX属性をアルファベット順（自然順）にソート
+        "organizeImports": "on", // import文を自動整理
+        "useSortedAttributes": {
+          // JSX属性をアルファベット順（自然順）にソート
           "level": "on",
           "options": {
             "sortOrder": "natural"
