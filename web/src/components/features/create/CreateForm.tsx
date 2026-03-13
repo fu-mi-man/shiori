@@ -14,7 +14,7 @@ import {
   TrainFront,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -70,19 +70,21 @@ const TRANSPORT_OPTIONS = [
 
 export function CreateForm() {
   // 概要セクションのstate
-  const [_overviews, setOverviews] = useState<OverviewItem[]>([]);
-  const [nextId, setNextId] = useState(1);
+  const [overviews, setOverviews] = useState<OverviewItem[]>([]);
+  const nextOverviewIdRef = useRef(1);
 
   // 行程セクションのstate
   const [days, setDays] = useState<DayGroup[]>([]);
-  const [nextDayId, setNextDayId] = useState(1);
-  const [nextCardId, setNextCardId] = useState(1);
+  const nextDayIdRef = useRef(1);
+  const nextCardIdRef = useRef(1);
   const [startDate, setStartDate] = useState("");
 
   // 追加: 空のカードをリスト末尾に追加
   const addOverview = () => {
-    setOverviews((prev) => [...prev, { id: nextId, title: "", content: "" }]);
-    setNextId((prev) => prev + 1);
+    setOverviews((prev) => {
+      if (prev.length >= 10) return prev;
+      return [...prev, { id: nextOverviewIdRef.current++, title: "", content: "" }];
+    });
   };
 
   // 削除: 指定IDのカードをリストから除外
@@ -99,9 +101,10 @@ export function CreateForm() {
 
   // 日程グループを末尾に追加（MVPは最大10日）
   const addDay = () => {
-    if (days.length >= 10) return;
-    setDays((prev) => [...prev, { id: nextDayId, cards: [] }]);
-    setNextDayId((prev) => prev + 1);
+    setDays((prev) => {
+      if (prev.length >= 10) return prev;
+      return [...prev, { id: nextDayIdRef.current++, cards: [] }];
+    });
   };
 
   // 指定IDの日程グループを削除
@@ -118,13 +121,12 @@ export function CreateForm() {
               ...day,
               cards: [
                 ...day.cards,
-                { id: nextCardId, time: "", title: "", transport: "", memo: "" },
+                { id: nextCardIdRef.current++, time: "", title: "", transport: "", memo: "" },
               ],
             }
           : day,
       ),
     );
-    setNextCardId((prev) => prev + 1);
   };
 
   // 指定日程グループから指定コマを削除
@@ -172,27 +174,29 @@ export function CreateForm() {
           name="title"
           required
           placeholder="沖縄旅行 2025年3月"
-          className="h-10 bg-white"
+          className="h-11 bg-white"
         />
       </section>
 
       {/* 概要セクション */}
       <section className="flex flex-col gap-4">
         {/* セクションヘッダー */}
-        <div className="flex items-center justify-between">
+        <div className="flex min-h-8 items-center justify-between">
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">概要</h2>
-          <button
-            type="button"
-            onClick={addOverview}
-            className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
-          >
-            <Plus className="size-4" />
-            追加
-          </button>
+          {overviews.length < 10 && (
+            <Button
+              type="button"
+              onClick={addOverview}
+              className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
+            >
+              <Plus className="size-4" />
+              追加
+            </Button>
+          )}
         </div>
 
         {/* 概要カードリスト */}
-        {_overviews.map((item, index) => (
+        {overviews.map((item, index) => (
           <Card
             key={item.id}
             className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
@@ -229,7 +233,7 @@ export function CreateForm() {
                   onChange={(e) => updateOverview(item.id, "title", e.target.value)}
                   placeholder="例: 旅費"
                   maxLength={255}
-                  className="h-10 bg-white"
+                  className="h-11 bg-white"
                 />
               </div>
 
@@ -258,14 +262,14 @@ export function CreateForm() {
         <div className="flex min-h-8 items-center justify-between">
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">行程</h2>
           {days.length < 10 && (
-            <button
+            <Button
               type="button"
               onClick={addDay}
-              className="relative flex cursor-pointer items-center gap-1 rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 transition-colors before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0]"
+              className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
             >
               <Plus className="size-4" />
               日程を追加
-            </button>
+            </Button>
           )}
         </div>
 
@@ -275,12 +279,13 @@ export function CreateForm() {
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </Label>
-          <input
+          <Input
             id="start-date"
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+            onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+            className="h-11 cursor-pointer bg-white"
           />
         </div>
 
@@ -346,12 +351,13 @@ export function CreateForm() {
                       >
                         時間
                       </Label>
-                      <input
+                      <Input
                         id={`card-time-${day.id}-${card.id}`}
                         type="time"
                         value={card.time}
                         onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
-                        className="h-10 w-full rounded-lg border border-[#E5E4E1] bg-white px-3 text-[#1A1918] text-sm"
+                        onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+                        className="h-11 cursor-pointer bg-white"
                       />
                     </div>
 
@@ -369,7 +375,7 @@ export function CreateForm() {
                         onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
                         placeholder="例: 那覇空港 到着"
                         maxLength={255}
-                        className="h-10 bg-white"
+                        className="h-11 bg-white"
                       />
                     </div>
 
@@ -427,14 +433,15 @@ export function CreateForm() {
               ))}
 
               {/* コマを追加ボタン */}
-              <button
+              <Button
                 type="button"
+                variant="outline"
                 onClick={() => addCard(day.id)}
-                className="relative flex h-10 w-full cursor-pointer items-center justify-center gap-1 rounded-lg border border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs transition-colors before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4]"
+                className="relative h-11 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
               >
                 <Plus className="size-4" />
                 コマを追加
-              </button>
+              </Button>
             </CardContent>
           </Card>
         ))}
