@@ -8,6 +8,7 @@ import {
   CarTaxiFront,
   Check,
   Footprints,
+  Lock,
   Plane,
   Plus,
   Ship,
@@ -435,6 +436,27 @@ export function CreateForm() {
             </CardContent>
           </Card>
         ))}
+      </section>
+
+      {/* 合言葉セクション */}
+      <section className="flex flex-col gap-2">
+        <div className="flex items-center gap-1.5">
+          <Lock aria-hidden="true" className="size-4 text-[#6D6C6A]" />
+          <Label htmlFor="passphrase">
+            <span className="font-semibold text-[#1A1918] text-sm">合言葉</span>
+            <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
+          </Label>
+        </div>
+        <p className="text-[#9C9B99] text-xs leading-relaxed" id="passphrase-description">
+          設定すると、編集時に合言葉の入力が必要になります
+        </p>
+        <Input
+          aria-describedby="passphrase-description"
+          className="h-11 bg-white"
+          id="passphrase"
+          name="passphrase"
+          placeholder="合言葉を入力"
+        />
       </section>
 
       {/* 完了ボタン */}
