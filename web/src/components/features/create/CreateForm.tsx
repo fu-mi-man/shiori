@@ -379,26 +379,27 @@ export function CreateForm() {
                     </div>
 
                     {/* 交通手段 */}
-                    <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
-                    <ToggleGroup
-                      type="single"
-                      value={card.transport}
-                      onValueChange={(value) => updateCard(day.id, card.id, "transport", value)}
-                      className="flex w-full gap-2 overflow-x-auto"
-                      spacing={2}
-                      aria-label="交通手段"
-                    >
-                      {TRANSPORT_OPTIONS.map((option) => (
-                        <ToggleGroupItem
-                          key={option.mode}
-                          value={option.mode}
-                          aria-label={option.label}
-                          className="size-11 shrink-0 cursor-pointer rounded-lg border border-[#E5E4E1] bg-white text-[#9C9B99] hover:bg-[#F5F5F4] data-[state=on]:border-[#3D8A5A] data-[state=on]:border-[1.5px] data-[state=on]:bg-[#C8F0D8] data-[state=on]:text-[#3D8A5A]"
-                        >
-                          <option.icon className="size-5" />
-                        </ToggleGroupItem>
-                      ))}
-                    </ToggleGroup>
+                    <div className="flex flex-col gap-1">
+                      <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
+                      <ToggleGroup
+                        type="single"
+                        value={card.transport}
+                        onValueChange={(value) => updateCard(day.id, card.id, "transport", value)}
+                        className="flex w-full gap-2 overflow-x-auto"
+                        aria-label="交通手段"
+                      >
+                        {TRANSPORT_OPTIONS.map((option) => (
+                          <ToggleGroupItem
+                            key={option.mode}
+                            value={option.mode}
+                            aria-label={option.label}
+                            className="size-11 shrink-0 cursor-pointer rounded-lg border border-[#E5E4E1] bg-white text-[#9C9B99] hover:bg-[#F5F5F4] data-[state=on]:border-[#3D8A5A] data-[state=on]:border-[1.5px] data-[state=on]:bg-[#C8F0D8] data-[state=on]:text-[#3D8A5A]"
+                          >
+                            <option.icon className="size-5" />
+                          </ToggleGroupItem>
+                        ))}
+                      </ToggleGroup>
+                    </div>
 
                     {/* 補足 */}
                     <div className="flex flex-col gap-1">
