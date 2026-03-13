@@ -207,7 +207,7 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <Badge className="rounded-full bg-[#3D8A5A] px-3 py-3 font-semibold text-white">
+                <Badge variant="step">
                   概要 {index + 1}
                 </Badge>
               </CardTitle>
@@ -301,7 +301,7 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <Badge className="rounded-full bg-[#3D8A5A] px-3 py-3 font-semibold text-white">
+                <Badge variant="step">
                   {index + 1}日目
                 </Badge>
               </CardTitle>
@@ -328,7 +328,7 @@ export function CreateForm() {
                 >
                   <CardHeader>
                     <CardTitle>
-                      <Badge className="rounded-full bg-[#3D8A5A] px-3 py-3 font-semibold text-white">
+                      <Badge variant="step">
                         コマ {cardIndex + 1}
                       </Badge>
                     </CardTitle>
