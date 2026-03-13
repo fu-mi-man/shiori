@@ -21,6 +21,7 @@ import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/componen
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
 type OverviewItem = {
@@ -207,9 +208,7 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <Badge variant="step">
-                  概要 {index + 1}
-                </Badge>
+                <Badge variant="step">概要 {index + 1}</Badge>
               </CardTitle>
               <CardAction>
                 <Button
@@ -301,9 +300,7 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <Badge variant="step">
-                  {index + 1}日目
-                </Badge>
+                <Badge variant="step">{index + 1}日目</Badge>
               </CardTitle>
               <CardAction>
                 <Button
@@ -328,9 +325,7 @@ export function CreateForm() {
                 >
                   <CardHeader>
                     <CardTitle>
-                      <Badge variant="step">
-                        コマ {cardIndex + 1}
-                      </Badge>
+                      <Badge variant="step">コマ {cardIndex + 1}</Badge>
                     </CardTitle>
                     <CardAction>
                       <Button
@@ -386,33 +381,24 @@ export function CreateForm() {
                     {/* 交通手段 */}
                     <div className="flex flex-col gap-1">
                       <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
-                      <div className="flex gap-2 overflow-x-auto">
+                      <ToggleGroup
+                        type="single"
+                        value={card.transport}
+                        onValueChange={(value) => updateCard(day.id, card.id, "transport", value)}
+                        className="flex w-full gap-2 overflow-x-auto"
+                        aria-label="交通手段"
+                      >
                         {TRANSPORT_OPTIONS.map((option) => (
-                          <button
+                          <ToggleGroupItem
                             key={option.mode}
-                            type="button"
-                            onClick={() =>
-                              updateCard(
-                                day.id,
-                                card.id,
-                                "transport",
-                                card.transport === option.mode ? "" : option.mode,
-                              )
-                            }
-                            className={`flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border transition-colors ${
-                              card.transport === option.mode
-                                ? "border-[#3D8A5A] border-[1.5px] bg-[#C8F0D8]"
-                                : "border-[#E5E4E1] bg-white hover:bg-[#F5F5F4]"
-                            }`}
+                            value={option.mode}
                             aria-label={option.label}
-                            aria-pressed={card.transport === option.mode}
+                            className="size-11 shrink-0 cursor-pointer rounded-lg border border-[#E5E4E1] bg-white text-[#9C9B99] hover:bg-[#F5F5F4] data-[state=on]:border-[#3D8A5A] data-[state=on]:border-[1.5px] data-[state=on]:bg-[#C8F0D8] data-[state=on]:text-[#3D8A5A]"
                           >
-                            <option.icon
-                              className={`size-5 ${card.transport === option.mode ? "text-[#3D8A5A]" : "text-[#9C9B99]"}`}
-                            />
-                          </button>
+                            <option.icon className="size-5" />
+                          </ToggleGroupItem>
                         ))}
-                      </div>
+                      </ToggleGroup>
                     </div>
 
                     {/* 補足 */}
