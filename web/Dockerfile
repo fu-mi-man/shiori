@@ -25,6 +25,14 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
 COPY package.json ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --offline
 
+# pnpmディレクトリとアプリディレクトリの所有権をnodeユーザーに変更
+# rootでインストールしたnode_modules・pnpmストアをnodeユーザーで操作可能にする
+RUN chown -R node:node /pnpm /app
+
+# コンテナ内の実行ユーザーをnodeに変更（UID 1000）
+# volume マウント時のファイル所有権をホスト側ユーザーと一致させる
+USER node
+
 # ポート公開
 EXPOSE 3000
 
