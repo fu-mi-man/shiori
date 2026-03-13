@@ -307,6 +307,28 @@ style: インデントを修正
 | Client Component | `'use client'` ディレクティブを明示 |
 
 
+### フォーム実装方針
+
+Server Actions + `useActionState` + Zod を基本とする。React Hook Form（RHF）+ shadcn/ui `<Form>` は導入しない。
+
+| 項目 | 方針 |
+|------|------|
+| フォーム要素 | 素の `<form action={formAction}>` |
+| 送信処理 | Server Actions |
+| 状態管理 | `useActionState` で `state` / `pending` を取得 |
+| バリデーション | Server Action 内で Zod スキーマによるサーバーサイド検証 |
+| エラー表示 | `useActionState` の `state` からフィールドごとに表示 |
+| 配列操作（動的追加・削除） | `useState` + 手動管理 |
+
+**RHF を導入しない理由:**
+- MVP 段階で動いているものに依存を増やす必要がない
+- バリデーションは Server Action + Zod で十分カバーできる
+- `useActionState` との組み合わせで `pending` / `state` が自然に使える
+
+**再検討のタイミング:**
+- ネストした配列のフィールドごとのエラー表示（例:「2日目の3コマ目のタイトルが空」）が自前実装で複雑になった場合
+
+
 ## 6. コマンド一覧
 
 Next.jsアプリ（web/）のコマンドはDockerコンテナ内で実行する。

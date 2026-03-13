@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { useRef, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -160,14 +161,17 @@ export function CreateForm() {
   };
 
   return (
-    <div className="flex flex-col gap-7 px-5 py-6">
+    <form
+      className="flex flex-col gap-7 px-5 py-6"
+      action={() => {
+        // TODO: Server Actionを実装したら接続する
+      }}
+    >
       {/* タイトルセクション */}
       <section className="flex flex-col gap-2">
         <Label htmlFor="title" className="gap-1">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
-          <span className="rounded bg-[#3D8A5A] px-2 py-1 font-semibold text-white text-xs">
-            必須
-          </span>
+          <Badge className="bg-[#3D8A5A] font-semibold text-white">必須</Badge>
         </Label>
         <Input
           id="title"
@@ -203,9 +207,9 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                <Badge variant="step">
                   概要 {index + 1}
-                </span>
+                </Badge>
               </CardTitle>
               <CardAction>
                 <Button
@@ -297,9 +301,9 @@ export function CreateForm() {
           >
             <CardHeader>
               <CardTitle>
-                <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                <Badge variant="step">
                   {index + 1}日目
-                </span>
+                </Badge>
               </CardTitle>
               <CardAction>
                 <Button
@@ -324,9 +328,9 @@ export function CreateForm() {
                 >
                   <CardHeader>
                     <CardTitle>
-                      <span className="rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white text-xs">
+                      <Badge variant="step">
                         コマ {cardIndex + 1}
-                      </span>
+                      </Badge>
                     </CardTitle>
                     <CardAction>
                       <Button
@@ -449,13 +453,13 @@ export function CreateForm() {
 
       {/* 完了ボタン */}
       <Button
-        type="button"
+        type="submit"
         size="lg"
         className="h-12 w-full cursor-pointer bg-[#3D8A5A] text-base shadow-[0_2px_8px_rgba(61,138,90,0.19)] hover:bg-[#357A50] active:scale-95"
       >
         <Check className="size-5" />
         完了
       </Button>
-    </div>
+    </form>
   );
 }
