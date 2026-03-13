@@ -206,7 +206,7 @@ shiori/
 │   │   └── unit/                           # ユニットテスト
 │   │
 │   ├── public/                             # 静的ファイル
-│   ├── biome.json                          # Biome設定
+│   ├── biome.jsonc                         # Biome設定
 │   ├── components.json                     # shadcn/ui設定
 │   ├── Dockerfile                          # コンテナイメージ定義
 │   ├── drizzle.config.ts                   # Drizzle Kit設定

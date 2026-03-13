@@ -163,23 +163,23 @@ export function CreateForm() {
 
   return (
     <form
-      className="flex flex-col gap-7 px-5 py-6"
       action={() => {
         // TODO: Server Actionを実装したら接続する
       }}
+      className="flex flex-col gap-7 px-5 py-6"
     >
       {/* タイトルセクション */}
       <section className="flex flex-col gap-2">
-        <Label htmlFor="title" className="gap-1">
+        <Label className="gap-1" htmlFor="title">
           <span className="font-semibold text-[#1A1918] text-sm">タイトル</span>
           <Badge className="bg-[#3D8A5A] font-semibold text-white">必須</Badge>
         </Label>
         <Input
+          className="h-11 bg-white"
           id="title"
           name="title"
-          required
           placeholder="沖縄旅行 2025年3月"
-          className="h-11 bg-white"
+          required
         />
       </section>
 
@@ -190,9 +190,9 @@ export function CreateForm() {
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">概要</h2>
           {overviews.length < 10 && (
             <Button
-              type="button"
-              onClick={addOverview}
               className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
+              onClick={addOverview}
+              type="button"
             >
               <Plus className="size-4" />
               追加
@@ -203,8 +203,8 @@ export function CreateForm() {
         {/* 概要カードリスト */}
         {overviews.map((item, index) => (
           <Card
-            key={item.id}
             className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+            key={item.id}
           >
             <CardHeader>
               <CardTitle>
@@ -212,12 +212,12 @@ export function CreateForm() {
               </CardTitle>
               <CardAction>
                 <Button
-                  type="button"
-                  variant="destructive"
-                  size="icon-sm"
+                  aria-label="概要を削除"
                   className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                   onClick={() => removeOverview(item.id)}
-                  aria-label="概要を削除"
+                  size="icon-sm"
+                  type="button"
+                  variant="destructive"
                 >
                   <X />
                 </Button>
@@ -227,31 +227,31 @@ export function CreateForm() {
             <CardContent className="flex flex-col gap-4">
               {/* タイトル */}
               <div className="flex flex-col gap-1">
-                <Label htmlFor={`overview-title-${item.id}`} className="text-[#6D6C6A] text-xs">
+                <Label className="text-[#6D6C6A] text-xs" htmlFor={`overview-title-${item.id}`}>
                   タイトル
                 </Label>
                 <Input
+                  className="h-11 bg-white"
                   id={`overview-title-${item.id}`}
-                  value={item.title}
+                  maxLength={255}
                   onChange={(e) => updateOverview(item.id, "title", e.target.value)}
                   placeholder="例: 旅費"
-                  maxLength={255}
-                  className="h-11 bg-white"
+                  value={item.title}
                 />
               </div>
 
               {/* 内容 */}
               <div className="flex flex-col gap-1">
-                <Label htmlFor={`overview-content-${item.id}`} className="text-[#6D6C6A] text-xs">
+                <Label className="text-[#6D6C6A] text-xs" htmlFor={`overview-content-${item.id}`}>
                   内容
                 </Label>
                 <Textarea
+                  className="min-h-[88px] bg-white px-3 leading-relaxed"
                   id={`overview-content-${item.id}`}
-                  value={item.content}
+                  maxLength={500}
                   onChange={(e) => updateOverview(item.id, "content", e.target.value)}
                   placeholder="例: 一人あたり約50,000円"
-                  maxLength={500}
-                  className="min-h-[88px] bg-white px-3 leading-relaxed"
+                  value={item.content}
                 />
               </div>
             </CardContent>
@@ -266,9 +266,9 @@ export function CreateForm() {
           <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">行程</h2>
           {days.length < 10 && (
             <Button
-              type="button"
-              onClick={addDay}
               className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
+              onClick={addDay}
+              type="button"
             >
               <Plus className="size-4" />
               日程を追加
@@ -278,25 +278,25 @@ export function CreateForm() {
 
         {/* 旅行開始日 */}
         <div className="flex flex-col gap-2">
-          <Label htmlFor="start-date" className="gap-1.5">
+          <Label className="gap-1.5" htmlFor="start-date">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </Label>
           <Input
+            className="h-11 cursor-pointer bg-white"
             id="start-date"
-            type="date"
-            value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
-            className="h-11 cursor-pointer bg-white"
+            type="date"
+            value={startDate}
           />
         </div>
 
         {/* 日程グループリスト */}
         {days.map((day, index) => (
           <Card
-            key={day.id}
             className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+            key={day.id}
           >
             <CardHeader>
               <CardTitle>
@@ -304,12 +304,12 @@ export function CreateForm() {
               </CardTitle>
               <CardAction>
                 <Button
-                  type="button"
-                  variant="destructive"
-                  size="icon-sm"
+                  aria-label="日程を削除"
                   className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                   onClick={() => removeDay(day.id)}
-                  aria-label="日程を削除"
+                  size="icon-sm"
+                  type="button"
+                  variant="destructive"
                 >
                   <X />
                 </Button>
@@ -320,8 +320,8 @@ export function CreateForm() {
               {/* スケジュールカードリスト */}
               {day.cards.map((card, cardIndex) => (
                 <Card
-                  key={card.id}
                   className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+                  key={card.id}
                 >
                   <CardHeader>
                     <CardTitle>
@@ -329,12 +329,12 @@ export function CreateForm() {
                     </CardTitle>
                     <CardAction>
                       <Button
-                        type="button"
-                        variant="destructive"
-                        size="icon-sm"
+                        aria-label="コマを削除"
                         className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                         onClick={() => removeCard(day.id, card.id)}
-                        aria-label="コマを削除"
+                        size="icon-sm"
+                        type="button"
+                        variant="destructive"
                       >
                         <X />
                       </Button>
@@ -345,36 +345,36 @@ export function CreateForm() {
                     {/* 時間 */}
                     <div className="flex w-36 flex-col gap-1">
                       <Label
-                        htmlFor={`card-time-${day.id}-${card.id}`}
                         className="text-[#6D6C6A] text-xs"
+                        htmlFor={`card-time-${day.id}-${card.id}`}
                       >
                         時間
                       </Label>
                       <Input
+                        className="h-11 cursor-pointer bg-white"
                         id={`card-time-${day.id}-${card.id}`}
-                        type="time"
-                        value={card.time}
                         onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
                         onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
-                        className="h-11 cursor-pointer bg-white"
+                        type="time"
+                        value={card.time}
                       />
                     </div>
 
                     {/* タイトル */}
                     <div className="flex flex-col gap-1">
                       <Label
-                        htmlFor={`card-title-${day.id}-${card.id}`}
                         className="text-[#6D6C6A] text-xs"
+                        htmlFor={`card-title-${day.id}-${card.id}`}
                       >
                         タイトル
                       </Label>
                       <Input
+                        className="h-11 bg-white"
                         id={`card-title-${day.id}-${card.id}`}
-                        value={card.title}
+                        maxLength={255}
                         onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
                         placeholder="例: 那覇空港 到着"
-                        maxLength={255}
-                        className="h-11 bg-white"
+                        value={card.title}
                       />
                     </div>
 
@@ -382,18 +382,18 @@ export function CreateForm() {
                     <div className="flex flex-col gap-1">
                       <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
                       <ToggleGroup
+                        aria-label="交通手段"
+                        className="flex w-full gap-2 overflow-x-auto"
+                        onValueChange={(value) => updateCard(day.id, card.id, "transport", value)}
                         type="single"
                         value={card.transport}
-                        onValueChange={(value) => updateCard(day.id, card.id, "transport", value)}
-                        className="flex w-full gap-2 overflow-x-auto"
-                        aria-label="交通手段"
                       >
                         {TRANSPORT_OPTIONS.map((option) => (
                           <ToggleGroupItem
-                            key={option.mode}
-                            value={option.mode}
                             aria-label={option.label}
                             className="size-11 shrink-0 cursor-pointer rounded-lg border border-[#E5E4E1] bg-white text-[#9C9B99] hover:bg-[#F5F5F4] data-[state=on]:border-[#3D8A5A] data-[state=on]:border-[1.5px] data-[state=on]:bg-[#C8F0D8] data-[state=on]:text-[#3D8A5A]"
+                            key={option.mode}
+                            value={option.mode}
                           >
                             <option.icon className="size-5" />
                           </ToggleGroupItem>
@@ -404,18 +404,18 @@ export function CreateForm() {
                     {/* 補足 */}
                     <div className="flex flex-col gap-1">
                       <Label
-                        htmlFor={`card-memo-${day.id}-${card.id}`}
                         className="text-[#6D6C6A] text-xs"
+                        htmlFor={`card-memo-${day.id}-${card.id}`}
                       >
                         補足
                       </Label>
                       <Textarea
+                        className="min-h-[88px] bg-white px-3 leading-relaxed"
                         id={`card-memo-${day.id}-${card.id}`}
-                        value={card.memo}
+                        maxLength={200}
                         onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
                         placeholder="例: LCC利用。第2ターミナル"
-                        maxLength={200}
-                        className="min-h-[88px] bg-white px-3 leading-relaxed"
+                        value={card.memo}
                       />
                     </div>
                   </CardContent>
@@ -424,10 +424,10 @@ export function CreateForm() {
 
               {/* コマを追加ボタン */}
               <Button
+                className="relative h-11 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
+                onClick={() => addCard(day.id)}
                 type="button"
                 variant="outline"
-                onClick={() => addCard(day.id)}
-                className="relative h-11 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
               >
                 <Plus className="size-4" />
                 コマを追加
@@ -439,9 +439,9 @@ export function CreateForm() {
 
       {/* 完了ボタン */}
       <Button
-        type="submit"
-        size="lg"
         className="h-12 w-full cursor-pointer bg-[#3D8A5A] text-base shadow-[0_2px_8px_rgba(61,138,90,0.19)] hover:bg-[#357A50] active:scale-95"
+        size="lg"
+        type="submit"
       >
         <Check className="size-5" />
         完了

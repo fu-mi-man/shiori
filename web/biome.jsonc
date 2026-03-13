@@ -1,0 +1,75 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.5/schema.json",
+
+  // Git連携: .gitignoreのパターンを尊重する
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+
+  // 未知のファイル拡張子はエラーにする
+  "files": {
+    "ignoreUnknown": false
+  },
+
+  // フォーマッター: スペースインデント、行幅100
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+
+  // リンター: 推奨ルール + Tailwind CSSクラスのソート
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "nursery": {
+        // Tailwind CSSユーティリティクラスの並び順を強制
+        "useSortedClasses": "warn"
+      }
+    }
+  },
+
+  // CSS: モジュールとTailwindディレクティブを有効化
+  "css": {
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
+    }
+  },
+
+  // JavaScript: ダブルクォートを使用
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+
+  // アシスト: import整理とJSX属性の自動ソート
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on",          // import文を自動整理
+        "useSortedAttributes": {          // JSX属性をアルファベット順（自然順）にソート
+          "level": "on",
+          "options": {
+            "sortOrder": "natural"
+          }
+        }
+      }
+    }
+  },
+
+  // shadcn/ui自動生成ファイルはすべてのチェックを無効化
+  "overrides": [
+    {
+      "includes": ["src/components/ui/**"],
+      "linter": { "enabled": false },
+      "formatter": { "enabled": false },
+      "assist": { "enabled": false }
+    }
+  ]
+}
