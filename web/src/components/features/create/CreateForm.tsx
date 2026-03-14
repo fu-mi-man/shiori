@@ -442,7 +442,7 @@ export function CreateForm() {
       <section className="flex flex-col gap-2">
         <div className="flex items-center gap-1.5">
           <Lock aria-hidden="true" className="size-4 text-[#6D6C6A]" />
-          <Label htmlFor="passphrase">
+          <Label className="gap-1.5" htmlFor="passphrase">
             <span className="font-semibold text-[#1A1918] text-sm">合言葉</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </Label>
