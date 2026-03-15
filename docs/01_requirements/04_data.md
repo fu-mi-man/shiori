@@ -31,8 +31,9 @@ shioris (しおり)
 | title | VARCHAR(255) | NOT NULL | タイトル |
 | passphrase | VARCHAR(255) | NULL | 合言葉（平文）。簡易ロック目的のためハッシュ化不要 |
 | is_premium | BOOLEAN | NOT NULL, DEFAULT FALSE | 課金済みフラグ |
-| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 作成日時 |
 | last_accessed_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 最終アクセス日時 |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 作成日時 |
+| updated_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 更新日時 |
 
 ### 2. overviews（概要）
 
