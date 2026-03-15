@@ -9,6 +9,7 @@ import {
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
+import { transportEnum } from "./enums/transport";
 import { shioris } from "./shioris";
 
 /**
@@ -28,8 +29,11 @@ export const schedules = pgTable("schedules", {
   date: date("date"), // 実際の日付（任意）
   time: time("time"), // 時刻（任意）
   title: varchar("title", { length: 255 }), // 場所名・イベント名
-  transport: varchar("transport", { length: 50 }), // 交通手段
+  transport: transportEnum("transport"), // 交通手段
   note: text("note"), // 補足（最大200文字はアプリ側で制御）
   createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at")
+    .notNull()
+    .defaultNow()
+    .$onUpdateFn(() => new Date()),
 });

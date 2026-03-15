@@ -14,5 +14,8 @@ export const shioris = pgTable("shioris", {
   isPremium: boolean("is_premium").notNull().default(false), // 課金済みフラグ
   lastAccessedAt: timestamp("last_accessed_at").notNull().defaultNow(), // 最終アクセス日時
   createdAt: timestamp("created_at").notNull().defaultNow(), // 作成日時
-  updatedAt: timestamp("updated_at").notNull().defaultNow(), // 更新日時
+  updatedAt: timestamp("updated_at")
+    .notNull()
+    .defaultNow()
+    .$onUpdateFn(() => new Date()), // 更新日時
 });

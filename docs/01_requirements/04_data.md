@@ -44,6 +44,8 @@ shioris (しおり)
 | sort_order | INT | NOT NULL | 並び順 |
 | title | VARCHAR(255) | NULL | タイトル |
 | content | TEXT | NULL | 内容（最大500文字） |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 作成日時 |
+| updated_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 更新日時 |
 
 ### 3. schedules（行程）
 
@@ -56,8 +58,10 @@ shioris (しおり)
 | day_number | INT | NULL | 日数（1日目、2日目など） |
 | time | TIME | NULL | 時刻 |
 | title | VARCHAR(255) | NULL | 場所名・イベント名 |
-| transport | VARCHAR(50) | NULL | 交通手段 |
+| transport | ENUM | NULL | 交通手段 |
 | note | TEXT | NULL | 補足（最大200文字） |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 作成日時 |
+| updated_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | 更新日時 |
 
 **transport（交通手段）の選択肢**:
 `walk` / `train` / `bus` / `plane` / `car` / `ship` / `bicycle` / `taxi` / `cablecar`
