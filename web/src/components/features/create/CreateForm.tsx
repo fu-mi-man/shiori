@@ -15,7 +15,7 @@ import {
   TrainFront,
   X,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,6 +23,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+
+import { createShiori, type CreateShioriState } from "@/app/create/actions";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
 type OverviewItem = {
@@ -71,7 +73,12 @@ const TRANSPORT_OPTIONS = [
   { mode: "cablecar", icon: CableCar, label: "ケーブルカー" },
 ] as const;
 
+const initialState: CreateShioriState = { message: "" };
+
 export function CreateForm() {
+  // Server Action の状態管理
+  const [state, formAction, pending] = useActionState(createShiori, initialState);
+
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<OverviewItem[]>([]);
   const nextOverviewIdRef = useRef(1);
@@ -80,7 +87,6 @@ export function CreateForm() {
   const [days, setDays] = useState<DayGroup[]>([]);
   const nextDayIdRef = useRef(1);
   const nextCardIdRef = useRef(1);
-  const [startDate, setStartDate] = useState("");
 
   // 追加: 空のカードをリスト末尾に追加
   const addOverview = () => {
@@ -164,9 +170,7 @@ export function CreateForm() {
 
   return (
     <form
-      action={() => {
-        // TODO: Server Actionを実装したら接続する
-      }}
+      action={formAction}
       className="flex flex-col gap-7 px-5 py-6"
     >
       {/* タイトルセクション */}
@@ -286,10 +290,9 @@ export function CreateForm() {
           <Input
             className="h-11 cursor-pointer bg-white"
             id="start-date"
-            onChange={(e) => setStartDate(e.target.value)}
+            name="startDate"
             onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
             type="date"
-            value={startDate}
           />
         </div>
 
@@ -459,6 +462,28 @@ export function CreateForm() {
         />
       </section>
 
+      {/* stateで管理している複雑なデータをFormDataに含めるためのhidden input */}
+      <input
+        name="overviews"
+        type="hidden"
+        value={JSON.stringify(
+          overviews.map((item) => ({ title: item.title, content: item.content })),
+        )}
+      />
+      <input
+        name="days"
+        type="hidden"
+        value={JSON.stringify(
+          days.map((day) => ({
+            schedules: day.cards.map((card) => ({
+              time: card.time,
+              title: card.title,
+              transport: card.transport,
+              memo: card.memo,
+            })),
+          })),
+        )}
+      />
       {/* 完了ボタン */}
       <Button
         className="h-12 w-full cursor-pointer bg-[#3D8A5A] text-base shadow-[0_2px_8px_rgba(61,138,90,0.19)] hover:bg-[#357A50] active:scale-95"
