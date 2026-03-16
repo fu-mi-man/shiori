@@ -1,5 +1,5 @@
 {
-  "id": "a1af8a10-bb55-450a-b004-42528113c8ed",
+  "id": "4ff411db-ce55-4baa-b93a-a192167b4a61",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -54,11 +54,17 @@
         }
       },
       "indexes": {
-        "overviews_shiori_id_idx": {
-          "name": "overviews_shiori_id_idx",
+        "overviews_shiori_id_sort_order_idx": {
+          "name": "overviews_shiori_id_sort_order_idx",
           "columns": [
             {
               "expression": "shiori_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "sort_order",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -162,11 +168,23 @@
         }
       },
       "indexes": {
-        "schedules_shiori_id_idx": {
-          "name": "schedules_shiori_id_idx",
+        "schedules_shiori_id_day_number_sort_order_idx": {
+          "name": "schedules_shiori_id_day_number_sort_order_idx",
           "columns": [
             {
               "expression": "shiori_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "day_number",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "sort_order",
               "isExpression": false,
               "asc": true,
               "nulls": "last"

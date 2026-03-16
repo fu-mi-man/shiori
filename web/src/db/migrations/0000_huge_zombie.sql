@@ -35,6 +35,6 @@ CREATE TABLE "shioris" (
 --> statement-breakpoint
 ALTER TABLE "overviews" ADD CONSTRAINT "overviews_shiori_id_shioris_id_fk" FOREIGN KEY ("shiori_id") REFERENCES "public"."shioris"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "schedules" ADD CONSTRAINT "schedules_shiori_id_shioris_id_fk" FOREIGN KEY ("shiori_id") REFERENCES "public"."shioris"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-CREATE INDEX "overviews_shiori_id_idx" ON "overviews" USING btree ("shiori_id");--> statement-breakpoint
-CREATE INDEX "schedules_shiori_id_idx" ON "schedules" USING btree ("shiori_id");--> statement-breakpoint
+CREATE INDEX "overviews_shiori_id_sort_order_idx" ON "overviews" USING btree ("shiori_id","sort_order");--> statement-breakpoint
+CREATE INDEX "schedules_shiori_id_day_number_sort_order_idx" ON "schedules" USING btree ("shiori_id","day_number","sort_order");--> statement-breakpoint
 CREATE INDEX "shioris_last_accessed_at_idx" ON "shioris" USING btree ("last_accessed_at");

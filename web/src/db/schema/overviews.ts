@@ -32,5 +32,5 @@ export const overviews = pgTable(
       .defaultNow()
       .$onUpdateFn(() => new Date()),
   },
-  (table) => [index("overviews_shiori_id_idx").on(table.shioriId)],
+  (table) => [index("overviews_shiori_id_sort_order_idx").on(table.shioriId, table.sortOrder)],
 );

@@ -87,14 +87,15 @@ touch src/db/relations.ts
 ```ts
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { relations } from "./relations";
+import * as relations from "./relations";
+import * as schema from "./schema";
 
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
 }
 
 const queryClient = postgres(process.env.DATABASE_URL);
-export const db = drizzle({ client: queryClient, relations });
+export const db = drizzle({ client: queryClient, schema: { ...schema, ...relations } });
 ```
 
 | 設定 | 値 | 理由 |

@@ -52,5 +52,11 @@ export const schedules = pgTable(
       .defaultNow()
       .$onUpdateFn(() => new Date()),
   },
-  (table) => [index("schedules_shiori_id_idx").on(table.shioriId)],
+  (table) => [
+    index("schedules_shiori_id_day_number_sort_order_idx").on(
+      table.shioriId,
+      table.dayNumber,
+      table.sortOrder,
+    ),
+  ],
 );
