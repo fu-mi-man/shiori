@@ -74,8 +74,8 @@ shioris (しおり)
 | テーブル | カラム | 目的 |
 |----------|--------|------|
 | shioris | last_accessed_at | 自動削除処理 |
-| overviews | shiori_id | 外部キー検索 |
-| schedules | shiori_id | 外部キー検索 |
+| overviews | (shiori_id, sort_order) | 外部キー検索 + 表示順ソート |
+| schedules | (shiori_id, day_number, sort_order) | 外部キー検索 + 日程・表示順ソート |
 
 
 ## 4. 更新ルール

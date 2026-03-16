@@ -35,7 +35,7 @@ import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({
   out: "./src/db/migrations",
-  schema: "./src/db/schema.ts",
+  schema: "./src/db/schema",
   dialect: "postgresql",
   dbCredentials: {
     url: process.env.DATABASE_URL ?? "",
@@ -46,7 +46,7 @@ export default defineConfig({
 | 設定                | 値                         | 理由                           |
 | ------------------- | -------------------------- | ------------------------------ |
 | `out`               | `src/db/migrations`    | DB 関連を `db/` に集約（公式準拠） |
-| `schema`            | `src/db/schema.ts`     | Drizzle スキーマ定義のパス     |
+| `schema`            | `src/db/schema`        | Drizzle スキーマ定義のディレクトリ |
 | `dialect`           | `"postgresql"`             | Neon / ローカル共に PostgreSQL |
 | `dbCredentials.url` | `process.env.DATABASE_URL` | compose.yaml で注入済み        |
 
@@ -76,9 +76,10 @@ drizzle-kit は `schema` に指定されたファイルが存在しないとエ�
 
 ```bash
 # ホストで実行（web/ ディレクトリ配下）
-mkdir -p src/db
+mkdir -p src/db/schema
 touch src/db/schema.ts
 touch src/db/index.ts
+touch src/db/relations.ts
 ```
 
 `web/src/db/index.ts`:
@@ -86,13 +87,15 @@ touch src/db/index.ts
 ```ts
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+import * as relations from "./relations";
+import * as schema from "./schema";
 
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
 }
 
 const queryClient = postgres(process.env.DATABASE_URL);
-export const db = drizzle({ client: queryClient });
+export const db = drizzle({ client: queryClient, schema: { ...schema, ...relations } });
 ```
 
 | 設定 | 値 | 理由 |
