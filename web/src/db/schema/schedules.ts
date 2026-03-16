@@ -31,8 +31,8 @@ export const schedules = pgTable("schedules", {
   title: varchar("title", { length: 255 }), // 場所名・イベント名
   transport: transportEnum("transport"), // 交通手段
   note: text("note"), // 補足（最大200文字はアプリ側で制御）
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at")
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
     .notNull()
     .defaultNow()
     .$onUpdateFn(() => new Date()),

@@ -15,8 +15,8 @@ export const overviews = pgTable("overviews", {
   sortOrder: integer("sort_order").notNull(),
   title: varchar("title", { length: 255 }), // タイトル
   content: text("content"), // 内容（最大500文字はアプリ側で制御）
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at")
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
     .notNull()
     .defaultNow()
     .$onUpdateFn(() => new Date()),
