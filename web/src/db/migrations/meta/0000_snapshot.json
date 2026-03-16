@@ -75,12 +75,8 @@
           "name": "overviews_shiori_id_shioris_id_fk",
           "tableFrom": "overviews",
           "tableTo": "shioris",
-          "columnsFrom": [
-            "shiori_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["shiori_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -187,12 +183,8 @@
           "name": "schedules_shiori_id_shioris_id_fk",
           "tableFrom": "schedules",
           "tableTo": "shioris",
-          "columnsFrom": [
-            "shiori_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["shiori_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -284,17 +276,7 @@
     "public.transport": {
       "name": "transport",
       "schema": "public",
-      "values": [
-        "walk",
-        "train",
-        "bus",
-        "plane",
-        "car",
-        "ship",
-        "bicycle",
-        "taxi",
-        "cablecar"
-      ]
+      "values": ["walk", "train", "bus", "plane", "car", "ship", "bicycle", "taxi", "cablecar"]
     }
   },
   "schemas": {},
