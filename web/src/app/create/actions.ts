@@ -5,7 +5,7 @@ export type CreateShioriState = {
 };
 
 export async function createShiori(
-  prevState: CreateShioriState,
+  _prevState: CreateShioriState,
   formData: FormData,
 ): Promise<CreateShioriState> {
   const title = formData.get("title") as string;

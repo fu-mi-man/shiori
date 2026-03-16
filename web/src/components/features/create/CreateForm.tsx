@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { useActionState, useRef, useState } from "react";
+import { type CreateShioriState, createShiori } from "@/app/create/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,8 +24,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-
-import { createShiori, type CreateShioriState } from "@/app/create/actions";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
 type OverviewItem = {
@@ -77,7 +76,7 @@ const initialState: CreateShioriState = { message: "" };
 
 export function CreateForm() {
   // Server Action の状態管理
-  const [state, formAction, pending] = useActionState(createShiori, initialState);
+  const [_state, formAction, _pending] = useActionState(createShiori, initialState);
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<OverviewItem[]>([]);
@@ -169,10 +168,7 @@ export function CreateForm() {
   };
 
   return (
-    <form
-      action={formAction}
-      className="flex flex-col gap-7 px-5 py-6"
-    >
+    <form action={formAction} className="flex flex-col gap-7 px-5 py-6">
       {/* タイトルセクション */}
       <section className="flex flex-col gap-2">
         <Label className="gap-1" htmlFor="title">
