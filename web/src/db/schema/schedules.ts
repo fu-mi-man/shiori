@@ -37,8 +37,8 @@ export const schedules = pgTable("schedules", {
     .notNull()
     .references(() => shioris.id, { onDelete: "cascade" }),
   sortOrder: integer("sort_order").notNull(),
-  dayNumber: integer("day_number"), // 何日目か（1日目，2日目…）
   date: date("date"), // 実際の日付（任意）
+  dayNumber: integer("day_number"), // 何日目か（1日目，2日目…）
   time: time("time"), // 時刻（任意）
   title: varchar("title", { length: 255 }), // 場所名・イベント名
   transport: transportEnum("transport"), // 交通手段
