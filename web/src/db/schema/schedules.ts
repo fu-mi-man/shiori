@@ -1,6 +1,7 @@
 import {
   date,
   integer,
+  pgEnum,
   pgTable,
   serial,
   text,
@@ -9,8 +10,19 @@ import {
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
-import { transportEnum } from "./enums/transport";
 import { shioris } from "./shioris";
+
+export const transportEnum = pgEnum("transport", [
+  "walk",
+  "train",
+  "bus",
+  "plane",
+  "car",
+  "ship",
+  "bicycle",
+  "taxi",
+  "cablecar",
+]);
 
 /**
  * schedules — しおりの行程テーブル（1対多）
