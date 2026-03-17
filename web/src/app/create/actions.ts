@@ -16,11 +16,20 @@ export async function createShiori(
   _prevState: CreateShioriState,
   formData: FormData,
 ): Promise<CreateShioriState> {
+  let parsedOverviews: unknown;
+  let parsedDays: unknown;
+  try {
+    parsedOverviews = JSON.parse(String(formData.get("overviews") ?? "[]"));
+    parsedDays = JSON.parse(String(formData.get("days") ?? "[]"));
+  } catch {
+    return { status: "error", message: "送信データの形式が不正です" };
+  }
+
   const rawData = {
     title: formData.get("title"),
     passphrase: formData.get("passphrase"),
-    overviews: JSON.parse(formData.get("overviews") as string),
-    days: JSON.parse(formData.get("days") as string),
+    overviews: parsedOverviews,
+    days: parsedDays,
     startDate: formData.get("startDate"),
   };
 
@@ -87,9 +96,10 @@ export async function createShiori(
   redirect(`/i/${shioriId}`);
 }
 
-/** startDate に days 日加算した日付文字列を返す */
+/** startDate に days 日加算した日付文字列を返す（UTC基準） */
 function addDays(startDate: string, days: number): string {
-  const date = new Date(startDate);
-  date.setDate(date.getDate() + days);
-  return date.toISOString().split("T")[0];
+  const [year, month, day] = startDate.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
 }

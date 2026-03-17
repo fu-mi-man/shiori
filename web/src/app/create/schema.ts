@@ -24,5 +24,5 @@ export const createShioriSchema = z.object({
   passphrase: z.string().max(255),
   overviews: z.array(overviewSchema).max(10),
   days: z.array(daySchema).max(10),
-  startDate: z.string(),
+  startDate: z.iso.date().or(z.literal("")),
 });

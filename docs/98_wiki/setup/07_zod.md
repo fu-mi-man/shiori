@@ -40,7 +40,7 @@ import { z } from 'zod'
 
 // スキーマ定義（バリデーションルール + 型推論の両方を兼ねる）
 const schema = z.object({
-  email: z.string({ invalid_type_error: '無効なメールアドレスです' }),
+  email: z.string({ error: '無効なメールアドレスです' }),
 })
 
 export async function createUser(prevState: any, formData: FormData) {
@@ -77,7 +77,7 @@ export async function createUser(prevState: any, formData: FormData) {
 
 `docs/01_requirements/05_development.md` のフォーム実装方針に準拠。
 
-```
+```text
 useActionState + Server Action + Zod
 
 [ブラウザ] <form action={formAction}>
