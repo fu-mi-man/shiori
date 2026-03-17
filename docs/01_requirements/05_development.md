@@ -45,6 +45,12 @@
 |--------|------|------|
 | Drizzle Kit | マイグレーション管理 | Drizzle ORMの付属ツール。スキーマからSQL自動生成，DB管理UI（Studio） |
 
+### バリデーション
+
+| ツール | 用途 | 備考 |
+|--------|------|------|
+| Zod | スキーマ定義・バリデーション | Server Action 内で `safeParse` によるサーバーサイド検証。型推論も兼ねる |
+
 ### UI
 
 | ツール | 用途 | 備考 |
@@ -169,14 +175,17 @@ shiori/
 │   ├── 01_requirements/                    # 要件定義（概要・機能・画面・データ・開発規約）
 │   ├── 02_specification/                   # 詳細設計
 │   ├── 98_wiki/                            # 開発Wiki
-│   │   └── setup/                          # ツール導入手順（00_initial〜06_shadcn）
+│   │   └── setup/                          # ツール導入手順（00_initial〜07_zod）
 │   └── 99_research/                        # 調査・技術選定
 │
 ├── web/                                    # Next.jsアプリ（フロント＋バックエンド）
 │   ├── src/
 │   │   ├── app/                            # App Router（ルーティング専用）
 │   │   │   ├── (main)/                     # メインページ群（route group，URLに影響しない）
-│   │   │   │   ├── create/page.tsx         # 作成画面 (/create)
+│   │   │   │   ├── create/
+│   │   │   │   │   ├── page.tsx            # 作成画面 (/create)
+│   │   │   │   │   ├── actions.ts          # Server Action（フォーム送信処理）
+│   │   │   │   │   └── schema.ts           # Zodバリデーションスキーマ
 │   │   │   │   └── page.tsx                # トップ画面 (/)
 │   │   │   ├── api/                        # API Routes
 │   │   │   │   ├── auth/route.ts           # POST: 合言葉認証
@@ -226,7 +235,7 @@ shiori/
 ### 構成のポイント
 
 - **`web/`**: Next.jsプロジェクトルート。将来バックエンドを分離する場合は `api/` 等を並列に追加できる
-- **`src/app/`**: App Routerのルーティング専用。ページとAPIルートのみ配置。ビジネスロジックやコンポーネントは置かない
+- **`src/app/`**: App Routerのルーティング。ページ・APIルート・Server Action・バリデーションスキーマを配置。再利用可能なビジネスロジックやコンポーネントは置かない
 - **`src/components/ui/`**: shadcn/uiの汎用コンポーネント。どの画面でも使える
 - **`src/components/features/`**: 機能固有のコンポーネント。機能単位で分類
 - **`src/db/`**: Drizzle関連を集約（公式準拠）。スキーマ，接続，マイグレーションを一箇所で管理
