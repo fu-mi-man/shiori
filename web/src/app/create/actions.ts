@@ -1,6 +1,9 @@
 "use server";
 
+import { createShioriSchema } from "./schema";
+
 export type CreateShioriState = {
+  status: "idle" | "error";
   message: string;
 };
 
@@ -8,16 +11,25 @@ export async function createShiori(
   _prevState: CreateShioriState,
   formData: FormData,
 ): Promise<CreateShioriState> {
-  const title = formData.get("title") as string;
-  const passphrase = formData.get("passphrase") as string;
-  const overviews = JSON.parse(formData.get("overviews") as string);
-  const days = JSON.parse(formData.get("days") as string);
-  const startDate = formData.get("startDate") as string;
+  const rawData = {
+    title: formData.get("title"),
+    passphrase: formData.get("passphrase"),
+    overviews: JSON.parse(formData.get("overviews") as string),
+    days: JSON.parse(formData.get("days") as string),
+    startDate: formData.get("startDate"),
+  };
 
-  // TODO: Zodバリデーション
+  const result = createShioriSchema.safeParse(rawData);
+
+  if (!result.success) {
+    return {
+      status: "error",
+      message: result.error.issues[0].message,
+    };
+  }
+
   // TODO: DB保存
   // TODO: リダイレクト
-  console.log("Server Action called:", { title, passphrase, overviews, days, startDate });
 
-  return { message: "" };
+  return { status: "idle", message: "" };
 }

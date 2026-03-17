@@ -72,7 +72,7 @@ const TRANSPORT_OPTIONS = [
   { mode: "cablecar", icon: CableCar, label: "ケーブルカー" },
 ] as const;
 
-const initialState: CreateShioriState = { message: "" };
+const initialState: CreateShioriState = { status: "idle", message: "" };
 
 export function CreateForm() {
   // Server Action の状態管理
