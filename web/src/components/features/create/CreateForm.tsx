@@ -26,7 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
-type OverviewItem = {
+type Overview = {
   id: number;
   title: string;
   content: string;
@@ -54,7 +54,7 @@ type ScheduleCard = {
 };
 
 // 1日分のグループ
-type DayGroup = {
+type Day = {
   id: number;
   cards: ScheduleCard[];
 };
@@ -79,13 +79,13 @@ export function CreateForm() {
   const [state, formAction, pending] = useActionState(createShiori, initialState);
 
   // 概要セクションのstate
-  const [overviews, setOverviews] = useState<OverviewItem[]>([]);
+  const [overviews, setOverviews] = useState<Overview[]>([]);
   const nextOverviewIdRef = useRef(1);
 
   // 行程セクションのstate
-  const [days, setDays] = useState<DayGroup[]>([]);
+  const [days, setDays] = useState<Day[]>([]);
   const nextDayIdRef = useRef(1);
-  const nextCardIdRef = useRef(1);
+  const nextScheduleCardIdRef = useRef(1);
 
   // 追加: 空のカードをリスト末尾に追加
   const addOverview = () => {
@@ -129,7 +129,13 @@ export function CreateForm() {
               ...day,
               cards: [
                 ...day.cards,
-                { id: nextCardIdRef.current++, time: "", title: "", transport: "", memo: "" },
+                {
+                  id: nextScheduleCardIdRef.current++,
+                  time: "",
+                  title: "",
+                  transport: "",
+                  memo: "",
+                },
               ],
             }
           : day,
