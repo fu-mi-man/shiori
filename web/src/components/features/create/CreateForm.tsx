@@ -76,7 +76,7 @@ const initialState: CreateShioriState = { status: "idle", message: "" };
 
 export function CreateForm() {
   // Server Action の状態管理
-  const [_state, formAction, _pending] = useActionState(createShiori, initialState);
+  const [state, formAction, pending] = useActionState(createShiori, initialState);
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<OverviewItem[]>([]);
@@ -480,14 +480,22 @@ export function CreateForm() {
           })),
         )}
       />
+      {/* エラーメッセージ */}
+      {state.status === "error" && (
+        <p className="text-center text-red-500 text-sm" role="alert">
+          {state.message}
+        </p>
+      )}
+
       {/* 完了ボタン */}
       <Button
         className="h-12 w-full cursor-pointer bg-[#3D8A5A] text-base shadow-[0_2px_8px_rgba(61,138,90,0.19)] hover:bg-[#357A50] active:scale-95"
+        disabled={pending}
         size="lg"
         type="submit"
       >
         <Check className="size-5" />
-        完了
+        {pending ? "保存中..." : "完了"}
       </Button>
     </form>
   );

@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { db } from "@/db";
 import { overviews as overviewsTable } from "@/db/schema/overviews";
 import { schedules as schedulesTable } from "@/db/schema/schedules";
@@ -34,6 +35,8 @@ export async function createShiori(
 
   const { title, passphrase, overviews, days, startDate } = result.data;
 
+  let shioriId: string | undefined;
+
   try {
     await db.transaction(async (tx) => {
       // 1. shiorisにinsert
@@ -44,6 +47,8 @@ export async function createShiori(
           passphrase: passphrase || null,
         })
         .returning({ id: shioris.id });
+
+      shioriId = shiori.id;
 
       // 2. overviews に INSERT
       if (overviews.length > 0) {
@@ -79,9 +84,7 @@ export async function createShiori(
     return { status: "error", message: "保存に失敗しました" };
   }
 
-  // TODO: リダイレクト
-
-  return { status: "idle", message: "" };
+  redirect(`/i/${shioriId}`);
 }
 
 /** startDate に days 日加算した日付文字列を返す */
