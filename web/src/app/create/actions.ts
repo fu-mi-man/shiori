@@ -1,5 +1,9 @@
 "use server";
 
+import { db } from "@/db";
+import { overviews as overviewsTable } from "@/db/schema/overviews";
+import { schedules as schedulesTable } from "@/db/schema/schedules";
+import { shioris } from "@/db/schema/shioris";
 import { createShioriSchema } from "./schema";
 
 export type CreateShioriState = {
@@ -28,8 +32,61 @@ export async function createShiori(
     };
   }
 
-  // TODO: DB保存
+  const { title, passphrase, overviews, days, startDate } = result.data;
+
+  try {
+    await db.transaction(async (tx) => {
+      // 1. shiorisにinsert
+      const [shiori] = await tx
+        .insert(shioris)
+        .values({
+          title,
+          passphrase: passphrase || null,
+        })
+        .returning({ id: shioris.id });
+
+      // 2. overviews に INSERT
+      if (overviews.length > 0) {
+        await tx.insert(overviewsTable).values(
+          overviews.map((item, i) => ({
+            shioriId: shiori.id,
+            sortOrder: i,
+            title: item.title,
+            content: item.content,
+          })),
+        );
+      }
+
+      // 3. schedules に INSERT
+      const scheduleRows = days.flatMap((day, dayIndex) =>
+        day.schedules.map((schedule, scheduleIndex) => ({
+          shioriId: shiori.id,
+          sortOrder: scheduleIndex,
+          dayNumber: dayIndex + 1,
+          date: startDate ? addDays(startDate, dayIndex) : null,
+          time: schedule.time || null,
+          title: schedule.title || null,
+          transport: schedule.transport === "" ? null : schedule.transport,
+          note: schedule.memo || null,
+        })),
+      );
+
+      if (scheduleRows.length > 0) {
+        await tx.insert(schedulesTable).values(scheduleRows);
+      }
+    });
+  } catch {
+    return { status: "error", message: "保存に失敗しました" };
+  }
+
   // TODO: リダイレクト
 
   return { status: "idle", message: "" };
+}
+
+/** startDate に days 日加算した日付文字列を返す */
+function addDays(startDate: string, days: number): string {
+  const date = new Date(startDate);
+  date.setDate(date.getDate() + days);
+  return date.toISOString().split("T")[0];
 }

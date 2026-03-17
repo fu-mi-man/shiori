@@ -1,4 +1,7 @@
 import { z } from "zod";
+import { transportEnum } from "@/db/schema/schedules";
+
+const transportValues = transportEnum.enumValues;
 
 const overviewSchema = z.object({
   title: z.string().max(255),
@@ -8,7 +11,7 @@ const overviewSchema = z.object({
 const scheduleSchema = z.object({
   time: z.string(),
   title: z.string().max(255),
-  transport: z.string(),
+  transport: z.enum(transportValues).or(z.literal("")),
   memo: z.string().max(200),
 });
 
