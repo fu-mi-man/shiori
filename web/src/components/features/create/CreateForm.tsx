@@ -26,7 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 // 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
-type OverviewItem = {
+type Overview = {
   id: number;
   title: string;
   content: string;
@@ -44,8 +44,8 @@ type TransportMode =
   | "taxi"
   | "cablecar";
 
-// スケジュールの1コマ
-type ScheduleCard = {
+// 行程の1コマ
+type Schedule = {
   id: number;
   time: string;
   title: string;
@@ -54,9 +54,9 @@ type ScheduleCard = {
 };
 
 // 1日分のグループ
-type DayGroup = {
+type Day = {
   id: number;
-  cards: ScheduleCard[];
+  schedules: Schedule[];
 };
 
 // 交通手段の選択肢（アイコンはLucide）
@@ -79,15 +79,15 @@ export function CreateForm() {
   const [state, formAction, pending] = useActionState(createShiori, initialState);
 
   // 概要セクションのstate
-  const [overviews, setOverviews] = useState<OverviewItem[]>([]);
+  const [overviews, setOverviews] = useState<Overview[]>([]);
   const nextOverviewIdRef = useRef(1);
 
   // 行程セクションのstate
-  const [days, setDays] = useState<DayGroup[]>([]);
+  const [days, setDays] = useState<Day[]>([]);
   const nextDayIdRef = useRef(1);
-  const nextCardIdRef = useRef(1);
+  const nextScheduleIdRef = useRef(1);
 
-  // 追加: 空のカードをリスト末尾に追加
+  // 概要カードを末尾に追加（上限10件）
   const addOverview = () => {
     setOverviews((prev) => {
       if (prev.length >= 10) return prev;
@@ -95,41 +95,47 @@ export function CreateForm() {
     });
   };
 
-  // 削除: 指定IDのカードをリストから除外
+  // 指定IDの概要カードを削除
   const removeOverview = (id: number) => {
     setOverviews((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // 更新: 指定IDのカードの特定フィールドを更新
+  // 指定IDの概要カードのフィールドを更新
   const updateOverview = (id: number, field: "title" | "content", value: string) => {
     setOverviews((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
     );
   };
 
-  // 日程グループを末尾に追加（MVPは最大10日）
+  // 日程を末尾に追加（上限10日）
   const addDay = () => {
     setDays((prev) => {
       if (prev.length >= 10) return prev;
-      return [...prev, { id: nextDayIdRef.current++, cards: [] }];
+      return [...prev, { id: nextDayIdRef.current++, schedules: [] }];
     });
   };
 
-  // 指定IDの日程グループを削除
+  // 指定IDの日程を削除
   const removeDay = (id: number) => {
     setDays((prev) => prev.filter((day) => day.id !== id));
   };
 
-  // 指定日程グループにコマを追加
-  const addCard = (dayId: number) => {
+  // 指定日程にスケジュールを追加
+  const addSchedule = (dayId: number) => {
     setDays((prev) =>
       prev.map((day) =>
         day.id === dayId
           ? {
               ...day,
-              cards: [
-                ...day.cards,
-                { id: nextCardIdRef.current++, time: "", title: "", transport: "", memo: "" },
+              schedules: [
+                ...day.schedules,
+                {
+                  id: nextScheduleIdRef.current++,
+                  time: "",
+                  title: "",
+                  transport: "",
+                  memo: "",
+                },
               ],
             }
           : day,
@@ -137,20 +143,22 @@ export function CreateForm() {
     );
   };
 
-  // 指定日程グループから指定コマを削除
-  const removeCard = (dayId: number, cardId: number) => {
+  // 指定日程から指定スケジュールを削除
+  const removeSchedule = (dayId: number, scheduleId: number) => {
     setDays((prev) =>
       prev.map((day) =>
-        day.id === dayId ? { ...day, cards: day.cards.filter((card) => card.id !== cardId) } : day,
+        day.id === dayId
+          ? { ...day, schedules: day.schedules.filter((schedule) => schedule.id !== scheduleId) }
+          : day,
       ),
     );
   };
 
-  // 指定コマのフィールドを更新
-  const updateCard = (
+  // 指定スケジュールのフィールドを更新
+  const updateSchedule = (
     dayId: number,
-    cardId: number,
-    field: keyof Omit<ScheduleCard, "id">,
+    scheduleId: number,
+    field: keyof Omit<Schedule, "id">,
     value: string,
   ) => {
     setDays((prev) =>
@@ -158,8 +166,8 @@ export function CreateForm() {
         day.id === dayId
           ? {
               ...day,
-              cards: day.cards.map((card) =>
-                card.id === cardId ? { ...card, [field]: value } : card,
+              schedules: day.schedules.map((schedule) =>
+                schedule.id === scheduleId ? { ...schedule, [field]: value } : schedule,
               ),
             }
           : day,
@@ -317,21 +325,21 @@ export function CreateForm() {
             </CardHeader>
 
             <CardContent className="flex flex-col gap-3">
-              {/* スケジュールカードリスト */}
-              {day.cards.map((card, cardIndex) => (
+              {/* スケジュールリスト */}
+              {day.schedules.map((schedule, scheduleIndex) => (
                 <Card
                   className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
-                  key={card.id}
+                  key={schedule.id}
                 >
                   <CardHeader>
                     <CardTitle>
-                      <Badge variant="step">コマ {cardIndex + 1}</Badge>
+                      <Badge variant="step">コマ {scheduleIndex + 1}</Badge>
                     </CardTitle>
                     <CardAction>
                       <Button
                         aria-label="コマを削除"
                         className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
-                        onClick={() => removeCard(day.id, card.id)}
+                        onClick={() => removeSchedule(day.id, schedule.id)}
                         size="icon-sm"
                         type="button"
                         variant="destructive"
@@ -346,17 +354,19 @@ export function CreateForm() {
                     <div className="flex w-36 flex-col gap-1">
                       <Label
                         className="text-[#6D6C6A] text-xs"
-                        htmlFor={`card-time-${day.id}-${card.id}`}
+                        htmlFor={`schedule-time-${day.id}-${schedule.id}`}
                       >
                         時間
                       </Label>
                       <Input
                         className="h-11 cursor-pointer bg-white"
-                        id={`card-time-${day.id}-${card.id}`}
-                        onChange={(e) => updateCard(day.id, card.id, "time", e.target.value)}
+                        id={`schedule-time-${day.id}-${schedule.id}`}
+                        onChange={(e) =>
+                          updateSchedule(day.id, schedule.id, "time", e.target.value)
+                        }
                         onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
                         type="time"
-                        value={card.time}
+                        value={schedule.time}
                       />
                     </div>
 
@@ -364,17 +374,19 @@ export function CreateForm() {
                     <div className="flex flex-col gap-1">
                       <Label
                         className="text-[#6D6C6A] text-xs"
-                        htmlFor={`card-title-${day.id}-${card.id}`}
+                        htmlFor={`schedule-title-${day.id}-${schedule.id}`}
                       >
                         タイトル
                       </Label>
                       <Input
                         className="h-11 bg-white"
-                        id={`card-title-${day.id}-${card.id}`}
+                        id={`schedule-title-${day.id}-${schedule.id}`}
                         maxLength={255}
-                        onChange={(e) => updateCard(day.id, card.id, "title", e.target.value)}
+                        onChange={(e) =>
+                          updateSchedule(day.id, schedule.id, "title", e.target.value)
+                        }
                         placeholder="例: 那覇空港 到着"
-                        value={card.title}
+                        value={schedule.title}
                       />
                     </div>
 
@@ -384,9 +396,11 @@ export function CreateForm() {
                       <ToggleGroup
                         aria-label="交通手段"
                         className="flex w-full gap-2 overflow-x-auto"
-                        onValueChange={(value) => updateCard(day.id, card.id, "transport", value)}
+                        onValueChange={(value) =>
+                          updateSchedule(day.id, schedule.id, "transport", value)
+                        }
                         type="single"
-                        value={card.transport}
+                        value={schedule.transport}
                       >
                         {TRANSPORT_OPTIONS.map((option) => (
                           <ToggleGroupItem
@@ -405,17 +419,19 @@ export function CreateForm() {
                     <div className="flex flex-col gap-1">
                       <Label
                         className="text-[#6D6C6A] text-xs"
-                        htmlFor={`card-memo-${day.id}-${card.id}`}
+                        htmlFor={`schedule-memo-${day.id}-${schedule.id}`}
                       >
                         補足
                       </Label>
                       <Textarea
                         className="min-h-[88px] bg-white px-3 leading-relaxed"
-                        id={`card-memo-${day.id}-${card.id}`}
+                        id={`schedule-memo-${day.id}-${schedule.id}`}
                         maxLength={200}
-                        onChange={(e) => updateCard(day.id, card.id, "memo", e.target.value)}
+                        onChange={(e) =>
+                          updateSchedule(day.id, schedule.id, "memo", e.target.value)
+                        }
                         placeholder="例: LCC利用。第2ターミナル"
-                        value={card.memo}
+                        value={schedule.memo}
                       />
                     </div>
                   </CardContent>
@@ -425,7 +441,7 @@ export function CreateForm() {
               {/* コマを追加ボタン */}
               <Button
                 className="relative h-11 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
-                onClick={() => addCard(day.id)}
+                onClick={() => addSchedule(day.id)}
                 type="button"
                 variant="outline"
               >
@@ -471,11 +487,11 @@ export function CreateForm() {
         type="hidden"
         value={JSON.stringify(
           days.map((day) => ({
-            schedules: day.cards.map((card) => ({
-              time: card.time,
-              title: card.title,
-              transport: card.transport,
-              memo: card.memo,
+            schedules: day.schedules.map((schedule) => ({
+              time: schedule.time,
+              title: schedule.title,
+              transport: schedule.transport,
+              memo: schedule.memo,
             })),
           })),
         )}
