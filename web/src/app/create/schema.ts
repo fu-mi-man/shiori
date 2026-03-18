@@ -3,11 +3,13 @@ import { transportEnum } from "@/db/schema/schedules";
 
 const transportValues = transportEnum.enumValues;
 
+/** 概要カード1件のバリデーション */
 const overviewSchema = z.object({
   title: z.string().max(255),
   content: z.string().max(500),
 });
 
+/** 行程の1コマのバリデーション */
 const scheduleSchema = z.object({
   time: z.string(),
   title: z.string().max(255),
@@ -15,10 +17,12 @@ const scheduleSchema = z.object({
   memo: z.string().max(200),
 });
 
+/** 1日分の行程グループ */
 const daySchema = z.object({
   schedules: z.array(scheduleSchema),
 });
 
+/** しおり作成フォームのバリデーションスキーマ */
 export const createShioriSchema = z.object({
   title: z.string().min(1, "タイトルは必須です").max(255),
   passphrase: z.string().max(255),
