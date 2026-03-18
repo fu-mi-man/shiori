@@ -7,7 +7,7 @@ import { shioris } from "@/db/schema";
 export default async function ShioriPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
-  if (!z.guid().safeParse(id).success) {
+  if (!z.uuid().safeParse(id).success) {
     notFound();
   }
 
