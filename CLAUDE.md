@@ -14,7 +14,7 @@ pnpm build                       # ビルド確認
 # Code style
 
 - 汎用UI → `components/ui/`，機能固有 → `components/features/`
-- UIコンポーネントはshadcn/uiを優先して使用する（`<button>`→`<Button>`等）。該当コンポーネントがない場合のみ素のHTML要素を使う
+- IMPORTANT: UIコンポーネントはshadcn/uiを優先して使用する。入力系（`<button>`→`<Button>`、`<input>`→`<Input>`）だけでなく、表示系（`<div>`でカード→`<Card>`）も含む。該当コンポーネントがない場合のみ素のHTML要素を使う
 - 新しいUIコンポーネント利用時はshadcnスキルで存在確認、ライブラリの設定変更・新規導入時はcontext7で公式ドキュメントを確認すること
 
 # Git

@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import z from "zod";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { db } from "@/db";
 import { shioris } from "@/db/schema";
 
@@ -35,17 +36,23 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
           <section className="flex flex-col gap-3">
             <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">概要</h2>
             {shiori.overviews.map((overview) => (
-              <div
-                className="flex flex-col gap-2 rounded-xl bg-white p-4 shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+              <Card
+                className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
                 key={overview.id}
               >
                 {overview.title && (
-                  <h3 className="font-semibold text-[#1A1918] text-sm">{overview.title}</h3>
+                  <CardHeader>
+                    <CardTitle className="font-semibold text-[#1A1918] text-sm">
+                      {overview.title}
+                    </CardTitle>
+                  </CardHeader>
                 )}
                 {overview.content && (
-                  <p className="text-[#6D6C6A] text-sm leading-relaxed">{overview.content}</p>
+                  <CardContent>
+                    <p className="text-[#6D6C6A] text-sm leading-relaxed">{overview.content}</p>
+                  </CardContent>
                 )}
-              </div>
+              </Card>
             ))}
           </section>
         )}
