@@ -356,18 +356,32 @@ docker compose exec web sh       # コンテナに入る
 ### パッケージ管理
 
 ```bash
-docker compose stop web                                    # devサーバーを停止
+docker compose down                                        # コンテナを停止・削除（古い anonymous volume は孤立）
 docker compose run --rm web pnpm add <package>             # 依存追加
 docker compose run --rm web pnpm add -D <package>          # 開発依存追加
-docker compose rm -v web                                   # anonymous volume（node_modules）を削除
-docker compose up --build -d                               # イメージ再ビルド＋起動
+docker compose up --build -d                               # イメージ再ビルド＋起動（新しい anonymous volume が生成される）
+docker volume prune                                        # 孤立した anonymous volume を定期的に掃除
 ```
 
-> **なぜこの手順が必要か？**
-> - `docker compose exec` でコンテナに入って `pnpm add` すると，dev サーバーが `package.json` の変更を検知してクラッシュする。`docker compose run` は CMD（dev サーバー）を実行せずに指定コマンドだけ実行するため安全。
-> - `run` で更新された `node_modules` は一時コンテナ内のみ。実行中コンテナの anonymous volume には反映されないため，`rm -v web` で古い anonymous volume を削除し，`--build` で再構築する必要がある。
-> - `rm -v` は anonymous volume のみ削除する。named volume（`pgdata`）には影響しない。
-> - pnpm はシンボリンクベースの `node_modules` 構造を採用しているため named volume との相性が悪く，anonymous volume を使う必要がある（[pnpm/pnpm#2720](https://github.com/pnpm/pnpm/issues/2720)）。
+**なぜこの手順が必要か？**
+
+- `docker compose exec` でコンテナに入って `pnpm add` すると，dev サーバーが `package.json` の変更を検知してクラッシュする。`docker compose run` は CMD（dev サーバー）を実行せずに指定コマンドだけ実行するため安全。
+- `run` で更新された `node_modules` は一時コンテナ内のみ。実行中コンテナの anonymous volume には反映されないため，`--build` でイメージを再構築し，新しい anonymous volume に初期化し直す必要がある。
+- `docker compose down` でコンテナが削除されると，古い anonymous volume は孤立状態になる。次の `docker compose up` で新しいコンテナが起動する際，イメージから新しい anonymous volume が生成されるため，明示的に volume を削除しなくてもよい。孤立した volume は `docker volume prune` で定期的に掃除する。
+- `docker volume prune` は孤立した（どのコンテナにも紐づいていない）volume のみ削除する。named volume（`pgdata`）は使用中のため影響しない。
+- pnpm はシンボリンクベースの `node_modules` 構造を採用しているため named volume との相性が悪く，anonymous volume を使う必要がある（[pnpm/pnpm#2720](https://github.com/pnpm/pnpm/issues/2720)）。
+
+**node_modules が壊れた場合（クラッシュ後など）**
+
+dev サーバーのクラッシュ時に anonymous volume 内の `node_modules` が破損した状態で残ることがある。再起動しても復旧しない場合は，volume を手動で特定して削除する。
+
+```bash
+docker inspect shiori-web -f '{{range .Mounts}}{{.Name}} {{end}}'  # 紐づく anonymous volume ID を確認
+docker compose stop web
+docker compose rm web
+docker volume rm <上で確認したID>                                    # 破損した volume を削除
+docker compose up --build -d
+```
 
 ### 検証
 
