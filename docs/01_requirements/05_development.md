@@ -131,10 +131,11 @@ pnpm dlx skills add shadcn/ui
 
 ```bash
 # ホストで実行（claude CLIはホスト側にのみ存在するため）
-# MCP起動コマンドはdocker run経由にすることでホストへのNode.jsインストールを不要にする
-claude mcp add playwright -s project -- docker run --rm -i mcr.microsoft.com/playwright:v1.52.0-noble npx @playwright/mcp@latest
+claude mcp add playwright -s project -- npx @playwright/mcp@latest
 # Pencil.devはアプリ起動時に自動でMCP接続される（設定不要）
 ```
+
+> `-s project` でプロジェクトスコープに登録される。`.mcp.json` に記録されGit管理される。
 
 ### アップデート
 
