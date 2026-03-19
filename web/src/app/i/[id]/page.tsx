@@ -64,10 +64,16 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
           )}
         </div>
         <div className="flex gap-2.5">
-          <Button className="h-10 flex-1 rounded-full bg-white font-semibold text-[#3D8A5A] text-[13px] hover:bg-white/90">
+          <Button
+            className="h-11 flex-1 rounded-full bg-white font-semibold text-[#3D8A5A] text-[13px] disabled:opacity-100"
+            disabled
+          >
             URLをコピー
           </Button>
-          <Button className="h-10 flex-1 rounded-full bg-white font-semibold text-[#3D8A5A] text-[13px] hover:bg-white/90">
+          <Button
+            className="h-11 flex-1 rounded-full bg-white font-semibold text-[#3D8A5A] text-[13px] disabled:opacity-100"
+            disabled
+          >
             編集する
           </Button>
         </div>
