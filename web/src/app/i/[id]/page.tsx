@@ -59,7 +59,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
           <h1 className="font-bold text-[22px] text-white tracking-tight">{shiori.title}</h1>
           {minDate && maxDate && (
             <p className="text-[13px] text-white/80">
-              {minDate} 〜 {maxDate}
+              {formatDate(minDate)} 〜 {formatDate(maxDate)}
             </p>
           )}
         </div>
