@@ -4,8 +4,10 @@
       "Bash(docker compose:*)",
       "Bash(docker exec:*)",
       "Bash(gh api:*)",
+      "Bash(gh pr checks:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
+      "Bash(gh pr comment:*)",
       "Bash(gh pr review:*)",
       "Bash(gh pr view:*)",
       "Bash(git add:*)",
@@ -13,12 +15,14 @@
       "Bash(git checkout:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
+      "Bash(git show:*)",
       "Bash(git merge:*)",
       "Bash(git status:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(tree:*)",
       "mcp__pencil",
+      "mcp__playwright",
       "mcp__plugin_context7_context7"
     ],
     "deny": [
@@ -29,6 +33,10 @@
       "Bash(rm -rf:*)"
     ],
     "ask": [
+      "Bash(gh pr close:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr edit:*)",
+      "Bash(gh pr merge:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)"
     ]
