@@ -6,12 +6,21 @@ Go製のGit hooks管理ツール。
 
 > 公式ドキュメント: https://lefthook.dev
 
-### 1. インストール
+### 1. lefthook 本体のインストール
 
 git はホストで動くため，lefthook はホストにインストールする。
 
+**macOS:**
+
 ```bash
 brew install lefthook
+```
+
+**WSL2 / Ubuntu / Debian:**
+
+```bash
+curl -1sLf 'https://dl.cloudsmith.io/public/evilmartians/lefthook/setup.deb.sh' | sudo -E bash
+sudo apt install lefthook
 ```
 
 ### 2. lefthook.yml を作成
@@ -41,7 +50,9 @@ pre-commit:
 > pnpm コマンドはコンテナ内で実行する。  
 > git はホストで動くため，`docker compose exec` 経由で呼び出す。
 
-### 3. lefthook をインストール
+### 3. lefthook install して Git hooks を有効化
+
+プロジェクトルート（`.git` と `lefthook.yml` があるディレクトリ）で実行する。
 
 ```bash
 lefthook install
@@ -61,9 +72,4 @@ typecheck → lint の順で実行され，エラーがなければコミット�
 ### 5. チームへの共有
 
 `lefthook.yml` はgit管理されるため，clone した時点で設定は共有済み。  
-各自が以下を実行するだけで有効になる。
-
-```bash
-brew install lefthook
-lefthook install
-```
+各自が[1. lefthook 本体のインストール](#1-lefthook-本体のインストール)と[3. lefthook install して Git hooks を有効化](#3-lefthook-install-して-git-hooks-を有効化)を実行するだけで有効になる。
