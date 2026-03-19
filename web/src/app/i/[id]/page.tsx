@@ -45,9 +45,12 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
     notFound();
   }
 
-  const dates = shiori.schedules.map((s) => s.date).filter((d): d is string => d !== null);
-  const minDate = dates.length > 0 ? dates[0] : null;
-  const maxDate = dates.length > 0 ? dates[dates.length - 1] : null;
+  const sortedDates = shiori.schedules
+    .map((s) => s.date)
+    .filter((d): d is string => d !== null)
+    .toSorted();
+  const minDate = sortedDates.length > 0 ? sortedDates[0] : null;
+  const maxDate = sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : null;
 
   return (
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
