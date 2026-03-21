@@ -44,6 +44,10 @@ export async function createShiori(
 
   const { title, passphrase, overviews, days, startDate } = result.data;
 
+  if (days.some((day) => day.schedules.length === 0)) {
+    return { status: "error", message: "コマがない日程は保存できません" };
+  }
+
   let shioriId: string | undefined;
 
   try {

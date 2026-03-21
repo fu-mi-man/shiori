@@ -47,6 +47,10 @@ export async function updateShiori(
 
   const { title, overviews, days, startDate } = result.data;
 
+  if (days.some((day) => day.schedules.length === 0)) {
+    return { status: "error", message: "コマがない日程は保存できません" };
+  }
+
   try {
     await db.transaction(async (tx) => {
       // 1. shioris を UPDATE

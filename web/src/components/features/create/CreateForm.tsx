@@ -96,12 +96,14 @@ export function CreateForm({
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
-  const nextOverviewIdRef = useRef(1);
+  const nextOverviewIdRef = useRef(Math.max(0, ...initialOverviews.map((o) => o.id)) + 1);
 
   // 行程セクションのstate
   const [days, setDays] = useState<Day[]>(initialDays);
-  const nextDayIdRef = useRef(1);
-  const nextScheduleIdRef = useRef(1);
+  const nextDayIdRef = useRef(Math.max(0, ...initialDays.map((d) => d.id)) + 1);
+  const nextScheduleIdRef = useRef(
+    Math.max(0, ...initialDays.flatMap((d) => d.schedules.map((s) => s.id))) + 1,
+  );
 
   // 概要カードを末尾に追加（上限10件）
   const addOverview = () => {

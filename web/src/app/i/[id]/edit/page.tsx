@@ -80,6 +80,7 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
         initialOverviews={initialOverviews}
         initialStartDate={initialStartDate}
         initialTitle={shiori.title}
+        key={id}
       />
     </main>
   );
