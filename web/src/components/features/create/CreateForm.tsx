@@ -16,7 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { useActionState, useRef, useState } from "react";
-import { type CreateShioriState, createShiori } from "@/app/create/actions";
+import type { CreateShioriState } from "@/app/create/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -74,18 +74,36 @@ const TRANSPORT_OPTIONS = [
 
 const initialState: CreateShioriState = { status: "idle", message: "" };
 
-export function CreateForm() {
+type CreateFormProps = {
+  action: (prevState: CreateShioriState, formData: FormData) => Promise<CreateShioriState>;
+  initialTitle?: string;
+  initialOverviews?: Overview[];
+  initialDays?: Day[];
+  initialStartDate?: string;
+  showPassphrase?: boolean;
+};
+
+export function CreateForm({
+  action,
+  initialTitle = "",
+  initialOverviews = [],
+  initialDays = [],
+  initialStartDate = "",
+  showPassphrase = false,
+}: CreateFormProps) {
   // Server Action の状態管理
-  const [state, formAction, pending] = useActionState(createShiori, initialState);
+  const [state, formAction, pending] = useActionState(action, initialState);
 
   // 概要セクションのstate
-  const [overviews, setOverviews] = useState<Overview[]>([]);
-  const nextOverviewIdRef = useRef(1);
+  const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
+  const nextOverviewIdRef = useRef(Math.max(0, ...initialOverviews.map((o) => o.id)) + 1);
 
   // 行程セクションのstate
-  const [days, setDays] = useState<Day[]>([]);
-  const nextDayIdRef = useRef(1);
-  const nextScheduleIdRef = useRef(1);
+  const [days, setDays] = useState<Day[]>(initialDays);
+  const nextDayIdRef = useRef(Math.max(0, ...initialDays.map((d) => d.id)) + 1);
+  const nextScheduleIdRef = useRef(
+    Math.max(0, ...initialDays.flatMap((d) => d.schedules.map((s) => s.id))) + 1,
+  );
 
   // 概要カードを末尾に追加（上限10件）
   const addOverview = () => {
@@ -148,7 +166,10 @@ export function CreateForm() {
     setDays((prev) =>
       prev.map((day) =>
         day.id === dayId
-          ? { ...day, schedules: day.schedules.filter((schedule) => schedule.id !== scheduleId) }
+          ? {
+              ...day,
+              schedules: day.schedules.filter((schedule) => schedule.id !== scheduleId),
+            }
           : day,
       ),
     );
@@ -185,6 +206,7 @@ export function CreateForm() {
         </Label>
         <Input
           className="h-11 bg-white"
+          defaultValue={initialTitle}
           id="title"
           name="title"
           placeholder="沖縄旅行 2025年3月"
@@ -293,6 +315,7 @@ export function CreateForm() {
           </Label>
           <Input
             className="h-11 cursor-pointer bg-white"
+            defaultValue={initialStartDate}
             id="start-date"
             name="startDate"
             onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
@@ -454,32 +477,37 @@ export function CreateForm() {
       </section>
 
       {/* 合言葉セクション */}
-      <section className="flex flex-col gap-2">
-        <div className="flex items-center gap-1.5">
-          <Lock aria-hidden="true" className="size-4 text-[#6D6C6A]" />
-          <Label className="gap-1.5" htmlFor="passphrase">
-            <span className="font-semibold text-[#1A1918] text-sm">合言葉</span>
-            <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
-          </Label>
-        </div>
-        <p className="text-[#9C9B99] text-xs leading-relaxed" id="passphrase-description">
-          設定すると、編集時に合言葉の入力が必要になります
-        </p>
-        <Input
-          aria-describedby="passphrase-description"
-          className="h-11 bg-white"
-          id="passphrase"
-          name="passphrase"
-          placeholder="合言葉を入力"
-        />
-      </section>
+      {showPassphrase && (
+        <section className="flex flex-col gap-2">
+          <div className="flex items-center gap-1.5">
+            <Lock aria-hidden="true" className="size-4 text-[#6D6C6A]" />
+            <Label className="gap-1.5" htmlFor="passphrase">
+              <span className="font-semibold text-[#1A1918] text-sm">合言葉</span>
+              <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
+            </Label>
+          </div>
+          <p className="text-[#9C9B99] text-xs leading-relaxed" id="passphrase-description">
+            設定すると、編集時に合言葉の入力が必要になります
+          </p>
+          <Input
+            aria-describedby="passphrase-description"
+            className="h-11 bg-white"
+            id="passphrase"
+            name="passphrase"
+            placeholder="合言葉を入力"
+          />
+        </section>
+      )}
 
       {/* stateで管理している複雑なデータをFormDataに含めるためのhidden input */}
       <input
         name="overviews"
         type="hidden"
         value={JSON.stringify(
-          overviews.map((item) => ({ title: item.title, content: item.content })),
+          overviews.map((item) => ({
+            title: item.title,
+            content: item.content,
+          })),
         )}
       />
       <input

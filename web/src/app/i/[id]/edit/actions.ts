@@ -1,21 +1,25 @@
 "use server";
 
+import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
+import { createShioriSchema } from "@/app/create/schema";
 import { db } from "@/db";
 import { overviews as overviewsTable } from "@/db/schema/overviews";
 import { schedules as schedulesTable } from "@/db/schema/schedules";
 import { shioris } from "@/db/schema/shioris";
-import { createShioriSchema } from "./schema";
 
-export type CreateShioriState = {
+export type UpdateShioriState = {
   status: "idle" | "error";
   message: string;
 };
 
-export async function createShiori(
-  _prevState: CreateShioriState,
+const updateShioriSchema = createShioriSchema.omit({ passphrase: true });
+
+export async function updateShiori(
+  id: string,
+  _prevState: UpdateShioriState,
   formData: FormData,
-): Promise<CreateShioriState> {
+): Promise<UpdateShioriState> {
   let parsedOverviews: unknown;
   let parsedDays: unknown;
   try {
@@ -27,13 +31,12 @@ export async function createShiori(
 
   const rawData = {
     title: formData.get("title"),
-    passphrase: formData.get("passphrase"),
     overviews: parsedOverviews,
     days: parsedDays,
     startDate: formData.get("startDate"),
   };
 
-  const result = createShioriSchema.safeParse(rawData);
+  const result = updateShioriSchema.safeParse(rawData);
 
   if (!result.success) {
     return {
@@ -42,32 +45,23 @@ export async function createShiori(
     };
   }
 
-  const { title, passphrase, overviews, days, startDate } = result.data;
+  const { title, overviews, days, startDate } = result.data;
 
   if (days.some((day) => day.schedules.length === 0)) {
     return { status: "error", message: "コマがない日程は保存できません" };
   }
 
-  let shioriId: string | undefined;
-
   try {
     await db.transaction(async (tx) => {
-      // 1. shiorisにinsert
-      const [shiori] = await tx
-        .insert(shioris)
-        .values({
-          title,
-          passphrase: passphrase || null,
-        })
-        .returning({ id: shioris.id });
+      // 1. shioris を UPDATE
+      await tx.update(shioris).set({ title }).where(eq(shioris.id, id));
 
-      shioriId = shiori.id;
-
-      // 2. overviews に INSERT
+      // 2. overviews を DELETE → INSERT
+      await tx.delete(overviewsTable).where(eq(overviewsTable.shioriId, id));
       if (overviews.length > 0) {
         await tx.insert(overviewsTable).values(
           overviews.map((item, i) => ({
-            shioriId: shiori.id,
+            shioriId: id,
             sortOrder: i,
             title: item.title,
             content: item.content,
@@ -75,10 +69,11 @@ export async function createShiori(
         );
       }
 
-      // 3. schedules に INSERT
+      // 3. schedules を DELETE → INSERT
+      await tx.delete(schedulesTable).where(eq(schedulesTable.shioriId, id));
       const scheduleRows = days.flatMap((day, dayIndex) =>
         day.schedules.map((schedule, scheduleIndex) => ({
-          shioriId: shiori.id,
+          shioriId: id,
           sortOrder: scheduleIndex,
           dayNumber: dayIndex + 1,
           date: startDate ? addDays(startDate, dayIndex) : null,
@@ -88,7 +83,6 @@ export async function createShiori(
           note: schedule.memo || null,
         })),
       );
-
       if (scheduleRows.length > 0) {
         await tx.insert(schedulesTable).values(scheduleRows);
       }
@@ -97,7 +91,7 @@ export async function createShiori(
     return { status: "error", message: "保存に失敗しました" };
   }
 
-  redirect(`/i/${shioriId}`);
+  redirect(`/i/${id}`);
 }
 
 /** startDate に days 日加算した日付文字列を返す（UTC基準） */
