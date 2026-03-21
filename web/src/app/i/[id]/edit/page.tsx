@@ -1,6 +1,8 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import z from "zod";
+import { createShiori } from "@/app/create/actions";
+import { CreateForm } from "@/components/features/create/CreateForm";
 import { db } from "@/db";
 import { shioris } from "@/db/schema";
 
@@ -33,14 +35,14 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
     notFound();
   }
 
-  const _initialOverviews = shiori.overviews.map((o) => ({
+  const initialOverviews = shiori.overviews.map((o) => ({
     id: o.id,
     title: o.title ?? "",
     content: o.content ?? "",
   }));
 
   const groupedByDay = Object.groupBy(shiori.schedules, (s) => s.dayNumber ?? 0);
-  const _initialDays = Object.entries(groupedByDay)
+  const initialDays = Object.entries(groupedByDay)
     .filter((entry): entry is [string, typeof shiori.schedules] => entry[1] !== undefined)
     .map(([, schedules]) => ({
       id: schedules[0].dayNumber ?? 0,
@@ -48,12 +50,22 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
         id: s.id,
         time: s.time?.slice(0, 5) ?? "",
         title: s.title ?? "",
-        transport: s.transport ?? "",
+        transport: (s.transport ?? "") as
+          | ""
+          | "walk"
+          | "train"
+          | "bus"
+          | "car"
+          | "bicycle"
+          | "ship"
+          | "plane"
+          | "taxi"
+          | "cablecar",
         memo: s.note ?? "",
       })),
     }));
 
-  const _initialStartDate = shiori.schedules.find((s) => s.dayNumber === 1)?.date ?? "";
+  const initialStartDate = shiori.schedules.find((s) => s.dayNumber === 1)?.date ?? "";
 
   return (
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
@@ -62,6 +74,13 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
           <h1 className="font-bold text-[22px] text-white tracking-tight">{shiori.title}</h1>
         </div>
       </header>
+      <CreateForm
+        action={createShiori}
+        initialDays={initialDays}
+        initialOverviews={initialOverviews}
+        initialStartDate={initialStartDate}
+        initialTitle={shiori.title}
+      />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import { createShiori } from "@/app/create/actions";
 import { CreateForm } from "@/components/features/create/CreateForm";
 
 export default function CreatePage() {
@@ -8,7 +9,7 @@ export default function CreatePage() {
           <h1 className="font-semibold text-lg text-white tracking-tight">しおりを作る</h1>
         </header>
         {/* コンテンツエリア */}
-        <CreateForm />
+        <CreateForm action={createShiori} showPassphrase />
       </div>
     </main>
   );
