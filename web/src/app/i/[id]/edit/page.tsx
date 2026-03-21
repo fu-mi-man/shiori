@@ -33,6 +33,28 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
     notFound();
   }
 
+  const _initialOverviews = shiori.overviews.map((o) => ({
+    id: o.id,
+    title: o.title ?? "",
+    content: o.content ?? "",
+  }));
+
+  const groupedByDay = Object.groupBy(shiori.schedules, (s) => s.dayNumber ?? 0);
+  const _initialDays = Object.entries(groupedByDay)
+    .filter((entry): entry is [string, typeof shiori.schedules] => entry[1] !== undefined)
+    .map(([, schedules]) => ({
+      id: schedules[0].dayNumber ?? 0,
+      schedules: schedules.map((s) => ({
+        id: s.id,
+        time: s.time?.slice(0, 5) ?? "",
+        title: s.title ?? "",
+        transport: s.transport ?? "",
+        memo: s.note ?? "",
+      })),
+    }));
+
+  const _initialStartDate = shiori.schedules.find((s) => s.dayNumber === 1)?.date ?? "";
+
   return (
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
       <header className="flex flex-col gap-4 bg-[#3D8A5A] px-5 py-6">
