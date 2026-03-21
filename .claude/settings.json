@@ -10,6 +10,7 @@
       "Bash(gh pr comment:*)",
       "Bash(gh pr review:*)",
       "Bash(gh pr view:*)",
+      "Bash(git -C:*)",
       "Bash(git add:*)",
       "Bash(git branch:*)",
       "Bash(git checkout:*)",
