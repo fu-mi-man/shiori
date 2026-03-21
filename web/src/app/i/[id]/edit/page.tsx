@@ -1,10 +1,10 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import z from "zod";
-import { createShiori } from "@/app/create/actions";
 import { CreateForm } from "@/components/features/create/CreateForm";
 import { db } from "@/db";
 import { shioris } from "@/db/schema";
+import { updateShiori } from "./actions";
 
 /**
  * 旅のしおり編集ページ
@@ -75,7 +75,7 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
         </div>
       </header>
       <CreateForm
-        action={createShiori}
+        action={updateShiori.bind(null, id)}
         initialDays={initialDays}
         initialOverviews={initialOverviews}
         initialStartDate={initialStartDate}
