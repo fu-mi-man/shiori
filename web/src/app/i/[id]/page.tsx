@@ -1,8 +1,9 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import z from "zod";
+import { CopyUrlButton } from "@/components/features/view/CopyUrlButton";
+import { EditButton } from "@/components/features/view/EditButton";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { db } from "@/db";
 import { shioris } from "@/db/schema";
@@ -64,18 +65,8 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
           )}
         </div>
         <div className="flex gap-2.5">
-          <Button
-            className="h-11 flex-1 rounded-full bg-white font-semibold text-[#3D8A5A] text-[13px] disabled:opacity-100"
-            disabled
-          >
-            URLをコピー
-          </Button>
-          <Button
-            className="h-11 flex-1 rounded-full bg-white font-semibold text-[#3D8A5A] text-[13px] disabled:opacity-100"
-            disabled
-          >
-            編集する
-          </Button>
+          <CopyUrlButton />
+          <EditButton id={id} />
         </div>
       </header>
       <div className="flex flex-col gap-6 px-5 py-6">
