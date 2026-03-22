@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const steps = [
+  { num: "1", title: "しおりを作る", desc: "タイトルと行程を入力するだけ" },
+  { num: "2", title: "URLをコピー", desc: "完成したらURLが自動で発行" },
+  { num: "3", title: "みんなにシェア", desc: "URLを送れば全員が同じ予定を確認" },
+];
+
 const features = [
   {
     icon: Zap,
@@ -88,6 +94,27 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Steps Section */}
+        <section className="flex flex-col gap-6 px-6 py-6">
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">たった3ステップ</h2>
+          </div>
+          <div className="flex flex-col gap-5">
+            {steps.map(({ num, title, desc }) => (
+              <div className="flex items-center gap-3.5" key={num}>
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3D8A5A]">
+                  <span className="font-bold text-sm text-white">{num}</span>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-semibold text-[15px] text-gray-900">{title}</span>
+                  <span className="text-[13px] text-gray-500">{desc}</span>
+                </div>
+              </div>
             ))}
           </div>
         </section>
