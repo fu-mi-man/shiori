@@ -1,4 +1,12 @@
-import { CircleCheck, Link as LinkIcon, Map as MapIcon, PenLine, UserX, Zap } from "lucide-react";
+import {
+  CircleCheck,
+  Link as LinkIcon,
+  Map as MapIcon,
+  PenLine,
+  Smartphone,
+  UserX,
+  Zap,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +15,11 @@ const steps = [
   { num: "1", title: "しおりを作る", desc: "タイトルと行程を入力するだけ" },
   { num: "2", title: "URLをコピー", desc: "完成したらURLが自動で発行" },
   { num: "3", title: "みんなにシェア", desc: "URLを送れば全員が同じ予定を確認" },
+];
+
+const experiencePoints = [
+  { icon: Smartphone, text: "モバイルファーストのタイムライン表示" },
+  { icon: Zap, text: "高速表示に最適化された軽量設計" },
 ];
 
 const features = [
@@ -114,6 +127,27 @@ export default function Home() {
                   <span className="font-semibold text-[15px] text-gray-900">{title}</span>
                   <span className="text-[13px] text-gray-500">{desc}</span>
                 </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section className="flex flex-col gap-5 px-6 py-6">
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">
+              旅先での「確認」に最適化
+            </h2>
+          </div>
+          <p className="text-[14px] text-gray-500 leading-[1.7]">
+            移動中でもストレスなく、次の予定がすぐわかります。
+          </p>
+          <div className="flex flex-col gap-3">
+            {experiencePoints.map(({ icon: Icon, text }) => (
+              <div className="flex items-center gap-2.5" key={text}>
+                <Icon className="h-[18px] w-[18px] shrink-0 text-[#3D8A5A]" />
+                <span className="font-semibold text-[14px] text-gray-900">{text}</span>
               </div>
             ))}
           </div>
