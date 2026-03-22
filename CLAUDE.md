@@ -29,7 +29,7 @@ pnpm build                       # ビルド確認
 - IMPORTANT: パッケージ追加時は `docker compose down -v` を使わない（named volumeの`pgdata`も消える）。手順は docs/01_requirements/05_development.md のパッケージ管理を参照
 - `web/package.json` の `packageManager` フィールドを変更・削除しない（Corepackが依存）
 - Server Componentsを優先する。DBへの直接アクセスはServer Componentで行う。Client Componentからの更新はServer Actions（`useActionState`）を優先し、Server Actionsで対応できない場合のみAPI Routesを使う
-- モバイルファースト: max-width 480px、タッチターゲット 44×44px以上（Apple HIG 準拠）
+- モバイルファースト: max-width 480px、タッチターゲット 44×44px以上（Apple HIG 準拠）。ただしトップページ（`/`）はランディングページのためこの限りではない
 
 # Documentation
 
