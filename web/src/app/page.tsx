@@ -1,65 +1,55 @@
-import Image from "next/image";
+import { CircleCheck, Map as MapIcon, PenLine } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image
-          alt="Next.js logo"
-          className="dark:invert"
-          height={20}
-          priority
-          src="/next.svg"
-          width={100}
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs font-semibold text-3xl text-black leading-10 tracking-tight dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg text-zinc-600 leading-8 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 font-medium text-base sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            rel="noopener noreferrer"
-            target="_blank"
+    <div className="min-h-screen bg-[#F5F4F1]">
+      <div className="mx-auto max-w-xl">
+        {/* Header */}
+        <header className="flex h-14 items-center px-5">
+          <span className="font-bold text-[#3D8A5A] text-xl tracking-tight">Shiori</span>
+        </header>
+
+        {/* Hero Section */}
+        <section className="flex flex-col items-center gap-7 px-6 pt-10 pb-10">
+          {/* Icon */}
+          <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-[#3D8A5A]">
+            <MapIcon className="h-9 w-9 text-white" />
+          </div>
+
+          {/* Text */}
+          <div className="flex w-full flex-col items-center gap-4">
+            <h1 className="text-center font-extrabold text-[32px] text-gray-900 leading-[1.3] tracking-tight">
+              旅のしおりを
+              <br />
+              かんたん作成
+            </h1>
+            <p className="text-center text-[15px] text-gray-500 leading-[1.6]">
+              行程表をサクッと作って、URLでみんなにシェア。
+              <br />
+              アカウント登録は不要です。
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <Button
+            asChild
+            className="h-[52px] w-full gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47]"
           >
-            <Image
-              alt="Vercel logomark"
-              className="dark:invert"
-              height={16}
-              src="/vercel.svg"
-              width={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-black/[.08] border-solid px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <Link href="/create">
+              <PenLine className="h-5 w-5" />
+              しおりを作る
+            </Link>
+          </Button>
+
+          {/* Free Badge */}
+          <div className="flex items-center gap-1.5">
+            <CircleCheck className="h-4 w-4 text-[#3D8A5A]" />
+            <span className="font-semibold text-[#3D8A5A] text-sm">無料・登録不要ですぐ使える</span>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
