@@ -1,12 +1,15 @@
 import {
+  Check,
   CircleCheck,
   Link as LinkIcon,
   Map as MapIcon,
+  Minus,
   PenLine,
   Smartphone,
   Timer,
   Users,
   UserX,
+  X,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
@@ -17,6 +20,20 @@ const steps = [
   { num: "1", title: "しおりを作る", desc: "タイトルと行程を入力するだけ" },
   { num: "2", title: "URLをコピー", desc: "完成したらURLが自動で発行" },
   { num: "3", title: "みんなにシェア", desc: "URLを送れば全員が同じ予定を確認" },
+];
+
+type CompareValue = "yes" | "no" | "partial";
+
+const comparisonRows: {
+  label: string;
+  app: CompareValue;
+  web: CompareValue;
+  shiori: CompareValue;
+}[] = [
+  { label: "登録不要", app: "no", web: "yes", shiori: "yes" },
+  { label: "インストール不要", app: "no", web: "yes", shiori: "yes" },
+  { label: "モバイル最適化", app: "yes", web: "partial", shiori: "yes" },
+  { label: "即シェア（URL共有）", app: "partial", web: "yes", shiori: "yes" },
 ];
 
 const voices = [
@@ -197,6 +214,77 @@ export default function Home() {
             ))}
           </div>
         </section>
+        {/* Comparison Section */}
+        <section className="flex flex-col gap-5 px-6 pt-6 pb-8">
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">他サービスとの違い</h2>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-[#E5E4E1]">
+            {/* Table Header */}
+            <div className="flex h-10 items-center bg-[#3D8A5A] px-4">
+              <span className="flex-1" />
+              <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
+                アプリ型
+              </span>
+              <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
+                他Web型
+              </span>
+              <span className="w-[60px] text-center font-bold text-white text-xs">Shiori</span>
+            </div>
+            {/* Table Rows */}
+            {comparisonRows.map(({ label, app, web, shiori }, i) => (
+              <div
+                className={`flex h-10 items-center px-4 ${i < comparisonRows.length - 1 ? "border-[#E5E4E1] border-b" : ""}`}
+                key={label}
+              >
+                <span className="flex-1 font-medium text-gray-900 text-xs">{label}</span>
+                <div className="flex w-[70px] justify-center">
+                  {app === "yes" ? (
+                    <Check className="h-4 w-4 text-[#3D8A5A]" />
+                  ) : app === "no" ? (
+                    <X className="h-4 w-4 text-red-400" />
+                  ) : (
+                    <Minus className="h-4 w-4 text-gray-300" />
+                  )}
+                </div>
+                <div className="flex w-[70px] justify-center">
+                  {web === "yes" ? (
+                    <Check className="h-4 w-4 text-[#3D8A5A]" />
+                  ) : web === "no" ? (
+                    <X className="h-4 w-4 text-red-400" />
+                  ) : (
+                    <Minus className="h-4 w-4 text-gray-300" />
+                  )}
+                </div>
+                <div className="flex w-[60px] justify-center">
+                  {shiori === "yes" ? (
+                    <Check className="h-4 w-4 text-[#3D8A5A]" />
+                  ) : (
+                    <Minus className="h-4 w-4 text-gray-300" />
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <div className="flex flex-col items-center gap-4 px-6 pt-4 pb-10">
+          <Button
+            asChild
+            className="h-[52px] w-full gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47]"
+          >
+            <Link href="/create">
+              <PenLine className="h-5 w-5" />
+              しおりを作る
+            </Link>
+          </Button>
+          <div className="flex items-center gap-1.5">
+            <CircleCheck className="h-4 w-4 text-[#3D8A5A]" />
+            <span className="font-semibold text-[#3D8A5A] text-sm">無料・登録不要ですぐ使える</span>
+          </div>
+        </div>
       </div>
     </div>
   );
