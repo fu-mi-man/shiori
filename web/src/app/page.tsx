@@ -4,6 +4,8 @@ import {
   Map as MapIcon,
   PenLine,
   Smartphone,
+  Timer,
+  Users,
   UserX,
   Zap,
 } from "lucide-react";
@@ -15,6 +17,24 @@ const steps = [
   { num: "1", title: "しおりを作る", desc: "タイトルと行程を入力するだけ" },
   { num: "2", title: "URLをコピー", desc: "完成したらURLが自動で発行" },
   { num: "3", title: "みんなにシェア", desc: "URLを送れば全員が同じ予定を確認" },
+];
+
+const voices = [
+  {
+    icon: PenLine,
+    title: "旅の全体像がクリアになる",
+    desc: "行程を書き出すだけで準備の抜け漏れに気づけます",
+  },
+  {
+    icon: Users,
+    title: "「予定どうだっけ？」がなくなる",
+    desc: "URLを送るだけで全員が同じ予定を確認できます",
+  },
+  {
+    icon: Timer,
+    title: "当日の段取りがスムーズになる",
+    desc: "集合時間や移動手段が明確だから、当日慌てません",
+  },
 ];
 
 const experiencePoints = [
@@ -149,6 +169,31 @@ export default function Home() {
                 <Icon className="h-[18px] w-[18px] shrink-0 text-[#3D8A5A]" />
                 <span className="font-semibold text-[14px] text-gray-900">{text}</span>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Voices Section */}
+        <section className="flex flex-col gap-5 px-6 py-6">
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">
+              しおりがあると、こう変わる
+            </h2>
+          </div>
+          <div className="flex flex-col gap-3">
+            {voices.map(({ icon: Icon, title, desc }) => (
+              <Card className="border-[#E5E4E1] bg-white py-0" key={title}>
+                <CardContent className="flex items-center gap-3.5 p-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-50">
+                    <Icon className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="font-semibold text-[14px] text-gray-900">{title}</span>
+                    <span className="text-[12px] text-gray-500 leading-[1.5]">{desc}</span>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </section>
