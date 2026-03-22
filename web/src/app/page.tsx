@@ -292,11 +292,6 @@ export default function Home() {
         <div className="mx-auto flex max-w-xl flex-col items-center gap-3">
           <span className="font-bold text-lg text-white tracking-tight">Shiori</span>
           <span className="text-sm text-white/80">旅のしおり作成サービス</span>
-          <div className="flex gap-6">
-            <Link className="text-white/70 text-xs hover:text-white" href="/privacy">
-              プライバシーポリシー
-            </Link>
-          </div>
           <span className="text-white/50 text-xs">© Shiori</span>
         </div>
       </footer>

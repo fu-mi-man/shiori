@@ -28,7 +28,7 @@ docker compose up --build -d
 | 質問 | 選択 | 理由 |
 |------|------|------|
 | Select a component library | **Radix** | shadcn/ui の標準ライブラリ |
-| Which preset would you like to use? | **Nova** | Lucide アイコン + Geist フォント。Next.js のデフォルト構成と一致 |
+| Which preset would you like to use? | **Nova** | Lucide アイコン + Geist フォント。Next.js のデフォルト構成と一致（導入後，フォントを Outfit に変更済み） |
 
 > Tailwind v4 が検出されると，OKLCH形式のCSS変数が `globals.css` に書き込まれる。  
 >`tailwind.config.js` は作成されない。  
@@ -51,7 +51,7 @@ docker compose up --build -d
 | `src/lib/utils.ts` | `cn()` ユーティリティ関数（clsx + tailwind-merge） |
 | `src/components/ui/button.tsx` | Nova プリセットに含まれるサンプルコンポーネント |
 | `src/app/globals.css` | OKLCH形式のCSS変数が書き込まれる（既存内容は上書き） |
-| `src/app/layout.tsx` | Geist フォントの設定が追記される（Nova プリセット） |
+| `src/app/layout.tsx` | Geist フォントの設定が追記される（Nova プリセット）。導入後 Outfit フォントに変更済み |
 
 `components.json` の内容を確認し，以下の設定になっていることを確認する:
 
@@ -85,7 +85,7 @@ docker compose up --build -d
 
 | 設定 | 値 | 理由 |
 |------|-----|------|
-| `style` | `radix-nova` | shadcn v4 の Nova プリセット（Lucide + Geist） |
+| `style` | `radix-nova` | shadcn v4 の Nova プリセット（Lucide + Geist）。フォントは導入後 Outfit に変更済み |
 | `tailwind.config` | `""` | Tailwind v4 では `tailwind.config.js` が不要なため空 |
 | `rsc` | `true` | React Server Components を使用 |
 | `iconLibrary` | `lucide` | Nova プリセットのデフォルトアイコンライブラリ |
