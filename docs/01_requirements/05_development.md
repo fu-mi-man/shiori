@@ -176,7 +176,7 @@ shiori/
 │   ├── 01_requirements/                    # 要件定義（概要・機能・画面・データ・開発規約）
 │   ├── 02_specification/                   # 詳細設計
 │   ├── 98_wiki/                            # 開発Wiki
-│   │   └── setup/                          # ツール導入手順（00_initial〜07_zod）
+│   │   └── setup/                          # ツール導入手順（00_initial〜08_playwright）
 │   └── 99_research/                        # 調査・技術選定
 │
 ├── web/                                    # Next.jsアプリ（フロント＋バックエンド）
@@ -222,7 +222,7 @@ shiori/
 │   ├── drizzle.config.ts                   # Drizzle Kit設定
 │   ├── next.config.ts                      # Next.js設定
 │   ├── package.json                        # 依存関係・スクリプト定義
-│   ├── playwright.config.ts                # Playwright設定（E2Eテスト）
+│   ├── playwright.config.ts                # Playwright設定（E2Eテスト・ホスト実行）
 │   ├── pnpm-lock.yaml                      # 依存関係ロックファイル
 │   ├── tsconfig.json                       # TypeScript設定
 │   └── vitest.config.ts                    # Vitest設定
@@ -241,7 +241,7 @@ shiori/
 - **`src/components/features/`**: 機能固有のコンポーネント。機能単位で分類
 - **`src/db/`**: Drizzle関連を集約（公式準拠）。スキーマ，接続，マイグレーションを一箇所で管理
 - **`src/hooks/`**: カスタムHooksを `lib/` と分離して配置
-- **`tests/`**: Playwrightのデフォルト探索ディレクトリ名。Vitestはファイル名パターン（`*.test.ts`）で検出するため，どちらのツールも追加設定なしで動作する
+- **`tests/`**: Vitestはファイル名パターン（`*.test.ts`）で検出。PlaywrightのE2Eテストは `tests/e2e/` に配置し，ホスト側で実行する
 
 
 ## 4. Git運用ルール
@@ -376,11 +376,11 @@ docker volume prune                                        # 孤立した anonym
 dev サーバーのクラッシュ時に anonymous volume 内の `node_modules` が破損した状態で残ることがある。再起動しても復旧しない場合は，volume を手動で特定して削除する。
 
 ```bash
-docker inspect shiori-web -f '{{range .Mounts}}{{.Name}} {{end}}'  # 紐づく anonymous volume ID を確認
-docker compose stop web
-docker compose rm web
+docker inspect shiori-web -f '{{range .Mounts}}{{.Name}} {{end}}'   # 紐づく anonymous volume ID を確認
+docker compose down                                                 # コンテナ＋ネットワーク削除
 docker volume rm <上で確認したID>                                    # 破損した volume を削除
-docker compose up --build -d
+docker compose up --build -d                                        # コンテナ側の node_modules を再作成
+cd web && pnpm install                                              # ホスト側の node_modules も同期
 ```
 
 ### 検証
@@ -389,7 +389,7 @@ docker compose up --build -d
 pnpm typecheck                   # 型チェック
 pnpm lint                        # lint（Biome）
 pnpm test                        # ユニット・統合テスト（Vitest）
-pnpm test:e2e                    # E2Eテスト（Playwright）
+pnpm exec playwright test --project=chromium   # E2Eテスト（Playwright・ホストのweb/で実行）
 pnpm build                       # ビルド確認
 ```
 
