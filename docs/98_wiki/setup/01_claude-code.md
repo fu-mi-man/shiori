@@ -88,13 +88,13 @@ Claude Codeにブラウザ操作・UIデザインツールとの連携機能を�
 
 **Playwright（E2Eテスト・ブラウザ自動操作）**
 
-ホストへのNode.jsインストールを不要にするため，`docker run` 経由で起動する。
+自然言語でブラウザを操作できるMCPサーバー。
 
 ```bash
-claude mcp add playwright -s project -- docker run --rm -i mcr.microsoft.com/playwright:v1.52.0-noble npx @playwright/mcp@latest
+claude mcp add playwright -s project -- npx @playwright/mcp@latest
 ```
 
-> `-s project` でプロジェクトスコープに登録される。`.claude/settings.json` に記録されGit管理される。
+> `-s project` でプロジェクトスコープに登録される。`.mcp.json` に記録されGit管理される。
 
 **Pencil.dev（UIデザインツール連携）**
 
