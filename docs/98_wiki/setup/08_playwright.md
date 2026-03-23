@@ -138,9 +138,8 @@ pnpm create playwright
 
 `pnpm create playwright` により，`web/.gitignore` に以下が自動追加される:
 
-```
+```gitignore
 # Playwright
-node_modules/
 /test-results/
 /playwright-report/
 /blob-report/

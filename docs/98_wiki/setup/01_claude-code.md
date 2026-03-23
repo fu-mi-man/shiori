@@ -95,6 +95,7 @@ claude mcp add playwright -s project -- npx @playwright/mcp@latest
 ```
 
 > `-s project` でプロジェクトスコープに登録される。`.mcp.json` に記録されGit管理される。
+> 初回セットアップ時のみ実行。既にGit管理されている `.mcp.json` が存在する場合は実行不要（clone 時に設定が共有される）。
 
 **Pencil.dev（UIデザインツール連携）**
 
