@@ -1,0 +1,501 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "type": "frame",
+      "id": "aYdJk",
+      "x": 0,
+      "y": 0,
+      "name": "Privacy Policy Page",
+      "width": 390,
+      "fill": "$bg-primary",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "v3lIg",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 56,
+          "fill": "$bg-primary",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "3OVTs",
+              "name": "logoText",
+              "fill": "$accent-primary",
+              "content": "Shiori",
+              "fontFamily": "Outfit",
+              "fontSize": 20,
+              "fontWeight": "700",
+              "letterSpacing": -0.5
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "WWRj3",
+          "name": "Content",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "E0K4L",
+              "name": "TitleBlock",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fJcaD",
+                  "name": "pageTitle",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "プライバシーポリシー",
+                  "fontFamily": "Outfit",
+                  "fontSize": 24,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.5
+                },
+                {
+                  "type": "text",
+                  "id": "Sd62d",
+                  "name": "lastUpdated",
+                  "fill": "$text-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "最終更新日：2026年3月",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "2Qf0d",
+              "name": "Intro",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "beSo0",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Shiori（以下「当サービス」）は，ユーザーのプライバシーを尊重し，個人情報の適切な管理に努めます。本ポリシーは，当サービスにおける個人情報の取り扱いについて説明するものです。",
+                  "lineHeight": 1.7,
+                  "textAlign": "justify",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YW64G",
+              "name": "Section1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "1bpbX",
+                  "name": "h1",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "SuPAd",
+                      "width": 4,
+                      "height": 24,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "pJJG7",
+                      "fill": "$text-primary",
+                      "content": "1. 収集する情報",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Emor8",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "本サービスはアカウント登録を必要とせず，氏名・メールアドレス・電話番号などの個人を特定できる情報は収集しません。",
+                  "lineHeight": 1.7,
+                  "textAlign": "justify",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "2Mt5p",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "しおり作成時にユーザーが入力した情報（タイトル・行程など）は，サービス提供のためにデータベースに保存されます。",
+                  "lineHeight": 1.7,
+                  "textAlign": "justify",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PFF4Q",
+              "name": "Section2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lDPiO",
+                  "name": "h2",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fGRHT",
+                      "width": 4,
+                      "height": 24,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "McIfm",
+                      "fill": "$text-primary",
+                      "content": "2. 情報の利用目的",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.3
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ChAkq",
+                  "name": "bullets",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "v8r5g",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "・ サービスの提供・運営・改善",
+                      "lineHeight": 1.6,
+                      "textAlign": "justify",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wGDVU",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "・ お問い合わせへの対応",
+                      "lineHeight": 1.6,
+                      "textAlign": "justify",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ziwPA",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "・ 不正利用の防止・セキュリティの確保",
+                      "lineHeight": 1.6,
+                      "textAlign": "justify",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6BtJF",
+              "name": "Section3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mdI7R",
+                  "name": "h3",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "T1Y58",
+                      "width": 4,
+                      "height": 24,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "xEbZQ",
+                      "fill": "$text-primary",
+                      "content": "3. 情報の第三者提供",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "GkEMo",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "当サービスは，法令に基づく場合を除き，ユーザーの同意なく個人情報を第三者に提供しません。",
+                  "lineHeight": 1.7,
+                  "textAlign": "justify",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "grvIl",
+              "name": "Section4",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kXXCO",
+                  "name": "h4",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "m0mzu",
+                      "width": 4,
+                      "height": 24,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "zV76Q",
+                      "fill": "$text-primary",
+                      "content": "4. セキュリティ",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "FAupq",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "当サービスは，収集した個人情報を適切な技術的・組織的措置により保護します。ただし，インターネット上での完全なセキュリティを保証するものではありません。",
+                  "lineHeight": 1.7,
+                  "textAlign": "justify",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DcN8t",
+              "name": "Section5",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CClKw",
+                  "name": "h5",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "q0jXs",
+                      "width": 4,
+                      "height": 24,
+                      "fill": "$accent-primary",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "WVJYc",
+                      "fill": "$text-primary",
+                      "content": "5. お問い合わせ",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "bsDrT",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "プライバシーポリシーに関するお問い合わせは，サービス内のお問い合わせフォームよりご連絡ください。",
+                  "lineHeight": 1.7,
+                  "textAlign": "justify",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EkB2L",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "$accent-primary",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            32,
+            24,
+            40,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VYWA9",
+              "fill": "#FFFFFF",
+              "content": "Shiori",
+              "fontFamily": "Outfit",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "text",
+              "id": "uOLO3",
+              "fill": "#FFFFFFCC",
+              "content": "旅のしおり作成サービス",
+              "fontFamily": "Outfit",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "BVuV5",
+              "fill": "#FFFFFF88",
+              "content": "© Shiori",
+              "fontFamily": "Outfit",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent-primary": {
+      "type": "color",
+      "value": "#3D8A5A"
+    },
+    "bg-muted": {
+      "type": "color",
+      "value": "#EDECEA"
+    },
+    "bg-primary": {
+      "type": "color",
+      "value": "#F5F4F1"
+    },
+    "bg-surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "border-subtle": {
+      "type": "color",
+      "value": "#E5E4E1"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#1A1918"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#6D6C6A"
+    },
+    "text-tertiary": {
+      "type": "color",
+      "value": "#9C9B99"
+    }
+  }
+}
