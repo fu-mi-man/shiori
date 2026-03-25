@@ -3,7 +3,7 @@
 本ドキュメントは、サービスのプロダクト概要をまとめた資料である。
 プロダクト概要資料の一般的な構成（What / Why / Who / How …）に沿って記述する。
 
-画面仕様は `02_screens/`、データモデルは `03_data.md`、非機能要件は `04_non-functional.md`、バックログは `05_backlog.md` を参照のこと。開発規約は `98_wiki/dev-guide.md` を参照。
+画面仕様は `02_screens/`、データモデルは `03_data.md`、非機能要件は `04_non-functional.md`、バックログは `05_backlog.md` を参照のこと。開発規約は `../98_wiki/dev-guide.md` を参照。
 
 ### 目次
 

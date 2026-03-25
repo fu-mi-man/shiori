@@ -8,7 +8,7 @@ TypeScriptファーストのバリデーションライブラリ。
 
 ### 1. インストール
 
-`docker compose run` を使う理由は `98_wiki/dev-guide.md` のパッケージ管理を参照。
+`docker compose run` を使う理由は `../dev-guide.md` のパッケージ管理を参照。
 
 ```bash
 docker compose stop web
@@ -75,7 +75,7 @@ export async function createUser(prevState: any, formData: FormData) {
 
 ### 4. プロジェクトでの利用方針
 
-`docs/01_requirements/05_development.md` のフォーム実装方針に準拠。
+`docs/98_wiki/dev-guide.md` のフォーム実装方針に準拠。
 
 ```text
 useActionState + Server Action + Zod
