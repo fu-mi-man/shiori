@@ -62,12 +62,12 @@ shioris (しおり)
 | created_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | 作成日時 |
 | updated_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | 更新日時 |
 
-> **設計方針**: 
-日付はすべて任意。  
-表示画面の日付範囲（`YYYY/MM/DD 〜 YYYY/MM/DD`）は `date` の MIN/MAX から動的算出する。  
+> **設計方針**:
+日付はすべて任意。
+表示画面の日付範囲（`YYYY/MM/DD 〜 YYYY/MM/DD`）は `date` の MIN/MAX から動的算出する。
 日付が1件も設定されていない場合は非表示。`shioris` テーブルに冗長に持たない。
-
-> **リンク対応**: `note` および `overviews.content` 内のリンクは表示時に処理する。  
+>
+> **リンク対応**: `note` および `overviews.content` 内のリンクは表示時に処理する。
 Markdown記法（`[テキスト](URL)`）とURLの自動検出を併用。DB側の変更は不要。
 
 
@@ -94,7 +94,7 @@ Markdown記法（`[テキスト](URL)`）とURLの自動検出を併用。DB側�
 |----------|--------|-----|------|
 | shioris | theme | VARCHAR(50) | カラーテーマ |
 | shioris | visibility | VARCHAR(50) | 公開範囲。`public`（制限なし）/ `private`（閲覧に合言葉が必要）。合言葉と組み合わせて使用 |
-| schedules | transport | ENUM | 次のスポットへの移動手段（意味の定義は実装時に確定）。選択肢: `walk` / `train` / `bus` / `plane` / `car` / `ship` / `bicycle` / `taxi` / `cablecar` |
+| schedules | transport | ENUM | 次のスポットへの移動手段（意味の定義は実装時に確定）。候補例: `walk` / `train` / `bus` / `plane` / `car` / `ship` / `bicycle` / `taxi` / `cablecar` |
 | schedules | end_time | TIME | 終了時刻（滞在時間の表現） |
 
 ### 新規テーブル: photos（写真）
