@@ -26,7 +26,7 @@ pnpm build                       # ビルド確認
 # Pitfalls
 
 - IMPORTANT: Tailwind v4 を使用。`tailwind.config.js` と `postcss.config.js` は作らない。`web/src/app/globals.css` の先頭は `@import "tailwindcss";`。shadcn/ui 導入後は `@import "tw-animate-css"` と `@import "shadcn/tailwind.css"` も追加される（これらは必要なので削除しない）
-- IMPORTANT: パッケージ追加時は `docker compose down -v` を使わない（named volumeの`pgdata`も消える）。手順は docs/01_requirements/05_development.md のパッケージ管理を参照
+- IMPORTANT: パッケージ追加時は `docker compose down -v` を使わない（named volumeの`pgdata`も消える）。手順は docs/98_wiki/dev-guide.md のパッケージ管理を参照
 - `web/package.json` の `packageManager` フィールドを変更・削除しない（Corepackが依存）
 - Server Componentsを優先する。DBへの直接アクセスはServer Componentで行う。Client Componentからの更新はServer Actions（`useActionState`）を優先し、Server Actionsで対応できない場合のみAPI Routesを使う
 - モバイルファースト: max-width 480px、タッチターゲット 44×44px以上（Apple HIG 準拠）。ただしトップページ（`/`）はランディングページのためこの限りではない

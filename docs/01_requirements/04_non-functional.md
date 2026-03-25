@@ -71,4 +71,4 @@
 - **ログ出力**: Vercelのデフォルトログに依存
 - **監視・アラート**: Vercelダッシュボードで確認
 - **デプロイ戦略**: GitHub連携による自動デプロイ（Preview → Production）
-- **開発規約**: `05_development.md` を参照
+- **開発規約**: `../98_wiki/dev-guide.md` を参照

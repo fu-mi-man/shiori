@@ -8,7 +8,7 @@ TypeScript・ESModulesとの相性が良く，Jestより設定がシンプル。
 
 ### 1. インストール
 
-`docker compose run` を使う理由は `01_requirements/05_development.md` のパッケージ管理を参照。
+`docker compose run` を使う理由は `../dev-guide.md` のパッケージ管理を参照。
 
 ```bash
 docker compose stop web
