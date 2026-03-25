@@ -21,7 +21,7 @@
 | 閲覧画面 | `/i/[id]` | しおり閲覧 | [view.md](view.md) |
 | 編集画面 | `/i/[id]/edit` | しおり編集 | [edit.md](edit.md) |
 | 合言葉入力画面 | 未定 | 編集・閲覧の認証（MVP後） | - |
-| プライバシーポリシー | `/privacy` | プライバシーポリシー | `03_legal/01_privacy.md` |
+| プライバシーポリシー | `/privacy` | プライバシーポリシー | [`03_legal/01_privacy.md`](../../03_legal/01_privacy.md) |
 | 利用規約 | `/terms` | 利用規約 | `03_legal/02_terms.md`（未作成） |
 | 特定商取引法に基づく表記 | 未定 | 収益化時に必要 | - |
 
@@ -30,7 +30,7 @@
 
 ### MVP
 
-```
+```text
 トップ (/)
   └─[しおりを作る]→ 作成画面 (/create)
                       └─[完了]→ 閲覧画面 (/i/[id])
@@ -46,7 +46,7 @@
 
 ### MVP以降（合言葉・閲覧権限の追加後）
 
-```
+```text
 閲覧画面 (/i/[id])
   ├─ visibility: public → そのまま表示
   └─ visibility: private → 合言葉入力画面 → 閲覧画面

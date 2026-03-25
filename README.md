@@ -61,10 +61,11 @@ Next.js 16 (App Router) / TypeScript / Tailwind CSS v4 / shadcn/ui / Neon Postgr
 | ファイル | 内容 |
 |---------|------|
 | `01_requirements/01_overview.md` | サービス概要 |
-| `01_requirements/02_features.md` | 機能要件 |
-| `01_requirements/03_screens.md` | 画面定義 |
-| `01_requirements/04_data.md` | データ定義 |
+| `01_requirements/02_screens/` | 画面仕様 |
+| `01_requirements/03_data.md` | データ定義 |
+| `01_requirements/04_non-functional.md` | 非機能要件 |
 | `01_requirements/05_development.md` | 開発環境・ツール・規約 |
+| `01_requirements/06_backlog.md` | MVP以降の機能候補 |
 | `02_specification/` | 詳細設計（必要に応じて追加） |
 | `99_research/benchmark.md` | 競合分析 |
 | `99_research/technology.md` | 技術選定 |
