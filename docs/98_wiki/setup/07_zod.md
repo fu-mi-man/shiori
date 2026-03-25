@@ -75,7 +75,7 @@ export async function createUser(prevState: any, formData: FormData) {
 
 ### 4. プロジェクトでの利用方針
 
-`docs/98_wiki/dev-guide.md` のフォーム実装方針に準拠。
+`../dev-guide.md` のフォーム実装方針に準拠。
 
 ```text
 useActionState + Server Action + Zod
