@@ -130,6 +130,7 @@ pnpm dlx skills add shadcn/ui
 |---------|------|------|
 | Pencil.dev | UIデザインツール連携 | VSCode/Cursor拡張機能をインストールすると内蔵MCPサーバーが自動起動。Claude Codeが`.pen`ファイルを読み取りコード生成 |
 | Playwright | E2Eテスト・ブラウザ自動操作 | 自然言語でブラウザを操作。テスト実行・デバッグに使用 |
+| Figma | Figmaデザインファイル参照 | `figma@claude-plugins-official` プラグインが自動設定。エンドポイント: `https://mcp.figma.com/mcp`。OAuth認証が必要（詳細は `setup/09_figma.md`） |
 
 ```bash
 # ホストで実行（claude CLIはホスト側にのみ存在するため）

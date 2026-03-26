@@ -27,7 +27,7 @@ claude plugin install figma@claude-plugins-official --scope project
 
 プラグインのインストール後，Claude Code 内でOAuth認証を行う。
 
-```
+```text
 /mcp
 ```
 
@@ -43,7 +43,7 @@ claude plugin install figma@claude-plugins-official --scope project
 
 ### 3. 動作確認
 
-```
+```text
 /mcp
 ```
 
@@ -51,7 +51,7 @@ claude plugin install figma@claude-plugins-official --scope project
 
 Figma ファイルのURLを貼り付けてデザインを参照できるか確認する。
 
-```
+```text
 このFigmaフレームのレイアウトを参考にReactコンポーネントを実装してください
 https://www.figma.com/design/xxxxxx/...?node-id=xxx
 ```

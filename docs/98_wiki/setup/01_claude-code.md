@@ -28,7 +28,7 @@ claude plugin install figma@claude-plugins-official --scope project
 | `code-review` | PRの自動コードレビュー。5つのエージェントが並列でレビュー |
 | `figma` | FigmaデザインファイルをClaude Codeから参照。MCPサーバー設定とAgent Skillsを一括インストール |
 
-> `figma` プラグインはインストール後に `/mcp` コマンドからOAuth認証が必要。詳細は `09_figma.md` を参照。
+> `figma` プラグインはインストール後に `/mcp` コマンドからOAuth認証が必要。詳細は `./09_figma.md` を参照。
 
 ### 2. スキル
 
