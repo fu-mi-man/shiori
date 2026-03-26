@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Header } from "@/components/features/common/Header";
 
 export const metadata: Metadata = {
   title: "プライバシーポリシー | Tabiji",
@@ -22,14 +23,7 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#F5F4F1]">
       <div className="mx-auto max-w-[480px]">
-        <header className="flex h-14 items-center bg-[#3D8A5A] px-5">
-          <Link
-            className="font-[family-name:var(--font-outfit)] font-bold text-white text-xl tracking-tight"
-            href="/"
-          >
-            Tabiji
-          </Link>
-        </header>
+        <Header />
 
         <div className="flex flex-col gap-8 bg-white px-6 py-8">
           {/* タイトルブロック */}
