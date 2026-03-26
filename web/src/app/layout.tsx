@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Outfit } from "next/font/google";
+import { Footer } from "@/components/features/common/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html className={`${outfit.variable} ${geistMono.variable}`} lang="ja">
       <body className="antialiased">
         {children}
+        <Footer />
         <Toaster />
       </body>
     </html>
