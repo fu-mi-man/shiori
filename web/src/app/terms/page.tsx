@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/features/common/Header";
 
 export const metadata: Metadata = {
-  title: "利用規約 | Tabiji",
+  title: "利用規約",
   description: "Tabijiの利用規約です。サービスの利用条件、禁止事項、免責事項などをご確認ください。",
 };
 

@@ -83,7 +83,7 @@ export default function Home() {
       <div className="mx-auto max-w-xl">
         {/* Header */}
         <header className="flex h-14 items-center px-5">
-          <span className="font-bold text-[#3D8A5A] text-xl tracking-tight">Shiori</span>
+          <span className="font-bold text-[#3D8A5A] text-xl tracking-tight">Tabiji</span>
         </header>
 
         {/* Hero Section */}
@@ -129,7 +129,7 @@ export default function Home() {
         <section className="flex flex-col gap-6 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">Shioriの特徴</h2>
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">Tabijiの特徴</h2>
           </div>
           <div className="flex flex-col gap-3">
             {features.map(({ icon: Icon, title, desc }) => (
@@ -230,7 +230,7 @@ export default function Home() {
               <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
                 他Web型
               </span>
-              <span className="w-[60px] text-center font-bold text-white text-xs">Shiori</span>
+              <span className="w-[60px] text-center font-bold text-white text-xs">Tabiji</span>
             </div>
             {/* Table Rows */}
             {comparisonRows.map(({ label, app, web, shiori }, i) => (
