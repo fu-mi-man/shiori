@@ -1,0 +1,552 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "type": "frame",
+      "id": "logo3",
+      "x": 0,
+      "y": 0,
+      "name": "Concept 1 - Luggage",
+      "clip": true,
+      "width": 320,
+      "height": 400,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 40,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "l3label",
+          "name": "label",
+          "fill": "#999999",
+          "content": "Concept 1: 旅支度（スーツケース）",
+          "fontFamily": "Outfit",
+          "fontSize": 12,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "l3icon",
+          "name": "Logo Mark",
+          "width": 80,
+          "height": 80,
+          "fill": "#3D8A5A",
+          "cornerRadius": 16,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "l3ico",
+              "name": "luggageIcon",
+              "width": 40,
+              "height": 40,
+              "iconFontName": "luggage",
+              "iconFontFamily": "lucide",
+              "fill": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "l3name",
+          "name": "serviceName",
+          "fill": "#1A1918",
+          "content": "Tabishitaku",
+          "fontFamily": "Outfit",
+          "fontSize": 28,
+          "fontWeight": "700",
+          "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "l3sub",
+          "name": "tagline",
+          "fill": "#3D8A5A",
+          "content": "旅支度",
+          "fontFamily": "Outfit",
+          "fontSize": 16,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "l3desc",
+          "name": "description",
+          "fill": "#888888",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "スーツケースのアイコンで「旅の準備」を直球表現。\n「支度」の意味がアイコンで補完される。\n角丸正方形で統一感。",
+          "lineHeight": 1.6,
+          "textAlign": "center",
+          "fontFamily": "Outfit",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "k0WIK",
+      "x": 340,
+      "y": 0,
+      "name": "Concept 2 - Green BG + White Plane",
+      "clip": true,
+      "width": 320,
+      "height": 400,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 40,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "NUNiu",
+          "name": "label",
+          "fill": "#999999",
+          "content": "Concept 2: 緑背景 × 白飛行機",
+          "fontFamily": "Outfit",
+          "fontSize": 12,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "YesEL",
+          "name": "Logo Mark",
+          "width": 80,
+          "height": 80,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 16,
+              "id": "gWiw6",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "bg",
+              "fill": "#3D8A5A",
+              "width": 80,
+              "height": 80
+            },
+            {
+              "type": "icon_font",
+              "id": "cy7yG",
+              "name": "planeIcon",
+              "rotation": -45,
+              "width": 40,
+              "height": 40,
+              "iconFontName": "plane",
+              "iconFontFamily": "lucide",
+              "fill": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "06lzW",
+          "name": "serviceName",
+          "fill": "#1A1918",
+          "content": "Tabishitaku",
+          "fontFamily": "Outfit",
+          "fontSize": 28,
+          "fontWeight": "700",
+          "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "1sti4",
+          "name": "tagline",
+          "fill": "#3D8A5A",
+          "content": "旅支度",
+          "fontFamily": "Outfit",
+          "fontSize": 16,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "hcfst",
+          "name": "description",
+          "fill": "#888888",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "緑の角丸正方形に白い飛行機アイコン。\n右上45度の傾きで旅立ち感を表現。\nシンプルでファビコン映えする。",
+          "lineHeight": 1.6,
+          "textAlign": "center",
+          "fontFamily": "Outfit",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "8Zd26",
+      "x": 680,
+      "y": 0,
+      "name": "Concept 3 - White BG + Green Plane",
+      "clip": true,
+      "width": 320,
+      "height": 400,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 40,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "P767I",
+          "name": "label",
+          "fill": "#999999",
+          "content": "Concept 3: 白背景 × 緑飛行機",
+          "fontFamily": "Outfit",
+          "fontSize": 12,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "gFcj2",
+          "name": "Logo Mark",
+          "width": 80,
+          "height": 80,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 16,
+              "id": "q9VWF",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "bg",
+              "fill": "#FFFFFF",
+              "width": 80,
+              "height": 80,
+              "stroke": {
+                "align": "inside",
+                "thickness": 3,
+                "fill": "#3D8A5A"
+              }
+            },
+            {
+              "type": "icon_font",
+              "id": "NFOMj",
+              "name": "planeIcon",
+              "rotation": -45,
+              "width": 40,
+              "height": 40,
+              "iconFontName": "plane",
+              "iconFontFamily": "lucide",
+              "fill": "#3D8A5A"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "xovae",
+          "name": "serviceName",
+          "fill": "#1A1918",
+          "content": "Tabishitaku",
+          "fontFamily": "Outfit",
+          "fontSize": 28,
+          "fontWeight": "700",
+          "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "8fLFw",
+          "name": "tagline",
+          "fill": "#3D8A5A",
+          "content": "旅支度",
+          "fontFamily": "Outfit",
+          "fontSize": 16,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "IlaTH",
+          "name": "description",
+          "fill": "#888888",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "白背景に緑の飛行機アイコン＋緑ボーダー。\nライトテーマとの相性が良い。\n軽やかで爽やかな印象。",
+          "lineHeight": 1.6,
+          "textAlign": "center",
+          "fontFamily": "Outfit",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "QfkhN",
+      "x": 340,
+      "y": 420,
+      "name": "Concept 4 - Tabiji Plane Trail",
+      "clip": true,
+      "width": 320,
+      "height": 400,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 40,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "KvwhB",
+          "name": "label",
+          "fill": "#999999",
+          "content": "Concept 4: 飛行機 × 軌跡",
+          "fontFamily": "Outfit",
+          "fontSize": 12,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "IUseV",
+          "name": "Logo Mark",
+          "width": 80,
+          "height": 80,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 16,
+              "id": "jxh4p",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "bg",
+              "fill": "#3D8A5A",
+              "width": 80,
+              "height": 80
+            },
+            {
+              "type": "icon_font",
+              "id": "mRxgj",
+              "name": "planeIcon",
+              "rotation": -45,
+              "width": 36,
+              "height": 36,
+              "iconFontName": "plane",
+              "iconFontFamily": "lucide",
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "path",
+              "id": "9skPO",
+              "layoutPosition": "absolute",
+              "x": 8,
+              "y": 42,
+              "name": "trail1",
+              "geometry": "M28 0c-8 6-16 12-24 16-2 2-3 4-4 6",
+              "width": 28,
+              "height": 26,
+              "stroke": {
+                "thickness": 2.5,
+                "cap": "round",
+                "fill": "#FFFFFF"
+              }
+            },
+            {
+              "type": "path",
+              "id": "Wq0SL",
+              "layoutPosition": "absolute",
+              "x": 12,
+              "y": 46,
+              "name": "trail2",
+              "geometry": "M24 0c-8 5-14 10-20 14-2 2-3 4-4 6",
+              "width": 24,
+              "height": 22,
+              "stroke": {
+                "thickness": 2,
+                "cap": "round",
+                "fill": "#FFFFFF"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "VKSg2",
+          "name": "serviceName",
+          "fill": "#1A1918",
+          "content": "Tabiji",
+          "fontFamily": "Outfit",
+          "fontSize": 28,
+          "fontWeight": "700",
+          "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "IedIl",
+          "name": "tagline",
+          "fill": "#3D8A5A",
+          "content": "旅路",
+          "fontFamily": "Outfit",
+          "fontSize": 16,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "tivBl",
+          "name": "description",
+          "fill": "#888888",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "飛行機の軌跡（コントレイル）付き。\n左下から右上へ飛び立つイメージ。\n旅路＝道のりを線で表現。",
+          "lineHeight": 1.6,
+          "textAlign": "center",
+          "fontFamily": "Outfit",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "JjJxi",
+      "x": 680,
+      "y": 420,
+      "name": "Concept 5 - White BG + Green Plane Trail",
+      "clip": true,
+      "width": 320,
+      "height": 400,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 40,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "3XRf5",
+          "name": "label",
+          "fill": "#999999",
+          "content": "Concept 5: 白背景 × 緑飛行機＋軌跡",
+          "fontFamily": "Outfit",
+          "fontSize": 12,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "WT6yp",
+          "name": "Logo Mark",
+          "width": 80,
+          "height": 80,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 16,
+              "id": "Fg4TC",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "bg",
+              "fill": "#FFFFFF",
+              "width": 80,
+              "height": 80,
+              "stroke": {
+                "align": "inside",
+                "thickness": 3,
+                "fill": "#3D8A5A"
+              }
+            },
+            {
+              "type": "icon_font",
+              "id": "KMWzK",
+              "name": "planeIcon",
+              "rotation": -45,
+              "width": 36,
+              "height": 36,
+              "iconFontName": "plane",
+              "iconFontFamily": "lucide",
+              "fill": "#3D8A5A"
+            },
+            {
+              "type": "path",
+              "id": "e10Yb",
+              "layoutPosition": "absolute",
+              "x": 8,
+              "y": 42,
+              "name": "trail1",
+              "geometry": "M28 0c-8 6-16 12-24 16-2 2-3 4-4 6",
+              "width": 28,
+              "height": 26,
+              "stroke": {
+                "thickness": 2.5,
+                "cap": "round",
+                "fill": "#3D8A5A"
+              }
+            },
+            {
+              "type": "path",
+              "id": "Svzk6",
+              "layoutPosition": "absolute",
+              "x": 12,
+              "y": 46,
+              "name": "trail2",
+              "geometry": "M24 0c-8 5-14 10-20 14-2 2-3 4-4 6",
+              "width": 24,
+              "height": 22,
+              "stroke": {
+                "thickness": 2,
+                "cap": "round",
+                "fill": "#3D8A5A"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "FBCy9",
+          "name": "serviceName",
+          "fill": "#1A1918",
+          "content": "Tabiji",
+          "fontFamily": "Outfit",
+          "fontSize": 28,
+          "fontWeight": "700",
+          "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "dxc8w",
+          "name": "tagline",
+          "fill": "#3D8A5A",
+          "content": "旅路",
+          "fontFamily": "Outfit",
+          "fontSize": 16,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "zmcgl",
+          "name": "description",
+          "fill": "#888888",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "白背景に緑の飛行機＋軌跡。\nライトテーマとの相性が良い。\n軽やかで爽やかな印象。",
+          "lineHeight": 1.6,
+          "textAlign": "center",
+          "fontFamily": "Outfit",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    }
+  ]
+}
