@@ -17,7 +17,7 @@
           "name": "Header",
           "width": "fill_container",
           "height": 56,
-          "fill": "$bg-primary",
+          "fill": "$accent-primary",
           "padding": [
             0,
             20
@@ -29,8 +29,8 @@
               "type": "text",
               "id": "3OVTs",
               "name": "logoText",
-              "fill": "$accent-primary",
-              "content": "Shiori",
+              "fill": "#FFFFFF",
+              "content": "Tabiji",
               "fontFamily": "Outfit",
               "fontSize": 20,
               "fontWeight": "700",
@@ -99,7 +99,7 @@
                   "fill": "$text-secondary",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Shiori（以下「本サービス」）は、ユーザーのプライバシーを尊重し、個人情報の適切な取り扱いに努めます。",
+                  "content": "Tabiji（以下「本サービス」）は、ユーザーのプライバシーを尊重し、個人情報の適切な取り扱いに努めます。",
                   "lineHeight": 1.7,
                   "textAlign": "justify",
                   "fontFamily": "Inter",
