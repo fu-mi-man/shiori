@@ -18,7 +18,7 @@
           "name": "Header",
           "width": "fill_container",
           "height": 56,
-          "fill": "$bg-primary",
+          "fill": "$accent-primary",
           "padding": [
             0,
             20
@@ -29,8 +29,8 @@
             {
               "type": "text",
               "id": "QIwui",
-              "fill": "$accent-primary",
-              "content": "Shiori",
+              "fill": "#FFFFFF",
+              "content": "Tabiji",
               "fontFamily": "Outfit",
               "fontSize": 20,
               "fontWeight": "700",
@@ -133,7 +133,7 @@
                   "fill": "$text-secondary",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "本規約は、Shiori（以下「本サービス」）の利用に関する条件を定めるものです。本サービスを利用した時点で、本規約に同意したものとみなします。",
+                  "content": "本規約は、Tabiji（以下「本サービス」）の利用に関する条件を定めるものです。本サービスを利用した時点で、本規約に同意したものとみなします。",
                   "lineHeight": 1.7,
                   "textAlign": "justify",
                   "fontFamily": "Inter",
