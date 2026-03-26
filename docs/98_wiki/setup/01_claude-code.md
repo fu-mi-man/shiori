@@ -17,6 +17,7 @@ clone した時点で使用可能な状態になる。
 /plugin install security-guidance --scope project
 /plugin install typescript-lsp --scope project
 /plugin install code-review --scope project
+claude plugin install figma@claude-plugins-official --scope project
 ```
 
 | プラグイン | 用途 |
@@ -25,6 +26,9 @@ clone した時点で使用可能な状態になる。
 | `security-guidance` | XSS，SQLインジェクション等の脆弱性をコード編集時に自動検出 |
 | `typescript-lsp` | リアルタイム型チェック。型エラーをコード編集直後に検出 |
 | `code-review` | PRの自動コードレビュー。5つのエージェントが並列でレビュー |
+| `figma` | FigmaデザインファイルをClaude Codeから参照。MCPサーバー設定とAgent Skillsを一括インストール |
+
+> `figma` プラグインはインストール後に `/mcp` コマンドからOAuth認証が必要。詳細は `./09_figma.md` を参照。
 
 ### 2. スキル
 

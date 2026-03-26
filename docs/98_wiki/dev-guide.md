@@ -72,12 +72,14 @@ Claude Codeの拡張機能。全てプロジェクトスコープで管理し，
 | security-guidance | セキュリティ脆弱性の自動検出。XSS，SQLインジェクション等をコード編集時にブロック |
 | typescript-lsp | リアルタイム型チェック。型エラーをコード編集直後に検出 |
 | code-review | PRの自動コードレビュー。5つのSonnetエージェントが並列でレビューし，信頼度スコアで偽陽性をフィルタリング |
+| figma | FigmaデザインファイルをClaude Codeから参照。MCPサーバー設定とAgent Skillsを一括インストール。インストール後に `/mcp` からOAuth認証が必要 |
 
 ```bash
 /plugin install context7 --scope project
 /plugin install security-guidance --scope project
 /plugin install typescript-lsp --scope project
 /plugin install code-review --scope project
+claude plugin install figma@claude-plugins-official --scope project
 ```
 
 ### スキル
@@ -128,6 +130,7 @@ pnpm dlx skills add shadcn/ui
 |---------|------|------|
 | Pencil.dev | UIデザインツール連携 | VSCode/Cursor拡張機能をインストールすると内蔵MCPサーバーが自動起動。Claude Codeが`.pen`ファイルを読み取りコード生成 |
 | Playwright | E2Eテスト・ブラウザ自動操作 | 自然言語でブラウザを操作。テスト実行・デバッグに使用 |
+| Figma | Figmaデザインファイル参照 | `figma@claude-plugins-official` プラグインが自動設定。エンドポイント: `https://mcp.figma.com/mcp`。OAuth認証が必要（詳細は `setup/09_figma.md`） |
 
 ```bash
 # ホストで実行（claude CLIはホスト側にのみ存在するため）
@@ -176,7 +179,7 @@ shiori/
 │   ├── 01_requirements/                    # 要件定義（概要・機能・画面・データ・開発規約）
 │   ├── 02_specification/                   # 詳細設計
 │   ├── 98_wiki/                            # 開発Wiki
-│   │   └── setup/                          # ツール導入手順（00_initial〜08_playwright）
+│   │   └── setup/                          # ツール導入手順（00_initial〜09_figma）
 │   └── 99_research/                        # 調査・技術選定
 │
 ├── web/                                    # Next.jsアプリ（フロント＋バックエンド）
