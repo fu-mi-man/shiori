@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -5,9 +6,16 @@ export function Footer() {
     <footer className="bg-[#3D8A5A] px-6 pt-8 pb-10">
       <div className="mx-auto flex flex-col items-center gap-4">
         <Link
-          className="font-[family-name:var(--font-outfit)] font-bold text-2xl text-white tracking-tight"
+          className="flex items-center gap-2 font-[family-name:var(--font-outfit)] font-bold text-2xl text-white tracking-tight"
           href="/"
         >
+          <Image
+            alt="Tabiji"
+            className="rounded-lg"
+            height={36}
+            src="/tabiji-logo.png"
+            width={36}
+          />
           Tabiji
         </Link>
         <span className="text-base text-white/80">旅のしおり作成サービス</span>

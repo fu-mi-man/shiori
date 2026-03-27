@@ -6,13 +6,13 @@ import {
   MapPin,
   Minus,
   PenLine,
-  Plane,
   Timer,
   Users,
   UserX,
   X,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/features/common/Header";
 import { Button } from "@/components/ui/button";
@@ -132,9 +132,13 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex flex-col items-center gap-7 px-6 pt-10 pb-10">
           {/* Icon */}
-          <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-[#3D8A5A]">
-            <Plane className="h-9 w-9 text-white" />
-          </div>
+          <Image
+            alt="Tabiji"
+            className="rounded-[20px]"
+            height={72}
+            src="/tabiji-icon.png"
+            width={72}
+          />
 
           {/* Text */}
           <div className="flex w-full flex-col items-center gap-4">

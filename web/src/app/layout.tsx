@@ -36,6 +36,12 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Tabiji",
+  },
 };
 
 export default function RootLayout({
