@@ -97,6 +97,9 @@ const faqs = [
   },
 ];
 
+const ctaClassName =
+  "h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95 [a]:hover:bg-[#2f6e47]";
+
 function CompareIcon({ value }: { value: CompareValue }) {
   if (value === "yes")
     return (
@@ -148,10 +151,7 @@ export default function Home() {
           </div>
 
           {/* CTA Button */}
-          <Button
-            asChild
-            className="h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95 [a]:hover:bg-[#2f6e47]"
-          >
+          <Button asChild className={ctaClassName}>
             <Link href="/create">
               <PenLine className="h-5 w-5" />
               しおりを作る
@@ -314,10 +314,7 @@ export default function Home() {
 
         {/* Bottom CTA */}
         <div className="flex flex-col items-center gap-4 px-6 pt-4 pb-10">
-          <Button
-            asChild
-            className="h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95 [a]:hover:bg-[#2f6e47]"
-          >
+          <Button asChild className={ctaClassName}>
             <Link href="/create">
               <PenLine className="h-5 w-5" />
               しおりを作る
