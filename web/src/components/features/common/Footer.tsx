@@ -9,13 +9,7 @@ export function Footer() {
           className="flex items-center gap-2 font-[family-name:var(--font-outfit)] font-bold text-2xl text-white tracking-tight"
           href="/"
         >
-          <Image
-            alt="Tabiji"
-            className="rounded-lg"
-            height={36}
-            src="/tabiji-logo.png"
-            width={36}
-          />
+          <Image alt="" className="rounded-lg" height={36} src="/tabiji-logo.png" width={36} />
           Tabiji
         </Link>
         <span className="text-base text-white/80">旅のしおり作成サービス</span>

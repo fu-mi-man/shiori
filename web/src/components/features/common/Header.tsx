@@ -9,13 +9,7 @@ export function Header({ className = "max-w-xl px-6" }: { className?: string }) 
           className="flex items-center gap-2 font-[family-name:var(--font-outfit)] font-bold text-white text-xl tracking-tight"
           href="/"
         >
-          <Image
-            alt="Tabiji"
-            className="rounded-lg"
-            height={32}
-            src="/tabiji-logo.png"
-            width={32}
-          />
+          <Image alt="" className="rounded-lg" height={32} src="/tabiji-logo.png" width={32} />
           Tabiji
         </Link>
       </div>

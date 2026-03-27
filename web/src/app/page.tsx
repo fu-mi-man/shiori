@@ -133,9 +133,10 @@ export default function Home() {
         <section className="flex flex-col items-center gap-7 px-6 pt-10 pb-10">
           {/* Icon */}
           <Image
-            alt="Tabiji"
+            alt=""
             className="rounded-[20px]"
             height={72}
+            priority
             src="/tabiji-icon.png"
             width={72}
           />
