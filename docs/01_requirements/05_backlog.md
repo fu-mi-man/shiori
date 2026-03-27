@@ -459,6 +459,9 @@
 - 閲覧画面のフッター付近に「ホーム画面に追加するとアプリのように使えます」の案内を表示
 - iOS（Safari）/ Android（Chrome）でOS標準の「ホーム画面に追加」機能を利用
 - 作業量: アイコン画像の用意 + manifest.json + metaタグ数行
+- manifest + metaタグ + アイコンは導入済み
+- 案内バナーは別タスクとして実装する（.penでデザインを先に作成してから）
+- バナー実装時のメモ: Client Component、UA判定でOS別案内、`display-mode: standalone` 判定で既にPWAなら非表示
 
 ---
 
