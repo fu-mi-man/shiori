@@ -105,12 +105,16 @@ function CompareIcon({ value }: { value: CompareValue }) {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F4F1]">
-      <div className="mx-auto max-w-xl">
-        {/* Header */}
-        <header className="flex h-14 items-center px-5">
-          <span className="font-bold text-[#3D8A5A] text-xl tracking-tight">Tabiji</span>
-        </header>
+      {/* Header */}
+      <header className="bg-[#3D8A5A]">
+        <div className="mx-auto flex h-14 max-w-xl items-center px-6">
+          <span className="font-[family-name:var(--font-outfit)] font-bold text-white text-xl tracking-tight">
+            Tabiji
+          </span>
+        </div>
+      </header>
 
+      <div className="mx-auto max-w-xl">
         {/* Hero Section */}
         <section className="flex flex-col items-center gap-7 px-6 pt-10 pb-10">
           {/* Icon */}
