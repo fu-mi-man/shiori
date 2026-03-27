@@ -1,11 +1,12 @@
 import {
   Check,
   CircleCheck,
+  Home as HomeIcon,
   Link as LinkIcon,
-  Map as MapIcon,
+  MapPin,
   Minus,
   PenLine,
-  Smartphone,
+  Plane,
   Timer,
   Users,
   UserX,
@@ -34,63 +35,108 @@ const comparisonRows: {
   { label: "インストール不要", app: "no", web: "yes", shiori: "yes" },
   { label: "モバイル最適化", app: "yes", web: "partial", shiori: "yes" },
   { label: "即シェア（URL共有）", app: "partial", web: "yes", shiori: "yes" },
-];
-
-const voices = [
-  {
-    icon: PenLine,
-    title: "旅の全体像がクリアになる",
-    desc: "行程を書き出すだけで準備の抜け漏れに気づけます",
-  },
-  {
-    icon: Users,
-    title: "「予定どうだっけ？」がなくなる",
-    desc: "URLを送るだけで全員が同じ予定を確認できます",
-  },
-  {
-    icon: Timer,
-    title: "当日の段取りがスムーズになる",
-    desc: "集合時間や移動手段が明確だから、当日慌てません",
-  },
-];
-
-const experiencePoints = [
-  { icon: Smartphone, text: "モバイルファーストのタイムライン表示" },
-  { icon: Zap, text: "高速表示に最適化された軽量設計" },
+  { label: "オフライン対応", app: "yes", web: "partial", shiori: "partial" },
+  { label: "地図連携", app: "yes", web: "partial", shiori: "no" },
 ];
 
 const features = [
   {
     icon: Zap,
     title: "かんたん作成",
-    desc: "タイトルを入れるだけでOK。行程は後から追加できます",
+    desc: "タイトルを入れるだけでOK、行程は後から追加できます",
   },
   {
     icon: LinkIcon,
     title: "URLでシェア",
-    desc: "作ったしおりはURLをコピーするだけで共有完了",
+    desc: "URLを送るだけでみんなに共有できる",
   },
   {
     icon: UserX,
     title: "アカウント不要",
-    desc: "会員登録なしですぐ使える。メールアドレスも不要です",
+    desc: "会員登録なしですぐ使える、メールアドレスも不要です",
   },
 ];
+
+const experiencePoints = [
+  { icon: MapPin, text: "タイムライン表示で、次の予定がひと目でわかる" },
+  { icon: HomeIcon, text: "ホーム画面に追加すれば、アプリ感覚でワンタップで開ける" },
+  { icon: Users, text: "全員が同じ画面を見るから、認識のズレが起きない" },
+];
+
+const voices = [
+  {
+    icon: PenLine,
+    title: "旅の全体像がクリアになる",
+    desc: "書き出してみたら『ホテルのチェックイン時間調べてなかった』に気づける",
+  },
+  {
+    icon: Users,
+    title: "「予定どうだっけ？」がなくなる",
+    desc: "グループLINEにURL貼るだけで共有完了、説明いらずでラク",
+  },
+  {
+    icon: Timer,
+    title: "当日の段取りがスムーズになる",
+    desc: "当日『次どこ行くんだっけ？』と聞かれなくなる",
+  },
+];
+
+const faqs = [
+  {
+    q: "本当に無料ですか？",
+    a: "すべての機能を無料でお使いいただけます。アカウント登録も不要です。",
+  },
+  {
+    q: "作ったしおりはいつまで残りますか？",
+    a: "最後のアクセスから3ヶ月経過すると自動的に削除されます。期間内にアクセスすれば延長されます。",
+  },
+  {
+    q: "他の人に勝手に編集されませんか？",
+    a: "編集保護機能を準備中です。URLを知っている人のみ閲覧・編集できます。",
+  },
+];
+
+function CompareIcon({ value }: { value: CompareValue }) {
+  if (value === "yes")
+    return (
+      <>
+        <Check className="h-4 w-4 text-[#3D8A5A]" />
+        <span className="sr-only">対応</span>
+      </>
+    );
+  if (value === "no")
+    return (
+      <>
+        <X className="h-4 w-4 text-red-400" />
+        <span className="sr-only">非対応</span>
+      </>
+    );
+  return (
+    <>
+      <Minus className="h-4 w-4 text-gray-300" />
+      <span className="sr-only">一部対応</span>
+    </>
+  );
+}
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F4F1]">
-      <div className="mx-auto max-w-xl">
-        {/* Header */}
-        <header className="flex h-14 items-center px-5">
-          <span className="font-bold text-[#3D8A5A] text-xl tracking-tight">Tabiji</span>
-        </header>
+      {/* Header */}
+      <header className="bg-[#3D8A5A]">
+        <div className="mx-auto flex h-14 max-w-xl items-center px-6">
+          <span className="font-[family-name:var(--font-outfit)] font-bold text-white text-xl tracking-tight">
+            Tabiji
+          </span>
+        </div>
+      </header>
 
+      <div className="mx-auto max-w-xl">
         {/* Hero Section */}
         <section className="flex flex-col items-center gap-7 px-6 pt-10 pb-10">
           {/* Icon */}
           <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-[#3D8A5A]">
-            <MapIcon className="h-9 w-9 text-white" />
+            <Plane className="h-9 w-9 text-white" />
           </div>
 
           {/* Text */}
@@ -101,9 +147,9 @@ export default function Home() {
               かんたん作成
             </h1>
             <p className="text-center text-[15px] text-gray-500 leading-[1.6]">
-              行程表をサクッと作って、URLでみんなにシェア。
+              行程表を作って、URLでシェア。たった3ステップ。
               <br />
-              アカウント登録は不要です。
+              アプリもアカウントも不要です。
             </p>
           </div>
 
@@ -122,6 +168,66 @@ export default function Home() {
           <div className="flex items-center gap-1.5">
             <CircleCheck className="h-4 w-4 text-[#3D8A5A]" />
             <span className="font-semibold text-[#3D8A5A] text-sm">無料・登録不要ですぐ使える</span>
+          </div>
+        </section>
+
+        {/* Steps Section */}
+        <section className="flex flex-col gap-6 px-6 py-6">
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">たった3ステップ</h2>
+          </div>
+          <div className="flex flex-col gap-5">
+            {steps.map(({ num, title, desc }) => (
+              <div className="flex items-center gap-3.5" key={num}>
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3D8A5A]">
+                  <span className="font-bold text-sm text-white">{num}</span>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-semibold text-[15px] text-gray-900">{title}</span>
+                  <span className="text-[13px] text-gray-500">{desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Comparison Section */}
+        <section className="flex flex-col gap-5 px-6 py-6">
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">他サービスとの違い</h2>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-[#E5E4E1]">
+            {/* Table Header */}
+            <div className="flex h-10 items-center bg-[#3D8A5A] px-4">
+              <span className="flex-1" />
+              <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
+                アプリ型
+              </span>
+              <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
+                他Web型
+              </span>
+              <span className="w-[60px] text-center font-bold text-white text-xs">Tabiji</span>
+            </div>
+            {/* Table Rows */}
+            {comparisonRows.map(({ label, app, web, shiori }, i) => (
+              <div
+                className={`flex h-10 items-center bg-white px-4 ${i < comparisonRows.length - 1 ? "border-[#E5E4E1] border-b" : ""}`}
+                key={label}
+              >
+                <span className="flex-1 font-medium text-gray-900 text-xs">{label}</span>
+                <div className="flex w-[70px] justify-center">
+                  <CompareIcon value={app} />
+                </div>
+                <div className="flex w-[70px] justify-center">
+                  <CompareIcon value={web} />
+                </div>
+                <div className="flex w-[60px] justify-center">
+                  <CompareIcon value={shiori} />
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -144,27 +250,6 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Steps Section */}
-        <section className="flex flex-col gap-6 px-6 py-6">
-          <div className="flex items-center gap-2.5">
-            <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">たった3ステップ</h2>
-          </div>
-          <div className="flex flex-col gap-5">
-            {steps.map(({ num, title, desc }) => (
-              <div className="flex items-center gap-3.5" key={num}>
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3D8A5A]">
-                  <span className="font-bold text-sm text-white">{num}</span>
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  <span className="font-semibold text-[15px] text-gray-900">{title}</span>
-                  <span className="text-[13px] text-gray-500">{desc}</span>
-                </div>
-              </div>
             ))}
           </div>
         </section>
@@ -214,57 +299,21 @@ export default function Home() {
             ))}
           </div>
         </section>
-        {/* Comparison Section */}
-        <section className="flex flex-col gap-5 px-6 pt-6 pb-8">
+
+        {/* FAQ Section */}
+        <section className="flex flex-col gap-5 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">他サービスとの違い</h2>
+            <h2 className="font-bold text-gray-900 text-xl tracking-tight">よくある質問</h2>
           </div>
-          <div className="overflow-hidden rounded-xl border border-[#E5E4E1]">
-            {/* Table Header */}
-            <div className="flex h-10 items-center bg-[#3D8A5A] px-4">
-              <span className="flex-1" />
-              <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
-                アプリ型
-              </span>
-              <span className="w-[70px] text-center font-semibold text-white/70 text-xs">
-                他Web型
-              </span>
-              <span className="w-[60px] text-center font-bold text-white text-xs">Tabiji</span>
-            </div>
-            {/* Table Rows */}
-            {comparisonRows.map(({ label, app, web, shiori }, i) => (
-              <div
-                className={`flex h-10 items-center px-4 ${i < comparisonRows.length - 1 ? "border-[#E5E4E1] border-b" : ""}`}
-                key={label}
-              >
-                <span className="flex-1 font-medium text-gray-900 text-xs">{label}</span>
-                <div className="flex w-[70px] justify-center">
-                  {app === "yes" ? (
-                    <Check className="h-4 w-4 text-[#3D8A5A]" />
-                  ) : app === "no" ? (
-                    <X className="h-4 w-4 text-red-400" />
-                  ) : (
-                    <Minus className="h-4 w-4 text-gray-300" />
-                  )}
-                </div>
-                <div className="flex w-[70px] justify-center">
-                  {web === "yes" ? (
-                    <Check className="h-4 w-4 text-[#3D8A5A]" />
-                  ) : web === "no" ? (
-                    <X className="h-4 w-4 text-red-400" />
-                  ) : (
-                    <Minus className="h-4 w-4 text-gray-300" />
-                  )}
-                </div>
-                <div className="flex w-[60px] justify-center">
-                  {shiori === "yes" ? (
-                    <Check className="h-4 w-4 text-[#3D8A5A]" />
-                  ) : (
-                    <Minus className="h-4 w-4 text-gray-300" />
-                  )}
-                </div>
-              </div>
+          <div className="flex flex-col gap-3">
+            {faqs.map(({ q, a }) => (
+              <Card className="border-[#E5E4E1] bg-white py-0" key={q}>
+                <CardContent className="flex flex-col gap-2 p-4">
+                  <span className="font-semibold text-[14px] text-gray-900">Q. {q}</span>
+                  <span className="text-[13px] text-gray-500 leading-[1.6]">A. {a}</span>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </section>
@@ -284,6 +333,17 @@ export default function Home() {
             <CircleCheck className="h-4 w-4 text-[#3D8A5A]" />
             <span className="font-semibold text-[#3D8A5A] text-sm">無料・登録不要ですぐ使える</span>
           </div>
+          <p className="text-center text-[12px] text-gray-400">
+            しおりを作ることで
+            <Link className="font-bold underline" href="/terms">
+              利用規約
+            </Link>
+            と
+            <Link className="font-bold underline" href="/privacy">
+              プライバシーポリシー
+            </Link>
+            に同意したものとみなされます。
+          </p>
         </div>
       </div>
     </div>
