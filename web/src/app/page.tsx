@@ -14,6 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+import { Header } from "@/components/features/common/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -122,14 +123,7 @@ function CompareIcon({ value }: { value: CompareValue }) {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F4F1]">
-      {/* Header */}
-      <header className="bg-[#3D8A5A]">
-        <div className="mx-auto flex h-14 max-w-xl items-center px-6">
-          <span className="font-[family-name:var(--font-outfit)] font-bold text-white text-xl tracking-tight">
-            Tabiji
-          </span>
-        </div>
-      </header>
+      <Header />
 
       <div className="mx-auto max-w-xl">
         {/* Hero Section */}
@@ -156,7 +150,7 @@ export default function Home() {
           {/* CTA Button */}
           <Button
             asChild
-            className="h-[52px] w-full gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47]"
+            className="h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95 [a]:hover:bg-[#2f6e47]"
           >
             <Link href="/create">
               <PenLine className="h-5 w-5" />
@@ -322,7 +316,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 px-6 pt-4 pb-10">
           <Button
             asChild
-            className="h-[52px] w-full gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47]"
+            className="h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95 [a]:hover:bg-[#2f6e47]"
           >
             <Link href="/create">
               <PenLine className="h-5 w-5" />
