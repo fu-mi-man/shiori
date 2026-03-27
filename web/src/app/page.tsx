@@ -3,10 +3,10 @@ import {
   CircleCheck,
   Home as HomeIcon,
   Link as LinkIcon,
-  Map as MapIcon,
   MapPin,
   Minus,
   PenLine,
+  Plane,
   Timer,
   Users,
   UserX,
@@ -97,9 +97,26 @@ const faqs = [
 ];
 
 function CompareIcon({ value }: { value: CompareValue }) {
-  if (value === "yes") return <Check className="h-4 w-4 text-[#3D8A5A]" />;
-  if (value === "no") return <X className="h-4 w-4 text-red-400" />;
-  return <Minus className="h-4 w-4 text-gray-300" />;
+  if (value === "yes")
+    return (
+      <>
+        <Check className="h-4 w-4 text-[#3D8A5A]" />
+        <span className="sr-only">対応</span>
+      </>
+    );
+  if (value === "no")
+    return (
+      <>
+        <X className="h-4 w-4 text-red-400" />
+        <span className="sr-only">非対応</span>
+      </>
+    );
+  return (
+    <>
+      <Minus className="h-4 w-4 text-gray-300" />
+      <span className="sr-only">一部対応</span>
+    </>
+  );
 }
 
 export default function Home() {
@@ -119,7 +136,7 @@ export default function Home() {
         <section className="flex flex-col items-center gap-7 px-6 pt-10 pb-10">
           {/* Icon */}
           <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-[#3D8A5A]">
-            <MapIcon className="h-9 w-9 text-white" />
+            <Plane className="h-9 w-9 text-white" />
           </div>
 
           {/* Text */}
