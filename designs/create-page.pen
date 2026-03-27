@@ -1,5 +1,5 @@
 {
-  "version": "2.8",
+  "version": "2.9",
   "children": [
     {
       "type": "frame",
@@ -37,7 +37,7 @@
               "id": "qPDT4",
               "name": "headerTitle",
               "fill": "#FFFFFF",
-              "content": "しおりを作る",
+              "content": "Tabiji",
               "fontFamily": "Outfit",
               "fontSize": 18,
               "fontWeight": "600",
@@ -234,6 +234,60 @@
                   "children": [
                     {
                       "type": "frame",
+                      "id": "wV5bE",
+                      "name": "ov1Hdr",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "JeXXp",
+                          "name": "ov1Badge",
+                          "fill": "#3D8A5A",
+                          "cornerRadius": 100,
+                          "padding": [
+                            4,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "nHY1Z",
+                              "fill": "#FFFFFF",
+                              "content": "概要 1",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "iGdYG",
+                          "name": "ov1Del",
+                          "width": 28,
+                          "height": 28,
+                          "cornerRadius": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "RNNU1",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "x",
+                              "iconFontFamily": "lucide",
+                              "fill": "#6D6C6A"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
                       "id": "7QsHy",
                       "name": "titleWrap1",
                       "width": "fill_container",
@@ -257,29 +311,6 @@
                               "fontFamily": "Outfit",
                               "fontSize": 12,
                               "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "S1dX2",
-                              "name": "ovItem1Del",
-                              "width": 24,
-                              "height": 24,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "ePWZd",
-                                  "name": "ovItem1DelIcon",
-                                  "width": 14,
-                                  "height": 14,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
-                                }
-                              ]
                             }
                           ]
                         },
@@ -396,6 +427,60 @@
                   "children": [
                     {
                       "type": "frame",
+                      "id": "bWbnc",
+                      "name": "ov2Hdr",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "4fdDC",
+                          "name": "ov2Badge",
+                          "fill": "#3D8A5A",
+                          "cornerRadius": 100,
+                          "padding": [
+                            4,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "XWTss",
+                              "fill": "#FFFFFF",
+                              "content": "概要 2",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JKEzq",
+                          "name": "ov2Del",
+                          "width": 28,
+                          "height": 28,
+                          "cornerRadius": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "ZVtpI",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "x",
+                              "iconFontFamily": "lucide",
+                              "fill": "#6D6C6A"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
                       "id": "V1u4R",
                       "name": "titleWrap2",
                       "width": "fill_container",
@@ -419,29 +504,6 @@
                               "fontFamily": "Outfit",
                               "fontSize": 12,
                               "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "FNqxd",
-                              "name": "ovItem2Del",
-                              "width": 24,
-                              "height": 24,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "MsCkS",
-                                  "name": "ovItem2DelIcon",
-                                  "width": 14,
-                                  "height": 14,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
-                                }
-                              ]
                             }
                           ]
                         },
@@ -558,6 +620,60 @@
                   "children": [
                     {
                       "type": "frame",
+                      "id": "Lz89O",
+                      "name": "ov3Hdr",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "9YcK1",
+                          "name": "ov3Badge",
+                          "fill": "#3D8A5A",
+                          "cornerRadius": 100,
+                          "padding": [
+                            4,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "7Fngj",
+                              "fill": "#FFFFFF",
+                              "content": "概要 3",
+                              "fontFamily": "Outfit",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Npmid",
+                          "name": "ov3Del",
+                          "width": 28,
+                          "height": 28,
+                          "cornerRadius": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "xGpwN",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "x",
+                              "iconFontFamily": "lucide",
+                              "fill": "#6D6C6A"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
                       "id": "KVhaU",
                       "name": "titleWrap3",
                       "width": "fill_container",
@@ -581,29 +697,6 @@
                               "fontFamily": "Outfit",
                               "fontSize": 12,
                               "fontWeight": "500"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "meQv8",
-                              "name": "ovItem3Del",
-                              "width": 24,
-                              "height": 24,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "EyWka",
-                                  "name": "ovItem3DelIcon",
-                                  "width": 14,
-                                  "height": 14,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
-                                }
-                              ]
                             }
                           ]
                         },
@@ -720,6 +813,39 @@
                       "fontSize": 16,
                       "fontWeight": "600",
                       "letterSpacing": -0.2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SUVcM",
+                      "name": "addDayHdrBtn",
+                      "fill": "#C8F0D8",
+                      "cornerRadius": 100,
+                      "gap": 4,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "vQ4b2",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "plus",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3D8A5A"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hoLkJ",
+                          "fill": "#3D8A5A",
+                          "content": "日程を追加",
+                          "fontFamily": "Outfit",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -922,6 +1048,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "xeCz7",
+                          "name": "sc1Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "iV3xQ",
+                              "name": "sc1Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ZO7Dv",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 1",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "uW35l",
+                              "name": "sc1Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "C4ukV",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "EMgYa",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -987,29 +1167,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "ZvBQD",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "voQPZ",
-                                  "name": "ci1",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -1151,6 +1308,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "cAVee",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "Tgzfu",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "kYxsV",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -1173,6 +1359,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "BIOcj",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "FgrYZ",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -1209,64 +1424,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "cAVee",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "Tgzfu",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "F3rjA",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "hjm2N",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "58Svq",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -1296,8 +1453,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "BIOcj",
-                                  "name": "trTaxi",
+                                  "id": "F3rjA",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -1313,11 +1470,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "FgrYZ",
-                                      "name": "trTaxiIcon",
+                                      "id": "hjm2N",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -1436,6 +1593,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "skeFr",
+                          "name": "sc2Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "uzDGA",
+                              "name": "sc2Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "z4B9c",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 2",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "EmT6b",
+                              "name": "sc2Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "lcOLu",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "qoRp7",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -1501,29 +1712,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "XkG7x",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "zI88H",
-                                  "name": "ci2",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -1665,6 +1853,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "jX0ve",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#C8F0D8",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1.5,
+                                    "fill": "#3D8A5A"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "UDXrc",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#3D8A5A"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "8oRb9",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -1687,6 +1904,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "pUAeW",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "r6XM8",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -1723,64 +1969,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "jX0ve",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#C8F0D8",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1.5,
-                                    "fill": "#3D8A5A"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "UDXrc",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#3D8A5A"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "nfgu3",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "7ZKwV",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "0J3XD",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -1810,8 +1998,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "pUAeW",
-                                  "name": "trTaxi",
+                                  "id": "nfgu3",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -1827,11 +2015,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "r6XM8",
-                                      "name": "trTaxiIcon",
+                                      "id": "7ZKwV",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -1950,6 +2138,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "sp6Lv",
+                          "name": "sc3Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "GMjPp",
+                              "name": "sc3Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "uordS",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 3",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Mobfy",
+                              "name": "sc3Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "5JrtH",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "Siy9d",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -2015,29 +2257,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "sIWK0",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "8Vo5I",
-                                  "name": "ci3",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -2179,6 +2398,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "QzE6O",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#C8F0D8",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1.5,
+                                    "fill": "#3D8A5A"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "SK8gZ",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#3D8A5A"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "OVm3i",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -2201,6 +2449,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "HXLuG",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "m6PCl",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -2237,64 +2514,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "QzE6O",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#C8F0D8",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1.5,
-                                    "fill": "#3D8A5A"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "SK8gZ",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#3D8A5A"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "VkZ1l",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "cWaIM",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "0sheP",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -2324,8 +2543,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "HXLuG",
-                                  "name": "trTaxi",
+                                  "id": "VkZ1l",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -2341,11 +2560,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "m6PCl",
-                                      "name": "trTaxiIcon",
+                                      "id": "cWaIM",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -2468,7 +2687,7 @@
                           "id": "Cm96a",
                           "name": "addSlot1Text",
                           "fill": "#3D8A5A",
-                          "content": "コマを追加",
+                          "content": "予定を追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
                           "fontWeight": "600"
@@ -2580,6 +2799,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "5kmPj",
+                          "name": "d2s1Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "YfmUq",
+                              "name": "d2s1Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "vbWBN",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 1",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "LjNxK",
+                              "name": "d2s1Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "wzgB4",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "6UvC9",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -2645,29 +2918,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "BrbtV",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "6Fyer",
-                                  "name": "ci4",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -2809,6 +3059,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "ZakQA",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#C8F0D8",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1.5,
+                                    "fill": "#3D8A5A"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "UbyGG",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#3D8A5A"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "4PNUI",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -2831,6 +3110,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "7gwKw",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "IXnjn",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -2867,64 +3175,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "ZakQA",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#C8F0D8",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1.5,
-                                    "fill": "#3D8A5A"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "UbyGG",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#3D8A5A"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "UvMcp",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "mVate",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "KfKNx",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -2954,8 +3204,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "7gwKw",
-                                  "name": "trTaxi",
+                                  "id": "UvMcp",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -2971,11 +3221,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "IXnjn",
-                                      "name": "trTaxiIcon",
+                                      "id": "mVate",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -3094,6 +3344,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "uBApn",
+                          "name": "d2s2Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "PLZxw",
+                              "name": "d2s2Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "5yyCe",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 2",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Rmi3V",
+                              "name": "d2s2Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "CfmyC",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "67bqw",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -3159,29 +3463,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "qL79O",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "ETJcM",
-                                  "name": "ci5",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -3323,6 +3604,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "KYXZu",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#C8F0D8",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1.5,
+                                    "fill": "#3D8A5A"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "cPD58",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#3D8A5A"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "sn6W4",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -3345,6 +3655,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "UUKTU",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "xhOOO",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -3381,64 +3720,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "KYXZu",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#C8F0D8",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1.5,
-                                    "fill": "#3D8A5A"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "cPD58",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#3D8A5A"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "4uyve",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "Xzqtz",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "siflx",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -3468,8 +3749,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "UUKTU",
-                                  "name": "trTaxi",
+                                  "id": "4uyve",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -3485,11 +3766,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "xhOOO",
-                                      "name": "trTaxiIcon",
+                                      "id": "Xzqtz",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -3612,7 +3893,7 @@
                           "id": "ZWmTw",
                           "name": "addSlot2Text",
                           "fill": "#3D8A5A",
-                          "content": "コマを追加",
+                          "content": "予定を追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
                           "fontWeight": "600"
@@ -3724,6 +4005,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "y1ULb",
+                          "name": "d3s1Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "iNiq3",
+                              "name": "d3s1Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "cpZYI",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 1",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "YFpwu",
+                              "name": "d3s1Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "kfWst",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "R0Vco",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -3789,29 +4124,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "Livd1",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "Wfnqo",
-                                  "name": "ci6",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -3953,6 +4265,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "yfAbJ",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "xGPMZ",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "lRMel",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -3975,6 +4316,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "X9qGT",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "5aC7t",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -4011,64 +4381,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "yfAbJ",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "xGPMZ",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "1Pxfn",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "9la2H",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "jNjb6",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -4098,8 +4410,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "X9qGT",
-                                  "name": "trTaxi",
+                                  "id": "1Pxfn",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -4115,11 +4427,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "5aC7t",
-                                      "name": "trTaxiIcon",
+                                      "id": "9la2H",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -4237,6 +4549,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "h0vYX",
+                          "name": "d3s2Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "TCVrU",
+                              "name": "d3s2Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "hGe1W",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 2",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "22m0q",
+                              "name": "d3s2Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "rLtwX",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "HowFV",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -4302,29 +4668,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "lz1Lr",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "jytmr",
-                                  "name": "ci7",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -4466,6 +4809,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "kTlw7",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#C8F0D8",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1.5,
+                                    "fill": "#3D8A5A"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "uaXDC",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#3D8A5A"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "o2HMN",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -4488,6 +4860,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "TiSP9",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "xukNA",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -4524,64 +4925,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "kTlw7",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#C8F0D8",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1.5,
-                                    "fill": "#3D8A5A"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "uaXDC",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#3D8A5A"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "Qn3vf",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "aRSI6",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "OgXtv",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -4611,8 +4954,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "TiSP9",
-                                  "name": "trTaxi",
+                                  "id": "Qn3vf",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -4628,11 +4971,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "xukNA",
-                                      "name": "trTaxiIcon",
+                                      "id": "aRSI6",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -4751,6 +5094,60 @@
                       "children": [
                         {
                           "type": "frame",
+                          "id": "6aPEX",
+                          "name": "d3s3Hdr",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "bW3JW",
+                              "name": "d3s3Badge",
+                              "fill": "#3D8A5A",
+                              "cornerRadius": 100,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "K2MBL",
+                                  "fill": "#FFFFFF",
+                                  "content": "予定 3",
+                                  "fontFamily": "Outfit",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "R8hUx",
+                              "name": "d3s3Del",
+                              "width": 28,
+                              "height": 28,
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "wzppp",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "x",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#6D6C6A"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
                           "id": "GGDlq",
                           "name": "schCard1Row1",
                           "width": "fill_container",
@@ -4816,29 +5213,6 @@
                                       "fill": "#9C9B99"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "e8hlX",
-                              "name": "cardDel",
-                              "width": 22,
-                              "height": 22,
-                              "fill": "#FBDAD8",
-                              "cornerRadius": 100,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "Zmztl",
-                                  "name": "ci8",
-                                  "width": 12,
-                                  "height": 12,
-                                  "iconFontName": "x",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#C84A3A"
                                 }
                               ]
                             }
@@ -4980,6 +5354,35 @@
                                 },
                                 {
                                   "type": "frame",
+                                  "id": "K99il",
+                                  "name": "trCar",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "c0pb8",
+                                      "name": "trCarIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
                                   "id": "usTIf",
                                   "name": "trBus",
                                   "width": "fill_container",
@@ -5002,6 +5405,35 @@
                                       "width": 18,
                                       "height": 18,
                                       "iconFontName": "bus",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#9C9B99"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "ZBFYZ",
+                                  "name": "trTaxi",
+                                  "width": "fill_container",
+                                  "height": 36,
+                                  "fill": "#FFFFFF",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1,
+                                    "fill": "#E5E4E1"
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "r3GO6",
+                                      "name": "trTaxiIcon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "iconFontName": "car-taxi-front",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -5038,64 +5470,6 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "K99il",
-                                  "name": "trCar",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "c0pb8",
-                                      "name": "trCarIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "car",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "kfCHx",
-                                  "name": "trShip",
-                                  "width": "fill_container",
-                                  "height": 36,
-                                  "fill": "#FFFFFF",
-                                  "cornerRadius": 8,
-                                  "stroke": {
-                                    "align": "inside",
-                                    "thickness": 1,
-                                    "fill": "#E5E4E1"
-                                  },
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon_font",
-                                      "id": "b7jtM",
-                                      "name": "trShipIcon",
-                                      "width": 18,
-                                      "height": 18,
-                                      "iconFontName": "ship",
-                                      "iconFontFamily": "lucide",
-                                      "fill": "#9C9B99"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
                                   "id": "XDbFV",
                                   "name": "trBike",
                                   "width": "fill_container",
@@ -5125,8 +5499,8 @@
                                 },
                                 {
                                   "type": "frame",
-                                  "id": "ZBFYZ",
-                                  "name": "trTaxi",
+                                  "id": "kfCHx",
+                                  "name": "trShip",
                                   "width": "fill_container",
                                   "height": 36,
                                   "fill": "#FFFFFF",
@@ -5142,11 +5516,11 @@
                                   "children": [
                                     {
                                       "type": "icon_font",
-                                      "id": "r3GO6",
-                                      "name": "trTaxiIcon",
+                                      "id": "b7jtM",
+                                      "name": "trShipIcon",
                                       "width": 18,
                                       "height": 18,
-                                      "iconFontName": "car-taxi-front",
+                                      "iconFontName": "ship",
                                       "iconFontFamily": "lucide",
                                       "fill": "#9C9B99"
                                     }
@@ -5269,46 +5643,12 @@
                           "id": "0Oljk",
                           "name": "addSlot3Text",
                           "fill": "#3D8A5A",
-                          "content": "コマを追加",
+                          "content": "予定を追加",
                           "fontFamily": "Outfit",
                           "fontSize": 13,
                           "fontWeight": "600"
                         }
                       ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "8cIRZ",
-                  "name": "addDayBtn",
-                  "width": "fill_container",
-                  "height": 44,
-                  "fill": "#C8F0D8",
-                  "cornerRadius": 12,
-                  "gap": 6,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "tIcxw",
-                      "name": "addDayIcon",
-                      "width": 16,
-                      "height": 16,
-                      "iconFontName": "calendar-plus",
-                      "iconFontFamily": "lucide",
-                      "fill": "#3D8A5A"
-                    },
-                    {
-                      "type": "text",
-                      "id": "CBKgD",
-                      "name": "addDayText",
-                      "fill": "#3D8A5A",
-                      "content": "日程を追加",
-                      "fontFamily": "Outfit",
-                      "fontSize": 14,
-                      "fontWeight": "600"
                     }
                   ]
                 }
@@ -5345,10 +5685,34 @@
                       "id": "r3tdQ",
                       "name": "pwLabel",
                       "fill": "#1A1918",
-                      "content": "合言葉（任意）",
+                      "content": "合言葉",
                       "fontFamily": "Outfit",
                       "fontSize": 14,
                       "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Aj9OH",
+                      "name": "optBadge",
+                      "fill": "#EDECEA",
+                      "cornerRadius": 4,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "OGMGd",
+                          "fill": "#6D6C6A",
+                          "content": "任意",
+                          "fontFamily": "Outfit",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -5426,7 +5790,7 @@
                   "name": "submitIcon",
                   "width": 20,
                   "height": 20,
-                  "iconFontName": "check",
+                  "iconFontName": "pen-line",
                   "iconFontFamily": "lucide",
                   "fill": "#FFFFFF"
                 },
@@ -5435,7 +5799,7 @@
                   "id": "uy3Jy",
                   "name": "submitText",
                   "fill": "#FFFFFF",
-                  "content": "完了",
+                  "content": "作成する",
                   "fontFamily": "Outfit",
                   "fontSize": 16,
                   "fontWeight": "600"
