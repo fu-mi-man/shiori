@@ -25,10 +25,9 @@ function BulletItem({ children }: { children: React.ReactNode }) {
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[#F5F4F1]">
-      <div className="mx-auto max-w-[480px]">
-        <Header />
-
-        <div className="flex flex-col gap-8 bg-white px-6 py-8">
+      <Header />
+      <div className="mx-auto max-w-xl">
+        <div className="flex flex-col gap-8 px-6 py-8">
           {/* タイトルブロック */}
           <div className="flex flex-col gap-2">
             <h1 className="font-[family-name:var(--font-outfit)] font-bold text-2xl text-[#1A1918] tracking-tight">

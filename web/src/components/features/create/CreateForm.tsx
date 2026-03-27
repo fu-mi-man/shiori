@@ -6,9 +6,9 @@ import {
   CableCar,
   Car,
   CarTaxiFront,
-  Check,
   Footprints,
   Lock,
+  PenLine,
   Plane,
   Plus,
   Ship,
@@ -356,11 +356,11 @@ export function CreateForm({
                 >
                   <CardHeader>
                     <CardTitle>
-                      <Badge variant="step">コマ {scheduleIndex + 1}</Badge>
+                      <Badge variant="step">予定 {scheduleIndex + 1}</Badge>
                     </CardTitle>
                     <CardAction>
                       <Button
-                        aria-label="コマを削除"
+                        aria-label="予定を削除"
                         className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                         onClick={() => removeSchedule(day.id, schedule.id)}
                         size="icon-sm"
@@ -461,7 +461,7 @@ export function CreateForm({
                 </Card>
               ))}
 
-              {/* コマを追加ボタン */}
+              {/* 予定を追加ボタン */}
               <Button
                 className="relative h-11 w-full cursor-pointer border-[#D1D0CD] border-dashed text-[#6D6C6A] text-xs before:absolute before:-inset-[2px] before:content-[''] hover:bg-[#F5F5F4] hover:text-[#6D6C6A] active:scale-95"
                 onClick={() => addSchedule(day.id)}
@@ -469,7 +469,7 @@ export function CreateForm({
                 variant="outline"
               >
                 <Plus className="size-4" />
-                コマを追加
+                予定を追加
               </Button>
             </CardContent>
           </Card>
@@ -531,15 +531,14 @@ export function CreateForm({
         </p>
       )}
 
-      {/* 完了ボタン */}
+      {/* 作成ボタン */}
       <Button
-        className="h-12 w-full cursor-pointer bg-[#3D8A5A] text-base shadow-[0_2px_8px_rgba(61,138,90,0.19)] hover:bg-[#357A50] active:scale-95"
+        className="h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95"
         disabled={pending}
-        size="lg"
         type="submit"
       >
-        <Check className="size-5" />
-        {pending ? "保存中..." : "完了"}
+        <PenLine className="h-5 w-5" />
+        {pending ? "保存中..." : "作成する"}
       </Button>
     </form>
   );
