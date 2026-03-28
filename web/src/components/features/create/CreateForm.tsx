@@ -82,6 +82,7 @@ type CreateFormProps = {
   initialDays?: Day[];
   initialStartDate?: string;
   showPassphrase?: boolean;
+  submitLabel?: string;
 };
 
 export function CreateForm({
@@ -91,6 +92,7 @@ export function CreateForm({
   initialDays = [],
   initialStartDate = "",
   showPassphrase = false,
+  submitLabel = "作成する",
 }: CreateFormProps) {
   // Server Action の状態管理
   const [state, formAction, pending] = useActionState(action, initialState);
@@ -547,7 +549,7 @@ export function CreateForm({
         type="submit"
       >
         <PenLine className="h-5 w-5" />
-        {pending ? "保存中..." : "作成する"}
+        {pending ? "保存中..." : submitLabel}
       </Button>
     </form>
   );
