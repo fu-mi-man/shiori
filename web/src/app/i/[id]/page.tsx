@@ -57,7 +57,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
       <header className="flex flex-col gap-4 bg-[#3D8A5A] px-5 py-6">
         <div className="flex flex-col gap-1">
-          <h1 className="font-bold text-2xl text-white tracking-tight">{shiori.title}</h1>
+          <h1 className="font-bold text-xl text-white tracking-tight">{shiori.title}</h1>
           {minDate && maxDate && (
             <p className="text-base text-white/80">
               {formatDate(minDate)} 〜 {formatDate(maxDate)}
@@ -126,7 +126,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
                         {/* コンテンツ（右側） */}
                         <div className="flex flex-col gap-1 pb-6 pl-1">
                           {schedule.time && (
-                            <p className="font-semibold text-[#3D8A5A] text-[13px]">
+                            <p className="font-semibold text-[#3D8A5A] text-sm">
                               {formatTime(schedule.time)}
                             </p>
                           )}

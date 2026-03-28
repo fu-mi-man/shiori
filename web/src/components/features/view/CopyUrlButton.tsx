@@ -13,7 +13,7 @@ export function CopyUrlButton() {
 
   return (
     <Button
-      className="h-11 flex-1 cursor-pointer rounded-full bg-white font-semibold text-[#3D8A5A] text-xs hover:bg-white/90 active:scale-95"
+      className="h-11 flex-1 cursor-pointer rounded-full bg-white font-semibold text-[#3D8A5A] text-sm hover:bg-white/90 active:scale-95"
       onClick={handleCopy}
     >
       URLをコピー
