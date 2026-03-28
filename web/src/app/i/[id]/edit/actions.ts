@@ -54,13 +54,19 @@ export async function updateShiori(
   try {
     await db.transaction(async (tx) => {
       // 1. shioris を UPDATE
-      await tx.update(shioris).set({ title }).where(eq(shioris.id, id));
+      await tx
+        .update(shioris)
+        .set({ title, startDate: startDate || null })
+        .where(eq(shioris.id, id));
 
-      // 2. overviews を DELETE → INSERT
+      // 2. overviews を DELETE → INSERT（タイトル・内容が両方空のものは除外）
       await tx.delete(overviewsTable).where(eq(overviewsTable.shioriId, id));
-      if (overviews.length > 0) {
+      const nonEmptyOverviews = overviews.filter(
+        (o) => o.title.trim() !== "" || o.content.trim() !== "",
+      );
+      if (nonEmptyOverviews.length > 0) {
         await tx.insert(overviewsTable).values(
-          overviews.map((item, i) => ({
+          nonEmptyOverviews.map((item, i) => ({
             shioriId: id,
             sortOrder: i,
             title: item.title,

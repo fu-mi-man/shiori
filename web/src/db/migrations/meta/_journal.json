@@ -8,6 +8,13 @@
       "when": 1773633206763,
       "tag": "0000_huge_zombie",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1774676467718,
+      "tag": "0001_tricky_black_widow",
+      "breakpoints": true
     }
   ]
 }

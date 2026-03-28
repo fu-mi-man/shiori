@@ -55,17 +55,21 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
     .map((s) => s.date)
     .filter((d): d is string => d !== null)
     .toSorted();
-  const minDate = sortedDates.length > 0 ? sortedDates[0] : null;
-  const maxDate = sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : null;
+  // schedules.dateから範囲を取得。なければshiorisのstartDateを使用
+  const minDate = sortedDates.length > 0 ? sortedDates[0] : (shiori.startDate ?? null);
+  const maxDate =
+    sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : (shiori.startDate ?? null);
 
   return (
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
       <header className="flex flex-col gap-4 bg-[#3D8A5A] px-5 py-6">
         <div className="flex flex-col gap-1">
           <h1 className="font-bold text-white text-xl tracking-tight">{shiori.title}</h1>
-          {minDate && maxDate && (
+          {minDate && (
             <p className="text-base text-white/80">
-              {formatDate(minDate)} 〜 {formatDate(maxDate)}
+              {!maxDate || minDate === maxDate
+                ? formatDate(minDate)
+                : `${formatDate(minDate)} 〜 ${formatDate(maxDate)}`}
             </p>
           )}
         </div>

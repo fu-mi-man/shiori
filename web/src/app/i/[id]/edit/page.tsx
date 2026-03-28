@@ -66,7 +66,9 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
       })),
     }));
 
-  const initialStartDate = shiori.schedules.find((s) => s.dayNumber === 1)?.date ?? "";
+  // startDateはshiorisテーブルから取得。既存レコード（カラム追加前）はschedules[day1].dateにフォールバック
+  const initialStartDate =
+    shiori.startDate ?? shiori.schedules.find((s) => s.dayNumber === 1)?.date ?? "";
 
   return (
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
