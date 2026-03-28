@@ -9,7 +9,7 @@ export function EditButton({ id }: Props) {
   return (
     <Button
       asChild
-      className="h-11 flex-1 cursor-pointer rounded-full bg-white font-semibold text-[#3D8A5A] text-xs hover:bg-white/90 active:scale-95 [a]:hover:bg-white/90"
+      className="h-11 flex-1 cursor-pointer rounded-full bg-white font-semibold text-[#3D8A5A] text-sm hover:bg-white/90 active:scale-95 [a]:hover:bg-white/90"
     >
       <Link href={`/i/${id}/edit`}>編集する</Link>
     </Button>

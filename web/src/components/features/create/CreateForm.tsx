@@ -15,7 +15,8 @@ import {
   TrainFront,
   X,
 } from "lucide-react";
-import { useActionState, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import type { CreateShioriState } from "@/app/create/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -81,6 +82,7 @@ type CreateFormProps = {
   initialDays?: Day[];
   initialStartDate?: string;
   showPassphrase?: boolean;
+  submitLabel?: string;
 };
 
 export function CreateForm({
@@ -90,9 +92,22 @@ export function CreateForm({
   initialDays = [],
   initialStartDate = "",
   showPassphrase = false,
+  submitLabel = "作成する",
 }: CreateFormProps) {
   // Server Action の状態管理
   const [state, formAction, pending] = useActionState(action, initialState);
+
+  // バリデーションエラーをトーストで表示
+  useEffect(() => {
+    if (state.status === "error") {
+      toast.error(state.message);
+    }
+  }, [state]);
+
+  // テキストフィールドのstate（バリデーションエラー時に値を保持するため制御コンポーネントにする）
+  const [title, setTitle] = useState(initialTitle);
+  const [startDate, setStartDate] = useState(initialStartDate);
+  const [passphrase, setPassphrase] = useState("");
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
@@ -206,11 +221,11 @@ export function CreateForm({
         </Label>
         <Input
           className="h-11 bg-white"
-          defaultValue={initialTitle}
           id="title"
           name="title"
+          onChange={(e) => setTitle(e.target.value)}
           placeholder="沖縄旅行 2025年3月"
-          required
+          value={title}
         />
       </section>
 
@@ -315,11 +330,12 @@ export function CreateForm({
           </Label>
           <Input
             className="h-11 cursor-pointer bg-white"
-            defaultValue={initialStartDate}
             id="start-date"
             name="startDate"
+            onChange={(e) => setStartDate(e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
             type="date"
+            value={startDate}
           />
         </div>
 
@@ -494,7 +510,9 @@ export function CreateForm({
             className="h-11 bg-white"
             id="passphrase"
             name="passphrase"
+            onChange={(e) => setPassphrase(e.target.value)}
             placeholder="合言葉を入力"
+            value={passphrase}
           />
         </section>
       )}
@@ -524,13 +542,6 @@ export function CreateForm({
           })),
         )}
       />
-      {/* エラーメッセージ */}
-      {state.status === "error" && (
-        <p className="text-center text-red-500 text-sm" role="alert">
-          {state.message}
-        </p>
-      )}
-
       {/* 作成ボタン */}
       <Button
         className="h-[52px] w-full cursor-pointer gap-2 rounded-xl bg-[#3D8A5A] font-semibold text-base text-white shadow-[0_2px_8px_#3D8A5A30] hover:bg-[#2f6e47] active:scale-95"
@@ -538,7 +549,7 @@ export function CreateForm({
         type="submit"
       >
         <PenLine className="h-5 w-5" />
-        {pending ? "保存中..." : "作成する"}
+        {pending ? "保存中..." : submitLabel}
       </Button>
     </form>
   );

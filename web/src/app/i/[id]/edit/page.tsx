@@ -81,6 +81,7 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
         initialStartDate={initialStartDate}
         initialTitle={shiori.title}
         key={id}
+        submitLabel="更新する"
       />
     </main>
   );
