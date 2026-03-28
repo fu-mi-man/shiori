@@ -73,7 +73,6 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
         {/* 概要セクション */}
         {shiori.overviews.length > 0 && (
           <section className="flex flex-col gap-3">
-            <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">概要</h2>
             {shiori.overviews.map((overview) => (
               <Card
                 className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
@@ -99,7 +98,6 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
         {/* 行程セクション */}
         {shiori.schedules.length > 0 && (
           <section className="flex flex-col gap-4">
-            <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">行程</h2>
             {Object.entries(Object.groupBy(shiori.schedules, (s) => s.dayNumber ?? 0)).map(
               ([dayNumber, schedules]) => (
                 <div className="flex flex-col gap-2" key={dayNumber}>
