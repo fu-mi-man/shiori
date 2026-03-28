@@ -19,7 +19,7 @@ const badgeVariants = cva(
         ghost:
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         link: "text-primary underline-offset-4 hover:underline",
-        step: "h-auto rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-white",
+        step: "h-auto rounded-full bg-[#3D8A5A] px-3 py-1 font-semibold text-sm text-white",
       },
     },
     defaultVariants: {

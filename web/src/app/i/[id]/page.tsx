@@ -4,7 +4,6 @@ import z from "zod";
 import { CopyUrlButton } from "@/components/features/view/CopyUrlButton";
 import { EditButton } from "@/components/features/view/EditButton";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { db } from "@/db";
 import { shioris } from "@/db/schema";
 
@@ -71,27 +70,25 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
       </header>
       <div className="flex flex-col gap-6 px-5 py-6">
         {/* 概要セクション */}
-        {shiori.overviews.length > 0 && (
-          <section className="flex flex-col gap-3">
-            {shiori.overviews.map((overview) => (
-              <Card
-                className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
-                key={overview.id}
-              >
-                {overview.title && (
-                  <CardHeader>
-                    <CardTitle className="font-semibold text-[#1A1918] text-base">
-                      {overview.title}
-                    </CardTitle>
-                  </CardHeader>
-                )}
-                {overview.content && (
-                  <CardContent>
-                    <p className="text-[#6D6C6A] text-xs leading-relaxed">{overview.content}</p>
-                  </CardContent>
-                )}
-              </Card>
-            ))}
+        {shiori.overviews.some((o) => o.title || o.content) && (
+          <section className="flex flex-col gap-4">
+            {shiori.overviews
+              .filter((o) => o.title || o.content)
+              .map((overview) => (
+                <div className="flex flex-col gap-1" key={overview.id}>
+                  {overview.title && (
+                    <div className="flex items-stretch gap-2.5">
+                      <div className="w-1 shrink-0 rounded-sm bg-[#3D8A5A]" />
+                      <p className="font-bold text-[#1A1918] text-base">{overview.title}</p>
+                    </div>
+                  )}
+                  {overview.content && (
+                    <p className="whitespace-pre-wrap text-[#6D6C6A] text-sm leading-relaxed">
+                      {overview.content}
+                    </p>
+                  )}
+                </div>
+              ))}
           </section>
         )}
 
@@ -102,10 +99,10 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
               ([dayNumber, schedules]) => (
                 <div className="flex flex-col" key={dayNumber}>
                   {/* 日程ヘッダー */}
-                  <div className="flex items-center gap-2.5">
+                  <div className="mb-3 flex items-center gap-2.5">
                     <Badge variant="step">{dayNumber}日目</Badge>
                     {schedules?.[0]?.date && (
-                      <span className="font-medium text-[#6D6C6A] text-[13px]">
+                      <span className="font-medium text-[#6D6C6A] text-sm">
                         {formatDate(schedules[0].date)}
                       </span>
                     )}

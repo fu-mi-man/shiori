@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import z from "zod";
+import { Header } from "@/components/features/common/Header";
 import { CreateForm } from "@/components/features/create/CreateForm";
 import { db } from "@/db";
 import { shioris } from "@/db/schema";
@@ -69,11 +70,7 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
 
   return (
     <main className="mx-auto min-h-dvh max-w-[480px] bg-[#F5F4F1]">
-      <header className="flex flex-col gap-4 bg-[#3D8A5A] px-5 py-6">
-        <div className="flex flex-col gap-1">
-          <h1 className="font-bold text-[22px] text-white tracking-tight">{shiori.title}</h1>
-        </div>
-      </header>
+      <Header className="max-w-[480px] px-5" />
       <CreateForm
         action={updateShiori.bind(null, id)}
         initialDays={initialDays}
