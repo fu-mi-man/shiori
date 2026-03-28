@@ -22,6 +22,12 @@ function formatDate(dateStr: string): string {
   return `${month}月${day}日（${weekday}）`;
 }
 
+/**
+ * 旅のしおり閲覧ページ
+ *
+ * @param params - 動的ルートパラメータ（IDを含む）
+ * @returns 旅のしおり閲覧ページのJSX
+ */
 export default async function ShioriPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
