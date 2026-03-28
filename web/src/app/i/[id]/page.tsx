@@ -80,14 +80,14 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
               >
                 {overview.title && (
                   <CardHeader>
-                    <CardTitle className="font-semibold text-[#1A1918] text-sm">
+                    <CardTitle className="font-semibold text-[#1A1918] text-base">
                       {overview.title}
                     </CardTitle>
                   </CardHeader>
                 )}
                 {overview.content && (
                   <CardContent>
-                    <p className="text-[#6D6C6A] text-sm leading-relaxed">{overview.content}</p>
+                    <p className="text-[#6D6C6A] text-xs leading-relaxed">{overview.content}</p>
                   </CardContent>
                 )}
               </Card>
@@ -100,7 +100,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
           <section className="flex flex-col gap-4">
             {Object.entries(Object.groupBy(shiori.schedules, (s) => s.dayNumber ?? 0)).map(
               ([dayNumber, schedules]) => (
-                <div className="flex flex-col gap-2" key={dayNumber}>
+                <div className="flex flex-col" key={dayNumber}>
                   {/* 日程ヘッダー */}
                   <div className="flex items-center gap-2.5">
                     <Badge variant="step">{dayNumber}日目</Badge>
@@ -117,9 +117,11 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
                     return (
                       <div className="flex" key={schedule.id}>
                         {/* タイムライン（左側） */}
-                        <div className="flex w-10 flex-col items-center">
-                          <div className="mt-1 size-3 shrink-0 rounded-full bg-[#3D8A5A]" />
-                          {!isLast && <div className="w-0.5 flex-1 bg-[#E5E4E1]" />}
+                        <div className="relative flex w-10 flex-col items-center overflow-visible">
+                          <div className="relative z-10 mt-1 size-3 shrink-0 rounded-full bg-[#3D8A5A]" />
+                          {!isLast && (
+                            <div className="absolute top-[10px] bottom-[-10px] left-1/2 w-0.5 -translate-x-1/2 bg-[#E5E4E1]" />
+                          )}
                         </div>
                         {/* コンテンツ（右側） */}
                         <div className="flex flex-col gap-1 pb-6 pl-1">
@@ -129,12 +131,12 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
                             </p>
                           )}
                           {schedule.title && (
-                            <p className="font-semibold text-[#1A1918] text-[15px]">
+                            <p className="font-semibold text-[#1A1918] text-base">
                               {schedule.title}
                             </p>
                           )}
                           {schedule.note && (
-                            <p className="text-[#9C9B99] text-[13px]">{schedule.note}</p>
+                            <p className="text-[#6D6C6A] text-xs">{schedule.note}</p>
                           )}
                         </div>
                       </div>
