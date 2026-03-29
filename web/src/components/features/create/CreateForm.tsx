@@ -1,20 +1,6 @@
 "use client";
 
-import {
-  Bike,
-  Bus,
-  CableCar,
-  Car,
-  CarTaxiFront,
-  Footprints,
-  Lock,
-  PenLine,
-  Plane,
-  Plus,
-  Ship,
-  TrainFront,
-  X,
-} from "lucide-react";
+import { Lock, PenLine, Plus, X } from "lucide-react";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { CreateShioriState } from "@/app/create/actions";
@@ -24,57 +10,32 @@ import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/componen
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-// 概要アイテムの型．idはReactのkey用（削除しても重複しないように採番する）
+/** 概要アイテムの型．id は React key 用（削除後も重複しない連番） */
 type Overview = {
   id: number;
   title: string;
   content: string;
 };
 
-// 交通手段のユニオン型（取りうる値を制限する）
-type TransportMode =
-  | "walk"
-  | "train"
-  | "bus"
-  | "car"
-  | "bicycle"
-  | "ship"
-  | "plane"
-  | "taxi"
-  | "cablecar";
-
-// 行程の1コマ
+/** 行程の1コマ．id は React key 用（削除後も重複しない連番） */
 type Schedule = {
   id: number;
   time: string;
   title: string;
-  transport: TransportMode | "";
   memo: string;
 };
 
-// 1日分のグループ
+/** 1日分の行程グループ */
 type Day = {
   id: number;
   schedules: Schedule[];
 };
 
-// 交通手段の選択肢（アイコンはLucide）
-const TRANSPORT_OPTIONS = [
-  { mode: "walk", icon: Footprints, label: "徒歩" },
-  { mode: "train", icon: TrainFront, label: "電車" },
-  { mode: "car", icon: Car, label: "車" },
-  { mode: "bus", icon: Bus, label: "バス" },
-  { mode: "taxi", icon: CarTaxiFront, label: "タクシー" },
-  { mode: "plane", icon: Plane, label: "飛行機" },
-  { mode: "bicycle", icon: Bike, label: "自転車" },
-  { mode: "ship", icon: Ship, label: "船" },
-  { mode: "cablecar", icon: CableCar, label: "ケーブルカー" },
-] as const;
-
+/** Server Action の初期状態 */
 const initialState: CreateShioriState = { status: "idle", message: "" };
 
+/** CreateForm コンポーネントの props */
 type CreateFormProps = {
   action: (prevState: CreateShioriState, formData: FormData) => Promise<CreateShioriState>;
   initialTitle?: string;
@@ -85,13 +46,17 @@ type CreateFormProps = {
   submitLabel?: string;
 };
 
+/**
+ * しおり作成・編集フォーム
+ *
+ * 作成画面・編集画面で共用するフォームコンポーネント．
+ * Server Actions（useActionState）経由で送信する．
+ */
 export function CreateForm({
   action,
   initialTitle = "",
   initialOverviews = [],
-  initialDays = [
-    { id: 0, schedules: [{ id: 0, time: "", title: "", transport: "" as const, memo: "" }] },
-  ],
+  initialDays = [{ id: 0, schedules: [{ id: 0, time: "", title: "", memo: "" }] }],
   initialStartDate = "",
   showPassphrase = false,
   submitLabel = "作成する",
@@ -122,7 +87,7 @@ export function CreateForm({
     Math.max(0, ...initialDays.flatMap((d) => d.schedules.map((s) => s.id))) + 1,
   );
 
-  // 概要カードを末尾に追加（上限10件）
+  /** 概要カードを末尾に追加する．上限は10件 */
   const addOverview = () => {
     setOverviews((prev) => {
       if (prev.length >= 10) return prev;
@@ -130,19 +95,19 @@ export function CreateForm({
     });
   };
 
-  // 指定IDの概要カードを削除
+  /** 指定 id の概要カードを削除する */
   const removeOverview = (id: number) => {
     setOverviews((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // 指定IDの概要カードのフィールドを更新
+  /** 指定 id の概要カードのフィールドを更新する */
   const updateOverview = (id: number, field: "title" | "content", value: string) => {
     setOverviews((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
     );
   };
 
-  // 日程を末尾に追加（上限10日）．追加時に予定を1件自動追加する
+  /** 日程を末尾に追加する．上限は10日．追加時に予定を1件自動追加する */
   const addDay = () => {
     setDays((prev) => {
       if (prev.length >= 10) return prev;
@@ -155,7 +120,6 @@ export function CreateForm({
               id: nextScheduleIdRef.current++,
               time: "",
               title: "",
-              transport: "" as const,
               memo: "",
             },
           ],
@@ -164,12 +128,12 @@ export function CreateForm({
     });
   };
 
-  // 指定IDの日程を削除
+  /** 指定 id の日程を削除する */
   const removeDay = (id: number) => {
     setDays((prev) => prev.filter((day) => day.id !== id));
   };
 
-  // 指定日程にスケジュールを追加
+  /** 指定日程に予定を1件追加する */
   const addSchedule = (dayId: number) => {
     setDays((prev) =>
       prev.map((day) =>
@@ -182,7 +146,6 @@ export function CreateForm({
                   id: nextScheduleIdRef.current++,
                   time: "",
                   title: "",
-                  transport: "",
                   memo: "",
                 },
               ],
@@ -192,7 +155,7 @@ export function CreateForm({
     );
   };
 
-  // 指定日程から指定スケジュールを削除
+  /** 指定日程から指定予定を削除する */
   const removeSchedule = (dayId: number, scheduleId: number) => {
     setDays((prev) =>
       prev.map((day) =>
@@ -206,7 +169,7 @@ export function CreateForm({
     );
   };
 
-  // 指定スケジュールのフィールドを更新
+  /** 指定予定のフィールドを更新する */
   const updateSchedule = (
     dayId: number,
     scheduleId: number,
@@ -447,31 +410,6 @@ export function CreateForm({
                       />
                     </div>
 
-                    {/* 交通手段 */}
-                    <div className="flex flex-col gap-1">
-                      <span className="font-medium text-[#6D6C6A] text-xs">交通手段</span>
-                      <ToggleGroup
-                        aria-label="交通手段"
-                        className="flex w-full gap-2 overflow-x-auto"
-                        onValueChange={(value) =>
-                          updateSchedule(day.id, schedule.id, "transport", value)
-                        }
-                        type="single"
-                        value={schedule.transport}
-                      >
-                        {TRANSPORT_OPTIONS.map((option) => (
-                          <ToggleGroupItem
-                            aria-label={option.label}
-                            className="size-11 shrink-0 cursor-pointer rounded-lg border border-[#E5E4E1] bg-white text-[#9C9B99] hover:bg-[#F5F5F4] data-[state=on]:border-[#3D8A5A] data-[state=on]:border-[1.5px] data-[state=on]:bg-[#C8F0D8] data-[state=on]:text-[#3D8A5A]"
-                            key={option.mode}
-                            value={option.mode}
-                          >
-                            <option.icon className="size-5" />
-                          </ToggleGroupItem>
-                        ))}
-                      </ToggleGroup>
-                    </div>
-
                     {/* 補足 */}
                     <div className="flex flex-col gap-1">
                       <Label
@@ -554,7 +492,6 @@ export function CreateForm({
             schedules: day.schedules.map((schedule) => ({
               time: schedule.time,
               title: schedule.title,
-              transport: schedule.transport,
               memo: schedule.memo,
             })),
           })),

@@ -2,7 +2,6 @@ import {
   date,
   index,
   integer,
-  pgEnum,
   pgTable,
   serial,
   text,
@@ -12,18 +11,6 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { shioris } from "./shioris";
-
-export const transportEnum = pgEnum("transport", [
-  "walk",
-  "train",
-  "bus",
-  "plane",
-  "car",
-  "ship",
-  "bicycle",
-  "taxi",
-  "cablecar",
-]);
 
 /**
  * schedules — しおりの行程テーブル（1対多）
@@ -44,7 +31,6 @@ export const schedules = pgTable(
     dayNumber: integer("day_number"), // 何日目か（1日目，2日目…）
     time: time("time"), // 時刻（任意）
     title: varchar("title", { length: 255 }), // 場所名・イベント名
-    transport: transportEnum("transport"), // 交通手段
     note: text("note"), // 補足（最大200文字はアプリ側で制御）
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true })
