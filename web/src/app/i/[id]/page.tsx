@@ -93,7 +93,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
                     </div>
                   )}
                   {overview.content && (
-                    <p className="whitespace-pre-wrap text-[#6D6C6A] text-sm leading-relaxed">
+                    <p className="whitespace-pre-wrap text-[#3D3C3A] text-sm leading-relaxed">
                       {overview.content}
                     </p>
                   )}
@@ -143,7 +143,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
                             </p>
                           )}
                           {schedule.note && (
-                            <p className="text-[#6D6C6A] text-xs">{schedule.note}</p>
+                            <p className="text-[#3D3C3A] text-xs">{schedule.note}</p>
                           )}
                         </div>
                       </div>

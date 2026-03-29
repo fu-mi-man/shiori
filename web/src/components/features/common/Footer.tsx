@@ -12,22 +12,16 @@ export function Footer() {
           <Image alt="" className="rounded-lg" height={36} src="/tabiji-logo.png" width={36} />
           Tabiji
         </Link>
-        <span className="text-base text-white/80">旅のしおり作成サービス</span>
+        <span className="text-base text-white">旅のしおり作成サービス</span>
         <nav className="flex flex-col items-center gap-2 pt-2">
-          <Link
-            className="text-white/[.67] text-xs leading-relaxed hover:text-white/80"
-            href="/privacy"
-          >
+          <Link className="text-white text-xs leading-relaxed hover:text-white" href="/privacy">
             プライバシーポリシー
           </Link>
-          <Link
-            className="text-white/[.67] text-xs leading-relaxed hover:text-white/80"
-            href="/terms"
-          >
+          <Link className="text-white text-xs leading-relaxed hover:text-white" href="/terms">
             利用規約
           </Link>
         </nav>
-        <span className="text-white/[.53] text-xs">© Tabiji</span>
+        <span className="text-white text-xs">© Tabiji</span>
       </div>
     </footer>
   );
