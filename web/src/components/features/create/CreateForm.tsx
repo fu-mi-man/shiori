@@ -89,7 +89,9 @@ export function CreateForm({
   action,
   initialTitle = "",
   initialOverviews = [],
-  initialDays = [],
+  initialDays = [
+    { id: 0, schedules: [{ id: 0, time: "", title: "", transport: "" as const, memo: "" }] },
+  ],
   initialStartDate = "",
   showPassphrase = false,
   submitLabel = "作成する",
@@ -140,11 +142,25 @@ export function CreateForm({
     );
   };
 
-  // 日程を末尾に追加（上限10日）
+  // 日程を末尾に追加（上限10日）．追加時に予定を1件自動追加する
   const addDay = () => {
     setDays((prev) => {
       if (prev.length >= 10) return prev;
-      return [...prev, { id: nextDayIdRef.current++, schedules: [] }];
+      return [
+        ...prev,
+        {
+          id: nextDayIdRef.current++,
+          schedules: [
+            {
+              id: nextScheduleIdRef.current++,
+              time: "",
+              title: "",
+              transport: "" as const,
+              memo: "",
+            },
+          ],
+        },
+      ];
     });
   };
 
@@ -374,18 +390,20 @@ export function CreateForm({
                     <CardTitle>
                       <Badge variant="step">予定 {scheduleIndex + 1}</Badge>
                     </CardTitle>
-                    <CardAction>
-                      <Button
-                        aria-label="予定を削除"
-                        className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
-                        onClick={() => removeSchedule(day.id, schedule.id)}
-                        size="icon-sm"
-                        type="button"
-                        variant="destructive"
-                      >
-                        <X />
-                      </Button>
-                    </CardAction>
+                    {day.schedules.length > 1 && (
+                      <CardAction>
+                        <Button
+                          aria-label="予定を削除"
+                          className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
+                          onClick={() => removeSchedule(day.id, schedule.id)}
+                          size="icon-sm"
+                          type="button"
+                          variant="destructive"
+                        >
+                          <X />
+                        </Button>
+                      </CardAction>
+                    )}
                   </CardHeader>
 
                   <CardContent className="flex flex-col gap-4">

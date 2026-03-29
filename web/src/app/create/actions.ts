@@ -79,9 +79,12 @@ export async function createShiori(
         );
       }
 
-      // 3. schedules に INSERT
-      const scheduleRows = days.flatMap((day, dayIndex) =>
-        day.schedules.map((schedule, scheduleIndex) => ({
+      // 3. schedules に INSERT（全フィールドが空の予定は除外）
+      const scheduleRows = days.flatMap((day, dayIndex) => {
+        const nonEmptySchedules = day.schedules.filter(
+          (s) => s.time || s.title || s.transport || s.memo,
+        );
+        return nonEmptySchedules.map((schedule, scheduleIndex) => ({
           shioriId: shiori.id,
           sortOrder: scheduleIndex,
           dayNumber: dayIndex + 1,
@@ -90,8 +93,8 @@ export async function createShiori(
           title: schedule.title || null,
           transport: schedule.transport === "" ? null : schedule.transport,
           note: schedule.memo || null,
-        })),
-      );
+        }));
+      });
 
       if (scheduleRows.length > 0) {
         await tx.insert(schedulesTable).values(scheduleRows);
