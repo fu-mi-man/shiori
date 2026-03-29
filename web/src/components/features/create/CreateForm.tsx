@@ -1,6 +1,6 @@
 "use client";
 
-import { Lock, PenLine, Plus, X } from "lucide-react";
+import { PenLine, Plus, X } from "lucide-react";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { CreateShioriState } from "@/app/create/actions";
@@ -42,7 +42,6 @@ type CreateFormProps = {
   initialOverviews?: Overview[];
   initialDays?: Day[];
   initialStartDate?: string;
-  showPassphrase?: boolean;
   submitLabel?: string;
 };
 
@@ -58,7 +57,6 @@ export function CreateForm({
   initialOverviews = [],
   initialDays = [{ id: 0, schedules: [{ id: 0, time: "", title: "", memo: "" }] }],
   initialStartDate = "",
-  showPassphrase = false,
   submitLabel = "作成する",
 }: CreateFormProps) {
   // Server Action の状態管理
@@ -74,7 +72,6 @@ export function CreateForm({
   // テキストフィールドのstate（バリデーションエラー時に値を保持するため制御コンポーネントにする）
   const [title, setTitle] = useState(initialTitle);
   const [startDate, setStartDate] = useState(initialStartDate);
-  const [passphrase, setPassphrase] = useState("");
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
@@ -448,8 +445,8 @@ export function CreateForm({
         ))}
       </section>
 
-      {/* 合言葉セクション */}
-      {showPassphrase && (
+      {/* 合言葉セクション（MVP対象外のためコメントアウト） */}
+      {/* {showPassphrase && (
         <section className="flex flex-col gap-2">
           <div className="flex items-center gap-1.5">
             <Lock aria-hidden="true" className="size-4 text-[#6D6C6A]" />
@@ -458,8 +455,8 @@ export function CreateForm({
               <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
             </Label>
           </div>
-          <p className="text-[#9C9B99] text-xs leading-relaxed" id="passphrase-description">
-            設定すると、編集時に合言葉の入力が必要になります
+          <p className="text-stone-600 text-xs leading-relaxed" id="passphrase-description">
+            設定すると，編集時に合言葉の入力が必要になります
           </p>
           <Input
             aria-describedby="passphrase-description"
@@ -471,7 +468,7 @@ export function CreateForm({
             value={passphrase}
           />
         </section>
-      )}
+      )} */}
 
       {/* stateで管理している複雑なデータをFormDataに含めるためのhidden input */}
       <input
