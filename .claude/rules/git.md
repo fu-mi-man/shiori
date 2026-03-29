@@ -12,14 +12,16 @@
 ## Worktree
 
 - worktree を作るときは必ず `-b` でブランチ名を指定する（detached HEAD 禁止）
+- パス: メインリポジトリと同階層（シブリング）に `<repo>-<branch>` の形式で置く
   ```bash
-  git worktree add -b <branch> <path> main
+  git worktree add -b <branch> ../<repo>-<branch-name> main
+  # 例: git worktree add -b docs/setup ../shiori-docs-setup main
   ```
 - 用途: 作業中のブランチを止めずに別ブランチを同時に扱いたいとき
   - ホットフィックス，PR レビュー，別ブランチへの独立したコミット など
 - 作業完了・PR マージ後は必ず削除する
   ```bash
-  git worktree remove <path>
+  git worktree remove ../<repo>-<branch-name>
   ```
 
 ## main の最新化（rebase）
