@@ -51,17 +51,6 @@ export default async function EditPage({ params }: { params: Promise<{ id: strin
         id: s.id,
         time: s.time?.slice(0, 5) ?? "",
         title: s.title ?? "",
-        transport: (s.transport ?? "") as
-          | ""
-          | "walk"
-          | "train"
-          | "bus"
-          | "car"
-          | "bicycle"
-          | "ship"
-          | "plane"
-          | "taxi"
-          | "cablecar",
         memo: s.note ?? "",
       })),
     }));

@@ -7,11 +7,17 @@ import { schedules as schedulesTable } from "@/db/schema/schedules";
 import { shioris } from "@/db/schema/shioris";
 import { createShioriSchema } from "./schema";
 
+/** しおり作成 Server Action の状態型 */
 export type CreateShioriState = {
   status: "idle" | "error";
   message: string;
 };
 
+/**
+ * しおりを新規作成する Server Action
+ *
+ * バリデーション → DB トランザクション（shioris / overviews / schedules の INSERT）→ 閲覧画面へリダイレクト
+ */
 export async function createShiori(
   _prevState: CreateShioriState,
   formData: FormData,
@@ -44,7 +50,13 @@ export async function createShiori(
 
   const { title, passphrase, overviews, days, startDate } = result.data;
 
-  if (days.some((day) => day.schedules.length === 0)) {
+  // 全フィールドが空の予定を除外してからバリデーション
+  const filteredDays = days.map((day) => ({
+    ...day,
+    schedules: day.schedules.filter((s) => s.time || s.title || s.memo),
+  }));
+
+  if (filteredDays.some((day) => day.schedules.length === 0)) {
     return { status: "error", message: "予定がない日程は保存できません" };
   }
 
@@ -80,7 +92,7 @@ export async function createShiori(
       }
 
       // 3. schedules に INSERT
-      const scheduleRows = days.flatMap((day, dayIndex) =>
+      const scheduleRows = filteredDays.flatMap((day, dayIndex) =>
         day.schedules.map((schedule, scheduleIndex) => ({
           shioriId: shiori.id,
           sortOrder: scheduleIndex,
@@ -88,7 +100,6 @@ export async function createShiori(
           date: startDate ? addDays(startDate, dayIndex) : null,
           time: schedule.time || null,
           title: schedule.title || null,
-          transport: schedule.transport === "" ? null : schedule.transport,
           note: schedule.memo || null,
         })),
       );

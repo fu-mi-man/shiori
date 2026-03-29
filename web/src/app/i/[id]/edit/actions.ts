@@ -85,7 +85,6 @@ export async function updateShiori(
           date: startDate ? addDays(startDate, dayIndex) : null,
           time: schedule.time || null,
           title: schedule.title || null,
-          transport: schedule.transport === "" ? null : schedule.transport,
           note: schedule.memo || null,
         })),
       );

@@ -15,6 +15,13 @@
       "when": 1774676467718,
       "tag": "0001_tricky_black_widow",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1774753931877,
+      "tag": "0002_nasty_princess_powerful",
+      "breakpoints": true
     }
   ]
 }
