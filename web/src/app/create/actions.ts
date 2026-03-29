@@ -33,7 +33,7 @@ export async function createShiori(
 
   const rawData = {
     title: formData.get("title"),
-    passphrase: formData.get("passphrase"),
+    passphrase: formData.get("passphrase") ?? undefined,
     overviews: parsedOverviews,
     days: parsedDays,
     startDate: formData.get("startDate"),
@@ -50,15 +50,13 @@ export async function createShiori(
 
   const { title, passphrase, overviews, days, startDate } = result.data;
 
-  // 全フィールドが空の予定を除外してからバリデーション
-  const filteredDays = days.map((day) => ({
-    ...day,
-    schedules: day.schedules.filter((s) => s.time || s.title || s.memo),
-  }));
-
-  if (filteredDays.some((day) => day.schedules.length === 0)) {
-    return { status: "error", message: "予定がない日程は保存できません" };
-  }
+  // 全フィールドが空の予定・日程を除外
+  const filteredDays = days
+    .map((day) => ({
+      ...day,
+      schedules: day.schedules.filter((s) => s.time || s.title || s.memo),
+    }))
+    .filter((day) => day.schedules.length > 0);
 
   let shioriId: string | undefined;
 
