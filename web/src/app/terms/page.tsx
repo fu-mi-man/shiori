@@ -19,7 +19,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 }
 
 function BulletItem({ children }: { children: React.ReactNode }) {
-  return <p className="text-[#6D6C6A] text-sm leading-[1.6]">・ {children}</p>;
+  return <p className="text-sm text-stone-600 leading-[1.6]">・ {children}</p>;
 }
 
 export default function TermsPage() {
@@ -33,7 +33,7 @@ export default function TermsPage() {
             <h1 className="font-[family-name:var(--font-outfit)] font-bold text-2xl text-[#1A1918] tracking-tight">
               利用規約
             </h1>
-            <p className="text-[#9C9B99] text-[13px]">制定日：2026年XX月XX日</p>
+            <p className="text-[13px] text-stone-600">制定日：2026年XX月XX日</p>
           </div>
 
           {/* 区切り線 */}
@@ -42,10 +42,10 @@ export default function TermsPage() {
           {/* 第1条 本規約について */}
           <section className="flex flex-col gap-3">
             <SectionHeading>1. 本規約について</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               本規約は、Tabiji（以下「本サービス」）の利用に関する条件を定めるものです。本サービスを利用した時点で、本規約に同意したものとみなします。
             </p>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               未成年者が本サービスを利用する場合は、法定代理人（親権者等）の同意を得た上でご利用ください。本サービスを利用した時点で、法定代理人の同意を得ているものとみなします。
             </p>
           </section>
@@ -53,10 +53,10 @@ export default function TermsPage() {
           {/* 第2条 サービスの内容 */}
           <section className="flex flex-col gap-3">
             <SectionHeading>2. サービスの内容</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               本サービスは、旅行のしおり（行程表）を作成・共有できるWebサービスです。アカウント登録不要で利用できます。
             </p>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               作成したしおりには一意のURLが発行されます。URLを知っている人は誰でもしおりの内容を閲覧できます。住所・電話番号などの個人情報や、機密性の高い情報の記載はお控えください。
             </p>
           </section>
@@ -64,7 +64,7 @@ export default function TermsPage() {
           {/* 第3条 禁止事項 */}
           <section className="flex flex-col gap-3">
             <SectionHeading>3. 禁止事項</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               以下の行為を禁止します。
             </p>
             <div className="flex flex-col gap-2">
@@ -114,7 +114,7 @@ export default function TermsPage() {
           {/* 第6条 広告について */}
           <section className="flex flex-col gap-3">
             <SectionHeading>6. 広告について</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               本サービスには、運営者または第三者の広告が掲載される場合があります。広告の内容に関する責任は広告主に帰属し、運営者は広告の内容について責任を負いません。
             </p>
           </section>
@@ -158,7 +158,7 @@ export default function TermsPage() {
           {/* 第9条 規約の変更 */}
           <section className="flex flex-col gap-3">
             <SectionHeading>9. 規約の変更</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               本規約は予告なく変更する場合があります。変更後の規約は本ページに掲載した時点から効力を持ちます。
             </p>
           </section>
@@ -166,7 +166,7 @@ export default function TermsPage() {
           {/* 第10条 準拠法・管轄裁判所 */}
           <section className="flex flex-col gap-3">
             <SectionHeading>10. 準拠法・管轄裁判所</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               本規約の解釈及び適用は、日本法に準拠するものとします。本サービスに関する一切の紛争については、大阪地方裁判所を第一審の専属的合意管轄裁判所とします。
             </p>
           </section>
@@ -174,10 +174,10 @@ export default function TermsPage() {
           {/* 第11条 お問い合わせ */}
           <section className="flex flex-col gap-3">
             <SectionHeading>11. お問い合わせ</SectionHeading>
-            <p className="text-justify text-[#6D6C6A] text-sm leading-[1.7]">
+            <p className="text-justify text-sm text-stone-600 leading-[1.7]">
               本規約に関するお問い合わせは、公式X（Twitter）アカウントまでお願いします。
             </p>
-            <p className="text-[#9C9B99] text-[13px]">※ アカウント準備中</p>
+            <p className="text-[13px] text-stone-600">※ アカウント準備中</p>
           </section>
         </div>
       </div>

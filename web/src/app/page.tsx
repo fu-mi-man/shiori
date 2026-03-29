@@ -143,12 +143,12 @@ export default function Home() {
 
           {/* Text */}
           <div className="flex w-full flex-col items-center gap-4">
-            <h1 className="text-center font-extrabold text-[32px] text-gray-900 leading-[1.3] tracking-tight">
+            <h1 className="text-center font-extrabold text-[32px] text-stone-900 leading-[1.3] tracking-tight">
               旅のしおりを
               <br />
               かんたん作成
             </h1>
-            <p className="text-center text-[15px] text-gray-500 leading-[1.6]">
+            <p className="text-center text-[15px] text-stone-600 leading-[1.6]">
               行程表を作って、URLでシェア。たった3ステップ。
               <br />
               アプリもアカウントも不要です。
@@ -174,7 +174,7 @@ export default function Home() {
         <section className="flex flex-col gap-6 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">たった3ステップ</h2>
+            <h2 className="font-bold text-stone-900 text-xl tracking-tight">たった3ステップ</h2>
           </div>
           <div className="flex flex-col gap-5">
             {steps.map(({ num, title, desc }) => (
@@ -183,8 +183,8 @@ export default function Home() {
                   <span className="font-bold text-sm text-white">{num}</span>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <span className="font-semibold text-[15px] text-gray-900">{title}</span>
-                  <span className="text-[13px] text-gray-500">{desc}</span>
+                  <span className="font-semibold text-[15px] text-stone-900">{title}</span>
+                  <span className="text-[13px] text-stone-600">{desc}</span>
                 </div>
               </div>
             ))}
@@ -195,7 +195,7 @@ export default function Home() {
         <section className="flex flex-col gap-5 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">他サービスとの違い</h2>
+            <h2 className="font-bold text-stone-900 text-xl tracking-tight">他サービスとの違い</h2>
           </div>
           <div className="overflow-hidden rounded-xl border border-[#E5E4E1]">
             {/* Table Header */}
@@ -215,7 +215,7 @@ export default function Home() {
                 className={`flex h-10 items-center bg-white px-4 ${i < comparisonRows.length - 1 ? "border-[#E5E4E1] border-b" : ""}`}
                 key={label}
               >
-                <span className="flex-1 font-medium text-gray-900 text-xs">{label}</span>
+                <span className="flex-1 font-medium text-stone-900 text-xs">{label}</span>
                 <div className="flex w-[70px] justify-center">
                   <CompareIcon value={app} />
                 </div>
@@ -234,7 +234,7 @@ export default function Home() {
         <section className="flex flex-col gap-6 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">Tabijiの特徴</h2>
+            <h2 className="font-bold text-stone-900 text-xl tracking-tight">Tabijiの特徴</h2>
           </div>
           <div className="flex flex-col gap-3">
             {features.map(({ icon: Icon, title, desc }) => (
@@ -244,8 +244,8 @@ export default function Home() {
                     <Icon className="h-[22px] w-[22px] text-[#3D8A5A]" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="font-semibold text-[15px] text-gray-900">{title}</span>
-                    <span className="text-[13px] text-gray-500 leading-[1.5]">{desc}</span>
+                    <span className="font-semibold text-[15px] text-stone-900">{title}</span>
+                    <span className="text-[13px] text-stone-600 leading-[1.5]">{desc}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -257,18 +257,18 @@ export default function Home() {
         <section className="flex flex-col gap-5 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">
+            <h2 className="font-bold text-stone-900 text-xl tracking-tight">
               旅先での「確認」に最適化
             </h2>
           </div>
-          <p className="text-[14px] text-gray-500 leading-[1.7]">
+          <p className="text-[14px] text-stone-600 leading-[1.7]">
             移動中でもストレスなく、次の予定がすぐわかります。
           </p>
           <div className="flex flex-col gap-3">
             {experiencePoints.map(({ icon: Icon, text }) => (
               <div className="flex items-center gap-2.5" key={text}>
                 <Icon className="h-[18px] w-[18px] shrink-0 text-[#3D8A5A]" />
-                <span className="font-semibold text-[14px] text-gray-900">{text}</span>
+                <span className="font-semibold text-[14px] text-stone-900">{text}</span>
               </div>
             ))}
           </div>
@@ -278,7 +278,7 @@ export default function Home() {
         <section className="flex flex-col gap-5 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">
+            <h2 className="font-bold text-stone-900 text-xl tracking-tight">
               しおりがあると、こう変わる
             </h2>
           </div>
@@ -290,8 +290,8 @@ export default function Home() {
                     <Icon className="h-5 w-5 text-amber-500" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="font-semibold text-[14px] text-gray-900">{title}</span>
-                    <span className="text-[12px] text-gray-500 leading-[1.5]">{desc}</span>
+                    <span className="font-semibold text-[14px] text-stone-900">{title}</span>
+                    <span className="text-[12px] text-stone-600 leading-[1.5]">{desc}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -303,14 +303,14 @@ export default function Home() {
         <section className="flex flex-col gap-5 px-6 py-6">
           <div className="flex items-center gap-2.5">
             <div className="h-6 w-1 rounded-sm bg-[#3D8A5A]" />
-            <h2 className="font-bold text-gray-900 text-xl tracking-tight">よくある質問</h2>
+            <h2 className="font-bold text-stone-900 text-xl tracking-tight">よくある質問</h2>
           </div>
           <div className="flex flex-col gap-3">
             {faqs.map(({ q, a }) => (
               <Card className="border-[#E5E4E1] bg-white py-0" key={q}>
                 <CardContent className="flex flex-col gap-2 p-4">
-                  <span className="font-semibold text-[14px] text-gray-900">Q. {q}</span>
-                  <span className="text-[13px] text-gray-500 leading-[1.6]">A. {a}</span>
+                  <span className="font-semibold text-[14px] text-stone-900">Q. {q}</span>
+                  <span className="text-[13px] text-stone-600 leading-[1.6]">A. {a}</span>
                 </CardContent>
               </Card>
             ))}
@@ -329,7 +329,7 @@ export default function Home() {
             <CircleCheck className="h-4 w-4 text-[#3D8A5A]" />
             <span className="font-semibold text-[#3D8A5A] text-sm">無料・登録不要ですぐ使える</span>
           </div>
-          <p className="text-center text-[12px] text-gray-400">
+          <p className="text-center text-[12px] text-stone-600">
             しおりを作ることで
             <Link className="font-bold underline" href="/terms">
               利用規約
