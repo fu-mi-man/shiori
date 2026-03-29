@@ -50,7 +50,13 @@ export async function createShiori(
 
   const { title, passphrase, overviews, days, startDate } = result.data;
 
-  if (days.some((day) => day.schedules.length === 0)) {
+  // 全フィールドが空の予定を除外してからバリデーション
+  const filteredDays = days.map((day) => ({
+    ...day,
+    schedules: day.schedules.filter((s) => s.time || s.title || s.memo),
+  }));
+
+  if (filteredDays.some((day) => day.schedules.length === 0)) {
     return { status: "error", message: "予定がない日程は保存できません" };
   }
 
@@ -85,10 +91,9 @@ export async function createShiori(
         );
       }
 
-      // 3. schedules に INSERT（全フィールドが空の予定は除外）
-      const scheduleRows = days.flatMap((day, dayIndex) => {
-        const nonEmptySchedules = day.schedules.filter((s) => s.time || s.title || s.memo);
-        return nonEmptySchedules.map((schedule, scheduleIndex) => ({
+      // 3. schedules に INSERT
+      const scheduleRows = filteredDays.flatMap((day, dayIndex) =>
+        day.schedules.map((schedule, scheduleIndex) => ({
           shioriId: shiori.id,
           sortOrder: scheduleIndex,
           dayNumber: dayIndex + 1,
@@ -96,8 +101,8 @@ export async function createShiori(
           time: schedule.time || null,
           title: schedule.title || null,
           note: schedule.memo || null,
-        }));
-      });
+        })),
+      );
 
       if (scheduleRows.length > 0) {
         await tx.insert(schedulesTable).values(scheduleRows);
