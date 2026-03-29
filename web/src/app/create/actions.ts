@@ -58,15 +58,19 @@ export async function createShiori(
         .values({
           title,
           passphrase: passphrase || null,
+          startDate: startDate || null,
         })
         .returning({ id: shioris.id });
 
       shioriId = shiori.id;
 
-      // 2. overviews に INSERT
-      if (overviews.length > 0) {
+      // 2. overviews に INSERT（タイトル・内容が両方空のものは除外）
+      const nonEmptyOverviews = overviews.filter(
+        (o) => o.title.trim() !== "" || o.content.trim() !== "",
+      );
+      if (nonEmptyOverviews.length > 0) {
         await tx.insert(overviewsTable).values(
-          overviews.map((item, i) => ({
+          nonEmptyOverviews.map((item, i) => ({
             shioriId: shiori.id,
             sortOrder: i,
             title: item.title,

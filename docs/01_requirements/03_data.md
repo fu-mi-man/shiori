@@ -30,6 +30,7 @@ shioris (しおり)
 | id | UUID | PK | 一意のID（URLに使用） |
 | title | VARCHAR(255) | NOT NULL | タイトル |
 | passphrase | VARCHAR(255) | NULL | 合言葉（平文）。簡易ロック目的のためハッシュ化不要 |
+| start_date | DATE | NULL | 旅行開始日（任意） |
 | is_premium | BOOLEAN | NOT NULL, DEFAULT FALSE | 課金済みフラグ |
 | last_accessed_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | 最終アクセス日時 |
 | created_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | 作成日時 |
@@ -64,8 +65,9 @@ shioris (しおり)
 
 > **設計方針**:
 日付はすべて任意。
-表示画面の日付範囲（`YYYY/MM/DD 〜 YYYY/MM/DD`）は `date` の MIN/MAX から動的算出する。
-日付が1件も設定されていない場合は非表示。`shioris` テーブルに冗長に持たない。
+旅行開始日は `shioris.start_date` に保持し，`schedules.date` は `start_date` を基準に算出した値。
+閲覧画面の日付範囲は `schedules.date` の MIN/MAX から算出する。スケジュールがない場合は `shioris.start_date` で表示する。
+開始日と終了日が同じ（1日旅行）場合は単一日付で表示する。
 >
 > **リンク対応**: `note` および `overviews.content` 内のリンクは表示時に処理する。
 Markdown記法（`[テキスト](URL)`）とURLの自動検出を併用。DB側の変更は不要。

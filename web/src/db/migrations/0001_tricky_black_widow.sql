@@ -1,0 +1,1 @@
+ALTER TABLE "shioris" ADD COLUMN "start_date" date;

@@ -1,4 +1,4 @@
-import { boolean, index, pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, date, index, pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 
 /**
  * shioris — しおりの本体テーブル
@@ -13,6 +13,7 @@ export const shioris = pgTable(
     id: uuid("id").primaryKey().defaultRandom(),
     title: varchar("title", { length: 255 }).notNull(), // タイトル
     passphrase: varchar("passphrase", { length: 255 }), // パスフレーズ
+    startDate: date("start_date"), // 旅行開始日（任意）
     isPremium: boolean("is_premium").notNull().default(false), // 課金済みフラグ
     lastAccessedAt: timestamp("last_accessed_at", { withTimezone: true }).notNull().defaultNow(), // 最終アクセス日時
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(), // 作成日時
