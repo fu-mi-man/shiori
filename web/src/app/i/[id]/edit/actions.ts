@@ -47,10 +47,6 @@ export async function updateShiori(
 
   const { title, overviews, days, startDate } = result.data;
 
-  if (days.some((day) => day.schedules.length === 0)) {
-    return { status: "error", message: "予定がない日程は保存できません" };
-  }
-
   try {
     await db.transaction(async (tx) => {
       // 1. shioris を UPDATE
@@ -76,17 +72,21 @@ export async function updateShiori(
       }
 
       // 3. schedules を DELETE → INSERT
+      // - 全フィールドがスペースのみ・空の予定は除外（スペースのみは DB の time 型エラーを防ぐため trim() で判定）
+      // - 元の days インデックスを使い dayNumber と date がズレないようにする
       await tx.delete(schedulesTable).where(eq(schedulesTable.shioriId, id));
       const scheduleRows = days.flatMap((day, dayIndex) =>
-        day.schedules.map((schedule, scheduleIndex) => ({
-          shioriId: id,
-          sortOrder: scheduleIndex,
-          dayNumber: dayIndex + 1,
-          date: startDate ? addDays(startDate, dayIndex) : null,
-          time: schedule.time || null,
-          title: schedule.title || null,
-          note: schedule.memo || null,
-        })),
+        day.schedules
+          .filter((s) => s.time.trim() || s.title.trim() || s.memo.trim())
+          .map((schedule, scheduleIndex) => ({
+            shioriId: id,
+            sortOrder: scheduleIndex,
+            dayNumber: dayIndex + 1,
+            date: startDate ? addDays(startDate, dayIndex) : null,
+            time: schedule.time.trim() || null,
+            title: schedule.title.trim() || null,
+            note: schedule.memo.trim() || null,
+          })),
       );
       if (scheduleRows.length > 0) {
         await tx.insert(schedulesTable).values(scheduleRows);

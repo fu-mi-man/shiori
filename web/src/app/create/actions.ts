@@ -33,7 +33,7 @@ export async function createShiori(
 
   const rawData = {
     title: formData.get("title"),
-    passphrase: formData.get("passphrase"),
+    passphrase: formData.get("passphrase") ?? undefined,
     overviews: parsedOverviews,
     days: parsedDays,
     startDate: formData.get("startDate"),
@@ -49,16 +49,6 @@ export async function createShiori(
   }
 
   const { title, passphrase, overviews, days, startDate } = result.data;
-
-  // 全フィールドが空の予定を除外してからバリデーション
-  const filteredDays = days.map((day) => ({
-    ...day,
-    schedules: day.schedules.filter((s) => s.time || s.title || s.memo),
-  }));
-
-  if (filteredDays.some((day) => day.schedules.length === 0)) {
-    return { status: "error", message: "予定がない日程は保存できません" };
-  }
 
   let shioriId: string | undefined;
 
@@ -92,16 +82,20 @@ export async function createShiori(
       }
 
       // 3. schedules に INSERT
-      const scheduleRows = filteredDays.flatMap((day, dayIndex) =>
-        day.schedules.map((schedule, scheduleIndex) => ({
-          shioriId: shiori.id,
-          sortOrder: scheduleIndex,
-          dayNumber: dayIndex + 1,
-          date: startDate ? addDays(startDate, dayIndex) : null,
-          time: schedule.time || null,
-          title: schedule.title || null,
-          note: schedule.memo || null,
-        })),
+      // - 全フィールドがスペースのみ・空の予定は除外（スペースのみは DB の time 型エラーを防ぐため trim() で判定）
+      // - 元の days インデックスを使い dayNumber と date がズレないようにする
+      const scheduleRows = days.flatMap((day, dayIndex) =>
+        day.schedules
+          .filter((s) => s.time.trim() || s.title.trim() || s.memo.trim())
+          .map((schedule, scheduleIndex) => ({
+            shioriId: shiori.id,
+            sortOrder: scheduleIndex,
+            dayNumber: dayIndex + 1,
+            date: startDate ? addDays(startDate, dayIndex) : null,
+            time: schedule.time.trim() || null,
+            title: schedule.title.trim() || null,
+            note: schedule.memo.trim() || null,
+          })),
       );
 
       if (scheduleRows.length > 0) {
