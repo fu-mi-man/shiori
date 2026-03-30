@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
 
-/** 概要アイテムの型．id は React key 用（削除後も重複しない連番） */
+/** 旅の情報アイテムの型．id は React key 用（削除後も重複しない連番） */
 type Overview = {
   id: number;
   title: string;
@@ -77,7 +77,7 @@ export function CreateForm({
   const [startDate, setStartDate] = useState(initialStartDate);
   const [calendarOpen, setCalendarOpen] = useState(false);
 
-  // 概要セクションのstate
+  // 旅の情報セクションのstate
   const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
   const nextOverviewIdRef = useRef(Math.max(0, ...initialOverviews.map((o) => o.id)) + 1);
 
@@ -88,7 +88,7 @@ export function CreateForm({
     Math.max(0, ...initialDays.flatMap((d) => d.schedules.map((s) => s.id))) + 1,
   );
 
-  /** 概要カードを末尾に追加する．上限は10件 */
+  /** 旅の情報カードを末尾に追加する．上限は10件 */
   const addOverview = () => {
     setOverviews((prev) => {
       if (prev.length >= 10) return prev;
@@ -96,12 +96,12 @@ export function CreateForm({
     });
   };
 
-  /** 指定 id の概要カードを削除する */
+  /** 指定 id の旅の情報カードを削除する */
   const removeOverview = (id: number) => {
     setOverviews((prev) => prev.filter((item) => item.id !== id));
   };
 
-  /** 指定 id の概要カードのフィールドを更新する */
+  /** 指定 id の旅の情報カードのフィールドを更新する */
   const updateOverview = (id: number, field: "title" | "content", value: string) => {
     setOverviews((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
@@ -209,11 +209,11 @@ export function CreateForm({
         />
       </section>
 
-      {/* 概要セクション */}
+      {/* 旅の情報セクション */}
       <section className="flex flex-col gap-4">
         {/* セクションヘッダー */}
         <div className="flex min-h-8 items-center justify-between">
-          <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">概要</h2>
+          <h2 className="font-semibold text-[#1A1918] text-base tracking-tight">旅の情報</h2>
           {overviews.length < 10 && (
             <Button
               className="relative cursor-pointer rounded-full bg-[#C8F0D8] px-3 py-1.5 font-semibold text-[#3D8A5A] text-xs leading-5 before:absolute before:-inset-[6px] before:content-[''] hover:bg-[#A8E4C0] active:scale-95"
@@ -226,7 +226,7 @@ export function CreateForm({
           )}
         </div>
 
-        {/* 概要カードリスト */}
+        {/* 旅の情報カードリスト */}
         {overviews.map((item, index) => (
           <Card
             className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
@@ -234,11 +234,11 @@ export function CreateForm({
           >
             <CardHeader>
               <CardTitle>
-                <Badge variant="step">概要 {index + 1}</Badge>
+                <Badge variant="step">{index + 1}</Badge>
               </CardTitle>
               <CardAction>
                 <Button
-                  aria-label="概要を削除"
+                  aria-label="旅の情報を削除"
                   className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
                   onClick={() => removeOverview(item.id)}
                   size="icon-sm"
@@ -251,17 +251,17 @@ export function CreateForm({
             </CardHeader>
 
             <CardContent className="flex flex-col gap-4">
-              {/* タイトル */}
+              {/* 項目 */}
               <div className="flex flex-col gap-1">
                 <Label className="text-[#6D6C6A] text-xs" htmlFor={`overview-title-${item.id}`}>
-                  タイトル
+                  項目
                 </Label>
                 <Input
                   className="h-11 bg-white"
                   id={`overview-title-${item.id}`}
                   maxLength={255}
                   onChange={(e) => updateOverview(item.id, "title", e.target.value)}
-                  placeholder="例: 旅費"
+                  placeholder="例: 持ち物"
                   value={item.title}
                 />
               </div>
@@ -276,7 +276,7 @@ export function CreateForm({
                   id={`overview-content-${item.id}`}
                   maxLength={500}
                   onChange={(e) => updateOverview(item.id, "content", e.target.value)}
-                  placeholder="例: 一人あたり約50,000円"
+                  placeholder="例: 日焼け止めとサングラスは必須！"
                   value={item.content}
                 />
               </div>
@@ -409,13 +409,13 @@ export function CreateForm({
                       />
                     </div>
 
-                    {/* タイトル */}
+                    {/* 予定 */}
                     <div className="flex flex-col gap-1">
                       <Label
                         className="text-[#6D6C6A] text-xs"
                         htmlFor={`schedule-title-${day.id}-${schedule.id}`}
                       >
-                        タイトル
+                        予定
                       </Label>
                       <Input
                         className="h-11 bg-white"
@@ -424,18 +424,18 @@ export function CreateForm({
                         onChange={(e) =>
                           updateSchedule(day.id, schedule.id, "title", e.target.value)
                         }
-                        placeholder="例: 那覇空港 到着"
+                        placeholder="例: 美ら海水族館"
                         value={schedule.title}
                       />
                     </div>
 
-                    {/* 補足 */}
+                    {/* メモ */}
                     <div className="flex flex-col gap-1">
                       <Label
                         className="text-[#6D6C6A] text-xs"
                         htmlFor={`schedule-memo-${day.id}-${schedule.id}`}
                       >
-                        補足
+                        メモ
                       </Label>
                       <Textarea
                         className="min-h-[88px] bg-white px-3 leading-relaxed"
@@ -444,7 +444,7 @@ export function CreateForm({
                         onChange={(e) =>
                           updateSchedule(day.id, schedule.id, "memo", e.target.value)
                         }
-                        placeholder="例: LCC利用。第2ターミナル"
+                        placeholder="例: チケットはコンビニで買うと安いよ！"
                         value={schedule.memo}
                       />
                     </div>
