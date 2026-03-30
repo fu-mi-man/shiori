@@ -79,7 +79,7 @@ export default async function ShioriPage({ params }: { params: Promise<{ id: str
         </div>
       </header>
       <div className="flex flex-col gap-6 px-5 py-6">
-        {/* 概要セクション */}
+        {/* 旅の情報セクション */}
         {shiori.overviews.some((o) => o.title || o.content) && (
           <section className="flex flex-col gap-4">
             {shiori.overviews
