@@ -299,7 +299,7 @@ export function CreateForm({
         </div>
 
         {/* 旅行開始日 */}
-        <div className="flex flex-col gap-2">
+        <div className="flex w-1/2 flex-col gap-2">
           <Label className="gap-1.5" htmlFor="start-date">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
