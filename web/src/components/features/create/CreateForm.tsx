@@ -75,6 +75,7 @@ export function CreateForm({
   // テキストフィールドのstate（バリデーションエラー時に値を保持するため制御コンポーネントにする）
   const [title, setTitle] = useState(initialTitle);
   const [startDate, setStartDate] = useState(initialStartDate);
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
@@ -303,14 +304,15 @@ export function CreateForm({
 
         {/* 旅行開始日 */}
         <div className="flex w-1/2 flex-col gap-2">
-          <Label className="gap-1.5">
+          <Label className="gap-1.5" htmlFor="start-date-trigger">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </Label>
-          <Popover>
+          <Popover onOpenChange={setCalendarOpen} open={calendarOpen}>
             <PopoverTrigger asChild>
               <Button
                 className="h-11 w-full cursor-pointer justify-start border-input bg-white px-2.5 font-normal text-base hover:bg-white md:text-sm"
+                id="start-date-trigger"
                 type="button"
                 variant="outline"
               >
@@ -325,7 +327,10 @@ export function CreateForm({
             <PopoverContent align="start" className="w-auto p-0">
               <Calendar
                 mode="single"
-                onSelect={(date) => setStartDate(date ? format(date, "yyyy-MM-dd") : "")}
+                onSelect={(date) => {
+                  setStartDate(date ? format(date, "yyyy-MM-dd") : "");
+                  setCalendarOpen(false);
+                }}
                 selected={startDate ? parse(startDate, "yyyy-MM-dd", new Date()) : undefined}
               />
             </PopoverContent>
