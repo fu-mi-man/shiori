@@ -1,14 +1,17 @@
 "use client";
 
-import { PenLine, Plus, X } from "lucide-react";
+import { format, parse } from "date-fns";
+import { CalendarDays, PenLine, Plus, X } from "lucide-react";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { CreateShioriState } from "@/app/create/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
 
 /** 概要アイテムの型．id は React key 用（削除後も重複しない連番） */
@@ -72,6 +75,7 @@ export function CreateForm({
   // テキストフィールドのstate（バリデーションエラー時に値を保持するため制御コンポーネントにする）
   const [title, setTitle] = useState(initialTitle);
   const [startDate, setStartDate] = useState(initialStartDate);
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
   // 概要セクションのstate
   const [overviews, setOverviews] = useState<Overview[]>(initialOverviews);
@@ -300,19 +304,37 @@ export function CreateForm({
 
         {/* 旅行開始日 */}
         <div className="flex w-1/2 flex-col gap-2">
-          <Label className="gap-1.5" htmlFor="start-date">
+          <Label className="gap-1.5" htmlFor="start-date-trigger">
             <span className="font-semibold text-[#1A1918] text-sm">旅行開始日</span>
             <span className="rounded bg-[#EDECEA] px-2 py-1 text-[#9C9B99] text-xs">任意</span>
           </Label>
-          <Input
-            className="h-11 cursor-pointer bg-white"
-            id="start-date"
-            name="startDate"
-            onChange={(e) => setStartDate(e.target.value)}
-            onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
-            type="date"
-            value={startDate}
-          />
+          <Popover onOpenChange={setCalendarOpen} open={calendarOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                className="h-11 w-full cursor-pointer justify-start border-input bg-white px-2.5 font-normal text-base hover:bg-white md:text-sm"
+                id="start-date-trigger"
+                type="button"
+                variant="outline"
+              >
+                <CalendarDays className="size-4 text-muted-foreground" />
+                {startDate ? (
+                  format(parse(startDate, "yyyy-MM-dd", new Date()), "yyyy年M月d日")
+                ) : (
+                  <span className="text-muted-foreground">日付を選択</span>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className="w-auto p-0">
+              <Calendar
+                mode="single"
+                onSelect={(date) => {
+                  setStartDate(date ? format(date, "yyyy-MM-dd") : "");
+                  setCalendarOpen(false);
+                }}
+                selected={startDate ? parse(startDate, "yyyy-MM-dd", new Date()) : undefined}
+              />
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* 日程グループリスト */}
@@ -376,7 +398,7 @@ export function CreateForm({
                         時間
                       </Label>
                       <Input
-                        className="h-11 cursor-pointer bg-white"
+                        className="h-11 cursor-pointer appearance-none bg-white [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
                         id={`schedule-time-${day.id}-${schedule.id}`}
                         onChange={(e) =>
                           updateSchedule(day.id, schedule.id, "time", e.target.value)
@@ -446,6 +468,7 @@ export function CreateForm({
       </section>
 
       {/* stateで管理している複雑なデータをFormDataに含めるためのhidden input */}
+      <input name="startDate" type="hidden" value={startDate} />
       <input
         name="overviews"
         type="hidden"
