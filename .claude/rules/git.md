@@ -26,10 +26,14 @@
 
 ## main の最新化（rebase）
 
-- push する前に毎回 fetch して，main に更新があれば rebase する
-  ```bash
-  git fetch origin
-  git rebase origin/main        # 更新がなければ自動でスキップされる
-  git push                      # 既に push 済みなら --force-with-lease
-  ```
+- push する前に毎回 `git fetch origin` を実行する
+- IMPORTANT: fetch 結果の出力を確認し、`origin/main` に新しいコミットがある場合のみ `git rebase origin/main` を実行する。更新がなければ rebase コマンドは実行しない
+- push 時、既にリモートに push 済みなら `--force-with-lease` を付ける
 - merge は使わない（履歴が汚くなるため）
+
+## PR コメントの取得
+
+- IMPORTANT: PR のレビューコメントを取得する際は、以下の3つのエンドポイントを全て確認すること（1つでも省略しない）
+  - `repos/{owner}/{repo}/issues/{pr}/comments` — 通常コメント（CodeRabbit サマリ等）
+  - `repos/{owner}/{repo}/pulls/{pr}/comments` — インラインレビューコメント（コード行への指摘）
+  - `repos/{owner}/{repo}/pulls/{pr}/reviews` — レビューサマリ（Approve/Request changes の本文）
