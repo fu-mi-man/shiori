@@ -363,6 +363,7 @@ docker compose down                                        # コンテナを停�
 docker compose run --rm web pnpm add <package>             # 依存追加
 docker compose run --rm web pnpm add -D <package>          # 開発依存追加
 docker compose up --build -d                               # イメージ再ビルド＋起動（新しい anonymous volume が生成される）
+cd web && pnpm install                                     # ホスト側の node_modules も同期（IDE型チェック・Playwright用）
 docker volume prune                                        # 孤立した anonymous volume を定期的に掃除
 ```
 
