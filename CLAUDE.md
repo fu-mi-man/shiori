@@ -23,3 +23,4 @@ docker compose exec web pnpm build            # ビルド確認
 @.claude/rules/database.md
 @.claude/rules/git.md
 @.claude/rules/documentation.md
+@.claude/rules/testing.md
