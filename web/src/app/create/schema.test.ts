@@ -44,6 +44,22 @@ describe("createShioriSchema", () => {
       });
       expect(result.success).toBe(false);
     });
+
+    it("overviewのcontentが500文字のとき，成功する", () => {
+      const result = createShioriSchema.safeParse({
+        ...validInput,
+        overviews: [{ title: "", content: "a".repeat(500) }],
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("overviewのcontentが501文字のとき，バリデーションエラーになる", () => {
+      const result = createShioriSchema.safeParse({
+        ...validInput,
+        overviews: [{ title: "", content: "a".repeat(501) }],
+      });
+      expect(result.success).toBe(false);
+    });
   });
 
   describe("startDate", () => {
@@ -75,6 +91,22 @@ describe("createShioriSchema", () => {
 
     it("daysが11件のとき，バリデーションエラーになる", () => {
       const result = createShioriSchema.safeParse({ ...validInput, days: Array(11).fill(day) });
+      expect(result.success).toBe(false);
+    });
+
+    it("scheduleのtitleが255文字のとき，成功する", () => {
+      const result = createShioriSchema.safeParse({
+        ...validInput,
+        days: [{ schedules: [{ ...schedule, title: "a".repeat(255) }] }],
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("scheduleのtitleが256文字のとき，バリデーションエラーになる", () => {
+      const result = createShioriSchema.safeParse({
+        ...validInput,
+        days: [{ schedules: [{ ...schedule, title: "a".repeat(256) }] }],
+      });
       expect(result.success).toBe(false);
     });
 
@@ -137,10 +169,14 @@ describe("createShioriSchema", () => {
     });
 
     it("絵文字を含むタイトルのとき，成功する", () => {
-      // 絵文字は length=2 のため，254文字 + 絵文字1つ = 256コード単位になりエラーになる
-      // → 現仕様の挙動をドキュメント化するテスト
       const result = createShioriSchema.safeParse({ ...validInput, title: "🌺沖縄旅行" });
       expect(result.success).toBe(true);
+    });
+
+    it("254文字+絵文字1つ（256コード単位）のとき，バリデーションエラーになる", () => {
+      // 絵文字は JS の .length で 2 カウントされるため 254 + 2 = 256 > max(255)
+      const result = createShioriSchema.safeParse({ ...validInput, title: `${"a".repeat(254)}🌺` });
+      expect(result.success).toBe(false);
     });
   });
 });
