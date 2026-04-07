@@ -5,6 +5,7 @@ import { db } from "@/db";
 import { overviews as overviewsTable } from "@/db/schema/overviews";
 import { schedules as schedulesTable } from "@/db/schema/schedules";
 import { shioris } from "@/db/schema/shioris";
+import { addDays } from "@/lib/shiori/add-days";
 import { createShioriSchema } from "./schema";
 
 /** しおり作成 Server Action の状態型 */
@@ -107,12 +108,4 @@ export async function createShiori(
   }
 
   redirect(`/i/${shioriId}`);
-}
-
-/** startDate に days 日加算した日付文字列を返す（UTC基準） */
-function addDays(startDate: string, days: number): string {
-  const [year, month, day] = startDate.split("-").map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  date.setUTCDate(date.getUTCDate() + days);
-  return date.toISOString().slice(0, 10);
 }
