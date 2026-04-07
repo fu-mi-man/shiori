@@ -175,7 +175,7 @@ describe("createShioriSchema", () => {
 
     it("254文字+絵文字1つ（256コード単位）のとき，バリデーションエラーになる", () => {
       // 絵文字は JS の .length で 2 カウントされるため 254 + 2 = 256 > max(255)
-      const result = createShioriSchema.safeParse({ ...validInput, title: "a".repeat(254) + "🌺" });
+      const result = createShioriSchema.safeParse({ ...validInput, title: `${"a".repeat(254)}🌺` });
       expect(result.success).toBe(false);
     });
   });
