@@ -2,19 +2,24 @@
 
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
-import { createShioriSchema } from "@/app/create/schema";
 import { db } from "@/db";
 import { overviews as overviewsTable } from "@/db/schema/overviews";
 import { schedules as schedulesTable } from "@/db/schema/schedules";
 import { shioris } from "@/db/schema/shioris";
+import { addDays } from "@/lib/shiori/add-days";
+import { updateShioriSchema } from "./schema";
 
+/** しおり編集 Server Action の状態型 */
 export type UpdateShioriState = {
   status: "idle" | "error";
   message: string;
 };
 
-const updateShioriSchema = createShioriSchema.omit({ passphrase: true });
-
+/**
+ * しおりを更新する Server Action
+ *
+ * バリデーション → DB トランザクション（shioris / overviews / schedules の UPDATE）→ 閲覧画面へリダイレクト
+ */
 export async function updateShiori(
   id: string,
   _prevState: UpdateShioriState,
@@ -97,12 +102,4 @@ export async function updateShiori(
   }
 
   redirect(`/i/${id}`);
-}
-
-/** startDate に days 日加算した日付文字列を返す（UTC基準） */
-function addDays(startDate: string, days: number): string {
-  const [year, month, day] = startDate.split("-").map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  date.setUTCDate(date.getUTCDate() + days);
-  return date.toISOString().slice(0, 10);
 }
