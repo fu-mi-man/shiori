@@ -89,14 +89,16 @@ export default defineConfig({
 ### 4. テストディレクトリを作成
 
 ```bash
-mkdir -p tests/unit tests/integration
+mkdir -p tests/integration
 ```
 
 ```text
-web/tests/
-├── e2e/           # E2Eテスト（Playwright）
-├── integration/   # 統合テスト
-└── unit/          # ユニットテスト
+web/
+├── src/
+│   └── **/*.test.ts   # 単体テスト（ソース横・コロケーション）
+└── tests/
+    ├── e2e/           # E2Eテスト（Playwright）
+    └── integration/   # 統合テスト
 ```
 
 ### 5. 動作確認
