@@ -24,6 +24,7 @@ function makeFormData(overrides: Record<string, string> = {}): FormData {
 }
 
 function getCreatedId(): string {
+  expect(redirect).toHaveBeenCalledTimes(1);
   const url = vi.mocked(redirect).mock.calls[0][0] as string;
   return url.replace("/i/", "");
 }

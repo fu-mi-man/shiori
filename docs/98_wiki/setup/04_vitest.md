@@ -24,7 +24,7 @@ docker compose up --build -d
 | `@vitest/ui` | ブラウザUIでテスト結果を確認 |
 
 > Testing Library（`@testing-library/react`, `@testing-library/jest-dom`, `jsdom`）はコンポーネントテストの段階で追加する。初期セットアップでは不要。
-
+>
 > **注意**: `docker compose build web` を `run --rm` の前に必ず実行すること。省略すると pnpm のストアパス設定が一致せず `ERR_PNPM_UNEXPECTED_STORE` エラーが発生する。
 
 ### 2. vitest.config.ts を作成
@@ -118,7 +118,7 @@ docker compose exec web pnpm exec vitest --ui
 
 `pnpm test:coverage` を実行すると以下が出力される。
 
-```
+```text
  % Coverage report from v8
 ---------|---------|---------|---------|---------
 File     | % Stmts | % Branch| % Funcs | % Lines |
