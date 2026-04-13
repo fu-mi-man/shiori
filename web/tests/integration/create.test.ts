@@ -30,19 +30,20 @@ function getCreatedId(): string {
 }
 
 describe("createShiori", () => {
-  let createdId: string | null = null;
-
   afterEach(async () => {
-    if (createdId) {
-      await db.delete(shioris).where(eq(shioris.id, createdId));
-      createdId = null;
+    // createdId をテストコードに持たせると，アサーション失敗時に代入が完了せず
+    // cleanup がスキップされるため，モック呼び出し履歴から直接 ID を取得する
+    const calls = vi.mocked(redirect).mock.calls;
+    if (calls.length > 0) {
+      const id = (calls[0][0] as string).replace("/i/", "");
+      await db.delete(shioris).where(eq(shioris.id, id));
     }
     vi.clearAllMocks();
   });
 
   it("有効なタイトルを渡したとき，shioris にレコードが挿入される", async () => {
     await createShiori(idle, makeFormData({ title: "沖縄旅行" }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const [row] = await db.select().from(shioris).where(eq(shioris.id, createdId));
     expect(row.title).toBe("沖縄旅行");
@@ -51,7 +52,7 @@ describe("createShiori", () => {
   it("概要を渡したとき，overviews にレコードが挿入される", async () => {
     const overviews = JSON.stringify([{ title: "持ち物", content: "パスポート" }]);
     await createShiori(idle, makeFormData({ overviews }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -63,7 +64,7 @@ describe("createShiori", () => {
   it("スケジュールを渡したとき，schedules にレコードが挿入される", async () => {
     const days = JSON.stringify([{ schedules: [{ time: "10:00", title: "那覇空港", memo: "" }] }]);
     await createShiori(idle, makeFormData({ days }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -75,7 +76,7 @@ describe("createShiori", () => {
   it("startDate を渡したとき，1日目の date が startDate と一致する", async () => {
     const days = JSON.stringify([{ schedules: [{ time: "10:00", title: "那覇空港", memo: "" }] }]);
     await createShiori(idle, makeFormData({ days, startDate: "2025-08-01" }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -90,7 +91,7 @@ describe("createShiori", () => {
       { schedules: [{ time: "10:00", title: "2日目", memo: "" }] },
     ]);
     await createShiori(idle, makeFormData({ days, startDate: "2025-08-01" }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -103,7 +104,7 @@ describe("createShiori", () => {
   it("startDate が空のとき，schedules の date は null になる", async () => {
     const days = JSON.stringify([{ schedules: [{ time: "10:00", title: "那覇空港", memo: "" }] }]);
     await createShiori(idle, makeFormData({ days, startDate: "" }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -114,7 +115,7 @@ describe("createShiori", () => {
 
   it("startDate を渡したとき，shioris.startDate に保存される", async () => {
     await createShiori(idle, makeFormData({ startDate: "2025-08-01" }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const [row] = await db.select().from(shioris).where(eq(shioris.id, createdId));
     expect(row.startDate).toBe("2025-08-01");
@@ -123,7 +124,7 @@ describe("createShiori", () => {
   it("概要のタイトルのみ空のとき，overviews にレコードが挿入される", async () => {
     const overviews = JSON.stringify([{ title: "", content: "パスポート" }]);
     await createShiori(idle, makeFormData({ overviews }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -135,7 +136,7 @@ describe("createShiori", () => {
   it("概要のタイトル・内容が両方空のとき，overviews にレコードが挿入されない", async () => {
     const overviews = JSON.stringify([{ title: "", content: "" }]);
     await createShiori(idle, makeFormData({ overviews }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -147,7 +148,7 @@ describe("createShiori", () => {
   it("スケジュールの全フィールドが空のとき，schedules にレコードが挿入されない", async () => {
     const days = JSON.stringify([{ schedules: [{ time: "", title: "", memo: "" }] }]);
     await createShiori(idle, makeFormData({ days }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const rows = await db
       .select()
@@ -158,7 +159,7 @@ describe("createShiori", () => {
 
   it("パスフレーズを渡したとき，shioris.passphrase に保存される", async () => {
     await createShiori(idle, makeFormData({ passphrase: "secret123" }));
-    createdId = getCreatedId();
+    const createdId = getCreatedId();
 
     const [row] = await db.select().from(shioris).where(eq(shioris.id, createdId));
     expect(row.passphrase).toBe("secret123");
