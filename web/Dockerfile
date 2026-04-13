@@ -6,6 +6,8 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 # CorepackのキャッシュをUSER nodeからアクセス可能な場所に変更（デフォルトは/root/.cache）
 ENV COREPACK_HOME="/pnpm/corepack"
+# pnpmストアのパスを環境変数でも固定（node ユーザー実行時にも参照される）
+ENV PNPM_STORE_DIR="/pnpm/store"
 
 # 作業ディレクトリの設定
 WORKDIR /app
@@ -34,6 +36,10 @@ RUN chown -R node:node /pnpm /app
 # コンテナ内の実行ユーザーをnodeに変更（UID 1000）
 # volume マウント時のファイル所有権をホスト側ユーザーと一致させる
 USER node
+
+# docker compose run 時も node ユーザーで pnpm が動くため、user スコープでも store-dir を固定する
+# --global（root設定）は node ユーザーでは読まれないため --location=user が必要
+RUN pnpm config set store-dir "$PNPM_STORE_DIR" --location=user
 
 # ポート公開
 EXPOSE 3000

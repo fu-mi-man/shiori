@@ -14,5 +14,11 @@ export default defineConfig({
   test: {
     include: ["tests/**/*.test.{ts,tsx}", "src/**/*.test.{ts,tsx}"], // tests/配下（推奨）とsrc/配下（コロケーション）の両方を対象
     environment: "node", // デフォルトはNode.js環境。コンポーネントテスト時はファイル先頭に // @vitest-environment jsdom を指定
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html"], // text: ターミナル表示，html: ブラウザで詳細確認
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: ["src/**/*.test.{ts,tsx}", "src/db/migrations/**"],
+    },
   },
 });
