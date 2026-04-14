@@ -6,6 +6,7 @@ Next.jsアプリのコマンドはプロジェクトルートから `docker comp
 コード変更後は以下の順で検証すること。
 ```bash
 # 毎回（変更後）
+docker compose exec web pnpm format           # フォーマット（Biome，自動修正）
 docker compose exec web pnpm typecheck        # 型チェック
 docker compose exec web pnpm lint             # lint（Biome）
 
