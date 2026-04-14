@@ -4,7 +4,8 @@ test.describe("詳細ページ", () => {
   let shioriUrl: string;
 
   test.beforeAll(async ({ browser }) => {
-    const page = await browser.newPage();
+    const context = await browser.newContext({ baseURL: "http://localhost:3000" });
+    const page = await context.newPage();
     await page.goto("/create");
     await page.getByLabel("タイトル").fill("E2Eテスト用しおり");
     await page.getByRole("button", { name: "追加", exact: true }).click();
@@ -16,7 +17,7 @@ test.describe("詳細ページ", () => {
     await page.getByRole("button", { name: "作成する" }).click();
     await page.waitForURL(/\/i\//);
     shioriUrl = page.url();
-    await page.close();
+    await context.close();
   });
 
   test.beforeEach(async ({ page }) => {
