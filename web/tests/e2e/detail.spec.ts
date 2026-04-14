@@ -6,23 +6,13 @@ test.describe("詳細ページ", () => {
   test.beforeAll(async ({ browser }) => {
     const page = await browser.newPage();
     await page.goto("/create");
-
-    // タイトル
     await page.getByLabel("タイトル").fill("E2Eテスト用しおり");
-
-    // 旅の情報を1件追加
     await page.getByRole("button", { name: "追加", exact: true }).click();
     await page.getByLabel("項目").fill("持ち物");
     await page.getByLabel("内容").fill("日焼け止め");
-
-    // 1日目のスケジュール
     await page.getByLabel("予定").first().fill("美ら海水族館");
-
-    // 2日目を追加してスケジュール入力
     await page.getByRole("button", { name: "日程を追加" }).click();
     await page.getByLabel("予定").last().fill("首里城");
-
-    // 作成
     await page.getByRole("button", { name: "作成する" }).click();
     await page.waitForURL(/\/i\//);
     shioriUrl = page.url();
