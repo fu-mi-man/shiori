@@ -517,6 +517,7 @@ export function CreateForm({
             <CardContent className="flex flex-col gap-3">
               {/* スケジュールリスト */}
               <DndContext
+                id={`schedule-dnd-${day.id}`}
                 onDragEnd={(event: DragEndEvent) => {
                   const { active, over } = event;
                   if (over && active.id !== over.id) {
