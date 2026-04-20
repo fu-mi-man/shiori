@@ -60,9 +60,9 @@ type CreateFormProps = {
 type SortableScheduleCardProps = {
   /** 表示・編集対象の予定データ */
   schedule: Schedule;
-  /** 日程内での表示順インデックス（0始まり）。バッジの「予定 N」表示に使用 */
+  /** 日程内での表示順インデックス（0始まり），バッジの「予定 N」表示に使用 */
   scheduleIndex: number;
-  /** 同じ日程内の予定件数。1件のときは削除ボタンを非表示にするために使用 */
+  /** 同じ日程内の予定件数，1件のときは削除ボタンを非表示にするために使用 */
   daySchedulesCount: number;
   /** 削除ボタン押下時のコールバック */
   onRemove: () => void;
@@ -304,7 +304,7 @@ export function CreateForm({
     );
   };
 
-  // ハンドル専用なのでスクロールとの競合はなし。5px 移動で即起動
+  // ハンドル専用なのでスクロールとの競合はなし，5px 移動で即起動
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: { distance: 5 },
