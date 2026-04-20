@@ -1,9 +1,17 @@
 "use client";
 
-import { DndContext, type DragEndEvent, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
+import {
+  DndContext,
+  type DragEndEvent,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
+  sortableKeyboardCoordinates,
   useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
@@ -309,6 +317,9 @@ export function CreateForm({
     useSensor(PointerSensor, {
       activationConstraint: { distance: 5 },
     }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
   );
 
   /** 指定日程内の予定順序を並び替える */
@@ -318,6 +329,9 @@ export function CreateForm({
         if (day.id !== dayId) return day;
         const oldIndex = day.schedules.findIndex((s) => s.id === activeId);
         const newIndex = day.schedules.findIndex((s) => s.id === overId);
+        // 現状は SortableContext items と schedule.id の整合が取れているため -1 にならないが，
+        // 将来 id 生成ロジックが変わったときに arrayMove(list, -1, ...) で末尾が不可解に移動するのを防ぐ
+        if (oldIndex === -1 || newIndex === -1) return day;
         return { ...day, schedules: arrayMove(day.schedules, oldIndex, newIndex) };
       }),
     );
