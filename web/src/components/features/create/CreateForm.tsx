@@ -1,7 +1,23 @@
 "use client";
 
+import {
+  DndContext,
+  type DragEndEvent,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { format, parse } from "date-fns";
-import { CalendarDays, PenLine, Plus, X } from "lucide-react";
+import { CalendarDays, GripVertical, PenLine, Plus, X } from "lucide-react";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { CreateShioriState } from "@/app/create/actions";
@@ -47,6 +63,132 @@ type CreateFormProps = {
   initialStartDate?: string;
   submitLabel?: string;
 };
+
+/** ドラッグ&ドロップ可能な予定カードの props */
+type SortableScheduleCardProps = {
+  /** 表示・編集対象の予定データ */
+  schedule: Schedule;
+  /** 日程内での表示順インデックス（0始まり），バッジの「予定 N」表示に使用 */
+  scheduleIndex: number;
+  /** 同じ日程内の予定件数，1件のときは削除ボタンを非表示にするために使用 */
+  daySchedulesCount: number;
+  /** 削除ボタン押下時のコールバック */
+  onRemove: () => void;
+  /** フィールド値変更時のコールバック */
+  onUpdate: (field: keyof Omit<Schedule, "id">, value: string) => void;
+};
+
+/**
+ * ドラッグ&ドロップで並び替えできる予定カード
+ *
+ * dnd-kit の `useSortable` を使い，ドラッグハンドル（GripVertical）にのみ
+ * listeners/attributes を付与することで，カード本体のスクロール操作と干渉しない．
+ */
+function SortableScheduleCard({
+  schedule,
+  scheduleIndex,
+  daySchedulesCount,
+  onRemove,
+  onUpdate,
+}: SortableScheduleCardProps) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: schedule.id,
+  });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : undefined,
+  };
+
+  return (
+    <Card
+      className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
+      ref={setNodeRef}
+      style={style}
+    >
+      <CardHeader>
+        <CardTitle>
+          <div className="flex items-center gap-2">
+            {/* ドラッグハンドル - 見た目 24px・タッチターゲット 44px（before で拡張） */}
+            <button
+              {...attributes}
+              {...listeners}
+              aria-label="予定を並び替え"
+              className="relative flex size-6 cursor-grab items-center justify-center rounded text-[#C4C3C0] before:absolute before:-inset-2.5 before:content-[''] hover:bg-[#EDECEA] hover:text-[#6D6C6A] active:cursor-grabbing"
+              title="ドラッグして並び替え"
+              type="button"
+            >
+              <GripVertical className="size-4" />
+            </button>
+            <Badge variant="step">予定 {scheduleIndex + 1}</Badge>
+          </div>
+        </CardTitle>
+        {daySchedulesCount > 1 && (
+          <CardAction>
+            <Button
+              aria-label="予定を削除"
+              className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
+              onClick={onRemove}
+              size="icon-sm"
+              type="button"
+              variant="destructive"
+            >
+              <X />
+            </Button>
+          </CardAction>
+        )}
+      </CardHeader>
+
+      <CardContent className="flex flex-col gap-4">
+        {/* 時間 */}
+        <div className="flex w-36 flex-col gap-1">
+          <Label className="text-[#6D6C6A] text-xs" htmlFor={`schedule-time-${schedule.id}`}>
+            時間
+          </Label>
+          <Input
+            className="h-11 cursor-pointer appearance-none bg-white [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+            id={`schedule-time-${schedule.id}`}
+            onChange={(e) => onUpdate("time", e.target.value)}
+            onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+            type="time"
+            value={schedule.time}
+          />
+        </div>
+
+        {/* 予定 */}
+        <div className="flex flex-col gap-1">
+          <Label className="text-[#6D6C6A] text-xs" htmlFor={`schedule-title-${schedule.id}`}>
+            予定
+          </Label>
+          <Input
+            className="h-11 bg-white"
+            id={`schedule-title-${schedule.id}`}
+            maxLength={255}
+            onChange={(e) => onUpdate("title", e.target.value)}
+            placeholder="例: 美ら海水族館"
+            value={schedule.title}
+          />
+        </div>
+
+        {/* メモ */}
+        <div className="flex flex-col gap-1">
+          <Label className="text-[#6D6C6A] text-xs" htmlFor={`schedule-memo-${schedule.id}`}>
+            メモ
+          </Label>
+          <Textarea
+            className="min-h-[88px] bg-white px-3 leading-relaxed"
+            id={`schedule-memo-${schedule.id}`}
+            maxLength={200}
+            onChange={(e) => onUpdate("memo", e.target.value)}
+            placeholder="例: チケットはコンビニで買うと安いよ！"
+            value={schedule.memo}
+          />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 /**
  * しおり作成・編集フォーム
@@ -167,6 +309,31 @@ export function CreateForm({
             }
           : day,
       ),
+    );
+  };
+
+  // ハンドル専用なのでスクロールとの競合はなし，5px 移動で即起動
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: { distance: 5 },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
+  );
+
+  /** 指定日程内の予定順序を並び替える */
+  const reorderSchedule = (dayId: number, activeId: number, overId: number) => {
+    setDays((prev) =>
+      prev.map((day) => {
+        if (day.id !== dayId) return day;
+        const oldIndex = day.schedules.findIndex((s) => s.id === activeId);
+        const newIndex = day.schedules.findIndex((s) => s.id === overId);
+        // 現状は SortableContext items と schedule.id の整合が取れているため -1 にならないが，
+        // 将来 id 生成ロジックが変わったときに arrayMove(list, -1, ...) で末尾が不可解に移動するのを防ぐ
+        if (oldIndex === -1 || newIndex === -1) return day;
+        return { ...day, schedules: arrayMove(day.schedules, oldIndex, newIndex) };
+      }),
     );
   };
 
@@ -363,94 +530,32 @@ export function CreateForm({
 
             <CardContent className="flex flex-col gap-3">
               {/* スケジュールリスト */}
-              {day.schedules.map((schedule, scheduleIndex) => (
-                <Card
-                  className="gap-2 border-[#E5E4E1] bg-white shadow-[0_2px_12px_rgba(26,25,24,0.03)]"
-                  key={schedule.id}
+              <DndContext
+                id={`schedule-dnd-${day.id}`}
+                onDragEnd={(event: DragEndEvent) => {
+                  const { active, over } = event;
+                  if (over && active.id !== over.id) {
+                    reorderSchedule(day.id, active.id as number, over.id as number);
+                  }
+                }}
+                sensors={sensors}
+              >
+                <SortableContext
+                  items={day.schedules.map((s) => s.id)}
+                  strategy={verticalListSortingStrategy}
                 >
-                  <CardHeader>
-                    <CardTitle>
-                      <Badge variant="step">予定 {scheduleIndex + 1}</Badge>
-                    </CardTitle>
-                    {day.schedules.length > 1 && (
-                      <CardAction>
-                        <Button
-                          aria-label="予定を削除"
-                          className="relative cursor-pointer rounded-full before:absolute before:-inset-2.5 before:content-[''] active:scale-90"
-                          onClick={() => removeSchedule(day.id, schedule.id)}
-                          size="icon-sm"
-                          type="button"
-                          variant="destructive"
-                        >
-                          <X />
-                        </Button>
-                      </CardAction>
-                    )}
-                  </CardHeader>
-
-                  <CardContent className="flex flex-col gap-4">
-                    {/* 時間 */}
-                    <div className="flex w-36 flex-col gap-1">
-                      <Label
-                        className="text-[#6D6C6A] text-xs"
-                        htmlFor={`schedule-time-${day.id}-${schedule.id}`}
-                      >
-                        時間
-                      </Label>
-                      <Input
-                        className="h-11 cursor-pointer appearance-none bg-white [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
-                        id={`schedule-time-${day.id}-${schedule.id}`}
-                        onChange={(e) =>
-                          updateSchedule(day.id, schedule.id, "time", e.target.value)
-                        }
-                        onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
-                        type="time"
-                        value={schedule.time}
-                      />
-                    </div>
-
-                    {/* 予定 */}
-                    <div className="flex flex-col gap-1">
-                      <Label
-                        className="text-[#6D6C6A] text-xs"
-                        htmlFor={`schedule-title-${day.id}-${schedule.id}`}
-                      >
-                        予定
-                      </Label>
-                      <Input
-                        className="h-11 bg-white"
-                        id={`schedule-title-${day.id}-${schedule.id}`}
-                        maxLength={255}
-                        onChange={(e) =>
-                          updateSchedule(day.id, schedule.id, "title", e.target.value)
-                        }
-                        placeholder="例: 美ら海水族館"
-                        value={schedule.title}
-                      />
-                    </div>
-
-                    {/* メモ */}
-                    <div className="flex flex-col gap-1">
-                      <Label
-                        className="text-[#6D6C6A] text-xs"
-                        htmlFor={`schedule-memo-${day.id}-${schedule.id}`}
-                      >
-                        メモ
-                      </Label>
-                      <Textarea
-                        className="min-h-[88px] bg-white px-3 leading-relaxed"
-                        id={`schedule-memo-${day.id}-${schedule.id}`}
-                        maxLength={200}
-                        onChange={(e) =>
-                          updateSchedule(day.id, schedule.id, "memo", e.target.value)
-                        }
-                        placeholder="例: チケットはコンビニで買うと安いよ！"
-                        value={schedule.memo}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  {day.schedules.map((schedule, scheduleIndex) => (
+                    <SortableScheduleCard
+                      daySchedulesCount={day.schedules.length}
+                      key={schedule.id}
+                      onRemove={() => removeSchedule(day.id, schedule.id)}
+                      onUpdate={(field, value) => updateSchedule(day.id, schedule.id, field, value)}
+                      schedule={schedule}
+                      scheduleIndex={scheduleIndex}
+                    />
+                  ))}
+                </SortableContext>
+              </DndContext>
 
               {/* 予定を追加ボタン */}
               <Button
