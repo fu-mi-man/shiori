@@ -54,6 +54,10 @@ pnpm build                       # ビルド確認
 
 Next.js 16 (App Router) / TypeScript / Tailwind CSS v4 / shadcn/ui / Neon Postgres / Drizzle ORM / pnpm / Docker
 
+## プロジェクト管理
+
+- [GitHub Project](https://github.com/users/fu-mi-man/projects/1)
+
 ## ドキュメント
 
 `docs/` 以下に配置。
