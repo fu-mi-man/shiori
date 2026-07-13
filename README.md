@@ -56,7 +56,7 @@ Next.js 16 (App Router) / TypeScript / Tailwind CSS v4 / shadcn/ui / Neon Postgr
 
 ## プロジェクト管理
 
-- [GitHub Project](https://github.com/users/fu-mi-man/projects/1)
+- [GitHub Project](https://github.com/users/fu-mi-man/projects/1)（非公開。オーナーのみ閲覧可）
 
 ## ドキュメント
 
