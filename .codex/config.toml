@@ -1,0 +1,13 @@
+[mcp_servers.playwright]
+command = "docker"
+args = [
+    "compose",
+    "exec",
+    "-T",
+    "web",
+    "pnpm",
+    "dlx",
+    "@playwright/mcp@latest",
+    "--output-dir",
+    ".playwright-mcp",
+]
