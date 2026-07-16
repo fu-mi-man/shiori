@@ -18,6 +18,8 @@
 shioris (しおり)
 ├── overviews (概要) 1対多
 └── schedules (行程) 1対多
+
+ai_generations (AI生成ログ)  ※実装中。shioris と緩い関連（FK は ON DELETE SET NULL）
 ```
 
 
@@ -71,6 +73,24 @@ shioris (しおり)
 >
 > **リンク対応**: `note` および `overviews.content` 内のリンクは表示時に処理する。
 Markdown記法（`[テキスト](URL)`）とURLの自動検出を併用。DB側の変更は不要。
+
+### 4. ai_generations（AI生成ログ）※実装中
+
+AI行程作成（`../02_specification/ai-plan-generation.md`）のレート制限・利用量記録・再生成条件の保持に使う。
+
+| カラム | 型 | 制約 | 説明 |
+|--------|-----|------|------|
+| id | SERIAL | PK | ID |
+| ip_hash | VARCHAR(64) | NOT NULL | SHA-256(IP + salt)。生IPは保存しない |
+| user_id | INT | NULL | Phase 2（ログイン導入）から使用 |
+| shiori_id | UUID | FK → shioris.id ON DELETE SET NULL, NULL | 生成したしおり。再生成条件の復元と編集済み判定に使う |
+| request | JSONB | NOT NULL | 入力条件（出発日・自由記述）。再生成で再利用 |
+| model | VARCHAR(64) | NOT NULL | 使用モデル |
+| input_tokens | INT | NOT NULL | 入力トークン数（コスト可視化） |
+| output_tokens | INT | NOT NULL | 出力トークン数 |
+| created_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | 生成日時（レート制限の日次集計に使用） |
+
+しおりが自動削除されてもログは残す（利用量の記録が目的のため SET NULL）。
 
 
 ## 3. インデックス
