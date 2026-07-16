@@ -17,8 +17,8 @@
 
 ## Cloudflare 移行の技術メモ
 
-- Next.js 16 は **OpenNext アダプタ（`@opennextjs/cloudflare`）が対応済み**（Next.js 16 全マイナー・パッチをサポート。活発にメンテされている）
-- Next.js 16.2 で Adapter API が stable になり，Cloudflare 向け公式アダプタも開発中 → 移行の将来性は安定方向
+- Next.js 16 は **OpenNext アダプタ（`@opennextjs/cloudflare`，調査時点 v1.20 系）が対応済み**（Next.js 16 全マイナー・パッチをサポート。活発にメンテされている）
+- Next.js 16.2 で Adapter API が stable になり，これを基盤にした次世代アダプタ（AWS / Cloudflare / Netlify）が開発中 → 移行の将来性は安定方向。導入時に最新バージョンと制約一覧（https://opennext.js.org/cloudflare）を確認すること
 - **DB は Neon のままでよい**。HTTP 接続の `@neondatabase/serverless` が既に依存に入っており，接続まわりの移行負担が小さい
 - 既知の相性問題: Next.js 16 の Proxy アーキテクチャと middleware まわりで報告あり。**Tabiji は middleware 不使用・認証なしのシンプル構成のため該当リスク低**
 - 検証が必要な箇所: 画像最適化・ISR/キャッシュの細部

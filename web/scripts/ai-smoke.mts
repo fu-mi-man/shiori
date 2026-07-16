@@ -1,15 +1,19 @@
 // AI疎通確認用の使い捨てスクリプト（Phase 1 Step 4）
 // 実行: docker compose exec web node scripts/ai-smoke.mts [モデルID...]
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { google } from "@ai-sdk/google";
 import { generateText, Output } from "ai";
 import { z } from "zod";
 
 // Next.js 外の実行なので .env.local を手動で読み込む
-for (const line of readFileSync(".env.local", "utf8").split("\n")) {
-  const match = line.match(/^([A-Z_]+)=(.+)$/);
-  if (match?.[1] && match[2] && !process.env[match[1]]) {
-    process.env[match[1]] = match[2];
+// ファイルが無ければスキップ（環境変数の直接指定にフォールバック）
+if (existsSync(".env.local")) {
+  for (const line of readFileSync(".env.local", "utf8").split("\n")) {
+    // trim で CRLF の \r 混入を防ぐ
+    const match = line.trim().match(/^([A-Z_]+)=(.+)$/);
+    if (match?.[1] && match[2] && !process.env[match[1]]) {
+      process.env[match[1]] = match[2].trim();
+    }
   }
 }
 
