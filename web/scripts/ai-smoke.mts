@@ -1,5 +1,5 @@
 // AI疎通確認用の使い捨てスクリプト（Phase 1 Step 4）
-// 実行: docker compose exec web pnpm dlx tsx scripts/ai-smoke.ts
+// 実行: docker compose exec web node scripts/ai-smoke.mts [モデルID...]
 import { readFileSync } from "node:fs";
 import { google } from "@ai-sdk/google";
 import { generateText, Output } from "ai";
@@ -71,7 +71,7 @@ async function smoke(modelId: string) {
 }
 
 // 無料枠 RPD: 3.5 Flash は20回/日と少ないため実行は最小限にする
-// 引数でモデルを指定可能: node scripts/ai-smoke.mts gemini-3.5-flash
+// 例: docker compose exec web node scripts/ai-smoke.mts gemini-3.5-flash
 const models = process.argv.slice(2);
 for (const m of models.length > 0 ? models : ["gemini-3.5-flash", "gemini-3.1-flash-lite"]) {
   await smoke(m);
