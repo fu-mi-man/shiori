@@ -10,7 +10,8 @@
 3. [ディレクトリ構成](#3-ディレクトリ構成)
 4. [Git運用ルール](#4-git運用ルール)
 5. [コーディング規約](#5-コーディング規約)
-6. [コマンド一覧](#6-コマンド一覧)
+6. [環境変数](#6-環境変数)
+7. [コマンド一覧](#7-コマンド一覧)
 
 
 ## 1. 開発ツール
@@ -349,7 +350,24 @@ Server Actions + `useActionState` + Zod を基本とする。React Hook Form（R
 - ネストした配列のフィールドごとのエラー表示（例:「2日目の予定3のタイトルが空」）が自前実装で複雑になった場合
 
 
-## 6. コマンド一覧
+## 6. 環境変数
+
+秘密情報（APIキー等）は `web/.env.local` に置く。Next.js が自動で読み込むため compose.yaml の変更は不要。
+
+- **`web/.env.local`** — 実際の値を書く。gitignore 済みでコミットされない（「local = この環境専用・コミットしない」の意思表示）
+- **`web/.env.example`** — 必要な変数名の目録（値は空）。コミット対象。新しい環境ではこれをコピーして `.env.local` を作る
+- `NEXT_PUBLIC_` プレフィックスを秘密情報につけない（ブラウザに配信される JS に埋め込まれる）
+- 本番（Vercel）はファイルではなくダッシュボードの環境変数に登録する
+- `DATABASE_URL` のみ例外的に compose.yaml で定義（DBコンテナとセットのため）
+
+| 変数 | 用途 | 取得先 |
+|------|------|--------|
+| `GOOGLE_GENERATIVE_AI_API_KEY` | AI行程作成（Gemini）。`@ai-sdk/google` が自動参照 | [Google AI Studio](https://aistudio.google.com/apikey)（無料枠・カード登録不要） |
+
+Next.js 外のスクリプト（`web/scripts/` 等）は `.env.local` を自動では読まないため、スクリプト内で明示的に読み込む。
+
+
+## 7. コマンド一覧
 
 Next.jsアプリ（web/）のコマンドはDockerコンテナ内で実行する。
 スキル管理（`npx skills add` 等）はホストで実行する。

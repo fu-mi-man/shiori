@@ -42,7 +42,7 @@
 ## 4. パフォーマンス
 
 - LCP（Largest Contentful Paint）: 2.5秒以内
-- API応答時間: 1秒以内
+- API応答時間: 1秒以内（**AI生成APIを除く**。生成は実測4〜10秒のため、生成中表示でUXを担保する。`../02_specification/ai-plan-generation.md` F-3 参照）
 - Lighthouse Score: 90以上（目標）
 
 ## 5. 可用性
