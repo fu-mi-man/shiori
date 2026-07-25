@@ -143,7 +143,7 @@ const plan = result.output;                       // 型付き・スキーマ検
 
 ### 6.1 Phase 1: 認証なし（IPレート制限）
 
-同一 `ipHash` 当日5回 / 全体当日100回 超でエラー返却（サーバーレスのためカウンタは既存Postgresで持つ・追加インフラ不要）。判定は日次カウンタ行 `ai_rate_counters`（対象日 × スコープ〔全体 / ipHash〕）を**固定順（全体 → IP）に `SELECT ... FOR UPDATE` でロック**し，上限判定とインクリメントを同一トランザクションで確定する — 利用ログの INSERT + COUNT 方式は READ COMMITTED では並行トランザクションの未コミット行が見えず，上限際の同時リクエストがすり抜けるため採らない。枠の確保は生成呼び出しの**前**に行い，`ai_generations` は利用ログとして生成後に INSERT する。
+同一 `ipHash` 当日5回 / 全体当日100回 超でエラー返却（サーバーレスのためカウンタは既存Postgresで持つ・追加インフラ不要）。判定は日次カウンタ行 `ai_rate_counters`（対象日 × スコープ〔全体 / ipHash〕）を同一トランザクション内で (1) `INSERT ... ON CONFLICT DO NOTHING` で作成保証 → (2) **固定順（全体 → IP）に `SELECT ... FOR UPDATE` でロック** → (3) 上限判定とインクリメント，の順で確定する。存在しない行への `FOR UPDATE` は何もロックしないため，作成保証を先に置かないと日替わり直後の並行リクエストで初期化が競合する。利用ログの INSERT + COUNT 方式は READ COMMITTED では並行トランザクションの未コミット行が見えず，上限際の同時リクエストがすり抜けるため採らない。枠の確保は生成呼び出しの**前**に行い，`ai_generations` は利用ログとして生成後に INSERT する。
 
 ```typescript
 // web/src/db/schema/aiGenerations.ts（主要カラム）
