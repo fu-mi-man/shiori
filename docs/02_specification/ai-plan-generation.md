@@ -90,7 +90,7 @@
 | `web/src/lib/ai/prompt.ts` | プロンプト組み立て |
 | `web/src/components/features/create/AiPlanDialog.tsx` | 条件入力ダイアログ（shadcn/ui Dialog，例文チップ・生成中表示） |
 | `web/src/components/features/view/AiActions.tsx` | 閲覧ページの再生成ボタン・注意書き（命名は実装時に調整） |
-| `web/src/db/schema/aiGenerations.ts` | レート制限・利用ログ・再生成条件テーブル |
+| `web/src/db/schema/aiGenerations.ts` | 利用ログ・再生成条件（`ai_generations`）と日次レートカウンタ（`ai_rate_counters`）のテーブル |
 
 ## 5. AI設計
 
@@ -143,7 +143,7 @@ const plan = result.output;                       // 型付き・スキーマ検
 
 ### 6.1 Phase 1: 認証なし（IPレート制限）
 
-`ai_generations` テーブルでカウント（サーバーレスのためカウンタは既存Postgresで持つ・追加インフラ不要）。同一 `ipHash` 当日5回 / 全体当日100回 超でエラー返却。件数確認は**利用ログの INSERT と同一トランザクション**で行い（先に INSERT → 当日件数を確認 → 超過ならロールバック），同時リクエストによる制限すり抜けを防ぐ。
+同一 `ipHash` 当日5回 / 全体当日100回 超でエラー返却（サーバーレスのためカウンタは既存Postgresで持つ・追加インフラ不要）。判定は日次カウンタ行 `ai_rate_counters`（対象日 × スコープ〔全体 / ipHash〕）を**固定順（全体 → IP）に `SELECT ... FOR UPDATE` でロック**し，上限判定とインクリメントを同一トランザクションで確定する — 利用ログの INSERT + COUNT 方式は READ COMMITTED では並行トランザクションの未コミット行が見えず，上限際の同時リクエストがすり抜けるため採らない。枠の確保は生成呼び出しの**前**に行い，`ai_generations` は利用ログとして生成後に INSERT する。
 
 ```typescript
 // web/src/db/schema/aiGenerations.ts（主要カラム）
