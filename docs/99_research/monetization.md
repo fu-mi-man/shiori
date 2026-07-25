@@ -94,7 +94,7 @@ MCPサーバーは**LLMを一切呼ばない**。ただの「ツール置き場�
 - しおり閲覧ページにも同リンクを表示（同行者全員が見る = インプレッション×人数）
 - 「PR」表記を添える（ステマ規制対応）
 - 収益試算（保守的）: 月間AI生成100件 → 宿リンククリック30% → 予約転換5件 × 平均宿泊¥50,000 × 1% = **月¥2,500前後**。ゼロコストなので全額が黒字
-- 上限と悲観ケース: 「コストゼロ」は無料枠の範囲内が前提。Cloudflare Workers Free は**10万リクエスト/日**（超過時は Error 1027 で以後のリクエストが失敗＝閲覧まで止まる），Gemini 無料枠は **500生成/日**（gemini-3.1-flash-lite，超過時は 429 で生成のみ停止）。想定規模では到達しないが，バズ等で超えた場合は Workers Paid（$5/月〜）と Gemini 有料化（1生成約¥0.3）へ切り替える。その悲観ケースでも月300生成で **$5 + ¥100 未満**であり赤字リスクは限定的
+- 上限と悲観ケース: 「コストゼロ」は無料枠の範囲内が前提。Cloudflare Workers Free は**10万リクエスト/日**（超過時は Error 1027。挙動はルートの fail mode 設定に依存し，fail-closed ならエラーページで閲覧も止まり，fail-open なら Worker がスキップされる），Gemini 無料枠は **500生成/日**（旧 3.1 Flash-Lite の実測値。現行既定の 3.5 Flash-Lite の RPD は AI Studio で要確認，超過時は 429 で生成のみ停止）。想定規模では到達しないが，バズ等で超えた場合は Workers Paid（$5/月〜）と Gemini 有料化（3.5 Flash-Lite で1生成約¥0.5）へ切り替える。その悲観ケースでも月300生成で **$5 + 約¥150**（実測トークン量ベースの単価約¥0.43では約¥130）であり赤字リスクは限定的
 
 ### Stage 2: MCPサーバー無料公開 = マーケティング施策
 
@@ -164,3 +164,5 @@ Tabiji は**共有されて初めて完成する**プロダクト。1人の幹�
 - Vercel Fair Use Guidelines: https://vercel.com/docs/limits/fair-use-guidelines （Hobbyは広告・アフィリエイト不可）
 - Cloudflare Workers 料金: https://developers.cloudflare.com/workers/platform/pricing/ （無料プランで商用利用可）
 - OpenNext Cloudflare アダプタ: https://opennext.js.org/cloudflare （Next.js 16 対応）
+- Stripe 日本: https://stripe.com/jp/pricing （国内カード3.6%）
+- 資金決済法の6ヶ月適用除外（前払式支払手段）: https://topcourt-law.com/finance/six-months-prepaid-payment 等（実装時に最新の法令・ガイドラインを確認）
