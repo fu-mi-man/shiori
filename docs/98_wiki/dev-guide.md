@@ -405,7 +405,7 @@ docker volume prune                                        # 孤立した anonym
 dev サーバーのクラッシュ時に anonymous volume 内の `node_modules` が破損した状態で残ることがある。再起動しても復旧しない場合は，volume を手動で特定して削除する。
 
 ```bash
-docker inspect shiori-web -f '{{range .Mounts}}{{.Name}} {{end}}'   # 紐づく anonymous volume ID を確認
+docker inspect tabiji-web -f '{{range .Mounts}}{{.Name}} {{end}}'   # 紐づく anonymous volume ID を確認
 docker compose down                                                 # コンテナ＋ネットワーク削除
 docker volume rm <上で確認したID>                                    # 破損した volume を削除
 docker compose up --build -d                                        # コンテナ側の node_modules を再作成
