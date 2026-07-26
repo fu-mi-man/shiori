@@ -1,10 +1,12 @@
+name: tabiji                                                  # Compose プロジェクト名を固定（ディレクトリ名に依存させない。ボリューム接頭辞 tabiji_ もここから決まる）
+
 services:
   # Next.js（フロント＋バックエンド）
   web:
     build:
       context: ./web                                          # ビルドコンテキスト（Dockerfileがあるディレクトリ）
       dockerfile: Dockerfile
-    container_name: shiori-web
+    container_name: tabiji-web
     environment:
       - NODE_ENV=development                                  # 開発モードで起動
       - DATABASE_URL=postgresql://postgres_user:postgres_pass@db:5432/postgres_db  # DB接続URL（本番はNeonのURLに差し替え）
@@ -22,7 +24,7 @@ services:
 
   db:
     image: postgres:17-alpine
-    container_name: shiori-db
+    container_name: tabiji-db
     environment:
       - POSTGRES_DB=postgres_db                               # 作成されるデータベース名
       - POSTGRES_USER=postgres_user                           # PostgreSQLのユーザー名
