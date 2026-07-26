@@ -18,6 +18,7 @@ docker compose exec web pnpm build            # ビルド確認
 # Pitfalls
 
 - `docker compose down -v` を使わない（named volume の `pgdata` が消える。パッケージ追加手順は docs/98_wiki/dev-guide.md 参照）
+- `designs/` の `.pen` ファイルを Read・bash 等で直接読み書きしない（暗号化されている。Claude Code では Pencil MCP ツール〔`mcp__pencil__batch_get` 等〕を使う）
 - `web/package.json` の `packageManager` フィールドを変更・削除しない（Corepack が依存）
 
 # Rules

@@ -7,6 +7,7 @@ paths:
 
 # Code style
 
+- コード内コメントでは句点（。）を使わない，読点は全角カンマ（，）を使う
 - `components/ui/` は shadcn/ui 専用。自作コンポーネントを置かない
 - 機能固有のコンポーネント → `components/features/`
 - IMPORTANT: UIコンポーネントは shadcn/ui を優先して使用する。入力系（`<button>`→`<Button>`、`<input>`→`<Input>`）だけでなく、表示系（`<div>` でカード→`<Card>`）も含む。該当コンポーネントがない場合のみ素のHTML要素を使う
